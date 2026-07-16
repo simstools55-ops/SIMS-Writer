@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.5.0-alpha.1] - 2026-07-17
+
+### Added
+
+- Decision Framework v1.0
+- Decision Domain and runtime stage
+- 12 initial Decision Definitions
+- Decision Context, Decision Record, Action Plan contracts
+- Decision Registry and validation tooling
+- ADR-0009: Decision Layer Between Knowledge and Pattern
+
+### Changed
+
+- Product Core expanded from four pillars to five pillars
+- Runtime flow updated to place Decision before Pattern Selection
+- Product specification updated with Decision requirements
+
 ## [0.4.0-alpha.1] - 2026-07-17
 
 ### Added

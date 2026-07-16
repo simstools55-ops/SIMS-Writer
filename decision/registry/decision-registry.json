@@ -1,0 +1,101 @@
+{
+  "framework_version": "1.0.0",
+  "decisions": [
+    {
+      "id": "DEC-SCP-001",
+      "name": "Article Scope Decision",
+      "category": "scope",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "decision/definitions/scope/DEC-SCP-001-article-scope-decision.yaml"
+    },
+    {
+      "id": "DEC-IMP-001",
+      "name": "Change Scope Decision",
+      "category": "improvement",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "decision/definitions/improvement/DEC-IMP-001-change-scope-decision.yaml"
+    },
+    {
+      "id": "DEC-IMP-002",
+      "name": "Full Rewrite Necessity Decision",
+      "category": "improvement",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "decision/definitions/improvement/DEC-IMP-002-full-rewrite-necessity-decision.yaml"
+    },
+    {
+      "id": "DEC-SEO-001",
+      "name": "Title Change Decision",
+      "category": "seo",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "decision/definitions/seo/DEC-SEO-001-title-change-decision.yaml"
+    },
+    {
+      "id": "DEC-SEO-002",
+      "name": "H1 Change Decision",
+      "category": "seo",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "decision/definitions/seo/DEC-SEO-002-h1-change-decision.yaml"
+    },
+    {
+      "id": "DEC-STR-001",
+      "name": "Introduction Change Decision",
+      "category": "structure",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "decision/definitions/structure/DEC-STR-001-introduction-change-decision.yaml"
+    },
+    {
+      "id": "DEC-STR-002",
+      "name": "Heading Reorganization Decision",
+      "category": "structure",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "decision/definitions/structure/DEC-STR-002-heading-reorganization-decision.yaml"
+    },
+    {
+      "id": "DEC-FAQ-001",
+      "name": "FAQ Necessity Decision",
+      "category": "faq",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "decision/definitions/faq/DEC-FAQ-001-faq-necessity-decision.yaml"
+    },
+    {
+      "id": "DEC-EVD-001",
+      "name": "Evidence Verification Decision",
+      "category": "evidence",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "decision/definitions/evidence/DEC-EVD-001-evidence-verification-decision.yaml"
+    },
+    {
+      "id": "DEC-LNK-001",
+      "name": "Internal Link Action Decision",
+      "category": "internal_link",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "decision/definitions/internal_link/DEC-LNK-001-internal-link-action-decision.yaml"
+    },
+    {
+      "id": "DEC-SEP-001",
+      "name": "Separate Article Decision",
+      "category": "scope",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "decision/definitions/scope/DEC-SEP-001-separate-article-decision.yaml"
+    },
+    {
+      "id": "DEC-PUB-001",
+      "name": "Publication Escalation Decision",
+      "category": "publication",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "decision/definitions/publication/DEC-PUB-001-publication-escalation-decision.yaml"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "DEC-EVD-001",
+  "name": "Evidence Verification Decision",
+  "category": "evidence",
+  "version": "1.0.0",
+  "status": "active",
+  "problem": "追加の事実確認が必要か判断する",
+  "applicability": {
+    "request_types": [
+      "new_article",
+      "existing_article_improvement"
+    ],
+    "conditions": [
+      "required_inputs_available"
+    ]
+  },
+  "non_applicability": [
+    "insufficient_context"
+  ],
+  "required_inputs": [
+    "writing_request",
+    "knowledge_assembly"
+  ],
+  "evaluation_method": "時点依存、数値、仕様、制度、安全関連の主張を識別する",
+  "allowed_results": [
+    "preserve",
+    "revise",
+    "add",
+    "remove",
+    "verify",
+    "defer",
+    "separate_article",
+    "no_change",
+    "manual_review",
+    "reject"
+  ],
+  "required_evidence": [
+    "request_context"
+  ],
+  "confidence_policy": {
+    "minimum_for_automatic_action": "medium",
+    "below_minimum": "manual_review"
+  },
+  "related_knowledge": [
+    "KN-FAC-001"
+  ],
+  "related_quality_rules": [
+    "QF-FAC-001"
+  ],
+  "output_contract": "CT-DEC-002",
+  "reviewed_at": "2026-07-17",
+  "next_review_at": "2027-01-17",
+  "owner": "product-governance"
+}

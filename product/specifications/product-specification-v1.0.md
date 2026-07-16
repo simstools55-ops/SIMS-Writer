@@ -32,3 +32,7 @@ Input、Planning、Evidence、Draft、SEO、Language、Final Publication。
 - Generic JSON Input
 - SIMS-Blog-Manager Input
 - Model Adapter 1種類以上
+
+## Decision Framework Requirement Addendum
+
+Product 1.0は変更要否、変更範囲、no_change、manual_reviewをDecision Recordとして追跡できなければならない。

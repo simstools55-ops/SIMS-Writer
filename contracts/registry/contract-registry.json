@@ -96,6 +96,30 @@
       "status": "draft",
       "schema": "contracts/operations/error/error.schema.json",
       "documentation": "contracts/operations/error/error-contract.md"
+    },
+    {
+      "id": "CT-DEC-001",
+      "name": "Decision Context Contract",
+      "version": "1.0.0",
+      "status": "active",
+      "schema": "contracts/decision/context/context.schema.json",
+      "documentation": "contracts/decision/context/context-contract.md"
+    },
+    {
+      "id": "CT-DEC-002",
+      "name": "Decision Record Contract",
+      "version": "1.0.0",
+      "status": "active",
+      "schema": "contracts/decision/record/record.schema.json",
+      "documentation": "contracts/decision/record/record-contract.md"
+    },
+    {
+      "id": "CT-DEC-003",
+      "name": "Decision Action Plan Contract",
+      "version": "1.0.0",
+      "status": "active",
+      "schema": "contracts/decision/action-plan/action-plan.schema.json",
+      "documentation": "contracts/decision/action-plan/action-plan-contract.md"
     }
   ]
 }

@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims-writer.local/schemas/ct-dec-002.schema.json",
+  "title": "Decision Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "decision_record_id",
+    "request_id",
+    "decision_definition_id",
+    "subject",
+    "result",
+    "rationale",
+    "confidence",
+    "created_at"
+  ],
+  "properties": {
+    "contract": {
+      "type": "object",
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "const": "CT-DEC-002"
+        },
+        "version": {
+          "const": "1.0.0"
+        }
+      },
+      "additionalProperties": false
+    },
+    "decision_record_id": {
+      "type": "string",
+      "pattern": "^DREC-[0-9]{4}-[0-9]{6}$"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "decision_definition_id": {
+      "type": "string",
+      "pattern": "^DEC-[A-Z]{3}-[0-9]{3}$"
+    },
+    "subject": {
+      "type": "object",
+      "required": [
+        "component"
+      ],
+      "properties": {
+        "component": {
+          "type": "string"
+        },
+        "location": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "result": {
+      "enum": [
+        "apply",
+        "preserve",
+        "revise",
+        "add",
+        "remove",
+        "verify",
+        "defer",
+        "separate_article",
+        "no_change",
+        "manual_review",
+        "reject"
+      ]
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 10
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence": {
+      "enum": [
+        "verified",
+        "high",
+        "medium",
+        "low",
+        "unknown"
+      ]
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prohibited_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "selected_pattern_categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "manual_review_required": {
+      "type": "boolean"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

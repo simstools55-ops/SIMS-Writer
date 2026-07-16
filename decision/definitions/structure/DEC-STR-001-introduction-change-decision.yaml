@@ -1,0 +1,54 @@
+{
+  "id": "DEC-STR-001",
+  "name": "Introduction Change Decision",
+  "category": "structure",
+  "version": "1.0.0",
+  "status": "active",
+  "problem": "導入文変更の要否を決める",
+  "applicability": {
+    "request_types": [
+      "new_article",
+      "existing_article_improvement"
+    ],
+    "conditions": [
+      "required_inputs_available"
+    ]
+  },
+  "non_applicability": [
+    "insufficient_context"
+  ],
+  "required_inputs": [
+    "writing_request",
+    "knowledge_assembly"
+  ],
+  "evaluation_method": "Main Answer提示、読者課題、冗長性を評価して維持・修正・置換を決定する",
+  "allowed_results": [
+    "preserve",
+    "revise",
+    "add",
+    "remove",
+    "verify",
+    "defer",
+    "separate_article",
+    "no_change",
+    "manual_review",
+    "reject"
+  ],
+  "required_evidence": [
+    "request_context"
+  ],
+  "confidence_policy": {
+    "minimum_for_automatic_action": "medium",
+    "below_minimum": "manual_review"
+  },
+  "related_knowledge": [
+    "KN-WRI-001"
+  ],
+  "related_quality_rules": [
+    "QF-INT-002"
+  ],
+  "output_contract": "CT-DEC-002",
+  "reviewed_at": "2026-07-17",
+  "next_review_at": "2027-01-17",
+  "owner": "product-governance"
+}
