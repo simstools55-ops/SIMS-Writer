@@ -1,19 +1,27 @@
-# SIMS Writer Repository v0.4.0
+# SIMS Writer Repository v0.5.0
 
 ## Release Scope
 
-改善依頼、記事本文、検索指標を使い、外部LLMなしでも保守的なCTR改善案を生成する最初の実用Vertical Slice。
+Runtimeの改善結果を、レビュー・公開・再利用に使える実在ファイル一式として出力するVertical Slice。
 
 ## Implemented
 
-- 決定的CTR改善AdapterをRuntime既定Adapterとして接続
-- SEOタイトル、導入文、FAQの改善提案生成
-- 現行値と改善後を比較するBefore / After生成
-- 改善理由の構造化出力
-- Search Console指標と補助クエリに基づく判断
-- Knowledge選択とContent PlanのRuntime実接続
-- 本文未提供時のmanual_review_required維持
-- End-to-End Runtime統合テスト
+- Runtime Result全体のJSON出力
+- Publication Package単独JSON出力
+- 完成記事のMarkdown出力
+- Before / Afterと品質判定を含む改善レポート出力
+- Execution ID、Request ID、資産Versionを固定するManifest出力
+- UTF-8日本語出力と同一フォルダへの安全な再出力
+- CLIから5成果物を一括生成
+- 成果物Writerの自動テスト
+
+## Generated Files
+
+- `runtime-result.json`
+- `publication-package.json`
+- `article.md`
+- `improvement-report.md`
+- `execution-manifest.json`
 
 ## Release Gate
 

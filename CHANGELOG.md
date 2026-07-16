@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0 - Structured Result Artifact Export
+
+- Added a reusable artifact writer for every Runtime execution.
+- Added complete article Markdown, improvement report, publication package, and execution manifest outputs.
+- Updated the CLI to generate five reviewable files in one command.
+- Added UTF-8, overwrite-safety, and artifact completeness tests.
+
 ## 0.4.0 - Deterministic Improvement Generation
 
 - Added the deterministic CTR improvement adapter as the default runtime production adapter.
