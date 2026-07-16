@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.0
+
+- Added safe artifact rollback from archived executions.
+- Added rollback manifest, revalidation, CLI support, and tests.
+
 ## [0.7.0] - 2026-07-17
 
 ### Added

@@ -1,13 +1,11 @@
-# SIMS Writer Repository v0.7.0
+# SIMS Writer Repository v0.8.0
 
-## Release scope
+Product 1.0 Implementation Phase repository release.
 
-This release adds safe rerun history, previous artifact archiving, and deterministic execution-to-execution comparison.
+## Included vertical slice
 
-## Release gate
-
-Run `python tools/test_repository.py`.
-
-## Output
-
-Nine top-level runtime artifacts plus archived prior executions under `.history/`.
+- Safe restoration of archived publication artifacts
+- Current execution preservation before rollback
+- Post-restore validation and rollback manifest
+- Execution history rollback state
+- CLI rollback operation
