@@ -48,3 +48,7 @@ Claude Messages、OpenAI Responses、Generic Chat向けのProvider非依存Adapt
 ## v0.9.0-alpha.1 Quality Validation Runtime
 
 42件の正式Quality Rule、13 Dimension、7 GateをRuntimeで実行します。機械判定できない規則は `unable_to_verify` として可視化し、根拠のないPublish Ready判定を防ぎます。
+
+## v0.10.0-alpha.1 Targeted Refinement
+
+Quality Issueを対象Componentと原因Stageへ振り分け、安全な自動修正後に42 Quality Ruleを再実行します。事実や検索意図は推測で補わず、Targeted RevisionまたはManual Reviewとして残します。

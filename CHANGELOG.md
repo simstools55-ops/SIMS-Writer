@@ -76,3 +76,11 @@
 
 ## 0.2.0-alpha.1
 - 初期Contract Schema Package
+
+## [0.10.0-alpha.1] - 2026-07-17
+
+### Added
+- Targeted Refinement Engine and Issue Router
+- Safe deterministic fixes for placeholders, repetitive text, AI-like phrases, and heading hierarchy
+- Revision records, action plans, resume-stage routing, and revalidation loop
+- ADR-0014 Targeted Refinement Before Regeneration

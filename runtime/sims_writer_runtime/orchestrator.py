@@ -9,12 +9,14 @@ from .adapters.input_adapters import normalize_generic, normalize_sbm
 from .adapters.manual_model import ManualModelAdapter
 from .adapters.model_protocol import ProductionAdapter
 from .quality.engine import QualityValidationEngine
+from .refinement.engine import TargetedRefinementEngine
 
 class RuntimeOrchestrator:
     def __init__(self, repo_root: Path, adapter: ProductionAdapter | None = None):
         self.repo_root = repo_root
         self.adapter = adapter or ManualModelAdapter()
         self.quality_engine = QualityValidationEngine(repo_root)
+        self.refinement_engine = TargetedRefinementEngine(self.quality_engine)
 
     def execute(self, raw: dict[str, Any], input_type: str = "generic") -> RuntimeResult:
         execution_id = f"EXE-{uuid4().hex[:12].upper()}"
@@ -66,9 +68,22 @@ class RuntimeOrchestrator:
             if decision == "publish_ready": self._pass(records, "quality_validation")
             elif decision == "publish_ready_with_advisory": self._warn(records, "quality_validation", "Quality rules completed with advisories")
             else: self._manual(records, "quality_validation", "Quality rules require revision or review")
-            self._skip(records, "refinement", "Targeted refinement execution is scheduled for the next package")
+            refinement = self.refinement_engine.refine(draft, artifacts["quality_report"], quality_context)
+            artifacts["refinement_result"] = refinement
+            draft = refinement["revised_draft"]
+            artifacts["content_draft"] = draft
+            artifacts["quality_report"] = refinement["quality_report"]
+            decision = artifacts["quality_report"]["publish_recommendation"]
+            if refinement["revision_records"]:
+                self._warn(records, "refinement", f"Applied {len(refinement['revision_records'])} targeted auto-fix round(s)")
+            elif refinement["status"] == "manual_review_required":
+                self._manual(records, "refinement", "Remaining issues require manual review")
+            elif refinement["status"] == "revision_required":
+                self._warn(records, "refinement", "Targeted model revision plan was generated")
+            else:
+                self._pass(records, "refinement")
 
-            artifacts["publication_package"] = {"publish_decision":decision,"article_content":draft.get("article_content"),"seo_title":draft.get("seo_title"),"meta_description":draft.get("meta_description"),"h1":draft.get("h1"),"quality_summary":artifacts["quality_report"],"runtime_notice":"All 42 canonical Quality Rules were executed. Context-dependent rules may remain unable_to_verify until model-assisted or human review evidence is supplied."}
+            artifacts["publication_package"] = {"publish_decision":decision,"article_content":draft.get("article_content"),"seo_title":draft.get("seo_title"),"meta_description":draft.get("meta_description"),"h1":draft.get("h1"),"quality_summary":artifacts["quality_report"],"refinement_summary":refinement,"runtime_notice":"All 42 canonical Quality Rules were executed and safe targeted fixes were applied before packaging. Context-dependent issues remain explicit."}
             if decision in ("revision_required", "manual_review_required", "rejected"): self._manual(records, "publication_packaging", "Package requires revision or review")
             elif decision == "publish_ready_with_advisory": self._warn(records, "publication_packaging", "Package generated with advisory")
             else: self._pass(records, "publication_packaging")
