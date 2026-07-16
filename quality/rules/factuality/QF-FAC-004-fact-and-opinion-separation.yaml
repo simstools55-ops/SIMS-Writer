@@ -1,0 +1,17 @@
+id: QF-FAC-004
+name: Fact and Opinion Separation
+dimension: factuality
+severity: major
+version: 1.0.0
+status: active
+requirement: 事実、推測、経験、編集判断を区別して表現する。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 主張の性質が読者に判別できる。
+fail_condition: 推測や感想を確認済み事実として書いている。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: true
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

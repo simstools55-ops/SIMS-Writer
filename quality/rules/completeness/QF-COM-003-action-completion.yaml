@@ -1,0 +1,17 @@
+id: QF-COM-003
+name: Action Completion
+dimension: completeness
+severity: critical
+version: 1.0.0
+status: active
+requirement: 手順記事は読者が目的を完了できるところまで説明する。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 開始から完了確認まで実行可能である。
+fail_condition: 途中で説明が終わり、目的を達成できない。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

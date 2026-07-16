@@ -1,0 +1,17 @@
+id: QF-JPN-003
+name: AI-Like Phrase Reduction
+dimension: japanese
+severity: major
+version: 1.0.0
+status: active
+requirement: 内容のない定型句、過剰な総括、機械的な語尾を減らす。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 各文が具体的な意味を持つ。
+fail_condition: AI的な抽象句や定型句が頻出する。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: true
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

@@ -1,0 +1,17 @@
+id: QF-SAF-002
+name: High-Risk Claim Review
+dimension: safety
+severity: blocker
+version: 1.0.0
+status: active
+requirement: 医療・法律・金融など高リスクの断定は、専門家確認または手動レビューを要求する。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 高リスク主張がない、またはmanual_review_requiredである。
+fail_condition: 高リスク主張を確定情報として公開可能判定している。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: true
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

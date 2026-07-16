@@ -1,0 +1,17 @@
+id: QF-SAF-001
+name: Dangerous Instruction Prevention
+dimension: safety
+severity: blocker
+version: 1.0.0
+status: active
+requirement: 危険な操作や手順には、必要な安全対策・前提条件・中止条件を含めなければならない。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 危険な操作がない、または適切な警告と安全手順がある。
+fail_condition: 危険な操作を無条件で推奨している。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: true
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

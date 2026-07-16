@@ -1,0 +1,17 @@
+id: QF-INT-001
+name: Primary Intent Must Be Answered
+dimension: search-intent
+severity: blocker
+version: 1.0.0
+status: active
+requirement: 記事はメインクエリのPrimary Intentへ直接回答しなければならない。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 主要な疑問への答えが本文に明示されている。
+fail_condition: 主題がずれ、主要な疑問に答えていない。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

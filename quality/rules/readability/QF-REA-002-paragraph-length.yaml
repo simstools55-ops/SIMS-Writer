@@ -1,0 +1,17 @@
+id: QF-REA-002
+name: Paragraph Length
+dimension: readability
+severity: minor
+version: 1.0.0
+status: active
+requirement: 段落はスマートフォンでも追いやすい長さに分割する。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 一段落に一つのまとまりがある。
+fail_condition: 極端に長い段落が連続する。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: true
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

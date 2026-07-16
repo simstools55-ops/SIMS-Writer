@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims-writer.local/contracts/ct-ops-001.schema.json",
+  "title": "Execution Record Contract",
+  "type": "object",
+  "required": [
+    "contract",
+    "execution_id",
+    "request_id",
+    "runtime_version",
+    "status",
+    "started_at",
+    "stages"
+  ],
+  "properties": {
+    "contract": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/contractRef"
+    },
+    "execution_id": {
+      "type": "string",
+      "pattern": "^EXE-[0-9]{4}-[0-9]{6}$"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "runtime_version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "received",
+        "validating",
+        "normalized",
+        "acquiring_sources",
+        "assembling_knowledge",
+        "planning",
+        "selecting_patterns",
+        "producing",
+        "validating_quality",
+        "refining",
+        "packaging",
+        "completed",
+        "completed_with_warning",
+        "manual_review_required",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "started_at": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/isoDateTime"
+    },
+    "completed_at": {
+      "anyOf": [
+        {
+          "$ref": "../../../schemas/common/common.schema.json#/$defs/isoDateTime"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "stages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "status"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "running",
+              "passed",
+              "passed_with_warning",
+              "failed",
+              "blocked",
+              "skipped",
+              "retrying",
+              "manual_review_required"
+            ]
+          },
+          "contract_version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "retries": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "publication_package_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

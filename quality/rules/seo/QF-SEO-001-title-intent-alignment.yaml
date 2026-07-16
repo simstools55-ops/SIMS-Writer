@@ -1,0 +1,17 @@
+id: QF-SEO-001
+name: Title Intent Alignment
+dimension: seo
+severity: critical
+version: 1.0.0
+status: active
+requirement: SEO TitleはPrimary Intentと本文の実内容に一致しなければならない。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: タイトルの約束を本文が満たしている。
+fail_condition: タイトルと本文が不一致または誇張である。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

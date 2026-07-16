@@ -1,0 +1,11 @@
+{
+  "contract": {
+    "id": "CT-INT-001",
+    "version": "1.0.0"
+  },
+  "payload": {
+    "main_query": "例"
+  },
+  "source_name": "manual",
+  "received_at": "2026-07-16T20:00:00+09:00"
+}

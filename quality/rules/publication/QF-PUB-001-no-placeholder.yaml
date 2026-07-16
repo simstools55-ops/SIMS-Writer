@@ -1,0 +1,17 @@
+id: QF-PUB-001
+name: No Placeholder
+dimension: publication
+severity: blocker
+version: 1.0.0
+status: active
+requirement: 完成稿にプレースホルダー、TODO、仮文を残してはならない。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 未置換文字列や作業メモがない。
+fail_condition: 要確認、後で追加、XXX等が残る。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: true
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

@@ -1,0 +1,17 @@
+id: QF-FAC-002
+name: No Unsupported Numeric Claims
+dimension: factuality
+severity: critical
+version: 1.0.0
+status: active
+requirement: 数値、料金、割合、期間は根拠または計算過程を持たなければならない。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 根拠・計算・条件のいずれかが確認できる。
+fail_condition: 根拠不明の数値を事実として提示している。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

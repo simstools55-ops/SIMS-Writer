@@ -1,0 +1,17 @@
+id: QF-STR-002
+name: One Section One Purpose
+dimension: structure
+severity: major
+version: 1.0.0
+status: active
+requirement: 一つのSectionは主要目的を一つに限定する。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 各Sectionの目的が明確で重複が少ない。
+fail_condition: 一つのSectionに無関係な複数目的が混在する。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: true
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

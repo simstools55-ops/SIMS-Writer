@@ -1,0 +1,56 @@
+{
+  "contract": {
+    "id": "CT-REQ-001",
+    "version": "1.0.0"
+  },
+  "request_id": "REQ-2026-000001",
+  "request_type": "existing_article_improvement",
+  "language": "ja-JP",
+  "article": {
+    "article_id": "A000301",
+    "target_url": "https://example.com/article",
+    "current_title": "Wi-Fiルーターの電気代はいくら？",
+    "seo_title": "Wi-Fiルーターの電気代",
+    "meta_description": null
+  },
+  "query": {
+    "main_query": "wi-fi 電気代",
+    "supporting_queries": [
+      "ルーター 電気代 月"
+    ],
+    "excluded_queries": []
+  },
+  "performance": {
+    "clicks": 5,
+    "impressions": 2773,
+    "ctr": 0.002,
+    "average_position": 10.0,
+    "measurement_period": {
+      "from": "2026-06-01",
+      "to": "2026-06-30"
+    }
+  },
+  "goal": {
+    "improvement_goal": [
+      "ctr_improvement"
+    ],
+    "priority_components": [
+      "seo_title",
+      "introduction"
+    ],
+    "preserve_existing_value": true
+  },
+  "output": {
+    "requested_output": [
+      "full_article",
+      "before_after"
+    ],
+    "platform": "hatena_blog",
+    "format": "hatena_html"
+  },
+  "site": {
+    "site_id": "SITE-001",
+    "site_name": "ガジェット探検記"
+  },
+  "created_at": "2026-07-16T20:30:00+09:00"
+}

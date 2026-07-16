@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims-writer.local/contracts/ct-src-001.schema.json",
+  "title": "Source Content Contract",
+  "type": "object",
+  "required": [
+    "contract",
+    "snapshot_id",
+    "request_id",
+    "source_url",
+    "retrieved_at",
+    "retrieval_status",
+    "content_hash"
+  ],
+  "properties": {
+    "contract": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/contractRef"
+    },
+    "snapshot_id": {
+      "type": "string",
+      "pattern": "^SNP-[0-9]{4}-[0-9]{6}$"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "source_url": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/url"
+    },
+    "retrieved_at": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/isoDateTime"
+    },
+    "retrieval_method": {
+      "type": "string"
+    },
+    "retrieval_status": {
+      "type": "string",
+      "enum": [
+        "retrieved",
+        "partially_retrieved",
+        "unavailable",
+        "blocked",
+        "invalid",
+        "manual_input_required"
+      ]
+    },
+    "content_hash": {
+      "type": "string",
+      "minLength": 16
+    },
+    "title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "seo_title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "meta_description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "h1": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "introduction": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "heading",
+          "level",
+          "body"
+        ],
+        "properties": {
+          "heading": {
+            "type": "string"
+          },
+          "level": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 6
+          },
+          "body": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "faq": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "question",
+          "answer"
+        ],
+        "properties": {
+          "question": {
+            "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "internal_links": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/stringArray"
+    },
+    "external_links": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/stringArray"
+    },
+    "raw_content": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "extraction_warnings": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/stringArray"
+    }
+  },
+  "additionalProperties": false
+}

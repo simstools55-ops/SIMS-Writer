@@ -1,0 +1,17 @@
+id: QF-JPN-002
+name: Expression Consistency
+dimension: japanese
+severity: major
+version: 1.0.0
+status: active
+requirement: 表記、用語、敬体・常体、数字表現を記事内で統一する。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 主要表現に一貫性がある。
+fail_condition: 表記揺れや文体混在が目立つ。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: true
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

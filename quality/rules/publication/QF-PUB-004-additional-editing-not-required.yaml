@@ -1,0 +1,17 @@
+id: QF-PUB-004
+name: Additional Editing Not Required
+dimension: publication
+severity: critical
+version: 1.0.0
+status: active
+requirement: 標準成果物は利用者の追加編集を前提としない完成状態とする。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: そのまま公開でき、残る事項はAdvisoryのみである。
+fail_condition: 文章・構成・事実の追加修正が必要である。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

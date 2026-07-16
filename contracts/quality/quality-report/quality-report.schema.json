@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims-writer.local/contracts/ct-qlt-001.schema.json",
+  "title": "Quality Report Contract",
+  "type": "object",
+  "required": [
+    "contract",
+    "report_id",
+    "request_id",
+    "draft_id",
+    "draft_version",
+    "framework_version",
+    "gate_results",
+    "issues",
+    "publish_recommendation",
+    "evaluated_at"
+  ],
+  "properties": {
+    "contract": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/contractRef"
+    },
+    "report_id": {
+      "type": "string",
+      "pattern": "^QRP-[0-9]{4}-[0-9]{6}$"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "draft_id": {
+      "type": "string"
+    },
+    "draft_version": {
+      "type": "string"
+    },
+    "framework_version": {
+      "type": "string"
+    },
+    "gate_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "gate",
+          "result"
+        ],
+        "properties": {
+          "gate": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "pass",
+              "pass_with_warning",
+              "fail",
+              "not_applicable",
+              "unable_to_verify"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "dimension_scores": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 5
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "issue_id",
+          "rule_id",
+          "severity",
+          "result",
+          "description",
+          "required_action"
+        ],
+        "properties": {
+          "issue_id": {
+            "type": "string"
+          },
+          "rule_id": {
+            "type": "string"
+          },
+          "severity": {
+            "$ref": "../../../schemas/common/common.schema.json#/$defs/issueSeverity"
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "pass",
+              "fail",
+              "warning",
+              "not_applicable",
+              "unable_to_verify"
+            ]
+          },
+          "component": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "location": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "required_action": {
+            "type": "string"
+          },
+          "auto_fix_eligible": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "unable_to_verify": {
+      "type": "array"
+    },
+    "auto_fixes": {
+      "type": "array"
+    },
+    "remaining_risks": {
+      "type": "array"
+    },
+    "publish_recommendation": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/publishDecision"
+    },
+    "evaluated_at": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/isoDateTime"
+    }
+  },
+  "additionalProperties": false
+}

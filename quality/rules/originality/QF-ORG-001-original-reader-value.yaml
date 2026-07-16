@@ -1,0 +1,17 @@
+id: QF-ORG-001
+name: Original Reader Value
+dimension: originality
+severity: major
+version: 1.0.0
+status: active
+requirement: 読者にとって独自の整理、判断軸、具体例などの追加価値を持たせる。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 一般論の寄せ集めを超える価値がある。
+fail_condition: 競合の一般情報を並べ替えただけである。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

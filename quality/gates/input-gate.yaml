@@ -1,0 +1,14 @@
+id: QG-INPUT_GATE
+name: input-gate
+version: 1.0.0
+status: active
+required_rules:
+- QF-SAF-002
+blocker_policy: any_blocker_fail_blocks
+critical_policy: any_critical_fail_blocks
+allowed_results:
+- pass
+- warning
+- not_applicable
+retry_policy: targeted_refinement_then_recheck
+manual_review_condition: unable_to_verify on blocker or high-risk rule

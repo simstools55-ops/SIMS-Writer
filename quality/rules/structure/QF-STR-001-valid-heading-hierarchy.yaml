@@ -1,0 +1,17 @@
+id: QF-STR-001
+name: Valid Heading Hierarchy
+dimension: structure
+severity: major
+version: 1.0.0
+status: active
+requirement: 見出し階層は飛び級や複数H1を避け、論理構造を保つ。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: H1が一つでH2・H3が正しく配置される。
+fail_condition: 見出し階層が破綻している。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: true
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

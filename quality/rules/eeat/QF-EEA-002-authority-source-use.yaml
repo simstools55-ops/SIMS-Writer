@@ -1,0 +1,17 @@
+id: QF-EEA-002
+name: Authority Source Use
+dimension: eeat
+severity: major
+version: 1.0.0
+status: active
+requirement: 専門的・重要な主張には適切な権威ある情報源を用いる。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 主張の重要度に合う情報源が選ばれている。
+fail_condition: 低信頼情報だけで重要主張を支えている。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

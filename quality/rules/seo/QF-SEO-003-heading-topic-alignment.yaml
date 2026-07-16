@@ -1,0 +1,17 @@
+id: QF-SEO-003
+name: Heading Topic Alignment
+dimension: seo
+severity: major
+version: 1.0.0
+status: active
+requirement: 各見出しは記事主題とSection目的に整合する。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 見出しだけで論理的な記事の流れが分かる。
+fail_condition: 主題と無関係な見出しや重複見出しがある。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: true
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

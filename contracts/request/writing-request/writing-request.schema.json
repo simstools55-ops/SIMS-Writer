@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims-writer.local/contracts/ct-req-001.schema.json",
+  "title": "Writing Request Contract",
+  "type": "object",
+  "required": [
+    "contract",
+    "request_id",
+    "request_type",
+    "language",
+    "query",
+    "output",
+    "site",
+    "created_at"
+  ],
+  "properties": {
+    "contract": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/contractRef"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^REQ-[0-9]{4}-[0-9]{6}$"
+    },
+    "request_type": {
+      "type": "string",
+      "enum": [
+        "new_article",
+        "existing_article_improvement",
+        "partial_rewrite",
+        "seo_refresh",
+        "fact_update",
+        "structural_improvement",
+        "ctr_improvement",
+        "content_expansion"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "default": "ja-JP"
+    },
+    "article": {
+      "type": "object",
+      "properties": {
+        "article_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "target_url": {
+          "anyOf": [
+            {
+              "$ref": "../../../schemas/common/common.schema.json#/$defs/url"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "current_title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "seo_title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "meta_description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "query": {
+      "type": "object",
+      "required": [
+        "main_query"
+      ],
+      "properties": {
+        "main_query": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "supporting_queries": {
+          "$ref": "../../../schemas/common/common.schema.json#/$defs/stringArray"
+        },
+        "excluded_queries": {
+          "$ref": "../../../schemas/common/common.schema.json#/$defs/stringArray"
+        }
+      },
+      "additionalProperties": false
+    },
+    "performance": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/metricBlock"
+    },
+    "goal": {
+      "type": "object",
+      "properties": {
+        "improvement_goal": {
+          "$ref": "../../../schemas/common/common.schema.json#/$defs/stringArray"
+        },
+        "priority_components": {
+          "$ref": "../../../schemas/common/common.schema.json#/$defs/stringArray"
+        },
+        "preserve_existing_value": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "output": {
+      "type": "object",
+      "required": [
+        "requested_output",
+        "format"
+      ],
+      "properties": {
+        "requested_output": {
+          "$ref": "../../../schemas/common/common.schema.json#/$defs/stringArray"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string",
+          "enum": [
+            "markdown",
+            "html",
+            "plain_text",
+            "json",
+            "hatena_html",
+            "wordpress_blocks"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "site": {
+      "type": "object",
+      "required": [
+        "site_id"
+      ],
+      "properties": {
+        "site_id": {
+          "type": "string"
+        },
+        "site_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "created_at": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/isoDateTime"
+    },
+    "extensions": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

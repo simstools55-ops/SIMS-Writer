@@ -1,0 +1,17 @@
+id: QF-INT-003
+name: Out-of-Scope Intent Separation
+dimension: search-intent
+severity: major
+version: 1.0.0
+status: active
+requirement: 別記事にすべき検索意図を混在させず、範囲外として分離する。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 主題の範囲が明確で不要な意図が混在しない。
+fail_condition: 複数の異なる意図を一記事へ詰め込んでいる。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

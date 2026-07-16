@@ -1,0 +1,17 @@
+id: QF-SIT-001
+name: Site Topic Alignment
+dimension: site-fit
+severity: major
+version: 1.0.0
+status: active
+requirement: 記事は対象サイトのテーマと読者範囲に適合する。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: サイトの対象領域と読者に合う。
+fail_condition: サイト主題から大きく外れる。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

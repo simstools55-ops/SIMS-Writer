@@ -1,0 +1,17 @@
+id: QF-REA-003
+name: Redundancy Control
+dimension: readability
+severity: major
+version: 1.0.0
+status: active
+requirement: 同じ内容を見出し、本文、FAQ、まとめで不必要に繰り返さない。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 重複は理解補助に必要な範囲である。
+fail_condition: 内容の水増しとなる重複が多い。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: true
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

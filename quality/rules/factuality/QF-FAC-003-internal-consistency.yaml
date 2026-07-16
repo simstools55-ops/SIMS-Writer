@@ -1,0 +1,17 @@
+id: QF-FAC-003
+name: Internal Consistency
+dimension: factuality
+severity: critical
+version: 1.0.0
+status: active
+requirement: 記事内の数値、結論、条件、用語は相互に矛盾してはならない。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 重要な主張が記事内で一貫している。
+fail_condition: 同一記事内で重要情報が矛盾している。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: true
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

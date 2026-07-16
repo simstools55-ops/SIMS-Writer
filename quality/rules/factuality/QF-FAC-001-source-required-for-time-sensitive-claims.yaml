@@ -1,0 +1,17 @@
+id: QF-FAC-001
+name: Source Required for Time-Sensitive Claims
+dimension: factuality
+severity: blocker
+version: 1.0.0
+status: active
+requirement: 変化しうる重要情報は、信頼できる情報源と確認日を持たなければならない。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 情報源と確認日がある、または主張を削除・限定している。
+fail_condition: 最新情報を根拠なしで断定している。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

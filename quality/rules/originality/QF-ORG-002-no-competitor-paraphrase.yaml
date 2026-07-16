@@ -1,0 +1,17 @@
+id: QF-ORG-002
+name: No Competitor Paraphrase
+dimension: originality
+severity: critical
+version: 1.0.0
+status: active
+requirement: 競合記事の構成や文章を単純に言い換えてはならない。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 独自のContent Planと表現で構成される。
+fail_condition: 競合記事の近似的な再現である。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

@@ -1,0 +1,17 @@
+id: QF-JPN-001
+name: Natural Japanese
+dimension: japanese
+severity: critical
+version: 1.0.0
+status: active
+requirement: 直訳調や意味の通らない表現を避け、自然な日本語にする。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 日本語話者が追加修正せず理解できる。
+fail_condition: 不自然な語順・助詞・直訳調が残る。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: true
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

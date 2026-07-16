@@ -1,0 +1,426 @@
+{
+  "framework_version": "1.0.0",
+  "rule_count": 42,
+  "rules": [
+    {
+      "id": "QF-SAF-001",
+      "name": "Dangerous Instruction Prevention",
+      "dimension": "safety",
+      "severity": "blocker",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/safety/QF-SAF-001-dangerous-instruction-prevention.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-SAF-002",
+      "name": "High-Risk Claim Review",
+      "dimension": "safety",
+      "severity": "blocker",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/safety/QF-SAF-002-high-risk-claim-review.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-SAF-003",
+      "name": "Data Loss Warning",
+      "dimension": "safety",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/safety/QF-SAF-003-data-loss-warning.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-FAC-001",
+      "name": "Source Required for Time-Sensitive Claims",
+      "dimension": "factuality",
+      "severity": "blocker",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/factuality/QF-FAC-001-source-required-for-time-sensitive-claims.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-FAC-002",
+      "name": "No Unsupported Numeric Claims",
+      "dimension": "factuality",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/factuality/QF-FAC-002-no-unsupported-numeric-claims.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-FAC-003",
+      "name": "Internal Consistency",
+      "dimension": "factuality",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/factuality/QF-FAC-003-internal-consistency.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-FAC-004",
+      "name": "Fact and Opinion Separation",
+      "dimension": "factuality",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/factuality/QF-FAC-004-fact-and-opinion-separation.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-INT-001",
+      "name": "Primary Intent Must Be Answered",
+      "dimension": "search-intent",
+      "severity": "blocker",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/search-intent/QF-INT-001-primary-intent-must-be-answered.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-INT-002",
+      "name": "Main Answer Must Be Explicit",
+      "dimension": "search-intent",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/search-intent/QF-INT-002-main-answer-must-be-explicit.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-INT-003",
+      "name": "Out-of-Scope Intent Separation",
+      "dimension": "search-intent",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/search-intent/QF-INT-003-out-of-scope-intent-separation.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-COM-001",
+      "name": "Required Content Coverage",
+      "dimension": "completeness",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/completeness/QF-COM-001-required-content-coverage.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-COM-002",
+      "name": "Exception and Warning Coverage",
+      "dimension": "completeness",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/completeness/QF-COM-002-exception-and-warning-coverage.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-COM-003",
+      "name": "Action Completion",
+      "dimension": "completeness",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/completeness/QF-COM-003-action-completion.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-HLP-001",
+      "name": "Actionable Explanation",
+      "dimension": "helpfulness",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/helpfulness/QF-HLP-001-actionable-explanation.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-HLP-002",
+      "name": "Reader Decision Support",
+      "dimension": "helpfulness",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/helpfulness/QF-HLP-002-reader-decision-support.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-HLP-003",
+      "name": "Failure Recovery Guidance",
+      "dimension": "helpfulness",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/helpfulness/QF-HLP-003-failure-recovery-guidance.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-SEO-001",
+      "name": "Title Intent Alignment",
+      "dimension": "seo",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/seo/QF-SEO-001-title-intent-alignment.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-SEO-002",
+      "name": "Natural Query Usage",
+      "dimension": "seo",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/seo/QF-SEO-002-natural-query-usage.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-SEO-003",
+      "name": "Heading Topic Alignment",
+      "dimension": "seo",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/seo/QF-SEO-003-heading-topic-alignment.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-SEO-004",
+      "name": "Cannibalization Risk Check",
+      "dimension": "seo",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/seo/QF-SEO-004-cannibalization-risk-check.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-STR-001",
+      "name": "Valid Heading Hierarchy",
+      "dimension": "structure",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/structure/QF-STR-001-valid-heading-hierarchy.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-STR-002",
+      "name": "One Section One Purpose",
+      "dimension": "structure",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/structure/QF-STR-002-one-section-one-purpose.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-STR-003",
+      "name": "Logical Information Order",
+      "dimension": "structure",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/structure/QF-STR-003-logical-information-order.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-REA-001",
+      "name": "Sentence Clarity",
+      "dimension": "readability",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/readability/QF-REA-001-sentence-clarity.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-REA-002",
+      "name": "Paragraph Length",
+      "dimension": "readability",
+      "severity": "minor",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/readability/QF-REA-002-paragraph-length.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-REA-003",
+      "name": "Redundancy Control",
+      "dimension": "readability",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/readability/QF-REA-003-redundancy-control.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-JPN-001",
+      "name": "Natural Japanese",
+      "dimension": "japanese",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/japanese/QF-JPN-001-natural-japanese.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-JPN-002",
+      "name": "Expression Consistency",
+      "dimension": "japanese",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/japanese/QF-JPN-002-expression-consistency.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-JPN-003",
+      "name": "AI-Like Phrase Reduction",
+      "dimension": "japanese",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/japanese/QF-JPN-003-ai-like-phrase-reduction.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-EEA-001",
+      "name": "Experience Claim Integrity",
+      "dimension": "eeat",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/eeat/QF-EEA-001-experience-claim-integrity.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-EEA-002",
+      "name": "Authority Source Use",
+      "dimension": "eeat",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/eeat/QF-EEA-002-authority-source-use.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-EEA-003",
+      "name": "No False Expertise",
+      "dimension": "eeat",
+      "severity": "blocker",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/eeat/QF-EEA-003-no-false-expertise.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-ORG-001",
+      "name": "Original Reader Value",
+      "dimension": "originality",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/originality/QF-ORG-001-original-reader-value.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-ORG-002",
+      "name": "No Competitor Paraphrase",
+      "dimension": "originality",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/originality/QF-ORG-002-no-competitor-paraphrase.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-ORG-003",
+      "name": "No Fabricated Experience",
+      "dimension": "originality",
+      "severity": "blocker",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/originality/QF-ORG-003-no-fabricated-experience.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-SIT-001",
+      "name": "Site Topic Alignment",
+      "dimension": "site-fit",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/site-fit/QF-SIT-001-site-topic-alignment.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-SIT-002",
+      "name": "Existing Content Compatibility",
+      "dimension": "site-fit",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/site-fit/QF-SIT-002-existing-content-compatibility.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-SIT-003",
+      "name": "Platform Format Compliance",
+      "dimension": "site-fit",
+      "severity": "major",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/site-fit/QF-SIT-003-platform-format-compliance.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-PUB-001",
+      "name": "No Placeholder",
+      "dimension": "publication",
+      "severity": "blocker",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/publication/QF-PUB-001-no-placeholder.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-PUB-002",
+      "name": "Complete Metadata",
+      "dimension": "publication",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/publication/QF-PUB-002-complete-metadata.yaml",
+      "auto_fix_eligible": true
+    },
+    {
+      "id": "QF-PUB-003",
+      "name": "No Unresolved Blocking Issue",
+      "dimension": "publication",
+      "severity": "blocker",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/publication/QF-PUB-003-no-unresolved-blocking-issue.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-PUB-004",
+      "name": "Additional Editing Not Required",
+      "dimension": "publication",
+      "severity": "critical",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "quality/rules/publication/QF-PUB-004-additional-editing-not-required.yaml",
+      "auto_fix_eligible": false
+    }
+  ]
+}

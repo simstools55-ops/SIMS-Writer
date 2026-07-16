@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims-writer.local/contracts/ct-ops-002.schema.json",
+  "title": "Error Contract",
+  "type": "object",
+  "required": [
+    "contract",
+    "error_id",
+    "error_code",
+    "category",
+    "severity",
+    "message",
+    "retryable",
+    "occurred_at"
+  ],
+  "properties": {
+    "contract": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/contractRef"
+    },
+    "error_id": {
+      "type": "string",
+      "pattern": "^ERR-[0-9]{4}-[0-9]{6}$"
+    },
+    "error_code": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "validation",
+        "compatibility",
+        "retrieval",
+        "transformation",
+        "knowledge",
+        "planning",
+        "production",
+        "quality",
+        "publication",
+        "integration",
+        "system"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "fatal",
+        "error",
+        "warning",
+        "advisory"
+      ]
+    },
+    "contract_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "contract_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "field": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "technical_detail": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "user_action": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "retryable": {
+      "type": "boolean"
+    },
+    "retry_from": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "occurred_at": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/isoDateTime"
+    },
+    "related_request_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

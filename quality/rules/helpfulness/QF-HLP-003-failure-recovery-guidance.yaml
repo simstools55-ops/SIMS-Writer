@@ -1,0 +1,17 @@
+id: QF-HLP-003
+name: Failure Recovery Guidance
+dimension: helpfulness
+severity: major
+version: 1.0.0
+status: active
+requirement: 失敗しやすい手順では、失敗時の確認点または代替手段を示す。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 主要な失敗に対する回復案がある。
+fail_condition: 失敗時に行き止まりになる。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

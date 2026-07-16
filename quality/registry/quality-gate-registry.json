@@ -1,0 +1,48 @@
+{
+  "framework_version": "1.0.0",
+  "gate_count": 7,
+  "gates": [
+    {
+      "id": "QG-INPUT_GATE",
+      "name": "input-gate",
+      "path": "quality/gates/input-gate.yaml",
+      "rule_count": 1
+    },
+    {
+      "id": "QG-PLANNING_GATE",
+      "name": "planning-gate",
+      "path": "quality/gates/planning-gate.yaml",
+      "rule_count": 6
+    },
+    {
+      "id": "QG-EVIDENCE_GATE",
+      "name": "evidence-gate",
+      "path": "quality/gates/evidence-gate.yaml",
+      "rule_count": 5
+    },
+    {
+      "id": "QG-DRAFT_GATE",
+      "name": "draft-gate",
+      "path": "quality/gates/draft-gate.yaml",
+      "rule_count": 11
+    },
+    {
+      "id": "QG-SEO_GATE",
+      "name": "seo-gate",
+      "path": "quality/gates/seo-gate.yaml",
+      "rule_count": 4
+    },
+    {
+      "id": "QG-LANGUAGE_GATE",
+      "name": "language-gate",
+      "path": "quality/gates/language-gate.yaml",
+      "rule_count": 9
+    },
+    {
+      "id": "QG-FINAL_PUBLICATION_GATE",
+      "name": "final-publication-gate",
+      "path": "quality/gates/final-publication-gate.yaml",
+      "rule_count": 6
+    }
+  ]
+}

@@ -1,45 +1,26 @@
 # SIMS Writer
 
-SIMS Writerは、Quality Framework、Contracts、Knowledge、Pattern Libraryを中核とし、日本語ブログ記事を追加編集不要のPublish Ready状態へ導くコンテンツ品質プラットフォームです。
+SIMS Writerは、Quality Framework・Contracts・Knowledge・Pattern Libraryを中核とするPublish Ready記事生成基盤です。
 
-## 現在の状態
+## Version
 
-- Version: 0.1.0-alpha.1
-- Phase: Foundation
-- Status: Architecture baseline
+`0.3.0-alpha.1`
 
-## Single Source of Truth
+## このパッケージ
 
-本リポジトリをSIMS Writerの正式仕様・設計・品質基準・知識・パターン・契約・テスト資産の唯一の正とします。
+FoundationとContract Schemaに加え、Product 1.0の初期Quality Rules Packageを収録しています。
 
-## 基本方針
+- 13 Quality Dimensions
+- 42 Quality Rules
+- 7 Quality Gates
+- Rule/Gate Registry
+- オフライン検証ツール
 
-- Engine中心設計を採用しない
-- Quality by Design
-- Knowledge First
-- Contract Driven
-- Pattern over Duplication
-- Model Independent Core
-- Publish Ready by Default
+## 検証
 
-## 主要ディレクトリ
+```bash
+python tools/validators/validate_quality_rules.py
+python tests/contracts/test_contract_examples.py
+```
 
-- `product/` 製品哲学・原則・仕様・ロードマップ
-- `architecture/` Domain・Repository・Runtime設計
-- `quality/` Quality Framework
-- `contracts/` Contract Framework
-- `knowledge/` Knowledge Architecture
-- `patterns/` Pattern Library Architecture
-- `decisions/` Architecture Decision Records
-- `templates/` 正式資産の雛形
-- `tests/golden/` Golden Dataset
-- `archive/sims-core/` SIMS-Core継承評価用
-
-## 次の開発段階
-
-1. 初期Contract Schema
-2. 初期Quality Rule
-3. 初期Knowledge Item
-4. 初期Pattern
-5. SIMS-Core Lessons Learned
-6. Golden Dataset
+SIMS Writer RepositoryをSingle Source of Truthとして管理します。

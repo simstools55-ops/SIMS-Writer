@@ -1,0 +1,17 @@
+id: QF-ORG-003
+name: No Fabricated Experience
+dimension: originality
+severity: blocker
+version: 1.0.0
+status: active
+requirement: 未提供の実測、使用経験、成功談を創作してはならない。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 経験主張が提供情報または記録に基づく。
+fail_condition: 架空の体験・検証結果を掲載している。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

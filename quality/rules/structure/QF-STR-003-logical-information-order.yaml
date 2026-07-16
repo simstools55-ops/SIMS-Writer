@@ -1,0 +1,17 @@
+id: QF-STR-003
+name: Logical Information Order
+dimension: structure
+severity: critical
+version: 1.0.0
+status: active
+requirement: 情報は読者の理解と実行に適した順序で配置する。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 前提、回答、手順、注意が自然に進む。
+fail_condition: 結論や手順の順序が理解を妨げる。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

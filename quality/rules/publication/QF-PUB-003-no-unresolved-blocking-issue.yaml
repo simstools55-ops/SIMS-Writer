@@ -1,0 +1,17 @@
+id: QF-PUB-003
+name: No Unresolved Blocking Issue
+dimension: publication
+severity: blocker
+version: 1.0.0
+status: active
+requirement: BlockerまたはCritical Failを残したまま公開可能判定しない。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 重大Issueがすべて解消されている。
+fail_condition: 重大Issueが残るのにpublish_readyである。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

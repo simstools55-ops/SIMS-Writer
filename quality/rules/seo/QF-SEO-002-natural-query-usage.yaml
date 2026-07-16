@@ -1,0 +1,17 @@
+id: QF-SEO-002
+name: Natural Query Usage
+dimension: seo
+severity: major
+version: 1.0.0
+status: active
+requirement: メインクエリと関連語は自然な日本語として使用する。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 不自然な反復や語句詰め込みがない。
+fail_condition: キーワードを機械的に反復している。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: true
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

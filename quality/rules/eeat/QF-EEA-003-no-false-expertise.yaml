@@ -1,0 +1,17 @@
+id: QF-EEA-003
+name: No False Expertise
+dimension: eeat
+severity: blocker
+version: 1.0.0
+status: active
+requirement: 執筆者やサイトにない資格・専門性・検証経験を装ってはならない。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 専門性の表現が事実と一致する。
+fail_condition: 架空の専門家性や権威を主張している。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: true
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

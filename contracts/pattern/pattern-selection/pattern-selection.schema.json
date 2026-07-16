@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims-writer.local/contracts/ct-pat-001.schema.json",
+  "title": "Pattern Selection Contract",
+  "type": "object",
+  "required": [
+    "contract",
+    "selection_id",
+    "request_id",
+    "plan_id",
+    "selected_patterns",
+    "application_order",
+    "selection_confidence"
+  ],
+  "properties": {
+    "contract": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/contractRef"
+    },
+    "selection_id": {
+      "type": "string",
+      "pattern": "^PTS-[0-9]{4}-[0-9]{6}$"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "candidate_patterns": {
+      "type": "array"
+    },
+    "selected_patterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "pattern_id",
+          "version",
+          "selection_reason"
+        ],
+        "properties": {
+          "pattern_id": {
+            "type": "string",
+            "pattern": "^PT-[A-Z]{3}-[0-9]{3}$"
+          },
+          "version": {
+            "type": "string"
+          },
+          "selection_reason": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "rejected_patterns": {
+      "type": "array"
+    },
+    "conflict_resolution": {
+      "type": "array"
+    },
+    "application_order": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/stringArray"
+    },
+    "selection_confidence": {
+      "$ref": "../../../schemas/common/common.schema.json#/$defs/confidence"
+    }
+  },
+  "additionalProperties": false
+}

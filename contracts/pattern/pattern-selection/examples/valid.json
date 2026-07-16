@@ -1,0 +1,23 @@
+{
+  "contract": {
+    "id": "CT-PAT-001",
+    "version": "1.0.0"
+  },
+  "selection_id": "PTS-2026-000001",
+  "request_id": "REQ-2026-000001",
+  "plan_id": "PLN-2026-000001",
+  "candidate_patterns": [],
+  "selected_patterns": [
+    {
+      "pattern_id": "PT-IMP-001",
+      "version": "1.0.0",
+      "selection_reason": "既存価値を保存する"
+    }
+  ],
+  "rejected_patterns": [],
+  "conflict_resolution": [],
+  "application_order": [
+    "PT-IMP-001"
+  ],
+  "selection_confidence": "high"
+}

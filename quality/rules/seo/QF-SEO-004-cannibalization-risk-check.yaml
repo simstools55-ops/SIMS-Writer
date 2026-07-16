@@ -1,0 +1,17 @@
+id: QF-SEO-004
+name: Cannibalization Risk Check
+dimension: seo
+severity: major
+version: 1.0.0
+status: active
+requirement: 既存記事と検索意図が重複する可能性を確認する。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 重複リスクが評価され、必要なら分離されている。
+fail_condition: 同一意図の記事を無評価で追加・拡張している。
+warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'
