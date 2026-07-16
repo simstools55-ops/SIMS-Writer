@@ -1,0 +1,63 @@
+version: 1.0.0
+status: review
+lessons:
+- id: LL-SC-001
+  title: 公開品質は固定WorkflowではなくQuality Gateで保証する
+  classification: adapt
+  path: knowledge/lessons-learned/sims-core/LL-SC-001.md
+  status: review
+- id: LL-SC-002
+  title: 内部分析を利用者出力へ漏らさない
+  classification: keep
+  path: knowledge/lessons-learned/sims-core/LL-SC-002.md
+  status: review
+- id: LL-SC-003
+  title: 不足情報を推測で埋めない
+  classification: keep
+  path: knowledge/lessons-learned/sims-core/LL-SC-003.md
+  status: review
+- id: LL-SC-004
+  title: 既存価値を評価してから変更する
+  classification: keep
+  path: knowledge/lessons-learned/sims-core/LL-SC-004.md
+  status: review
+- id: LL-SC-005
+  title: 品質基準をPromptだけに置かない
+  classification: adapt
+  path: knowledge/lessons-learned/sims-core/LL-SC-005.md
+  status: review
+- id: LL-SC-006
+  title: 初心者と上級者で記事品質を変えない
+  classification: adapt
+  path: knowledge/lessons-learned/sims-core/LL-SC-006.md
+  status: review
+- id: LL-SC-007
+  title: 単一Quality Scoreで完成を表さない
+  classification: adapt
+  path: knowledge/lessons-learned/sims-core/LL-SC-007.md
+  status: review
+- id: LL-SC-008
+  title: 構造化出力は有効だが常時強制しない
+  classification: adapt
+  path: knowledge/lessons-learned/sims-core/LL-SC-008.md
+  status: review
+- id: LL-SC-009
+  title: Engineの価値は名前ではなく判断知識にある
+  classification: adapt
+  path: knowledge/lessons-learned/sims-core/LL-SC-009.md
+  status: review
+- id: LL-SC-010
+  title: CTR改善でクリック誘導を目的化しない
+  classification: adapt
+  path: knowledge/lessons-learned/sims-core/LL-SC-010.md
+  status: review
+- id: LL-SC-011
+  title: FAQは必須部品ではない
+  classification: keep
+  path: knowledge/lessons-learned/sims-core/LL-SC-011.md
+  status: review
+- id: LL-SC-012
+  title: 実運用の失敗例をGolden Datasetへ残す
+  classification: keep
+  path: knowledge/lessons-learned/sims-core/LL-SC-012.md
+  status: review

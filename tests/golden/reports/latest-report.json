@@ -1,0 +1,93 @@
+{
+  "dataset_version": "0.11.0-alpha.1",
+  "executed_at": "2026-07-16T21:29:32.271612+00:00",
+  "total": 12,
+  "passed": 12,
+  "failed": 0,
+  "results": [
+    {
+      "id": "GC-NEW-001",
+      "status": "pass",
+      "expected": "publish_ready_with_advisory",
+      "actual": "publish_ready_with_advisory",
+      "errors": []
+    },
+    {
+      "id": "GC-IMP-002",
+      "status": "pass",
+      "expected": "publish_ready_with_advisory",
+      "actual": "publish_ready_with_advisory",
+      "errors": []
+    },
+    {
+      "id": "GC-CTR-003",
+      "status": "pass",
+      "expected": "publish_ready_with_advisory",
+      "actual": "publish_ready_with_advisory",
+      "errors": []
+    },
+    {
+      "id": "GC-UPD-004",
+      "status": "pass",
+      "expected": "revision_required",
+      "actual": "revision_required",
+      "errors": []
+    },
+    {
+      "id": "GC-TRB-005",
+      "status": "pass",
+      "expected": "revision_required",
+      "actual": "revision_required",
+      "errors": []
+    },
+    {
+      "id": "GC-CMP-006",
+      "status": "pass",
+      "expected": "publish_ready_with_advisory",
+      "actual": "publish_ready_with_advisory",
+      "errors": []
+    },
+    {
+      "id": "GC-CST-007",
+      "status": "pass",
+      "expected": "publish_ready_with_advisory",
+      "actual": "publish_ready_with_advisory",
+      "errors": []
+    },
+    {
+      "id": "GC-AMB-008",
+      "status": "pass",
+      "expected": "publish_ready_with_advisory",
+      "actual": "publish_ready_with_advisory",
+      "errors": []
+    },
+    {
+      "id": "GC-FAQ-009",
+      "status": "pass",
+      "expected": "publish_ready_with_advisory",
+      "actual": "publish_ready_with_advisory",
+      "errors": []
+    },
+    {
+      "id": "GC-INP-010",
+      "status": "pass",
+      "expected": "failed",
+      "actual": "failed",
+      "errors": []
+    },
+    {
+      "id": "GC-HRK-011",
+      "status": "pass",
+      "expected": "revision_required",
+      "actual": "revision_required",
+      "errors": []
+    },
+    {
+      "id": "GC-REC-012",
+      "status": "pass",
+      "expected": "publish_ready_with_advisory",
+      "actual": "publish_ready_with_advisory",
+      "errors": []
+    }
+  ]
+}

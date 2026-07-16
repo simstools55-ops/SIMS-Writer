@@ -1,0 +1,65 @@
+{
+  "id": "GC-CMP-006",
+  "slug": "comparison",
+  "category": "CMP",
+  "description": "比較記事の正常系",
+  "input_type": "generic",
+  "request": {
+    "request_id": "REQ-GC-006",
+    "request_type": "new_article",
+    "main_query": "ssd hdd 違い",
+    "site": {
+      "site_id": "SITE-GOLDEN"
+    },
+    "requested_output": [
+      "publication_package"
+    ]
+  },
+  "fixture_draft": {
+    "seo_title": "SSDとHDDの違いと選び方",
+    "meta_description": "SSDとHDDは、速度、容量、価格の考え方が異なります。起動速度を重視するならSSD、保存容量を優先するなら用途に合うHDDも候補になります。",
+    "h1": "SSDとHDDの違いと選び方",
+    "article_content": "SSDとHDDは、速度、容量、価格の考え方が異なります。起動速度を重視するならSSD、保存容量を優先するなら用途に合うHDDも候補になります。",
+    "faq": [],
+    "internal_link_recommendations": [],
+    "unresolved_items": [],
+    "citations": [
+      "official-reference"
+    ],
+    "model_assisted_checks": {
+      "QF-COM-001": "pass",
+      "QF-COM-002": "pass",
+      "QF-COM-003": "pass",
+      "QF-HLP-001": "pass",
+      "QF-HLP-002": "pass",
+      "QF-HLP-003": "pass",
+      "QF-JPN-001": "pass",
+      "QF-JPN-002": "pass",
+      "QF-ORG-001": "pass",
+      "QF-ORG-002": "pass",
+      "QF-EEA-001": "pass",
+      "QF-EEA-002": "pass",
+      "QF-INT-003": "pass",
+      "QF-SEO-003": "pass",
+      "QF-SEO-004": "pass",
+      "QF-SIT-001": "pass",
+      "QF-SIT-002": "pass",
+      "QF-SIT-003": "pass",
+      "QF-STR-002": "pass",
+      "QF-STR-003": "pass",
+      "QF-FAC-004": "pass"
+    },
+    "sections": [],
+    "experience_verified": false
+  },
+  "expected": {
+    "publish_decision": "publish_ready_with_advisory",
+    "rules_evaluated": 42,
+    "gates_evaluated": 7,
+    "must_include": [
+      "速度",
+      "容量"
+    ],
+    "must_not_include": []
+  }
+}

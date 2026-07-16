@@ -1,0 +1,62 @@
+{
+  "id": "GC-NEW-001",
+  "slug": "new-how-to",
+  "category": "NEW",
+  "description": "新規How-toの正常系",
+  "input_type": "generic",
+  "request": {
+    "request_id": "REQ-GC-001",
+    "request_type": "new_article",
+    "main_query": "パソコン 重い",
+    "site": {
+      "site_id": "SITE-GOLDEN"
+    },
+    "requested_output": [
+      "publication_package"
+    ]
+  },
+  "fixture_draft": {
+    "seo_title": "パソコンが重い原因と対処法",
+    "meta_description": "パソコンが重いときは、起動中のアプリと空き容量を確認します。不要なアプリを閉じてから再起動し、負担の小さい対処を順番に試してください。",
+    "h1": "パソコンが重い原因と対処法",
+    "article_content": "パソコンが重いときは、起動中のアプリと空き容量を確認します。不要なアプリを閉じてから再起動し、負担の小さい対処を順番に試してください。",
+    "faq": [],
+    "internal_link_recommendations": [],
+    "unresolved_items": [],
+    "citations": [],
+    "model_assisted_checks": {
+      "QF-COM-001": "pass",
+      "QF-COM-002": "pass",
+      "QF-COM-003": "pass",
+      "QF-HLP-001": "pass",
+      "QF-HLP-002": "pass",
+      "QF-HLP-003": "pass",
+      "QF-JPN-001": "pass",
+      "QF-JPN-002": "pass",
+      "QF-ORG-001": "pass",
+      "QF-ORG-002": "pass",
+      "QF-EEA-001": "pass",
+      "QF-EEA-002": "pass",
+      "QF-INT-003": "pass",
+      "QF-SEO-003": "pass",
+      "QF-SEO-004": "pass",
+      "QF-SIT-001": "pass",
+      "QF-SIT-002": "pass",
+      "QF-SIT-003": "pass",
+      "QF-STR-002": "pass",
+      "QF-STR-003": "pass",
+      "QF-FAC-004": "pass"
+    },
+    "sections": [],
+    "experience_verified": false
+  },
+  "expected": {
+    "publish_decision": "publish_ready_with_advisory",
+    "rules_evaluated": 42,
+    "gates_evaluated": 7,
+    "must_include": [
+      "再起動"
+    ],
+    "must_not_include": []
+  }
+}

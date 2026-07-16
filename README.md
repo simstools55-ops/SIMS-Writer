@@ -49,6 +49,28 @@ Claude Messages、OpenAI Responses、Generic Chat向けのProvider非依存Adapt
 
 42件の正式Quality Rule、13 Dimension、7 GateをRuntimeで実行します。機械判定できない規則は `unable_to_verify` として可視化し、根拠のないPublish Ready判定を防ぎます。
 
-## v0.10.0-alpha.1 Targeted Refinement
+## v0.11.0-alpha.1 Targeted Refinement
 
 Quality Issueを対象Componentと原因Stageへ振り分け、安全な自動修正後に42 Quality Ruleを再実行します。事実や検索意図は推測で補わず、Targeted RevisionまたはManual Reviewとして残します。
+
+
+## Golden UAT
+
+```bash
+python tools/uat/run_golden_uat.py
+```
+
+12の固定Caseで、Quality Rule・Gate・Refinement・Publish Decisionの回帰を確認します。
+
+
+## v0.12 SIMS-Core Migration
+
+SIMS-CoreからはArchitectureをコピーせず、Knowledge・Decision・Pattern・Quality Rule・Golden Caseとして有効な知見を評価移行します。暫定台帳は `migrations/sims-core/`、Lessons Learnedは `knowledge/lessons-learned/sims-core/` にあります。
+
+## v0.13 CTR Vertical Slice
+
+SBM形式JSONを使い、CTR改善のタイトル・導入・FAQ判断からQuality Validation、Publication Packageまでを実行できます。
+
+```bash
+python tools/run_ctr_vertical_slice.py examples/vertical-slices/ctr-improvement/sbm-request.json --repo-root . --output ctr-result.json
+```

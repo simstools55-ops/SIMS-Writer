@@ -1,0 +1,62 @@
+{
+  "id": "GC-AMB-008",
+  "slug": "ambiguous-intent",
+  "category": "AMB",
+  "description": "複数意図を警告として残すケース",
+  "input_type": "generic",
+  "request": {
+    "request_id": "REQ-GC-008",
+    "request_type": "new_article",
+    "main_query": "obsidian 読み方",
+    "site": {
+      "site_id": "SITE-GOLDEN"
+    },
+    "requested_output": [
+      "publication_package"
+    ]
+  },
+  "fixture_draft": {
+    "seo_title": "Obsidianの読み方",
+    "meta_description": "Obsidianは日本語では「オブシディアン」と読みます。一般名詞では黒曜石を意味し、アプリ名としても同じ読み方が使われます。",
+    "h1": "Obsidianの読み方",
+    "article_content": "Obsidianは日本語では「オブシディアン」と読みます。一般名詞では黒曜石を意味し、アプリ名としても同じ読み方が使われます。",
+    "faq": [],
+    "internal_link_recommendations": [],
+    "unresolved_items": [],
+    "citations": [],
+    "model_assisted_checks": {
+      "QF-COM-001": "pass",
+      "QF-COM-002": "pass",
+      "QF-COM-003": "pass",
+      "QF-HLP-001": "pass",
+      "QF-HLP-002": "pass",
+      "QF-HLP-003": "pass",
+      "QF-JPN-001": "pass",
+      "QF-JPN-002": "pass",
+      "QF-ORG-001": "pass",
+      "QF-ORG-002": "pass",
+      "QF-EEA-001": "pass",
+      "QF-EEA-002": "pass",
+      "QF-INT-003": "warning",
+      "QF-SEO-003": "pass",
+      "QF-SEO-004": "pass",
+      "QF-SIT-001": "pass",
+      "QF-SIT-002": "pass",
+      "QF-SIT-003": "pass",
+      "QF-STR-002": "pass",
+      "QF-STR-003": "pass",
+      "QF-FAC-004": "pass"
+    },
+    "sections": [],
+    "experience_verified": false
+  },
+  "expected": {
+    "publish_decision": "publish_ready_with_advisory",
+    "rules_evaluated": 42,
+    "gates_evaluated": 7,
+    "must_include": [
+      "オブシディアン"
+    ],
+    "must_not_include": []
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "version": "1.0.0",
+  "dataset_version": "0.11.0-alpha.1",
+  "case_count": 12,
+  "categories": [
+    "AMB",
+    "CMP",
+    "CST",
+    "CTR",
+    "FAQ",
+    "HRK",
+    "IMP",
+    "INP",
+    "NEW",
+    "REC",
+    "TRB",
+    "UPD"
+  ],
+  "cases": [
+    {
+      "id": "GC-NEW-001",
+      "path": "tests/golden/cases/gc-new-001-new-how-to.json",
+      "expected": "publish_ready_with_advisory"
+    },
+    {
+      "id": "GC-IMP-002",
+      "path": "tests/golden/cases/gc-imp-002-existing-improvement.json",
+      "expected": "publish_ready_with_advisory"
+    },
+    {
+      "id": "GC-CTR-003",
+      "path": "tests/golden/cases/gc-ctr-003-low-ctr-title.json",
+      "expected": "publish_ready_with_advisory"
+    },
+    {
+      "id": "GC-UPD-004",
+      "path": "tests/golden/cases/gc-upd-004-outdated-content.json",
+      "expected": "revision_required"
+    },
+    {
+      "id": "GC-TRB-005",
+      "path": "tests/golden/cases/gc-trb-005-troubleshooting-safe.json",
+      "expected": "revision_required"
+    },
+    {
+      "id": "GC-CMP-006",
+      "path": "tests/golden/cases/gc-cmp-006-comparison.json",
+      "expected": "publish_ready_with_advisory"
+    },
+    {
+      "id": "GC-CST-007",
+      "path": "tests/golden/cases/gc-cst-007-cost-claim.json",
+      "expected": "publish_ready_with_advisory"
+    },
+    {
+      "id": "GC-AMB-008",
+      "path": "tests/golden/cases/gc-amb-008-ambiguous-intent.json",
+      "expected": "publish_ready_with_advisory"
+    },
+    {
+      "id": "GC-FAQ-009",
+      "path": "tests/golden/cases/gc-faq-009-faq-not-needed.json",
+      "expected": "publish_ready_with_advisory"
+    },
+    {
+      "id": "GC-INP-010",
+      "path": "tests/golden/cases/gc-inp-010-input-incomplete.json",
+      "expected": "failed"
+    },
+    {
+      "id": "GC-HRK-011",
+      "path": "tests/golden/cases/gc-hrk-011-high-risk-claim.json",
+      "expected": "revision_required"
+    },
+    {
+      "id": "GC-REC-012",
+      "path": "tests/golden/cases/gc-rec-012-placeholder-recovery.json",
+      "expected": "publish_ready_with_advisory"
+    }
+  ]
+}

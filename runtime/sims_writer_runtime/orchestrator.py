@@ -62,7 +62,12 @@ class RuntimeOrchestrator:
             else:
                 self._manual(records, "content_production", "Production adapter did not return article content")
 
-            quality_context = {"main_query": request.get("main_query"), "sources": artifacts.get("source_evidence", []), "experience_verified": False}
+            quality_context = {
+                "main_query": request.get("main_query"),
+                "sources": artifacts.get("source_evidence", []),
+                "experience_verified": bool(draft.get("experience_verified", False)),
+                "model_assisted_checks": draft.get("model_assisted_checks", {}),
+            }
             artifacts["quality_report"] = self.quality_engine.evaluate(draft, quality_context)
             decision = artifacts["quality_report"]["publish_recommendation"]
             if decision == "publish_ready": self._pass(records, "quality_validation")

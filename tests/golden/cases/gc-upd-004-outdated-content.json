@@ -1,0 +1,66 @@
+{
+  "id": "GC-UPD-004",
+  "slug": "outdated-content",
+  "category": "UPD",
+  "description": "時点依存情報に根拠がない異常系",
+  "input_type": "generic",
+  "request": {
+    "request_id": "REQ-GC-004",
+    "request_type": "existing_article_improvement",
+    "main_query": "アプリ 最新 料金",
+    "site": {
+      "site_id": "SITE-GOLDEN"
+    },
+    "requested_output": [
+      "publication_package"
+    ],
+    "target_url": "https://example.com/price",
+    "improvement_goal": [
+      "fact_update"
+    ]
+  },
+  "fixture_draft": {
+    "seo_title": "アプリの最新料金を確認する方法",
+    "meta_description": "アプリの最新料金は契約画面で確認してください。料金は変更されることがあるため、申込前に公式案内を確認します。",
+    "h1": "アプリの最新料金を確認する方法",
+    "article_content": "アプリの最新料金は契約画面で確認してください。料金は変更されることがあるため、申込前に公式案内を確認します。",
+    "faq": [],
+    "internal_link_recommendations": [],
+    "unresolved_items": [],
+    "citations": [],
+    "model_assisted_checks": {
+      "QF-COM-001": "pass",
+      "QF-COM-002": "pass",
+      "QF-COM-003": "pass",
+      "QF-HLP-001": "pass",
+      "QF-HLP-002": "pass",
+      "QF-HLP-003": "pass",
+      "QF-JPN-001": "pass",
+      "QF-JPN-002": "pass",
+      "QF-ORG-001": "pass",
+      "QF-ORG-002": "pass",
+      "QF-EEA-001": "pass",
+      "QF-EEA-002": "pass",
+      "QF-INT-003": "pass",
+      "QF-SEO-003": "pass",
+      "QF-SEO-004": "pass",
+      "QF-SIT-001": "pass",
+      "QF-SIT-002": "pass",
+      "QF-SIT-003": "pass",
+      "QF-STR-002": "pass",
+      "QF-STR-003": "pass",
+      "QF-FAC-004": "pass"
+    },
+    "sections": [],
+    "experience_verified": false
+  },
+  "expected": {
+    "publish_decision": "revision_required",
+    "rules_evaluated": 42,
+    "gates_evaluated": 7,
+    "must_include": [
+      "最新料金"
+    ],
+    "must_not_include": []
+  }
+}

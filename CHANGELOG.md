@@ -1,3 +1,28 @@
+# Changelog
+
+## [0.13.0-alpha.1] - 2026-07-17
+
+### Added
+- CTR Improvement Vertical Slice
+- SBM JSONからDecision、Pattern、Draft、Quality、Publication Packageまでの実行CLI
+- CTR改善用の決定論的最小生成器とUAT
+- ADR-0017
+
+## [0.12.0-alpha.1] - 2026-07-17
+
+### Added
+
+- SIMS-Core Migration Framework v1.0
+- 暫定Migration Inventory 10件
+- Lessons Learned 12件
+- Keep / Adapt / Archive / Remove評価領域
+- Migration ValidatorとTest
+- ADR-0016
+
+### Note
+
+最新版SIMS-Core Repository ZIPは本Package作成時点で取得できていないため、原本ファイルの完全移行ではなく、確認可能な資料を基にした移行基盤と暫定評価を収録。
+
 # 0.9.0-alpha.1
 
 ## Added
@@ -7,6 +32,17 @@
 - ADR-0013 and runtime tests
 
 # Changelog
+
+## [0.11.0-alpha.1] - 2026-07-17
+
+### Added
+- 12-category Golden Dataset
+- End-to-End UAT runner and report
+- Fixed expected Publish Decision checks
+- Mandatory and forbidden output assertions
+- Model-Assisted Review fixture connection
+- ADR-0015 Golden Dataset as Release Gate
+
 
 ## [0.8.0-alpha.1] - 2026-07-17
 

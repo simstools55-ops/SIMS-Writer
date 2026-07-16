@@ -1,0 +1,64 @@
+{
+  "id": "GC-CST-007",
+  "slug": "cost-claim",
+  "category": "CST",
+  "description": "根拠のない具体的金額を避けた費用記事",
+  "input_type": "generic",
+  "request": {
+    "request_id": "REQ-GC-007",
+    "request_type": "new_article",
+    "main_query": "ルーター 電気代",
+    "site": {
+      "site_id": "SITE-GOLDEN"
+    },
+    "requested_output": [
+      "publication_package"
+    ]
+  },
+  "fixture_draft": {
+    "seo_title": "ルーターの電気代の調べ方",
+    "meta_description": "ルーターの電気代は消費電力と利用時間から計算します。月額は機種と料金単価で変わるため、仕様表と契約内容を確認してください。",
+    "h1": "ルーターの電気代の調べ方",
+    "article_content": "ルーターの電気代は消費電力と利用時間から計算します。月額は機種と料金単価で変わるため、仕様表と契約内容を確認してください。",
+    "faq": [],
+    "internal_link_recommendations": [],
+    "unresolved_items": [],
+    "citations": [
+      "official-reference"
+    ],
+    "model_assisted_checks": {
+      "QF-COM-001": "pass",
+      "QF-COM-002": "pass",
+      "QF-COM-003": "pass",
+      "QF-HLP-001": "pass",
+      "QF-HLP-002": "pass",
+      "QF-HLP-003": "pass",
+      "QF-JPN-001": "pass",
+      "QF-JPN-002": "pass",
+      "QF-ORG-001": "pass",
+      "QF-ORG-002": "pass",
+      "QF-EEA-001": "pass",
+      "QF-EEA-002": "pass",
+      "QF-INT-003": "pass",
+      "QF-SEO-003": "pass",
+      "QF-SEO-004": "pass",
+      "QF-SIT-001": "pass",
+      "QF-SIT-002": "pass",
+      "QF-SIT-003": "pass",
+      "QF-STR-002": "pass",
+      "QF-STR-003": "pass",
+      "QF-FAC-004": "pass"
+    },
+    "sections": [],
+    "experience_verified": false
+  },
+  "expected": {
+    "publish_decision": "publish_ready_with_advisory",
+    "rules_evaluated": 42,
+    "gates_evaluated": 7,
+    "must_include": [
+      "消費電力"
+    ],
+    "must_not_include": []
+  }
+}

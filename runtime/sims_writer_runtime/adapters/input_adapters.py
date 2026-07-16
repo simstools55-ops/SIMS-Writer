@@ -16,6 +16,12 @@ def normalize_generic(payload: dict[str, Any]) -> dict[str, Any]:
         "improvement_goal": payload.get("improvement_goal", []),
         "requested_output": payload.get("requested_output", ["publication_package"]),
         "source": "generic_json",
+        "existing_content": payload.get("existing_content") or payload.get("article_content") or "",
+        "current_title": payload.get("current_title") or payload.get("title") or "",
+        "seo_title": payload.get("seo_title") or "",
+        "meta_description": payload.get("meta_description") or "",
+        "supporting_queries": payload.get("supporting_queries") or [],
+        "performance": payload.get("performance") or {},
     }
 
 def normalize_sbm(payload: dict[str, Any]) -> dict[str, Any]:
@@ -31,4 +37,10 @@ def normalize_sbm(payload: dict[str, Any]) -> dict[str, Any]:
         "improvement_goal": payload.get("ImprovementGoal", []),
         "requested_output": ["publication_package", "before_after"],
         "source": "sims_blog_manager",
+        "existing_content": payload.get("ExistingContent") or payload.get("ArticleContent") or "",
+        "current_title": payload.get("ArticleTitle") or "",
+        "seo_title": payload.get("SEOTitle") or "",
+        "meta_description": payload.get("MetaDescription") or "",
+        "supporting_queries": payload.get("SupportingQueries") or [],
+        "performance": {"clicks": payload.get("Clicks"), "impressions": payload.get("Impressions"), "ctr": payload.get("CTR"), "average_position": payload.get("AveragePosition")},
     }

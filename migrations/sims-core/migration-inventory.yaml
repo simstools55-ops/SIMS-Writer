@@ -1,0 +1,110 @@
+version: 1.0.0
+status: review
+generated_at: '2026-07-17T05:00:00+09:00'
+scope_note: File Libraryで確認できたSIMS-Core関連資料をもとにした暫定台帳。最新版Repository ZIP未取得のため、個別ファイルの完全移行判定は未実施。
+assets:
+- id: SC-AST-001
+  name: CLAUDE_PROJECT_INSTRUCTIONS_v1.1.md
+  type: project_instruction
+  evidence: file_library
+  classification: adapt
+  target:
+  - runtime/adapters
+  - contracts
+  - knowledge
+  - quality
+  reason: Mission、利用者区分、標準Workflow、品質目標は有効。固定Output順、Prompt内品質基準、管理報告の強制は責務分離して再設計する。
+  confidence: high
+- id: SC-AST-002
+  name: SIMS Package v1.1 file structure
+  type: package_manifest
+  evidence: file_library
+  classification: archive
+  target:
+  - archive/sims-core/historical-design
+  reason: Knowledge、Engine、Template、Example、Managementの分離実績は参考になるが、現行Repository構造の代替にはしない。
+  confidence: high
+- id: SC-AST-003
+  name: Engine 01-07 workflow assets
+  type: engine_set
+  evidence: package_manifest_only
+  classification: adapt
+  target:
+  - knowledge
+  - decisions
+  - patterns
+  - runtime/pipeline
+  reason: Engine名や順序は継承しない。内部に含まれる判断、入力検証、監査、改善計画、最終確認を責務別に抽出する。
+  confidence: medium
+- id: SC-AST-004
+  name: Management Report / JSON / TSV schemas
+  type: output_schema
+  evidence: package_manifest_and_instruction
+  classification: adapt
+  target:
+  - contracts/publication
+  - contracts/integrations
+  reason: 構造化・コピー可能な出力思想は有効。固定列と必須出力はPublication Contractとして用途別に再設計する。
+  confidence: high
+- id: SC-AST-005
+  name: Knowledge Master v2.0.1 Professional
+  type: knowledge_registry
+  evidence: file_library
+  classification: adapt
+  target:
+  - knowledge/registry
+  - knowledge/site
+  reason: Knowledge管理とClaude向けExportの運用実績は継承価値がある。Spreadsheet固有形式とモデル固有ExportをCoreから分離する。
+  confidence: medium
+- id: SC-AST-006
+  name: Real operation output with English analysis leakage
+  type: failure_example
+  evidence: file_library
+  classification: keep
+  target:
+  - tests/golden
+  - knowledge/lessons-learned
+  - quality/rules/japanese
+  reason: 内部分析の英語露出、未確認記事の推測、CTR改善で好奇心を煽る判断などを再発防止Golden Caseとして利用する。
+  confidence: high
+- id: SC-AST-007
+  name: Preserve author intent / avoid keyword stuffing / natural Japanese
+  type: writing_principles
+  evidence: project_instruction
+  classification: keep
+  target:
+  - knowledge/writing
+  - quality/rules
+  - patterns/improvement
+  reason: SIMS WriterのCore Principlesと一致し、既存初期Knowledgeへ既に反映済み。移行元を追跡可能にする。
+  confidence: high
+- id: SC-AST-008
+  name: Fixed output order and always-on Management Report
+  type: workflow_constraint
+  evidence: project_instruction
+  classification: remove
+  target:
+  - archive/sims-core/review/remove
+  reason: 依頼や利用者に関係なく出力を固定し、追加情報と冗長性を生む。ContractとRequested Outputで制御する。
+  confidence: high
+- id: SC-AST-009
+  name: 'User profiles: Beginner / Advanced / Administrator'
+  type: user_model
+  evidence: project_instruction
+  classification: adapt
+  target:
+  - product/specifications
+  - knowledge/site
+  - contracts/request
+  reason: 利用者区分は有効だが、記事品質自体を下げず、説明量・表示情報・操作支援だけを変える設計にする。
+  confidence: high
+- id: SC-AST-010
+  name: Quality Score before/after
+  type: quality_metric
+  evidence: project_instruction_and_package_manifest
+  classification: adapt
+  target:
+  - quality/scoring
+  - contracts/quality
+  reason: 改善幅の可視化は有用。ただし単一スコアを公開判定に使わずGateとIssueを優先する。
+  confidence: high

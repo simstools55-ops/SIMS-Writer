@@ -1,0 +1,69 @@
+{
+  "id": "GC-IMP-002",
+  "slug": "existing-improvement",
+  "category": "IMP",
+  "description": "既存記事改善の正常系",
+  "input_type": "generic",
+  "request": {
+    "request_id": "REQ-GC-002",
+    "request_type": "existing_article_improvement",
+    "main_query": "wi-fi 電気代",
+    "site": {
+      "site_id": "SITE-GOLDEN"
+    },
+    "requested_output": [
+      "publication_package"
+    ],
+    "target_url": "https://example.com/wifi",
+    "improvement_goal": [
+      "ctr_improvement"
+    ]
+  },
+  "fixture_draft": {
+    "seo_title": "Wi-Fiルーターの電気代と確認方法",
+    "meta_description": "Wi-Fiルーターの電気代は、機器の消費電力と契約中の電気料金単価で変わります。機器の仕様表示と請求明細の単価を確認し、利用時間に応じて計算してください。",
+    "h1": "Wi-Fiルーターの電気代と確認方法",
+    "article_content": "Wi-Fiルーターの電気代は、機器の消費電力と契約中の電気料金単価で変わります。機器の仕様表示と請求明細の単価を確認し、利用時間に応じて計算してください。",
+    "faq": [],
+    "internal_link_recommendations": [],
+    "unresolved_items": [],
+    "citations": [
+      "official-product-spec",
+      "electricity-bill"
+    ],
+    "model_assisted_checks": {
+      "QF-COM-001": "pass",
+      "QF-COM-002": "pass",
+      "QF-COM-003": "pass",
+      "QF-HLP-001": "pass",
+      "QF-HLP-002": "pass",
+      "QF-HLP-003": "pass",
+      "QF-JPN-001": "pass",
+      "QF-JPN-002": "pass",
+      "QF-ORG-001": "pass",
+      "QF-ORG-002": "pass",
+      "QF-EEA-001": "pass",
+      "QF-EEA-002": "pass",
+      "QF-INT-003": "pass",
+      "QF-SEO-003": "pass",
+      "QF-SEO-004": "pass",
+      "QF-SIT-001": "pass",
+      "QF-SIT-002": "pass",
+      "QF-SIT-003": "pass",
+      "QF-STR-002": "pass",
+      "QF-STR-003": "pass",
+      "QF-FAC-004": "pass"
+    },
+    "sections": [],
+    "experience_verified": false
+  },
+  "expected": {
+    "publish_decision": "publish_ready_with_advisory",
+    "rules_evaluated": 42,
+    "gates_evaluated": 7,
+    "must_include": [
+      "消費電力"
+    ],
+    "must_not_include": []
+  }
+}
