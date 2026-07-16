@@ -35,6 +35,7 @@ def test_writer_creates_complete_reviewable_artifact_set(tmp_path):
     expected = {
         "runtime-result.json", "publication-package.json", "article.md",
         "improvement-report.md", "execution-manifest.json",
+        "artifact-validation.json", "publication-checklist.md",
     }
     assert {Path(path).name for path in written.values()} == expected
     assert all((tmp_path / name).exists() for name in expected)
@@ -43,12 +44,18 @@ def test_writer_creates_complete_reviewable_artifact_set(tmp_path):
     report = (tmp_path / "improvement-report.md").read_text(encoding="utf-8")
     manifest = json.loads((tmp_path / "execution-manifest.json").read_text(encoding="utf-8"))
     package = json.loads((tmp_path / "publication-package.json").read_text(encoding="utf-8"))
+    validation = json.loads((tmp_path / "artifact-validation.json").read_text(encoding="utf-8"))
+    checklist = (tmp_path / "publication-checklist.md").read_text(encoding="utf-8")
 
     assert article.startswith("# ")
     assert "よくある質問" in article
     assert "Before / After" in report
     assert manifest["execution_id"] == result.execution_id
     assert package["seo_title"]
+    assert validation["artifact_status"] == "valid"
+    assert validation["release_ready"] is True
+    assert len(validation["checksums"]) == 5
+    assert "公開チェックリスト" in checklist
 
 
 def test_writer_is_utf8_and_overwrites_same_output_safely(tmp_path):

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.0 - Publication Artifact Validation
+
+- Added deterministic validation for the persisted publication artifact set.
+- Added UTF-8 JSON, required file, identifier consistency, package completeness, and Markdown checks.
+- Added SHA-256 checksums and explicit artifact validity / release readiness results.
+- Added `artifact-validation.json` and `publication-checklist.md` outputs.
+- Added valid and invalid artifact-set regression tests.
+
 ## 0.5.0 - Structured Result Artifact Export
 
 - Added a reusable artifact writer for every Runtime execution.
