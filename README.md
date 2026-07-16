@@ -1,25 +1,46 @@
 # SIMS Writer
 
-SIMS Writerは、Quality Framework・Contracts・Knowledge・Decision Framework・Pattern Libraryを中核とし、Runtime CoreによってPublish Ready成果物へ接続する記事生成基盤です。
+SIMS Writerは、SIMS-Blog-Managerから受け取る改善依頼を、契約・知識・判断・パターン・品質ルールに基づいて処理し、公開判断付きの成果物へ変換する記事改善Runtimeです。
 
 ## Version
 
-`0.9.0-alpha.1`
+`0.1.0`
 
-## このパッケージ
+## Repository v0.1.0 の実装範囲
 
-v0.6.0までの全資産に加え、実行可能なRuntime Coreの最小実装を収録します。
+- 11 Stage Runtime Pipeline
+- Generic JSON / SIMS-Blog-Manager Input Adapter
+- 15 Contract Schema とExample Validation
+- 28 Knowledge Assets / 12 Decision Definitions / 61 Pattern Definitions
+- 42 Quality Rules / 13 Dimensions / 7 Quality Gates
+- Targeted Refinement Runtime
+- Provider-neutral Model Adapter基盤
+- CTR Improvement Vertical Slice
+- 12 Case Golden UAT
+- SIMS-Core移行評価基盤
 
-- 11 Stage Pipeline（Decision Evaluationを含む）
-- Runtime Orchestrator / State Model
-- Runtime Manifest / Asset Version Lock
-- Execution Record / Error Mapping
-- Generic JSON・SBM Input Adapter
-- Manual Model Adapter（安全な構造検証用）
-- Contract / Registry / Pipeline Validator
-- Dry-run CLIとEnd-to-End Test
+## セットアップ
 
-## 実行例
+```bash
+python -m pip install -r requirements.txt
+```
+
+## Repository一括テスト
+
+```bash
+python -m pytest
+```
+
+## CTR Vertical Slice実行
+
+```bash
+python tools/run_ctr_vertical_slice.py \
+  examples/vertical-slices/ctr-improvement/sbm-request.json \
+  --repo-root . \
+  --output ctr-result.json
+```
+
+## Runtime Core実行
 
 ```bash
 python -m runtime.sims_writer_runtime.cli \
@@ -27,50 +48,6 @@ python -m runtime.sims_writer_runtime.cli \
   --output runtime-output
 ```
 
-このAlphaでは、Runtime接続・状態遷移・追跡性を検証します。公開記事本文の本生成は次期Model Adapter Packageで実装します。
+## 開発方針
 
-## 検証
-
-```bash
-python tools/validators/validate_runtime.py
-python tests/runtime/test_runtime_core.py
-python tests/contracts/test_contract_examples.py
-```
-
-SIMS Writer RepositoryをSingle Source of Truthとして管理します。
-
-
-## v0.9.0-alpha.1 Model Adapters
-
-Claude Messages、OpenAI Responses、Generic Chat向けのProvider非依存Adapter基盤、Context Builder、JSON Output Parser、Fixture E2E Testを追加しました。外部APIキーとライブ接続は同梱していません。
-
-
-## v0.9.0-alpha.1 Quality Validation Runtime
-
-42件の正式Quality Rule、13 Dimension、7 GateをRuntimeで実行します。機械判定できない規則は `unable_to_verify` として可視化し、根拠のないPublish Ready判定を防ぎます。
-
-## v0.11.0-alpha.1 Targeted Refinement
-
-Quality Issueを対象Componentと原因Stageへ振り分け、安全な自動修正後に42 Quality Ruleを再実行します。事実や検索意図は推測で補わず、Targeted RevisionまたはManual Reviewとして残します。
-
-
-## Golden UAT
-
-```bash
-python tools/uat/run_golden_uat.py
-```
-
-12の固定Caseで、Quality Rule・Gate・Refinement・Publish Decisionの回帰を確認します。
-
-
-## v0.12 SIMS-Core Migration
-
-SIMS-CoreからはArchitectureをコピーせず、Knowledge・Decision・Pattern・Quality Rule・Golden Caseとして有効な知見を評価移行します。暫定台帳は `migrations/sims-core/`、Lessons Learnedは `knowledge/lessons-learned/sims-core/` にあります。
-
-## v0.13 CTR Vertical Slice
-
-SBM形式JSONを使い、CTR改善のタイトル・導入・FAQ判断からQuality Validation、Publication Packageまでを実行できます。
-
-```bash
-python tools/run_ctr_vertical_slice.py examples/vertical-slices/ctr-improvement/sbm-request.json --repo-root . --output ctr-result.json
-```
+Repository全体をSingle Source of Truthとして管理します。SIMS-Coreの資産は構造をそのまま移植せず、Knowledge・Decision・Pattern・Quality Rule・Golden Caseとして評価して取り込みます。

@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.1.0] - 2026-07-17
+
+### Added
+- Product 1.0 Implementation Phaseの初期Repository Baseline
+- Repository一括テスト用 `pyproject.toml` と `requirements.txt`
+- 実装済みCTR Improvement Vertical Slice
+- Runtime、Contract、Knowledge、Decision、Pattern、Quality、Golden UAT資産
+
+### Fixed
+- Contract Example Testがpytest collection時に終了する問題を修正
+- READMEとVERSIONの不整合を解消
+
+### Release Gate
+- `python -m pytest` が成功すること
+- CTR Vertical Slice CLIが正常終了すること
+- ZIP内に `.git`、`__pycache__`、生成ログを含めないこと
+
+## Pre-implementation history
+
+
 ## [0.13.0-alpha.1] - 2026-07-17
 
 ### Added
