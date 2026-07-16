@@ -8,11 +8,13 @@ from .asset_loader import build_manifest
 from .adapters.input_adapters import normalize_generic, normalize_sbm
 from .adapters.manual_model import ManualModelAdapter
 from .adapters.model_protocol import ProductionAdapter
+from .quality.engine import QualityValidationEngine
 
 class RuntimeOrchestrator:
     def __init__(self, repo_root: Path, adapter: ProductionAdapter | None = None):
         self.repo_root = repo_root
         self.adapter = adapter or ManualModelAdapter()
+        self.quality_engine = QualityValidationEngine(repo_root)
 
     def execute(self, raw: dict[str, Any], input_type: str = "generic") -> RuntimeResult:
         execution_id = f"EXE-{uuid4().hex[:12].upper()}"
@@ -58,19 +60,18 @@ class RuntimeOrchestrator:
             else:
                 self._manual(records, "content_production", "Production adapter did not return article content")
 
-            blockers=[]
-            if not draft.get("article_content"): blockers.append("article_content_missing")
-            if draft.get("unresolved_items"): blockers.append("unresolved_items_remaining")
-            recommendation = "revision_required" if blockers else "publish_ready_with_advisory"
-            artifacts["quality_report"] = {"publish_recommendation":recommendation,"blockers":blockers,"framework_version":"1.0.0","notice":"Alpha validator checks structural blockers only; full 42-rule evaluation is not yet executable."}
-            if blockers: self._manual(records, "quality_validation", "Publication blocker remains")
-            else: self._warn(records, "quality_validation", "Structural validation passed; full quality rules require next package")
-            self._skip(records, "refinement", "No targeted issue requiring alpha refinement" if not blockers else "Refinement engine not yet implemented")
+            quality_context = {"main_query": request.get("main_query"), "sources": artifacts.get("source_evidence", []), "experience_verified": False}
+            artifacts["quality_report"] = self.quality_engine.evaluate(draft, quality_context)
+            decision = artifacts["quality_report"]["publish_recommendation"]
+            if decision == "publish_ready": self._pass(records, "quality_validation")
+            elif decision == "publish_ready_with_advisory": self._warn(records, "quality_validation", "Quality rules completed with advisories")
+            else: self._manual(records, "quality_validation", "Quality rules require revision or review")
+            self._skip(records, "refinement", "Targeted refinement execution is scheduled for the next package")
 
-            decision = "revision_required" if blockers else "publish_ready_with_advisory"
-            artifacts["publication_package"] = {"publish_decision":decision,"article_content":draft.get("article_content"),"seo_title":draft.get("seo_title"),"meta_description":draft.get("meta_description"),"h1":draft.get("h1"),"quality_summary":artifacts["quality_report"],"runtime_notice":"Model output was structurally validated. Full Publish Ready certification is deferred until executable Quality Rules are implemented."}
-            if blockers: self._manual(records, "publication_packaging", "Package requires revision")
-            else: self._warn(records, "publication_packaging", "Package generated with alpha advisory")
+            artifacts["publication_package"] = {"publish_decision":decision,"article_content":draft.get("article_content"),"seo_title":draft.get("seo_title"),"meta_description":draft.get("meta_description"),"h1":draft.get("h1"),"quality_summary":artifacts["quality_report"],"runtime_notice":"All 42 canonical Quality Rules were executed. Context-dependent rules may remain unable_to_verify until model-assisted or human review evidence is supplied."}
+            if decision in ("revision_required", "manual_review_required", "rejected"): self._manual(records, "publication_packaging", "Package requires revision or review")
+            elif decision == "publish_ready_with_advisory": self._warn(records, "publication_packaging", "Package generated with advisory")
+            else: self._pass(records, "publication_packaging")
             status = decision
         except Exception as exc:
             current = next((r for r in records if r.status == "pending"), records[-1])

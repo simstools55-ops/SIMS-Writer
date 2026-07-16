@@ -1,3 +1,11 @@
+# 0.9.0-alpha.1
+
+## Added
+- Executable Quality Validation Runtime for all 42 canonical rules
+- 13-dimension scoring and 7-gate evaluation
+- Explicit unable_to_verify state
+- ADR-0013 and runtime tests
+
 # Changelog
 
 ## [0.8.0-alpha.1] - 2026-07-17
