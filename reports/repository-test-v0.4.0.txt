@@ -1,0 +1,28 @@
+
+=== -m pytest ===
+.............                                                            [100%]
+=============================== warnings summary ===============================
+tests/contracts/test_contract_examples.py:5
+tests/contracts/test_contract_examples.py:5
+  /mnt/data/sims_writer_work/SIMS-Writer/tests/contracts/test_contract_examples.py:5: DeprecationWarning: jsonschema.RefResolver is deprecated as of v4.18.0, in favor of the https://github.com/python-jsonschema/referencing library, which provides more compliant referencing behavior as well as more flexible APIs for customization. A future release will remove RefResolver. Please file a feature request (on referencing) if you are missing an API for the kind of customization you need.
+    from jsonschema import Draft202012Validator, RefResolver
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+13 passed, 2 warnings in 8.75s
+
+=== tools/validators/validate_knowledge.py ===
+KNOWLEDGE VALIDATION PASSED: 28 items, 10 sets, 6 sources
+
+=== tools/validators/validate_patterns.py ===
+Pattern validation passed: 61 patterns, 8 sets
+
+=== tools/validators/validate_quality_rules.py ===
+PASS: 42 rules and 7 gates validated
+
+=== tests/migration/test_sims_core_migration.py ===
+SIMS-Core assets: 10
+Lessons learned: 12
+SIMS-Core migration validation: PASS
+
+
+Repository release gate: 5/5 passed

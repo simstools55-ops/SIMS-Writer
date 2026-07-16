@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.0 - Deterministic Improvement Generation
+
+- Added the deterministic CTR improvement adapter as the default runtime production adapter.
+- Connected request metrics, source snapshot, knowledge selection, and content planning to proposal generation.
+- Added SEO title, introduction, FAQ, before/after, and change-reason artifacts.
+- Added end-to-end runtime tests for generated and missing-source paths.
+
 ## [0.3.0] - 2026-07-17
 
 ### Added

@@ -1,19 +1,19 @@
-# SIMS Writer Repository v0.3.0
+# SIMS Writer Repository v0.4.0
 
 ## Release Scope
 
-既存記事本文をRuntimeへ安全に取り込み、改善判断の根拠となるSource Snapshotを生成するSource Acquisition Vertical Slice。
+改善依頼、記事本文、検索指標を使い、外部LLMなしでも保守的なCTR改善案を生成する最初の実用Vertical Slice。
 
 ## Implemented
 
-- HTML / Markdown / Plain Text自動判定
-- タイトル・H1〜H6・本文抽出
-- script / style等の非本文除外
-- 原文保持と正規化本文生成
-- 文字数・行数・SHA-256記録
-- 短文・見出し不足の警告
-- 本文未提供時の手動確認判定
-- Runtime Source Acquisition Stage接続
+- 決定的CTR改善AdapterをRuntime既定Adapterとして接続
+- SEOタイトル、導入文、FAQの改善提案生成
+- 現行値と改善後を比較するBefore / After生成
+- 改善理由の構造化出力
+- Search Console指標と補助クエリに基づく判断
+- Knowledge選択とContent PlanのRuntime実接続
+- 本文未提供時のmanual_review_required維持
+- End-to-End Runtime統合テスト
 
 ## Release Gate
 
