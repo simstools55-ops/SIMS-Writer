@@ -1,0 +1,9 @@
+{
+  "RequestID": "REQ-SBM-001",
+  "ArticleID": "A000301",
+  "URL": "https://example.com/article",
+  "MainQuery": "wi-fi 電気代",
+  "ImprovementGoal": [
+    "ctr_improvement"
+  ]
+}

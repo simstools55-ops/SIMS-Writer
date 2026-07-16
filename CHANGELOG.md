@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.7.0-alpha.1] - 2026-07-17
+
+### Added
+- Runtime Core with 11-stage decision-aware pipeline.
+- Orchestrator, execution state, runtime manifest, asset version locking.
+- Generic JSON and SIMS-Blog-Manager input adapters.
+- Manual model adapter and deterministic dry-run publication package.
+- Runtime validators, end-to-end tests, examples, and ADR-0011.
+
 ## [0.6.0-alpha.1] - 2026-07-17
 
 ### Added

@@ -1,0 +1,13 @@
+{
+  "runtime_version": "0.7.0-alpha.1",
+  "execution_id": "EXE-EXAMPLE001",
+  "locked_at": "2026-07-17T00:00:00+00:00",
+  "asset_lock": {
+    "contracts": 15,
+    "quality_rules": 42,
+    "quality_gates": 7,
+    "decisions": 12,
+    "patterns": 61,
+    "pattern_sets": 8
+  }
+}

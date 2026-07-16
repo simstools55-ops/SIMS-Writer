@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "states": [
+    "pending",
+    "running",
+    "passed",
+    "passed_with_warning",
+    "failed",
+    "blocked",
+    "skipped",
+    "manual_review_required"
+  ],
+  "terminal_execution_states": [
+    "completed",
+    "completed_with_warning",
+    "manual_review_required",
+    "failed",
+    "cancelled"
+  ]
+}

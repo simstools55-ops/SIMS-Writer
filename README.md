@@ -1,45 +1,40 @@
 # SIMS Writer
 
-SIMS Writerは、Quality Framework・Contracts・Knowledge・Decision Framework・Pattern Libraryを中核とするPublish Ready記事生成基盤です。
+SIMS Writerは、Quality Framework・Contracts・Knowledge・Decision Framework・Pattern Libraryを中核とし、Runtime CoreによってPublish Ready成果物へ接続する記事生成基盤です。
 
 ## Version
 
-`0.6.0-alpha.1`
+`0.7.0-alpha.1`
 
 ## このパッケージ
 
-v0.4.0までのFoundation、Contracts、Quality、Knowledgeに加え、判断を明示的な製品資産として扱うDecision Frameworkを実装しています。
+v0.6.0までの全資産に加え、実行可能なRuntime Coreの最小実装を収録します。
 
-- Decision Framework v1.0
-- 12 Initial Decision Definitions
-- 3 Decision Contracts / JSON Schemas
-- Decision Registry
-- Decision Policy / Conflict Policy / Explainability Policy
-- Decision Validator / Automated Tests
-- ADR-0009 Decision Layer Between Knowledge and Pattern
+- 11 Stage Pipeline（Decision Evaluationを含む）
+- Runtime Orchestrator / State Model
+- Runtime Manifest / Asset Version Lock
+- Execution Record / Error Mapping
+- Generic JSON・SBM Input Adapter
+- Manual Model Adapter（安全な構造検証用）
+- Contract / Registry / Pipeline Validator
+- Dry-run CLIとEnd-to-End Test
 
-## 中核構造
+## 実行例
 
-```text
-Quality Framework
-Contracts
-Knowledge
-Decision Framework
-Pattern Library
-Runtime
+```bash
+python -m runtime.sims_writer_runtime.cli \
+  --input examples/runtime/generic-request.json \
+  --output runtime-output
 ```
+
+このAlphaでは、Runtime接続・状態遷移・追跡性を検証します。公開記事本文の本生成は次期Model Adapter Packageで実装します。
 
 ## 検証
 
 ```bash
-python tools/validators/validate_decisions.py
-python tests/decisions/test_decision_assets.py
+python tools/validators/validate_runtime.py
+python tests/runtime/test_runtime_core.py
 python tests/contracts/test_contract_examples.py
 ```
 
 SIMS Writer RepositoryをSingle Source of Truthとして管理します。
-
-
-## Pattern Library v0.6.0-alpha.1
-
-Decision Action Planに基づき、必要なPatternだけを選択して記事設計・生成へ適用する初期Pattern Libraryを収録します。
