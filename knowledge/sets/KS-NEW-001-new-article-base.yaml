@@ -1,0 +1,19 @@
+id: KS-NEW-001
+name: New Article Base
+version: 1.0.0
+status: active
+required_items:
+- KN-PRD-001
+- KN-SEO-001
+- KN-SEO-002
+- KN-SEO-003
+- KN-CDS-001
+- KN-CDS-002
+- KN-CDS-003
+- KN-WRI-001
+- KN-WRI-002
+optional_items: []
+selection_rules: []
+exclusion_rules: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

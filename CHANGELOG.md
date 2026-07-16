@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.4.0-alpha.1] - 2026-07-17
+
+### Added
+- 28 initial Knowledge Items
+- 10 Knowledge Sets
+- Source, Knowledge, and Knowledge Set registries
+- Source, confidence, review, and assembly policies
+- Knowledge validation tool
+
 ## 0.3.0-alpha.1 - 2026-07-17
 
 ### Added

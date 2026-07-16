@@ -1,0 +1,44 @@
+version: 1.0.0
+sources:
+- id: SRC-PRD-001
+  title: SIMS Writer Product Philosophy v1.0
+  source_type: internal_decision
+  authority_level: A
+  reliability: verified
+  path: product/philosophy/product-philosophy-v1.0.md
+  status: active
+- id: SRC-PRD-002
+  title: SIMS Writer Core Principles v1.0
+  source_type: internal_decision
+  authority_level: A
+  reliability: verified
+  path: product/principles/core-principles-v1.0.md
+  status: active
+- id: SRC-QLT-001
+  title: SIMS Writer Quality Framework v1.0
+  source_type: internal_decision
+  authority_level: A
+  reliability: verified
+  path: quality/framework/quality-framework-v1.0.md
+  status: active
+- id: SRC-KNW-001
+  title: SIMS Writer Knowledge Architecture v1.0
+  source_type: internal_decision
+  authority_level: A
+  reliability: verified
+  path: knowledge/framework/knowledge-architecture-v1.0.md
+  status: active
+- id: SRC-DOM-001
+  title: SIMS Writer Domain Model v1.0
+  source_type: internal_decision
+  authority_level: A
+  reliability: verified
+  path: architecture/domain/domain-model-v1.0.md
+  status: active
+- id: SRC-OPS-001
+  title: SIMS-Core Operational Lessons Intake
+  source_type: operational_evidence
+  authority_level: D
+  reliability: provisional
+  path: archive/sims-core/README.md
+  status: review

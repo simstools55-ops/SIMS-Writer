@@ -11,7 +11,9 @@ fail_condition: 一般論だけで具体的行動につながらない。
 warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
 auto_fix_eligible: false
 manual_review_required: false
-related_knowledge: []
+related_knowledge:
+- KN-SEO-002
+- KN-WRI-003
 related_patterns: []
 reviewed_at: '2026-07-17'
 next_review_at: '2027-01-17'

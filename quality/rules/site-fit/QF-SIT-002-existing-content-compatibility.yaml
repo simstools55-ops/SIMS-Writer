@@ -11,7 +11,10 @@ fail_condition: 既存記事を無視し価値や整合性を損ねる。
 warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
 auto_fix_eligible: false
 manual_review_required: false
-related_knowledge: []
+related_knowledge:
+- KN-PRD-003
+- KN-OPS-001
+- KN-OPS-002
 related_patterns: []
 reviewed_at: '2026-07-17'
 next_review_at: '2027-01-17'

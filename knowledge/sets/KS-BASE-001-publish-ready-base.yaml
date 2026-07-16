@@ -1,0 +1,19 @@
+id: KS-BASE-001
+name: Publish Ready Base
+version: 1.0.0
+status: active
+required_items:
+- KN-PRD-001
+- KN-PRD-002
+- KN-PRD-004
+- KN-SEO-001
+- KN-SEO-002
+- KN-WRI-002
+- KN-WRI-006
+- KN-FAC-003
+- KN-FAC-004
+optional_items: []
+selection_rules: []
+exclusion_rules: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

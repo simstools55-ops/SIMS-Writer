@@ -1,0 +1,15 @@
+id: KS-JPN-001
+name: Japanese Quality
+version: 1.0.0
+status: active
+required_items:
+- KN-WRI-001
+- KN-WRI-002
+- KN-WRI-004
+- KN-WRI-005
+- KN-WRI-006
+optional_items: []
+selection_rules: []
+exclusion_rules: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

@@ -11,7 +11,10 @@ fail_condition: 内容の水増しとなる重複が多い。
 warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
 auto_fix_eligible: true
 manual_review_required: false
-related_knowledge: []
+related_knowledge:
+- KN-WRI-001
+- KN-WRI-004
+- KN-WRI-005
 related_patterns: []
 reviewed_at: '2026-07-17'
 next_review_at: '2027-01-17'

@@ -1,0 +1,198 @@
+version: 1.0.0
+knowledge:
+- id: KN-PRD-001
+  title: Publish Ready Is the Default
+  category: product
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/product/KN-PRD-001-publish-ready-is-the-default.md
+- id: KN-PRD-002
+  title: Evidence Over Assumption
+  category: product
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/product/KN-PRD-002-evidence-over-assumption.md
+- id: KN-PRD-003
+  title: Preserve Proven Value
+  category: product
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/product/KN-PRD-003-preserve-proven-value.md
+- id: KN-PRD-004
+  title: Fail Explicitly
+  category: product
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/product/KN-PRD-004-fail-explicitly.md
+- id: KN-SEO-001
+  title: Primary Intent Before Structure
+  category: seo
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/seo/KN-SEO-001-primary-intent-before-structure.md
+- id: KN-SEO-002
+  title: Main Answer Must Be Explicit
+  category: seo
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/seo/KN-SEO-002-main-answer-must-be-explicit.md
+- id: KN-SEO-003
+  title: Title Must Match Article Promise
+  category: seo
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/seo/KN-SEO-003-title-must-match-article-promise.md
+- id: KN-SEO-004
+  title: Natural Query Usage
+  category: seo
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/seo/KN-SEO-004-natural-query-usage.md
+- id: KN-SEO-005
+  title: Separate Out-of-Scope Intent
+  category: seo
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/seo/KN-SEO-005-separate-out-of-scope-intent.md
+- id: KN-SEO-006
+  title: CTR Improvement Requires Body Alignment
+  category: seo
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/seo/KN-SEO-006-ctr-improvement-requires-body-alignment.md
+- id: KN-WRI-001
+  title: Answer-First Introduction
+  category: writing
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/writing/KN-WRI-001-answer-first-introduction.md
+- id: KN-WRI-002
+  title: One Section One Purpose
+  category: writing
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/writing/KN-WRI-002-one-section-one-purpose.md
+- id: KN-WRI-003
+  title: Procedure Must Reach Completion
+  category: writing
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/writing/KN-WRI-003-procedure-must-reach-completion.md
+- id: KN-WRI-004
+  title: FAQ Must Add New Value
+  category: writing
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/writing/KN-WRI-004-faq-must-add-new-value.md
+- id: KN-WRI-005
+  title: Conclusion Without Repetition
+  category: writing
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/writing/KN-WRI-005-conclusion-without-repetition.md
+- id: KN-WRI-006
+  title: Natural Japanese Over Formulaic Politeness
+  category: writing
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/writing/KN-WRI-006-natural-japanese-over-formulaic-politeness.md
+- id: KN-CDS-001
+  title: Define Content Scope
+  category: content-design
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/content-design/KN-CDS-001-define-content-scope.md
+- id: KN-CDS-002
+  title: Map Required Content Before Drafting
+  category: content-design
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/content-design/KN-CDS-002-map-required-content-before-drafting.md
+- id: KN-CDS-003
+  title: Reader Level Controls Explanation Depth
+  category: content-design
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/content-design/KN-CDS-003-reader-level-controls-explanation-depth.md
+- id: KN-FAC-001
+  title: Verify Time-Sensitive Claims
+  category: factuality
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/factuality/KN-FAC-001-verify-time-sensitive-claims.md
+- id: KN-FAC-002
+  title: Numeric Claims Need Basis
+  category: factuality
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/factuality/KN-FAC-002-numeric-claims-need-basis.md
+- id: KN-FAC-003
+  title: Separate Fact and Opinion
+  category: factuality
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/factuality/KN-FAC-003-separate-fact-and-opinion.md
+- id: KN-FAC-004
+  title: Unable to Verify Must Remain Visible
+  category: factuality
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/factuality/KN-FAC-004-unable-to-verify-must-remain-visible.md
+- id: KN-OPS-001
+  title: Targeted Revision Before Full Rewrite
+  category: operations
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/operations/KN-OPS-001-targeted-revision-before-full-rewrite.md
+- id: KN-OPS-002
+  title: Track Before and After
+  category: operations
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/operations/KN-OPS-002-track-before-and-after.md
+- id: KN-OPS-003
+  title: Do Not Promote Single Outcomes
+  category: operations
+  version: 1.0.0
+  status: active
+  confidence: medium
+  path: knowledge/operations/KN-OPS-003-do-not-promote-single-outcomes.md
+- id: KN-LES-001
+  title: Engine Structure Is Not Product Knowledge
+  category: lessons-learned
+  version: 1.0.0
+  status: review
+  confidence: verified
+  path: knowledge/lessons-learned/KN-LES-001-engine-structure-is-not-product-knowledge.md
+- id: KN-LES-002
+  title: Extract Decisions, Not Prompt Wording
+  category: lessons-learned
+  version: 1.0.0
+  status: review
+  confidence: medium
+  path: knowledge/lessons-learned/KN-LES-002-extract-decisions-not-prompt-wording.md

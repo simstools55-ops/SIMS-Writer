@@ -11,7 +11,8 @@ fail_condition: 主題がずれ、主要な疑問に答えていない。
 warning_condition: 判定に必要な情報が不足する場合はunable_to_verifyまたはwarningとする。
 auto_fix_eligible: false
 manual_review_required: false
-related_knowledge: []
+related_knowledge:
+- KN-SEO-001
 related_patterns: []
 reviewed_at: '2026-07-17'
 next_review_at: '2027-01-17'

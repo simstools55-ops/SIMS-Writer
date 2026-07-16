@@ -1,0 +1,16 @@
+id: KS-CMP-001
+name: Comparison Article
+version: 1.0.0
+status: active
+required_items:
+- KN-SEO-001
+- KN-CDS-001
+- KN-CDS-002
+- KN-CDS-003
+- KN-FAC-002
+- KN-FAC-003
+optional_items: []
+selection_rules: []
+exclusion_rules: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'
