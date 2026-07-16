@@ -1,0 +1,683 @@
+{
+  "framework_version": "1.0.0",
+  "patterns": [
+    {
+      "id": "PT-PLN-001",
+      "name": "Primary Intent Identification",
+      "category": "planning",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/planning/PT-PLN-001-primary-intent-identification.yaml",
+      "related_decisions": [
+        "DEC-SCP-001"
+      ]
+    },
+    {
+      "id": "PT-PLN-002",
+      "name": "Main Answer Definition",
+      "category": "planning",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/planning/PT-PLN-002-main-answer-definition.yaml",
+      "related_decisions": [
+        "DEC-SCP-001"
+      ]
+    },
+    {
+      "id": "PT-PLN-003",
+      "name": "Content Scope Boundary",
+      "category": "planning",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/planning/PT-PLN-003-content-scope-boundary.yaml",
+      "related_decisions": [
+        "DEC-SCP-001",
+        "DEC-SEP-001"
+      ]
+    },
+    {
+      "id": "PT-PLN-004",
+      "name": "Required Content Mapping",
+      "category": "planning",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/planning/PT-PLN-004-required-content-mapping.yaml",
+      "related_decisions": [
+        "DEC-SCP-001"
+      ]
+    },
+    {
+      "id": "PT-PLN-005",
+      "name": "Existing Value Identification",
+      "category": "planning",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/planning/PT-PLN-005-existing-value-identification.yaml",
+      "related_decisions": [
+        "DEC-IMP-001",
+        "DEC-IMP-002"
+      ]
+    },
+    {
+      "id": "PT-PLN-006",
+      "name": "Evidence Planning",
+      "category": "planning",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/planning/PT-PLN-006-evidence-planning.yaml",
+      "related_decisions": [
+        "DEC-EVD-001"
+      ]
+    },
+    {
+      "id": "PT-PLN-007",
+      "name": "Separate Article Intent Detection",
+      "category": "planning",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/planning/PT-PLN-007-separate-article-intent-detection.yaml",
+      "related_decisions": [
+        "DEC-SEP-001"
+      ]
+    },
+    {
+      "id": "PT-ART-001",
+      "name": "How-to Article",
+      "category": "article",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/article/PT-ART-001-how-to-article.yaml",
+      "related_decisions": [
+        "DEC-SCP-001"
+      ]
+    },
+    {
+      "id": "PT-ART-002",
+      "name": "Troubleshooting Article",
+      "category": "article",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/article/PT-ART-002-troubleshooting-article.yaml",
+      "related_decisions": [
+        "DEC-SCP-001"
+      ]
+    },
+    {
+      "id": "PT-ART-003",
+      "name": "Comparison Article",
+      "category": "article",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/article/PT-ART-003-comparison-article.yaml",
+      "related_decisions": [
+        "DEC-SCP-001"
+      ]
+    },
+    {
+      "id": "PT-ART-004",
+      "name": "Definition Article",
+      "category": "article",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/article/PT-ART-004-definition-article.yaml",
+      "related_decisions": [
+        "DEC-SCP-001"
+      ]
+    },
+    {
+      "id": "PT-ART-005",
+      "name": "Cost Article",
+      "category": "article",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/article/PT-ART-005-cost-article.yaml",
+      "related_decisions": [
+        "DEC-SCP-001"
+      ]
+    },
+    {
+      "id": "PT-ART-006",
+      "name": "Cause and Solution Article",
+      "category": "article",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/article/PT-ART-006-cause-and-solution-article.yaml",
+      "related_decisions": [
+        "DEC-SCP-001"
+      ]
+    },
+    {
+      "id": "PT-ART-007",
+      "name": "Settings Guide",
+      "category": "article",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/article/PT-ART-007-settings-guide.yaml",
+      "related_decisions": [
+        "DEC-SCP-001"
+      ]
+    },
+    {
+      "id": "PT-SEC-001",
+      "name": "Answer-First Introduction",
+      "category": "section",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/section/PT-SEC-001-answer-first-introduction.yaml",
+      "related_decisions": [
+        "DEC-STR-001"
+      ]
+    },
+    {
+      "id": "PT-SEC-002",
+      "name": "Problem Recognition Introduction",
+      "category": "section",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/section/PT-SEC-002-problem-recognition-introduction.yaml",
+      "related_decisions": [
+        "DEC-STR-001"
+      ]
+    },
+    {
+      "id": "PT-SEC-003",
+      "name": "Step-by-Step Procedure",
+      "category": "section",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/section/PT-SEC-003-step-by-step-procedure.yaml",
+      "related_decisions": [
+        "DEC-STR-002"
+      ]
+    },
+    {
+      "id": "PT-SEC-004",
+      "name": "Comparison Criteria",
+      "category": "section",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/section/PT-SEC-004-comparison-criteria.yaml",
+      "related_decisions": [
+        "DEC-STR-002"
+      ]
+    },
+    {
+      "id": "PT-SEC-005",
+      "name": "Warning and Exception",
+      "category": "section",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/section/PT-SEC-005-warning-and-exception.yaml",
+      "related_decisions": [
+        "DEC-EVD-001"
+      ]
+    },
+    {
+      "id": "PT-SEC-006",
+      "name": "FAQ Complement",
+      "category": "section",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/section/PT-SEC-006-faq-complement.yaml",
+      "related_decisions": [
+        "DEC-FAQ-001"
+      ]
+    },
+    {
+      "id": "PT-SEC-007",
+      "name": "Non-Repetitive Conclusion",
+      "category": "section",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/section/PT-SEC-007-non-repetitive-conclusion.yaml",
+      "related_decisions": [
+        "DEC-IMP-001"
+      ]
+    },
+    {
+      "id": "PT-SEC-008",
+      "name": "Internal Link Context",
+      "category": "section",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/section/PT-SEC-008-internal-link-context.yaml",
+      "related_decisions": [
+        "DEC-LNK-001"
+      ]
+    },
+    {
+      "id": "PT-SEO-001",
+      "name": "Low CTR High Rank Title Improvement",
+      "category": "seo",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/seo/PT-SEO-001-low-ctr-high-rank-title-improvement.yaml",
+      "related_decisions": [
+        "DEC-SEO-001"
+      ]
+    },
+    {
+      "id": "PT-SEO-002",
+      "name": "Title and H1 Role Separation",
+      "category": "seo",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/seo/PT-SEO-002-title-and-h1-role-separation.yaml",
+      "related_decisions": [
+        "DEC-SEO-001",
+        "DEC-SEO-002"
+      ]
+    },
+    {
+      "id": "PT-SEO-003",
+      "name": "Main Query Natural Placement",
+      "category": "seo",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/seo/PT-SEO-003-main-query-natural-placement.yaml",
+      "related_decisions": [
+        "DEC-SEO-001",
+        "DEC-STR-002"
+      ]
+    },
+    {
+      "id": "PT-SEO-004",
+      "name": "Supporting Query Coverage",
+      "category": "seo",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/seo/PT-SEO-004-supporting-query-coverage.yaml",
+      "related_decisions": [
+        "DEC-SCP-001"
+      ]
+    },
+    {
+      "id": "PT-SEO-005",
+      "name": "Cannibalization Separation",
+      "category": "seo",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/seo/PT-SEO-005-cannibalization-separation.yaml",
+      "related_decisions": [
+        "DEC-SEP-001"
+      ]
+    },
+    {
+      "id": "PT-SEO-006",
+      "name": "Internal Link Relevance",
+      "category": "seo",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/seo/PT-SEO-006-internal-link-relevance.yaml",
+      "related_decisions": [
+        "DEC-LNK-001"
+      ]
+    },
+    {
+      "id": "PT-SEO-007",
+      "name": "Meta Description Intent Summary",
+      "category": "seo",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/seo/PT-SEO-007-meta-description-intent-summary.yaml",
+      "related_decisions": [
+        "DEC-SEO-001"
+      ]
+    },
+    {
+      "id": "PT-IMP-001",
+      "name": "Preserve and Revise",
+      "category": "improvement",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/improvement/PT-IMP-001-preserve-and-revise.yaml",
+      "related_decisions": [
+        "DEC-IMP-001"
+      ]
+    },
+    {
+      "id": "PT-IMP-002",
+      "name": "Targeted Revision Before Full Rewrite",
+      "category": "improvement",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/improvement/PT-IMP-002-targeted-revision-before-full-rewrite.yaml",
+      "related_decisions": [
+        "DEC-IMP-002"
+      ]
+    },
+    {
+      "id": "PT-IMP-003",
+      "name": "Outdated Information Refresh",
+      "category": "improvement",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/improvement/PT-IMP-003-outdated-information-refresh.yaml",
+      "related_decisions": [
+        "DEC-EVD-001",
+        "DEC-IMP-001"
+      ]
+    },
+    {
+      "id": "PT-IMP-004",
+      "name": "Content Gap Completion",
+      "category": "improvement",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/improvement/PT-IMP-004-content-gap-completion.yaml",
+      "related_decisions": [
+        "DEC-IMP-001"
+      ]
+    },
+    {
+      "id": "PT-IMP-005",
+      "name": "Heading Reorganization",
+      "category": "improvement",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/improvement/PT-IMP-005-heading-reorganization.yaml",
+      "related_decisions": [
+        "DEC-STR-002"
+      ]
+    },
+    {
+      "id": "PT-IMP-006",
+      "name": "Introduction Replacement",
+      "category": "improvement",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/improvement/PT-IMP-006-introduction-replacement.yaml",
+      "related_decisions": [
+        "DEC-STR-001"
+      ]
+    },
+    {
+      "id": "PT-IMP-007",
+      "name": "FAQ Addition or Reduction",
+      "category": "improvement",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/improvement/PT-IMP-007-faq-addition-or-reduction.yaml",
+      "related_decisions": [
+        "DEC-FAQ-001"
+      ]
+    },
+    {
+      "id": "PT-IMP-008",
+      "name": "Metadata-Only Improvement",
+      "category": "improvement",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/improvement/PT-IMP-008-metadata-only-improvement.yaml",
+      "related_decisions": [
+        "DEC-SEO-001",
+        "DEC-SEO-002"
+      ]
+    },
+    {
+      "id": "PT-EVD-001",
+      "name": "Official Source First",
+      "category": "evidence",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/evidence/PT-EVD-001-official-source-first.yaml",
+      "related_decisions": [
+        "DEC-EVD-001"
+      ]
+    },
+    {
+      "id": "PT-EVD-002",
+      "name": "Time-Sensitive Fact Verification",
+      "category": "evidence",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/evidence/PT-EVD-002-time-sensitive-fact-verification.yaml",
+      "related_decisions": [
+        "DEC-EVD-001"
+      ]
+    },
+    {
+      "id": "PT-EVD-003",
+      "name": "Numeric Claim Verification",
+      "category": "evidence",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/evidence/PT-EVD-003-numeric-claim-verification.yaml",
+      "related_decisions": [
+        "DEC-EVD-001"
+      ]
+    },
+    {
+      "id": "PT-EVD-004",
+      "name": "Fact and Opinion Separation",
+      "category": "evidence",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/evidence/PT-EVD-004-fact-and-opinion-separation.yaml",
+      "related_decisions": [
+        "DEC-EVD-001"
+      ]
+    },
+    {
+      "id": "PT-EVD-005",
+      "name": "Unable-to-Verify Handling",
+      "category": "evidence",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/evidence/PT-EVD-005-unable-to-verify-handling.yaml",
+      "related_decisions": [
+        "DEC-EVD-001",
+        "DEC-PUB-001"
+      ]
+    },
+    {
+      "id": "PT-EVD-006",
+      "name": "Experience Claim Labeling",
+      "category": "evidence",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/evidence/PT-EVD-006-experience-claim-labeling.yaml",
+      "related_decisions": [
+        "DEC-EVD-001"
+      ]
+    },
+    {
+      "id": "PT-QRC-001",
+      "name": "Primary Intent Recovery",
+      "category": "quality_recovery",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/quality_recovery/PT-QRC-001-primary-intent-recovery.yaml",
+      "related_decisions": [
+        "DEC-SCP-001"
+      ]
+    },
+    {
+      "id": "PT-QRC-002",
+      "name": "Unsupported Claim Removal",
+      "category": "quality_recovery",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/quality_recovery/PT-QRC-002-unsupported-claim-removal.yaml",
+      "related_decisions": [
+        "DEC-EVD-001"
+      ]
+    },
+    {
+      "id": "PT-QRC-003",
+      "name": "Structure Simplification",
+      "category": "quality_recovery",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/quality_recovery/PT-QRC-003-structure-simplification.yaml",
+      "related_decisions": [
+        "DEC-STR-002"
+      ]
+    },
+    {
+      "id": "PT-QRC-004",
+      "name": "Redundancy Reduction",
+      "category": "quality_recovery",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/quality_recovery/PT-QRC-004-redundancy-reduction.yaml",
+      "related_decisions": [
+        "DEC-IMP-001"
+      ]
+    },
+    {
+      "id": "PT-QRC-005",
+      "name": "Japanese Naturalization",
+      "category": "quality_recovery",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/quality_recovery/PT-QRC-005-japanese-naturalization.yaml",
+      "related_decisions": [
+        "DEC-IMP-001"
+      ]
+    },
+    {
+      "id": "PT-QRC-006",
+      "name": "FAQ De-Duplication",
+      "category": "quality_recovery",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/quality_recovery/PT-QRC-006-faq-de-duplication.yaml",
+      "related_decisions": [
+        "DEC-FAQ-001"
+      ]
+    },
+    {
+      "id": "PT-QRC-007",
+      "name": "Title-Body Alignment Recovery",
+      "category": "quality_recovery",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/quality_recovery/PT-QRC-007-title-body-alignment-recovery.yaml",
+      "related_decisions": [
+        "DEC-SEO-001"
+      ]
+    },
+    {
+      "id": "PT-QRC-008",
+      "name": "Existing Value Restoration",
+      "category": "quality_recovery",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/quality_recovery/PT-QRC-008-existing-value-restoration.yaml",
+      "related_decisions": [
+        "DEC-IMP-001"
+      ]
+    },
+    {
+      "id": "PT-ANT-001",
+      "name": "Keyword Stuffing",
+      "category": "anti_pattern",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/anti_pattern/PT-ANT-001-keyword-stuffing.yaml",
+      "related_decisions": [
+        "DEC-SEO-001"
+      ]
+    },
+    {
+      "id": "PT-ANT-002",
+      "name": "Competitor Heading Copy",
+      "category": "anti_pattern",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/anti_pattern/PT-ANT-002-competitor-heading-copy.yaml",
+      "related_decisions": [
+        "DEC-STR-002"
+      ]
+    },
+    {
+      "id": "PT-ANT-003",
+      "name": "FAQ Inflation",
+      "category": "anti_pattern",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/anti_pattern/PT-ANT-003-faq-inflation.yaml",
+      "related_decisions": [
+        "DEC-FAQ-001"
+      ]
+    },
+    {
+      "id": "PT-ANT-004",
+      "name": "Full Rewrite Without Evaluation",
+      "category": "anti_pattern",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/anti_pattern/PT-ANT-004-full-rewrite-without-evaluation.yaml",
+      "related_decisions": [
+        "DEC-IMP-002"
+      ]
+    },
+    {
+      "id": "PT-ANT-005",
+      "name": "Year Update Without Evidence",
+      "category": "anti_pattern",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/anti_pattern/PT-ANT-005-year-update-without-evidence.yaml",
+      "related_decisions": [
+        "DEC-EVD-001"
+      ]
+    },
+    {
+      "id": "PT-ANT-006",
+      "name": "Generic Introduction",
+      "category": "anti_pattern",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/anti_pattern/PT-ANT-006-generic-introduction.yaml",
+      "related_decisions": [
+        "DEC-STR-001"
+      ]
+    },
+    {
+      "id": "PT-ANT-007",
+      "name": "Excessive Bullet Lists",
+      "category": "anti_pattern",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/anti_pattern/PT-ANT-007-excessive-bullet-lists.yaml",
+      "related_decisions": [
+        "DEC-STR-002"
+      ]
+    },
+    {
+      "id": "PT-ANT-008",
+      "name": "Fabricated Experience",
+      "category": "anti_pattern",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/anti_pattern/PT-ANT-008-fabricated-experience.yaml",
+      "related_decisions": [
+        "DEC-EVD-001"
+      ]
+    },
+    {
+      "id": "PT-ANT-009",
+      "name": "All Queries in One Article",
+      "category": "anti_pattern",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/anti_pattern/PT-ANT-009-all-queries-in-one-article.yaml",
+      "related_decisions": [
+        "DEC-SEP-001"
+      ]
+    },
+    {
+      "id": "PT-ANT-010",
+      "name": "Prompt-Only Quality Rule",
+      "category": "anti_pattern",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/definitions/anti_pattern/PT-ANT-010-prompt-only-quality-rule.yaml",
+      "related_decisions": [
+        "DEC-PUB-001"
+      ]
+    }
+  ]
+}

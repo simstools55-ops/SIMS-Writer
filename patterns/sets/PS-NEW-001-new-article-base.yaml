@@ -1,0 +1,20 @@
+{
+  "id": "PS-NEW-001",
+  "name": "New Article Base",
+  "version": "1.0.0",
+  "status": "active",
+  "required_patterns": [
+    "PT-PLN-001",
+    "PT-PLN-002",
+    "PT-PLN-003",
+    "PT-PLN-004"
+  ],
+  "optional_patterns": [
+    "PT-ART-001",
+    "PT-ART-002",
+    "PT-ART-003",
+    "PT-ART-004",
+    "PT-ART-005"
+  ],
+  "selection_rule": "Decision Action PlanとApplicabilityが一致するPatternのみを使用する"
+}

@@ -1,0 +1,66 @@
+{
+  "id": "PT-EVD-006",
+  "name": "Experience Claim Labeling",
+  "category": "evidence",
+  "version": "1.0.0",
+  "status": "active",
+  "problem": "存在しない体験を創作する",
+  "context": "Decision Action Planで当該処理が必要と判定された場合に適用する。",
+  "applicability": {
+    "decision_results": [
+      "DEC-EVD-001"
+    ],
+    "conditions": [
+      "required_inputs_available"
+    ]
+  },
+  "non_applicability": [
+    "decision_result_is_no_change",
+    "required_inputs_missing"
+  ],
+  "required_inputs": [
+    "writing_request",
+    "decision_action_plan",
+    "knowledge_assembly"
+  ],
+  "optional_inputs": [
+    "source_content_snapshot",
+    "performance_data",
+    "site_knowledge"
+  ],
+  "method": [
+    "confirm_decision_evidence",
+    "apply_pattern_method",
+    "validate_expected_output"
+  ],
+  "expected_outputs": [
+    "experience_claims"
+  ],
+  "quality_criteria": [
+    "decision_intent_preserved",
+    "related_quality_rules_pass"
+  ],
+  "related_decisions": [
+    "DEC-EVD-001"
+  ],
+  "related_knowledge": [
+    "KN-FAC-004"
+  ],
+  "related_quality_rules": [
+    "QF-EEA-001",
+    "QF-ORG-003"
+  ],
+  "risks": [
+    "over_application",
+    "context_mismatch"
+  ],
+  "examples": [
+    "golden_case_required"
+  ],
+  "counterexamples": [
+    "no_change_decision"
+  ],
+  "reviewed_at": "2026-07-17",
+  "next_review_at": "2027-01-17",
+  "owner": "product-governance"
+}

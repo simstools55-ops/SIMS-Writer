@@ -1,0 +1,15 @@
+{
+  "id": "PS-JPN-001",
+  "name": "Japanese Quality Recovery",
+  "version": "1.0.0",
+  "status": "active",
+  "required_patterns": [
+    "PT-QRC-004",
+    "PT-QRC-005"
+  ],
+  "optional_patterns": [
+    "PT-QRC-003",
+    "PT-QRC-006"
+  ],
+  "selection_rule": "Decision Action PlanとApplicabilityが一致するPatternのみを使用する"
+}

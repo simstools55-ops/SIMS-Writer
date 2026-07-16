@@ -14,3 +14,8 @@
 10. Publication Packaging
 
 RuntimeはContract、Knowledge、Pattern、Quality Ruleを参照し、生成モデルを交換可能なAdapterとして扱う。
+
+
+## Decision-Gated Pattern Flow
+
+Knowledge Assembly → Decision Evaluation → Decision Action Plan → Pattern Selection → Content Production

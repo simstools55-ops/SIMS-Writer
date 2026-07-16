@@ -1,14 +1,15 @@
-# SIMS Writer Pattern Library Architecture v1.0
+# Pattern Library Architecture v1.0
 
-Patternは固定文やPromptではなく、問題、適用条件、非適用条件、入力、手順、出力、品質基準、根拠を持つ再利用可能な解決方法である。
+Patternは、Decision Frameworkが必要と判断した処理を実現する再利用可能な方法です。Pattern自身が変更要否を決めることは禁止します。
 
-## 分類
+## 正式フロー
 
-- Planning Pattern
-- Article Pattern
-- Section Pattern
-- SEO Pattern
-- Improvement Pattern
-- Evidence Pattern
-- Quality Recovery Pattern
-- Anti-Pattern
+Knowledge Assembly → Decision Evaluation → Decision Action Plan → Pattern Selection → Content Production
+
+## 原則
+- Decision-gated selection
+- Knowledge-backed
+- Contract-compatible
+- Applicability / Non-applicability
+- Quality-rule traceability
+- Model independence

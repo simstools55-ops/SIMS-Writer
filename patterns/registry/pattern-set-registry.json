@@ -1,0 +1,60 @@
+{
+  "pattern_sets": [
+    {
+      "id": "PS-NEW-001",
+      "name": "New Article Base",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/sets/PS-NEW-001-new-article-base.yaml"
+    },
+    {
+      "id": "PS-IMP-001",
+      "name": "Existing Article Improvement Base",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/sets/PS-IMP-001-existing-article-improvement-base.yaml"
+    },
+    {
+      "id": "PS-CTR-001",
+      "name": "CTR Improvement",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/sets/PS-CTR-001-ctr-improvement.yaml"
+    },
+    {
+      "id": "PS-TRB-001",
+      "name": "Troubleshooting Article",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/sets/PS-TRB-001-troubleshooting-article.yaml"
+    },
+    {
+      "id": "PS-CMP-001",
+      "name": "Comparison Article",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/sets/PS-CMP-001-comparison-article.yaml"
+    },
+    {
+      "id": "PS-CST-001",
+      "name": "Cost Article",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/sets/PS-CST-001-cost-article.yaml"
+    },
+    {
+      "id": "PS-FAC-001",
+      "name": "Fact Verification",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/sets/PS-FAC-001-fact-verification.yaml"
+    },
+    {
+      "id": "PS-JPN-001",
+      "name": "Japanese Quality Recovery",
+      "version": "1.0.0",
+      "status": "active",
+      "path": "patterns/sets/PS-JPN-001-japanese-quality-recovery.yaml"
+    }
+  ]
+}

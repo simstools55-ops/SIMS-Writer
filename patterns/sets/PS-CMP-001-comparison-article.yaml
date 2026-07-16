@@ -1,0 +1,15 @@
+{
+  "id": "PS-CMP-001",
+  "name": "Comparison Article",
+  "version": "1.0.0",
+  "status": "active",
+  "required_patterns": [
+    "PT-ART-003",
+    "PT-SEC-004"
+  ],
+  "optional_patterns": [
+    "PT-EVD-003",
+    "PT-SEO-004"
+  ],
+  "selection_rule": "Decision Action PlanとApplicabilityが一致するPatternのみを使用する"
+}

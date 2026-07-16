@@ -1,0 +1,64 @@
+{
+  "id": "PT-ANT-007",
+  "name": "Excessive Bullet Lists",
+  "category": "anti_pattern",
+  "version": "1.0.0",
+  "status": "active",
+  "problem": "説明が必要な箇所まで箇条書きにする",
+  "context": "Decision Action Planで当該処理が必要と判定された場合に適用する。",
+  "applicability": {
+    "decision_results": [
+      "DEC-STR-002"
+    ],
+    "conditions": [
+      "required_inputs_available"
+    ]
+  },
+  "non_applicability": [
+    "decision_result_is_no_change",
+    "required_inputs_missing"
+  ],
+  "required_inputs": [
+    "writing_request",
+    "decision_action_plan",
+    "knowledge_assembly"
+  ],
+  "optional_inputs": [
+    "source_content_snapshot",
+    "performance_data",
+    "site_knowledge"
+  ],
+  "method": [
+    "detect_condition",
+    "block_or_warn",
+    "apply_alternative_pattern"
+  ],
+  "expected_outputs": [
+    "prohibition_record"
+  ],
+  "quality_criteria": [
+    "decision_intent_preserved",
+    "related_quality_rules_pass"
+  ],
+  "related_decisions": [
+    "DEC-STR-002"
+  ],
+  "related_knowledge": [
+    "KN-WRI-002"
+  ],
+  "related_quality_rules": [
+    "QF-REA-001"
+  ],
+  "risks": [
+    "quality_degradation"
+  ],
+  "examples": [
+    "golden_case_required"
+  ],
+  "counterexamples": [
+    "no_change_decision"
+  ],
+  "reviewed_at": "2026-07-17",
+  "next_review_at": "2027-01-17",
+  "owner": "product-governance"
+}

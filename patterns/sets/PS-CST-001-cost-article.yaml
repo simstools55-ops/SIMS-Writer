@@ -1,0 +1,16 @@
+{
+  "id": "PS-CST-001",
+  "name": "Cost Article",
+  "version": "1.0.0",
+  "status": "active",
+  "required_patterns": [
+    "PT-ART-005",
+    "PT-EVD-002",
+    "PT-EVD-003"
+  ],
+  "optional_patterns": [
+    "PT-SEC-001",
+    "PT-SEC-005"
+  ],
+  "selection_rule": "Decision Action PlanとApplicabilityが一致するPatternのみを使用する"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "PS-IMP-001",
+  "name": "Existing Article Improvement Base",
+  "version": "1.0.0",
+  "status": "active",
+  "required_patterns": [
+    "PT-PLN-005",
+    "PT-IMP-001",
+    "PT-IMP-002"
+  ],
+  "optional_patterns": [
+    "PT-IMP-003",
+    "PT-IMP-004",
+    "PT-IMP-005",
+    "PT-IMP-006",
+    "PT-IMP-007",
+    "PT-IMP-008"
+  ],
+  "selection_rule": "Decision Action PlanとApplicabilityが一致するPatternのみを使用する"
+}

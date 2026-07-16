@@ -1,0 +1,15 @@
+{
+  "id": "PS-CTR-001",
+  "name": "CTR Improvement",
+  "version": "1.0.0",
+  "status": "active",
+  "required_patterns": [
+    "PT-SEO-001",
+    "PT-SEO-002"
+  ],
+  "optional_patterns": [
+    "PT-SEO-007",
+    "PT-IMP-008"
+  ],
+  "selection_rule": "Decision Action PlanとApplicabilityが一致するPatternのみを使用する"
+}

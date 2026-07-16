@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.6.0-alpha.1] - 2026-07-17
+
+### Added
+- Initial Pattern Library 61 definitions
+- 8 Pattern Sets and registries
+- Decision-to-Pattern mapping policy
+- Pattern validation and reference tests
+- ADR-0010 Decision-Gated Pattern Selection
+
 ## [0.5.0-alpha.1] - 2026-07-17
 
 ### Added

@@ -1,0 +1,16 @@
+{
+  "id": "PS-TRB-001",
+  "name": "Troubleshooting Article",
+  "version": "1.0.0",
+  "status": "active",
+  "required_patterns": [
+    "PT-ART-002",
+    "PT-SEC-003",
+    "PT-SEC-005"
+  ],
+  "optional_patterns": [
+    "PT-EVD-001",
+    "PT-EVD-005"
+  ],
+  "selection_rule": "Decision Action PlanとApplicabilityが一致するPatternのみを使用する"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "PS-FAC-001",
+  "name": "Fact Verification",
+  "version": "1.0.0",
+  "status": "active",
+  "required_patterns": [
+    "PT-EVD-001",
+    "PT-EVD-002",
+    "PT-EVD-003",
+    "PT-EVD-004",
+    "PT-EVD-005"
+  ],
+  "optional_patterns": [
+    "PT-EVD-006"
+  ],
+  "selection_rule": "Decision Action PlanとApplicabilityが一致するPatternのみを使用する"
+}
