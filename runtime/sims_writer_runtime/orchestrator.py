@@ -7,9 +7,10 @@ from .models import STAGES, StageRecord, RuntimeResult
 from .asset_loader import build_manifest
 from .adapters.input_adapters import normalize_generic, normalize_sbm
 from .adapters.manual_model import ManualModelAdapter
+from .adapters.model_protocol import ProductionAdapter
 
 class RuntimeOrchestrator:
-    def __init__(self, repo_root: Path, adapter: ManualModelAdapter | None = None):
+    def __init__(self, repo_root: Path, adapter: ProductionAdapter | None = None):
         self.repo_root = repo_root
         self.adapter = adapter or ManualModelAdapter()
 
@@ -49,26 +50,28 @@ class RuntimeOrchestrator:
             artifacts["pattern_selection"] = {"selected_patterns": [], "blocked_by_action": action == "manual_review"}
             self._pass(records, "pattern_selection")
 
-            draft = self.adapter.produce(request, plan)
+            draft = self.adapter.produce(request, plan, source_snapshot=artifacts["source_snapshot"], knowledge_assembly=artifacts["knowledge_assembly"], decision_action_plan=artifacts["decision_action_plan"], pattern_selection=artifacts["pattern_selection"])
             artifacts["content_draft"] = draft
-            self._manual(records, "content_production", "Production adapter not installed")
+            
+            if draft.get("article_content"):
+                self._pass(records, "content_production")
+            else:
+                self._manual(records, "content_production", "Production adapter did not return article content")
 
-            artifacts["quality_report"] = {
-                "publish_recommendation": "manual_review_required",
-                "blockers": ["article_content_missing"],
-                "framework_version": "1.0.0",
-            }
-            self._manual(records, "quality_validation", "Publication blocker remains")
-            self._skip(records, "refinement", "No production draft to refine")
+            blockers=[]
+            if not draft.get("article_content"): blockers.append("article_content_missing")
+            if draft.get("unresolved_items"): blockers.append("unresolved_items_remaining")
+            recommendation = "revision_required" if blockers else "publish_ready_with_advisory"
+            artifacts["quality_report"] = {"publish_recommendation":recommendation,"blockers":blockers,"framework_version":"1.0.0","notice":"Alpha validator checks structural blockers only; full 42-rule evaluation is not yet executable."}
+            if blockers: self._manual(records, "quality_validation", "Publication blocker remains")
+            else: self._warn(records, "quality_validation", "Structural validation passed; full quality rules require next package")
+            self._skip(records, "refinement", "No targeted issue requiring alpha refinement" if not blockers else "Refinement engine not yet implemented")
 
-            artifacts["publication_package"] = {
-                "publish_decision": "manual_review_required",
-                "article_content": None,
-                "quality_summary": artifacts["quality_report"],
-                "runtime_notice": "Runtime connectivity verified; article generation is intentionally not implemented in this alpha.",
-            }
-            self._manual(records, "publication_packaging", "Package is diagnostic, not publish ready")
-            status = "manual_review_required"
+            decision = "revision_required" if blockers else "publish_ready_with_advisory"
+            artifacts["publication_package"] = {"publish_decision":decision,"article_content":draft.get("article_content"),"seo_title":draft.get("seo_title"),"meta_description":draft.get("meta_description"),"h1":draft.get("h1"),"quality_summary":artifacts["quality_report"],"runtime_notice":"Model output was structurally validated. Full Publish Ready certification is deferred until executable Quality Rules are implemented."}
+            if blockers: self._manual(records, "publication_packaging", "Package requires revision")
+            else: self._warn(records, "publication_packaging", "Package generated with alpha advisory")
+            status = decision
         except Exception as exc:
             current = next((r for r in records if r.status == "pending"), records[-1])
             current.status = "failed"

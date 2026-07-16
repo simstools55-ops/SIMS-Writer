@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.8.0-alpha.1] - 2026-07-17
+
+### Added
+- Provider-neutral Model Adapter Protocol
+- Claude Messages / OpenAI Responses / Generic Chat transports
+- Context Builder, Prompt Renderer, JSON Output Parser
+- Fixture Transport and end-to-end model adapter tests
+- ADR-0012 Provider-Neutral Model Adapter
+
+### Changed
+- Runtime Orchestrator accepts generic ProductionAdapter and produces structurally validated publication packages.
+
+
 ## [0.7.0-alpha.1] - 2026-07-17
 
 ### Added
