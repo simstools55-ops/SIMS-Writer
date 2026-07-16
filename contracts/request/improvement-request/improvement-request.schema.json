@@ -3,33 +3,135 @@
   "$id": "https://sims-writer.local/contracts/improvement-request.schema.json",
   "title": "SIMS Writer Improvement Request",
   "type": "object",
-  "required": ["schema_version", "request_id", "request_type", "language", "main_query", "improvement_goal", "requested_output", "source_system"],
+  "required": [
+    "schema_version",
+    "request_id",
+    "request_type",
+    "language",
+    "main_query",
+    "improvement_goal",
+    "requested_output",
+    "source_system"
+  ],
   "properties": {
-    "schema_version": {"type": "string", "const": "1.0"},
-    "request_id": {"type": "string", "minLength": 1},
-    "article_id": {"type": ["string", "null"]},
-    "request_type": {"type": "string", "enum": ["existing_article_improvement", "new_article"]},
-    "language": {"type": "string", "minLength": 2},
-    "target_url": {"type": ["string", "null"], "format": "uri"},
-    "current_title": {"type": "string"},
-    "seo_title": {"type": "string"},
-    "meta_description": {"type": "string"},
-    "main_query": {"type": "string", "minLength": 1},
-    "supporting_queries": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
-    "improvement_goal": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
-    "requested_output": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
-    "existing_content": {"type": "string"},
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "article_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "request_type": {
+      "type": "string",
+      "enum": [
+        "existing_article_improvement",
+        "new_article"
+      ]
+    },
+    "language": {
+      "type": "string",
+      "minLength": 2
+    },
+    "target_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "current_title": {
+      "type": "string"
+    },
+    "seo_title": {
+      "type": "string"
+    },
+    "meta_description": {
+      "type": "string"
+    },
+    "main_query": {
+      "type": "string",
+      "minLength": 1
+    },
+    "supporting_queries": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "improvement_goal": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "requested_output": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "existing_content": {
+      "type": "string"
+    },
     "performance": {
       "type": "object",
       "properties": {
-        "clicks": {"type": ["number", "null"], "minimum": 0},
-        "impressions": {"type": ["number", "null"], "minimum": 0},
-        "ctr": {"type": ["number", "null"], "minimum": 0},
-        "average_position": {"type": ["number", "null"], "minimum": 0}
+        "clicks": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "impressions": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "ctr": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "average_position": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        }
       },
       "additionalProperties": true
     },
-    "source_system": {"type": "string", "minLength": 1}
+    "source_system": {
+      "type": "string",
+      "minLength": 1
+    },
+    "content_format": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "html",
+        "markdown",
+        "plain_text"
+      ]
+    }
   },
   "additionalProperties": false
 }

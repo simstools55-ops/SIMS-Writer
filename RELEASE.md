@@ -1,17 +1,19 @@
-# SIMS Writer Repository v0.2.0
+# SIMS Writer Repository v0.3.0
 
 ## Release Scope
 
-Improvement Request IntakeとArticle ContextをRuntimeへ接続した最初の入力Vertical Slice。
+既存記事本文をRuntimeへ安全に取り込み、改善判断の根拠となるSource Snapshotを生成するSource Acquisition Vertical Slice。
 
 ## Implemented
 
-- SBM / Generic JSON自動判定
-- JSON Schema検証
-- 実データ向け安全な正規化
-- Article Context生成
-- Runtime Artifact接続
-- CLI `auto` input type
+- HTML / Markdown / Plain Text自動判定
+- タイトル・H1〜H6・本文抽出
+- script / style等の非本文除外
+- 原文保持と正規化本文生成
+- 文字数・行数・SHA-256記録
+- 短文・見出し不足の警告
+- 本文未提供時の手動確認判定
+- Runtime Source Acquisition Stage接続
 
 ## Release Gate
 

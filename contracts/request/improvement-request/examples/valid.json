@@ -9,10 +9,22 @@
   "seo_title": "",
   "meta_description": "",
   "main_query": "wi-fi 電気代",
-  "supporting_queries": ["ルーター 電気代 年間"],
-  "improvement_goal": ["ctr_improvement"],
-  "requested_output": ["publication_package"],
+  "supporting_queries": [
+    "ルーター 電気代 年間"
+  ],
+  "improvement_goal": [
+    "ctr_improvement"
+  ],
+  "requested_output": [
+    "publication_package"
+  ],
   "existing_content": "",
-  "performance": {"clicks": 5, "impressions": 2773, "ctr": 0.002, "average_position": 10.0},
-  "source_system": "sims_blog_manager"
+  "performance": {
+    "clicks": 5,
+    "impressions": 2773,
+    "ctr": 0.002,
+    "average_position": 10.0
+  },
+  "source_system": "sims_blog_manager",
+  "content_format": "auto"
 }

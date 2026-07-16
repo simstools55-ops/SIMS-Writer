@@ -5,5 +5,6 @@
   "MainQuery": "wi-fi 電気代",
   "ImprovementGoal": [
     "ctr_improvement"
-  ]
+  ],
+  "ContentFormat": "auto"
 }

@@ -28,6 +28,7 @@ class ArticleContext:
     improvement_goal: list[str] = field(default_factory=list)
     requested_output: list[str] = field(default_factory=list)
     existing_content: str = ""
+    content_format: str = "auto"
     performance: PerformanceMetrics = field(default_factory=PerformanceMetrics)
     source_system: str = "generic_json"
     schema_version: str = "1.0"
@@ -56,6 +57,7 @@ class ArticleContextBuilder:
             improvement_goal=cls._unique_strings(request.get("improvement_goal") or []),
             requested_output=cls._unique_strings(request.get("requested_output") or []),
             existing_content=(request.get("existing_content") or "").strip(),
+            content_format=(request.get("content_format") or "auto").strip().lower(),
             performance=PerformanceMetrics(
                 clicks=cls._number(performance.get("clicks")),
                 impressions=cls._number(performance.get("impressions")),

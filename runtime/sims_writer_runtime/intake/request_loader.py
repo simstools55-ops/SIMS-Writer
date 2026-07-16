@@ -105,6 +105,7 @@ class ImprovementRequestLoader:
                 "improvement_goal": payload.get("ImprovementGoal") or [],
                 "requested_output": payload.get("RequestedOutput") or ["publication_package", "before_after"],
                 "existing_content": payload.get("ExistingContent") or payload.get("ArticleContent") or "",
+                "content_format": payload.get("ContentFormat") or payload.get("ArticleContentFormat") or "auto",
                 "performance": {k: v for k, v in performance.items() if v is not None},
                 "source_system": "sims_blog_manager",
             }
@@ -127,6 +128,7 @@ class ImprovementRequestLoader:
             "improvement_goal": payload.get("improvement_goal") or default_goal,
             "requested_output": payload.get("requested_output") or ["publication_package"],
             "existing_content": payload.get("existing_content") or payload.get("article_content") or "",
+            "content_format": payload.get("content_format") or "auto",
             "performance": payload.get("performance") or {},
             "source_system": payload.get("source_system") or "generic_json",
         }

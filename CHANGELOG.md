@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.3.0] - 2026-07-17
+
+### Added
+- HTML / Markdown / Plain Textの記事本文抽出器
+- Source Snapshot（タイトル、見出し、正規化本文、文字数、SHA-256）
+- Source Content ContractのRuntime実装プロファイル
+- Source Acquisition Runtime統合テスト4件
+
+### Changed
+- Improvement Requestに`content_format`を追加
+- URLのみで本文がない既存記事は`manual_review_required`として明示
+- pytestをRepositoryルートから直接実行可能に修正
+
+### Validation
+- Repository Release Gate全項目合格
+- Golden UAT 12/12合格
+
 ## [0.2.0] - 2026-07-17
 
 ### Added

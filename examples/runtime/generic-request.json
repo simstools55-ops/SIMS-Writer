@@ -8,5 +8,6 @@
   ],
   "requested_output": [
     "publication_package"
-  ]
+  ],
+  "content_format": "auto"
 }

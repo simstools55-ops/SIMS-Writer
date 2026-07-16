@@ -11,6 +11,7 @@ from .adapters.manual_model import ManualModelAdapter
 from .adapters.model_protocol import ProductionAdapter
 from .quality.engine import QualityValidationEngine
 from .refinement.engine import TargetedRefinementEngine
+from .source.extractor import ArticleSourceExtractor
 
 class RuntimeOrchestrator:
     def __init__(self, repo_root: Path, adapter: ProductionAdapter | None = None):
@@ -19,6 +20,7 @@ class RuntimeOrchestrator:
         self.request_loader = ImprovementRequestLoader(repo_root)
         self.quality_engine = QualityValidationEngine(repo_root)
         self.refinement_engine = TargetedRefinementEngine(self.quality_engine)
+        self.source_extractor = ArticleSourceExtractor()
 
     def execute(self, raw: dict[str, Any], input_type: str = "auto") -> RuntimeResult:
         execution_id = f"EXE-{uuid4().hex[:12].upper()}"
@@ -37,9 +39,23 @@ class RuntimeOrchestrator:
             artifacts["article_context"] = context.to_dict()
             self._pass(records, "normalization")
 
-            source_status = "unavailable" if request.get("target_url") else "not_applicable"
-            artifacts["source_snapshot"] = {"status": source_status, "target_url": request.get("target_url")}
-            self._warn(records, "source_acquisition", "Alpha runtime does not fetch external content")
+            source_snapshot = self.source_extractor.extract(
+                context.existing_content,
+                content_format=context.content_format,
+                target_url=context.target_url,
+                fallback_title=context.current_title,
+            )
+            artifacts["source_snapshot"] = source_snapshot.to_dict()
+            source_status = source_snapshot.status
+            if source_status == "available":
+                if source_snapshot.warnings:
+                    self._warn(records, "source_acquisition", "; ".join(source_snapshot.warnings))
+                else:
+                    self._pass(records, "source_acquisition")
+            elif source_status == "not_applicable":
+                self._skip(records, "source_acquisition", "No existing article source is required")
+            else:
+                self._manual(records, "source_acquisition", "Existing article content must be supplied for grounded improvement")
 
             artifacts["knowledge_assembly"] = {"coverage": "partial", "selected": [], "note": "registry connection verified"}
             self._warn(records, "knowledge_assembly", "Knowledge selection execution is scaffolded")
@@ -53,7 +69,7 @@ class RuntimeOrchestrator:
             artifacts["content_plan"] = plan
             self._warn(records, "content_planning", "Main answer requires production adapter")
 
-            action = "manual_review" if source_status == "unavailable" else "revise"
+            action = "manual_review" if source_status == "missing" else "revise"
             artifacts["decision_action_plan"] = {"action": action, "components": [], "reason": "Alpha deterministic decision"}
             self._pass(records, "decision_evaluation")
 
