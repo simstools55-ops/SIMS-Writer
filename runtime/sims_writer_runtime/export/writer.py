@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from .validator import PublicationArtifactValidator
+from .history import ExecutionHistoryManager
 
 
 class ResultArtifactWriter:
@@ -14,6 +15,8 @@ class ResultArtifactWriter:
     def write(self, result: Any, output_dir: Path) -> dict[str, str]:
         output_dir = Path(output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
+        history_manager = ExecutionHistoryManager()
+        previous = history_manager.capture_previous(output_dir)
         data = result.to_dict() if hasattr(result, "to_dict") else dict(result)
         artifacts = data.get("artifacts", {})
         package = artifacts.get("publication_package", {})
@@ -27,6 +30,8 @@ class ResultArtifactWriter:
             "execution_manifest": output_dir / "execution-manifest.json",
             "artifact_validation": output_dir / "artifact-validation.json",
             "publication_checklist": output_dir / "publication-checklist.md",
+            "artifact_diff": output_dir / "artifact-diff.json",
+            "execution_history": output_dir / "execution-history.json",
         }
 
         self._write_json(files["runtime_result"], data)
@@ -43,6 +48,10 @@ class ResultArtifactWriter:
         validation = PublicationArtifactValidator().validate(output_dir)
         self._write_json(files["artifact_validation"], validation)
         files["publication_checklist"].write_text(self._publication_checklist(validation), encoding="utf-8")
+        diff = history_manager.build_diff(previous, output_dir, data)
+        self._write_json(files["artifact_diff"], diff)
+        history = history_manager.update_history(output_dir, previous, data, diff)
+        self._write_json(files["execution_history"], history)
         return {name: str(path) for name, path in files.items()}
 
     @staticmethod

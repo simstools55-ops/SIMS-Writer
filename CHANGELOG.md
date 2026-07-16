@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.7.0] - 2026-07-17
+
+### Added
+- Previous execution artifact archiving under `.history/<execution_id>/`
+- `execution-history.json` for traceable rerun history
+- `artifact-diff.json` for checksum and Publication Package comparison
+- Rerun and history integration tests
+
+### Changed
+- Result Artifact output expanded from 7 to 9 top-level files
+
 ## 0.6.0 - Publication Artifact Validation
 
 - Added deterministic validation for the persisted publication artifact set.
