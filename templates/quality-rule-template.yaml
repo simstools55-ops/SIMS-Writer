@@ -1,0 +1,13 @@
+id: QF-XXX-000
+name: 
+dimension: 
+severity: major
+requirement: 
+pass_condition: 
+fail_condition: 
+exception: []
+evidence_requirement: 
+auto_fix: false
+related_knowledge: []
+version: 0.1.0
+status: draft

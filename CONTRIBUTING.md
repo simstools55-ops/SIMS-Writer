@@ -1,16 +1,16 @@
-# SIMS Writer Knowledge Architecture v1.0
+# Contributing
 
-Knowledgeは、根拠、信頼度、適用範囲、例外、更新期限、Versionを持つ正式資産として管理する。
+## 基本原則
 
-## 分類
+- 正式仕様はRepositoryで管理する
+- 重要変更にはADRまたはChange Requestを残す
+- IDを再利用しない
+- active資産にはVersion・Status・根拠・Review Dateを持たせる
+- Product Coreへ特定モデル固有仕様を混在させない
+- 変更には関連Testを追加する
 
-- Authority Knowledge
-- SEO Knowledge
-- Writing Knowledge
-- Content Design Knowledge
-- Quality Knowledge
-- Site Knowledge
-- Operational Knowledge
-- Lessons Learned
+## Commit形式
 
-Requestごとに必要なKnowledgeのみをKnowledge Assemblyとして構成する。
+`type(scope): summary`
+
+例: `docs(product): add product philosophy v1.0`
