@@ -1,24 +1,22 @@
-# SIMS Writer Repository v0.1.0
+# SIMS Writer Repository v0.2.0
 
-## Status
+## Release Scope
 
-Product 1.0 Implementation Phase - Initial Repository Baseline
+Improvement Request IntakeとArticle ContextをRuntimeへ接続した最初の入力Vertical Slice。
 
-## Implemented Vertical Slice
+## Implemented
 
-CTR Improvement:
+- SBM / Generic JSON自動判定
+- JSON Schema検証
+- 実データ向け安全な正規化
+- Article Context生成
+- Runtime Artifact接続
+- CLI `auto` input type
 
-1. SBM JSON input
-2. Normalization
-3. Decision evaluation
-4. Pattern selection
-5. Deterministic draft generation
-6. 42-rule quality validation
-7. Publication package output
-
-## Verification Commands
+## Release Gate
 
 ```bash
-python -m pytest
-python tools/run_ctr_vertical_slice.py examples/vertical-slices/ctr-improvement/sbm-request.json --repo-root . --output build/ctr-result.json
+python tools/test_repository.py
 ```
+
+全項目合格したRepositoryのみ配布対象とする。

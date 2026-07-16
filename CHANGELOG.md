@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.2.0] - 2026-07-17
+
+### Added
+- SIMS-Blog-Manager / Generic JSONの自動判定とJSONファイル読込基盤
+- Improvement Request Contract v1.0と正規形Schema
+- Article ContextモデルとRuntime接続
+- 入力検証・正規化・Runtime統合テスト4件
+
+### Changed
+- Runtime CLIの既定入力形式を`auto`へ変更
+- Runtime成果物に`request_metadata`と`article_context`を追加
+
+### Validation
+- Repository Release Gate全項目合格
+- Golden UAT 12/12合格
+
 ## [0.1.0] - 2026-07-17
 
 ### Added

@@ -1,0 +1,17 @@
+{
+  "SchemaVersion": "1.0",
+  "RequestID": "REQ-SBM-0001",
+  "ArticleID": "A000301",
+  "URL": "https://example.com/entry/2025/12/28/043000#section",
+  "ArticleTitle": "Wi-Fiルーターの電気代はいくら？",
+  "SEOTitle": "Wi-Fiルーターの電気代は月200円以下？",
+  "MetaDescription": "Wi-Fiルーターの電気代と節電方法を解説します。",
+  "MainQuery": "wi-fi 電気代",
+  "SupportingQueries": ["wifi 電気代 月", "ルーター 電気代 年間"],
+  "Clicks": 5,
+  "Impressions": 2773,
+  "CTR": "0.2%",
+  "AveragePosition": 10.0,
+  "ImprovementGoal": ["ctr_improvement"],
+  "RequestedOutput": ["publication_package", "before_after"]
+}

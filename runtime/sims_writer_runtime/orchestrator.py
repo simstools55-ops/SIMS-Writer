@@ -5,7 +5,8 @@ from uuid import uuid4
 from typing import Any
 from .models import STAGES, StageRecord, RuntimeResult
 from .asset_loader import build_manifest
-from .adapters.input_adapters import normalize_generic, normalize_sbm
+from .article_context import ArticleContextBuilder
+from .intake.request_loader import ImprovementRequestLoader
 from .adapters.manual_model import ManualModelAdapter
 from .adapters.model_protocol import ProductionAdapter
 from .quality.engine import QualityValidationEngine
@@ -15,10 +16,11 @@ class RuntimeOrchestrator:
     def __init__(self, repo_root: Path, adapter: ProductionAdapter | None = None):
         self.repo_root = repo_root
         self.adapter = adapter or ManualModelAdapter()
+        self.request_loader = ImprovementRequestLoader(repo_root)
         self.quality_engine = QualityValidationEngine(repo_root)
         self.refinement_engine = TargetedRefinementEngine(self.quality_engine)
 
-    def execute(self, raw: dict[str, Any], input_type: str = "generic") -> RuntimeResult:
+    def execute(self, raw: dict[str, Any], input_type: str = "auto") -> RuntimeResult:
         execution_id = f"EXE-{uuid4().hex[:12].upper()}"
         records = [StageRecord(name=s) for s in STAGES]
         artifacts: dict[str, Any] = {"raw_request": raw}
@@ -27,8 +29,12 @@ class RuntimeOrchestrator:
         manifest["locked_at"] = datetime.now(timezone.utc).isoformat()
         try:
             self._pass(records, "intake")
-            request = normalize_sbm(raw) if input_type == "sbm" else normalize_generic(raw)
+            loaded = self.request_loader.load(raw, input_type=input_type)
+            request = loaded.payload
+            context = ArticleContextBuilder.build(request)
+            artifacts["request_metadata"] = {"input_type": loaded.input_type, "schema_version": loaded.schema_version}
             artifacts["normalized_request"] = request
+            artifacts["article_context"] = context.to_dict()
             self._pass(records, "normalization")
 
             source_status = "unavailable" if request.get("target_url") else "not_applicable"

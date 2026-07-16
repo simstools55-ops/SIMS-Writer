@@ -6,7 +6,7 @@ def main() -> int:
     parser=argparse.ArgumentParser(description="SIMS Writer Runtime Core dry-run")
     parser.add_argument("--input", required=True)
     parser.add_argument("--output", required=True)
-    parser.add_argument("--input-type", choices=["generic","sbm"], default="generic")
+    parser.add_argument("--input-type", choices=["auto","generic","sbm"], default="auto")
     args=parser.parse_args()
     input_path=Path(args.input).resolve()
     repo_root=Path(__file__).resolve().parents[2]

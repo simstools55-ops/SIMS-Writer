@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "request_id": "REQ-VALID-001",
+  "article_id": "A000301",
+  "request_type": "existing_article_improvement",
+  "language": "ja-JP",
+  "target_url": "https://example.com/article",
+  "current_title": "Wi-Fiルーターの電気代",
+  "seo_title": "",
+  "meta_description": "",
+  "main_query": "wi-fi 電気代",
+  "supporting_queries": ["ルーター 電気代 年間"],
+  "improvement_goal": ["ctr_improvement"],
+  "requested_output": ["publication_package"],
+  "existing_content": "",
+  "performance": {"clicks": 5, "impressions": 2773, "ctr": 0.002, "average_position": 10.0},
+  "source_system": "sims_blog_manager"
+}
