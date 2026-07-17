@@ -1,7 +1,7 @@
 # SIMS Writer Knowledge Pack
 
-Version: 0.14.3-alpha.1
-Status: RC2
+Version: 0.15.3-alpha.1
+Status: Explainable Graceful Degradation
 
 ## Product principles
 
@@ -36,7 +36,7 @@ Status: RC2
 - 1記事の実績から一般的な改善率を断定しない。
 - CTR、クリック、順位の将来値を根拠なく予測しない。
 - 数値を示す場合は入力データまたは明示された計算条件に基づく。
-- メインクエリが未設定の場合、記事タイトル・本文・上位クエリから推定できるが、推定であることを警告へ残す。
+- メインクエリが未設定の場合、記事タイトル・本文・上位クエリから推定できる。推定値は`main_query_source="estimated"`、`estimated_fields=["main_query"]`で明示し、説明は`information`へ記録する。
 
 ## Writing principles
 
@@ -88,3 +88,20 @@ Status: RC2
 - 各変更にBefore / After / 期待する効果 / 理由を示す。
 - 主要箇所を変更しない場合は、その理由を示す。
 - 作業時間の目安を示し、根拠のない数値効果は予測しない。
+
+
+## SIMS Feedback JSON v1.2
+
+- `version`は`1.2`とする。
+- `main_query_source`は`search_console` / `manual` / `estimated` / `unavailable`のいずれか。
+- `execution_mode`は`standard` / `graceful_degradation`のいずれか。
+- `estimated_fields`には推定したフィールド名だけを列挙する。
+- `information`には推定、任意入力不足による通常SKIP、現状維持などの非警告メモを入れる。
+- `warnings`には安全性、正確性、反映判断に実質的な注意が必要な事項だけを入れる。
+- `main_query`推定や`article_catalog`未入力による内部リンクのみのSKIPは、原則として`warnings`ではなく`information`へ入れる。
+- `main_query`を推定した場合、全体の`confidence`は原則`medium`以下とする。
+- 導入、見出し名、FAQだけを変更し、比較本文や本文段落を変更していない場合は`changes.body=false`とする。
+
+### 旧契約からの自動移行
+
+依頼文に`SIMS_FEEDBACK_V1` v1.0またはv1.1のサンプルが含まれていても、それは旧標準契約である。ユーザーが厳密固定を明示しない限りv1.2へ移行し、4つの説明可能性フィールドを必ず出力する。

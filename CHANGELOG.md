@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.15.3-alpha.1
+
+- Claude ProjectのKnowledge Packを現行版へ同期
+- `SIMS_FEEDBACK_V1` v1.0/v1.1サンプルをv1.2へ自動移行する規則を追加
+- 推定と通常SKIPを`information`へ分離する指示の矛盾を解消
+- Project InstructionsとKnowledge Packのバージョン整合をリリースゲート化
+
 ## 0.15.2-alpha.1
 
 - `warnings`と`information`を分離し、通常スキップ・推定・現状維持メモをInformationへ移動

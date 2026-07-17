@@ -1,14 +1,14 @@
 {
-  "package_version": "0.15.2-alpha.1",
-  "status": "Explainable Graceful Degradation Alpha",
+  "package_version": "0.15.3-alpha.1",
+  "status": "Explainable Degradation Contract Fix Alpha",
   "files": {
-    "CLAUDE_PROJECT_INSTRUCTIONS.md": "4aa969c9d13a68f3988875b659ba80a75c6a221aeb6051d771123db4e6a410b8",
-    "README.md": "51a3abd85f2b04428faaf9fefd14267c9eb8c2a45a0df8716ec1fada9238d310",
-    "SETUP_GUIDE.md": "06c8a9801216c0cc8c8af9538c675dbc7302f0824417c3f7c24429be349c5cc6",
-    "TEST_CHECKLIST.md": "85c4f204cb1d8cbf8829e64573d6cd435bf0152d2db2f61ccc210bc1793a87a4",
+    "CLAUDE_PROJECT_INSTRUCTIONS.md": "315a935d61eaf2d789229b3c414e3858612a907bca22524a6b90d8eb80b50149",
+    "README.md": "b49d04119c399c3e7bf840f341736a9efe05988c22f4154700213e2c381960fa",
+    "SETUP_GUIDE.md": "a223d186f201aa6f681f95f8451eccfc6d1c7307cf4c0a91c6b2eea450da9997",
+    "TEST_CHECKLIST.md": "91b72936f5b6525ae50e6b0edb4d42c997d928caac1263d1899db70f912ea68d",
     "examples/EXAMPLE_REQUEST.json": "7e3a01618204a9f53558992b36dead6b2a89aa321efe7406926abcafeec62baf",
-    "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md": "f8bc2995ff34d201f7b0ebd0b2ee35e643fb72bc817ed891bb38d998d8f5eb9b",
+    "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md": "583e79eca80c55096aa1f0daf661d8255a7c856e72eddcddb11831a00f9fc086",
     "templates/IMPROVEMENT_REQUEST_TEMPLATE.json": "264d57a61ac1cde15e6592c4caa5fbeb549ac0a77cf431eb23b78811e8b4378a"
   },
-  "version": "0.15.2-alpha.1"
+  "version": "0.15.3-alpha.1"
 }
