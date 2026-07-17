@@ -8,6 +8,7 @@ from .claude import ClaudeOutputAcceptanceError, ClaudeOutputValidator
 from .claude.uat import ClaudeGoldenUATRunner
 from .claude.readiness import ClaudeReadinessEvidenceError, ClaudeUserTestReadinessEvaluator, write_readiness_report
 from .claude.evidence_pack import ClaudeUATSessionBuilder, ClaudeUATSessionError
+from .claude.evidence_ingest import ClaudeUATEvidenceIngestError, ClaudeUATEvidenceIngestor
 from .export import (
     ArtifactRollbackError,
     ArtifactRollbackManager,
@@ -33,6 +34,7 @@ def main() -> int:
     parser.add_argument("--evaluate-user-test-readiness", help="Directory containing real-article Claude UAT evidence JSON files")
     parser.add_argument("--prepare-claude-uat-session", help="Directory containing real-article request JSON files")
     parser.add_argument("--uat-session-id", help="Optional stable UAT session identifier")
+    parser.add_argument("--ingest-claude-uat-session", help="Prepared UAT session directory to verify and consolidate")
     actions = parser.add_mutually_exclusive_group()
     actions.add_argument("--approve", action="store_true")
     actions.add_argument("--reject", action="store_true")
@@ -44,6 +46,17 @@ def main() -> int:
 
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
+
+    if args.ingest_claude_uat_session:
+        if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.evaluate_user_test_readiness or args.prepare_claude_uat_session or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
+            parser.error("--ingest-claude-uat-session cannot be combined with other actions")
+        try:
+            report = ClaudeUATEvidenceIngestor().ingest(Path(args.ingest_claude_uat_session))
+        except ClaudeUATEvidenceIngestError as exc:
+            print(f"claude_uat_ingest_failed={exc}")
+            return 2
+        print(f"claude_uat_ingest={report['status']} completed={report['counts']['completed']} invalid={report['counts']['invalid']}")
+        return 0 if report['status'] in {'complete', 'in_progress'} else 1
 
     if args.prepare_claude_uat_session:
         if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.evaluate_user_test_readiness or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:

@@ -12,3 +12,5 @@ __all__ = [
     "ClaudeUATSessionBuilder",
     "ClaudeUATSessionError",
 ]
+
+from .evidence_ingest import ClaudeUATEvidenceIngestError, ClaudeUATEvidenceIngestor

@@ -1,6 +1,6 @@
 # Claude Project Setup Guide
 
-Version: 1.11.0-preview.1
+Version: 1.12.0-preview.1
 Status: Developer Preview
 
 > このパッケージは構成検証用です。一般利用者テストはまだ開始しません。

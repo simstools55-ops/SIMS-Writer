@@ -38,7 +38,7 @@ def main() -> int:
         errors.append("distribution exceeds 120KB")
 
     expected = {
-        "package_version": "1.11.0-preview.1",
+        "package_version": "1.12.0-preview.1",
         "status": "quality_uat_preview",
         "files": {item: sha256(CLAUDE / item) for item in sorted(files)},
     }

@@ -1,6 +1,6 @@
 # Claude Project テストチェックリスト
 
-Version: 1.11.0-preview.1
+Version: 1.12.0-preview.1
 
 実施日：__________________
 実施者：__________________

@@ -1,6 +1,6 @@
 # Claude Project 操作リハーサル
 
-Version: 1.11.0-preview.1
+Version: 1.12.0-preview.1
 Status: Developer Rehearsal
 
 > この手順は開発者による事前確認用です。一般利用者テスト開始版ではありません。
