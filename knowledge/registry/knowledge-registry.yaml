@@ -196,3 +196,38 @@ knowledge:
   status: review
   confidence: medium
   path: knowledge/lessons-learned/KN-LES-002-extract-decisions-not-prompt-wording.md
+- id: KN-OPS-004
+  title: Separate User Output and Feedback
+  category: operations
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/operations/KN-OPS-004-separate-user-output-and-feedback.md
+- id: KN-OPS-005
+  title: Change Flags Must Match Output
+  category: operations
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/operations/KN-OPS-005-change-flags-must-match-output.md
+- id: KN-OPS-006
+  title: Internal Link Three-way Classification
+  category: operations
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/operations/KN-OPS-006-internal-link-three-way-classification.md
+- id: KN-FAC-005
+  title: No Unsupported Performance Forecast
+  category: factuality
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/factuality/KN-FAC-005-no-unsupported-performance-forecast.md
+- id: KN-SEO-007
+  title: Main Query Field Is Pure
+  category: seo
+  version: 1.0.0
+  status: active
+  confidence: verified
+  path: knowledge/seo/KN-SEO-007-main-query-field-is-pure.md

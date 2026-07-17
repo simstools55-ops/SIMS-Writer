@@ -8,7 +8,3 @@ site/
 build/
 dist/
 __pycache__/
-.pytest_cache/
-*.pyc
-runtime-output/
-ctr-result.json

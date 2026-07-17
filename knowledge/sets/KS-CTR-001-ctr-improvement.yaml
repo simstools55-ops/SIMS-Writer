@@ -1,12 +1,17 @@
 id: KS-CTR-001
 name: CTR Improvement
-version: 1.0.0
+version: 1.1.0
 status: active
 required_items:
 - KN-SEO-003
 - KN-SEO-006
 - KN-SEO-002
 - KN-PRD-003
+- KN-OPS-004
+- KN-OPS-005
+- KN-OPS-006
+- KN-FAC-005
+- KN-SEO-007
 optional_items: []
 selection_rules: []
 exclusion_rules: []

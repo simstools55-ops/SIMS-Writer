@@ -2,6 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 import re
+from ..output_contract import build_feedback, package_output
 
 SEMANTIC_PASS_IDS = (
     "QF-COM-001","QF-COM-002","QF-COM-003","QF-HLP-001","QF-HLP-002","QF-HLP-003",
@@ -25,8 +26,13 @@ class CTRImprovementSlice:
     """
     def normalize(self, raw: dict[str, Any]) -> dict[str, Any]:
         main_query = raw.get("MainQuery") or raw.get("main_query") or raw.get("query", {}).get("main_query")
+        query_inferred = False
         if not main_query or not str(main_query).strip():
-            raise ValueError("MainQuery/main_query is required")
+            title_hint = raw.get("SEOTitle") or raw.get("seo_title") or raw.get("ArticleTitle") or raw.get("current_title") or raw.get("title") or ""
+            main_query = self._infer_query(title_hint)
+            query_inferred = bool(main_query)
+        if not main_query:
+            raise ValueError("MainQuery is missing and could not be inferred from the title")
         source = raw.get("ExistingContent") or raw.get("existing_content") or raw.get("article_content") or ""
         supporting = raw.get("SupportingQueries") or raw.get("supporting_queries") or []
         if isinstance(supporting, str):
@@ -35,6 +41,7 @@ class CTRImprovementSlice:
             "request_id": raw.get("RequestID") or raw.get("request_id") or "REQ-CTR-SLICE",
             "request_type": "existing_article_improvement",
             "main_query": str(main_query).strip(),
+            "main_query_inferred": query_inferred,
             "supporting_queries": supporting[:20],
             "target_url": raw.get("URL") or raw.get("target_url"),
             "article_id": raw.get("ArticleID") or raw.get("article_id"),
@@ -48,6 +55,8 @@ class CTRImprovementSlice:
             "average_position": self._num(raw.get("AveragePosition") if "AveragePosition" in raw else raw.get("average_position")),
             "priority_components": raw.get("PriorityComponents") or raw.get("priority_components") or ["seo_title","introduction","faq"],
             "site_name": raw.get("SiteName") or raw.get("site_name") or "",
+            "output_mode": raw.get("OutputMode") or raw.get("output_mode") or "partial",
+            "internal_link_candidates": raw.get("InternalLinkCandidates") or raw.get("internal_link_candidates") or [],
         }
 
     @staticmethod
@@ -83,7 +92,7 @@ class CTRImprovementSlice:
         if not title_aligned: reasons.append("現行タイトルがメインクエリを十分に表していない")
         if low_ctr: reasons.append("順位・表示回数に対してCTR改善余地がある")
         if intro_action=="revise": reasons.append("導入で検索者の答えを早期提示する余地がある")
-        if faq_signal: reasons.append("補助クエリを本文重複しないFAQへ整理できる")
+        if faq_signal: reasons.append("補助クエリをFAQとして見つけやすく再整理できる")
         return CTRDecision(title_action,intro_action,faq_action,"。".join(reasons) or "主要要素は維持可能")
 
     def build_draft(self, request: dict[str, Any], decision: CTRDecision) -> dict[str, Any]:
@@ -129,6 +138,32 @@ class CTRImprovementSlice:
                 "knowledge": ["KN-SEO-001","KN-SEO-CTR","KN-WRI-INTRO","KN-WRI-FAQ"],
             },
         }
+
+    def build_output(self, request: dict[str, Any], decision: CTRDecision, draft: dict[str, Any]) -> dict[str, Any]:
+        before_after=[]
+        current_title=request.get("seo_title") or request.get("current_title") or ""
+        if decision.title_action=="revise":
+            before_after.append({"component":"seo_title","before":current_title,"after":draft["seo_title"],"reason":"検索意図とタイトルの一致を高めるため"})
+        if decision.introduction_action=="revise":
+            before_after.append({"component":"introduction","before":"既存導入文","after":draft["introduction"],"reason":"結論を冒頭で明示するため"})
+        if decision.faq_action=="add":
+            before_after.append({"component":"faq","before":"FAQなし、または不足","after":draft["faq"],"reason":"本文中の重要情報を質問形式で見つけやすく再整理するため"})
+        warnings=[]
+        if request.get("main_query_inferred"):
+            warnings.append("main_queryが未入力だったため、タイトルから推定しています。正式なクエリ確認後に再調整してください。")
+        if not request.get("internal_link_candidates"):
+            warnings.append("内部リンク候補が未入力のため、内部リンクは変更していません。")
+        effect={"ctr":"CTR改善余地はありますが、具体的な数値は実測データ不足のため予測しません。","clicks":"表示回数とクリック数の母数が小さい場合、定量予測は行わず再測定で確認します。"}
+        feedback=build_feedback(article_id=request.get("article_id"), article_url=request.get("target_url"), main_query=request["main_query"], before_after=before_after, summary=decision.reason, warnings=warnings, confidence="medium" if request.get("main_query_inferred") else "high", expected_effect=effect)
+        return package_output(output_mode=request.get("output_mode","partial"), before_after=before_after, feedback=feedback, unresolved_items=warnings, article_content=draft.get("article_content"))
+
+    @staticmethod
+    def _infer_query(title: str) -> str:
+        clean=re.sub(r"[｜|].*$", "", title or "")
+        clean=re.sub(r"【[^】]*】", "", clean)
+        clean=re.sub(r"を(?:5つ|５つ|\d+つ)の項目で比較.*$", " 比較", clean)
+        clean=re.sub(r"[！!？?]+$", "", clean).strip()
+        return re.sub(r"\s+", " ", clean)[:120]
 
     def patterns(self, decision: CTRDecision) -> list[str]:
         out=[]

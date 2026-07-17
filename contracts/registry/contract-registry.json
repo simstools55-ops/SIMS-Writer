@@ -10,14 +10,6 @@
       "documentation": "contracts/request/writing-request/writing-request-contract.md"
     },
     {
-      "id": "CT-REQ-002",
-      "name": "Improvement Request Contract",
-      "version": "1.0.0",
-      "status": "active",
-      "schema": "contracts/request/improvement-request/improvement-request.schema.json",
-      "documentation": "contracts/request/improvement-request/improvement-request-contract.md"
-    },
-    {
       "id": "CT-SRC-001",
       "name": "Source Content Contract",
       "version": "1.0.0",

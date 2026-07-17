@@ -12,7 +12,7 @@ class ManualModelAdapter:
             "h1": None,
             "article_content": None,
             "unresolved_items": [
-                "Production model adapter is not installed in v1.0.0",
+                "Production model adapter is not installed in v0.9.0-alpha.1",
                 "Article content must be generated in the configured model adapter or manual workflow",
             ],
             "plan_reference": plan.get("plan_id"),

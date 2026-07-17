@@ -5,29 +5,20 @@ from uuid import uuid4
 from typing import Any
 from .models import STAGES, StageRecord, RuntimeResult
 from .asset_loader import build_manifest
-from .article_context import ArticleContextBuilder
-from .intake.request_loader import ImprovementRequestLoader
-from .adapters.deterministic_improvement import DeterministicImprovementAdapter
+from .adapters.input_adapters import normalize_generic, normalize_sbm
+from .adapters.manual_model import ManualModelAdapter
 from .adapters.model_protocol import ProductionAdapter
 from .quality.engine import QualityValidationEngine
 from .refinement.engine import TargetedRefinementEngine
-from .source import ArticleSourceAcquisition, UrlSourceFetcher
-from .search_intent import SearchIntentAnalyzer
-from .link_analysis import LinkOpportunityAnalyzer
 
 class RuntimeOrchestrator:
-    def __init__(self, repo_root: Path, adapter: ProductionAdapter | None = None, *, source_fetch_enabled: bool = False, source_fetcher: UrlSourceFetcher | None = None):
+    def __init__(self, repo_root: Path, adapter: ProductionAdapter | None = None):
         self.repo_root = repo_root
-        self.adapter = adapter or DeterministicImprovementAdapter()
-        self.request_loader = ImprovementRequestLoader(repo_root)
+        self.adapter = adapter or ManualModelAdapter()
         self.quality_engine = QualityValidationEngine(repo_root)
         self.refinement_engine = TargetedRefinementEngine(self.quality_engine)
-        self.source_fetch_enabled = source_fetch_enabled
-        self.source_acquisition = ArticleSourceAcquisition(fetcher=source_fetcher)
-        self.intent_analyzer = SearchIntentAnalyzer()
-        self.link_analyzer = LinkOpportunityAnalyzer()
 
-    def execute(self, raw: dict[str, Any], input_type: str = "auto") -> RuntimeResult:
+    def execute(self, raw: dict[str, Any], input_type: str = "generic") -> RuntimeResult:
         execution_id = f"EXE-{uuid4().hex[:12].upper()}"
         records = [StageRecord(name=s) for s in STAGES]
         artifacts: dict[str, Any] = {"raw_request": raw}
@@ -36,62 +27,34 @@ class RuntimeOrchestrator:
         manifest["locked_at"] = datetime.now(timezone.utc).isoformat()
         try:
             self._pass(records, "intake")
-            loaded = self.request_loader.load(raw, input_type=input_type)
-            request = loaded.payload
-            context = ArticleContextBuilder.build(request)
-            artifacts["request_metadata"] = {"input_type": loaded.input_type, "schema_version": loaded.schema_version}
+            request = normalize_sbm(raw) if input_type == "sbm" else normalize_generic(raw)
             artifacts["normalized_request"] = request
-            artifacts["article_context"] = context.to_dict()
             self._pass(records, "normalization")
 
-            source_snapshot = self.source_acquisition.acquire(
-                context.existing_content,
-                content_format=context.content_format,
-                target_url=context.target_url,
-                fallback_title=context.current_title,
-                fetch_enabled=self.source_fetch_enabled,
-            )
-            artifacts["source_snapshot"] = source_snapshot.to_dict()
-            source_status = source_snapshot.status
-            if source_status == "available":
-                if source_snapshot.warnings:
-                    self._warn(records, "source_acquisition", "; ".join(source_snapshot.warnings))
-                else:
-                    self._pass(records, "source_acquisition")
-            elif source_status == "not_applicable":
-                self._skip(records, "source_acquisition", "No existing article source is required")
-            else:
-                self._manual(records, "source_acquisition", "Existing article content must be supplied for grounded improvement")
+            source_status = "unavailable" if request.get("target_url") else "not_applicable"
+            artifacts["source_snapshot"] = {"status": source_status, "target_url": request.get("target_url")}
+            self._warn(records, "source_acquisition", "Alpha runtime does not fetch external content")
 
-            intent_analysis = self.intent_analyzer.analyze(request["main_query"], request.get("supporting_queries") or [])
-            artifacts["search_intent_analysis"] = intent_analysis
-            link_analysis = self.link_analyzer.analyze(
-                request["main_query"],
-                request.get("supporting_queries") or [],
-                request.get("article_catalog") or [],
-                current_url=request.get("target_url"),
-            )
-            artifacts["link_opportunity_analysis"] = link_analysis
+            artifacts["knowledge_assembly"] = {"coverage": "partial", "selected": [], "note": "registry connection verified"}
+            self._warn(records, "knowledge_assembly", "Knowledge selection execution is scaffolded")
 
-            artifacts["knowledge_assembly"] = self._assemble_knowledge(request, intent_analysis)
-            self._pass(records, "knowledge_assembly")
-
-            plan = self._build_content_plan(request, source_status, execution_id, intent_analysis, link_analysis)
+            plan = {
+                "plan_id": f"PLN-{execution_id[4:]}",
+                "primary_intent": request["main_query"],
+                "main_answer": None,
+                "status": "manual_review_required",
+            }
             artifacts["content_plan"] = plan
-            if plan["status"] == "ready":
-                self._pass(records, "content_planning")
-            else:
-                self._manual(records, "content_planning", "Existing article content is required for grounded improvement")
+            self._warn(records, "content_planning", "Main answer requires production adapter")
 
-            action = "manual_review" if source_status == "missing" else "revise"
-            components = list(request.get("improvement_goal") or ["seo_title", "introduction", "faq"])
-            artifacts["decision_action_plan"] = {"action": action, "components": components, "reason": "Validated request and supplied source determine the conservative improvement path"}
+            action = "manual_review" if source_status == "unavailable" else "revise"
+            artifacts["decision_action_plan"] = {"action": action, "components": [], "reason": "Alpha deterministic decision"}
             self._pass(records, "decision_evaluation")
 
             artifacts["pattern_selection"] = {"selected_patterns": [], "blocked_by_action": action == "manual_review"}
             self._pass(records, "pattern_selection")
 
-            draft = self.adapter.produce(request, plan, source_snapshot=artifacts["source_snapshot"], search_intent_analysis=intent_analysis, link_opportunity_analysis=link_analysis, knowledge_assembly=artifacts["knowledge_assembly"], decision_action_plan=artifacts["decision_action_plan"], pattern_selection=artifacts["pattern_selection"])
+            draft = self.adapter.produce(request, plan, source_snapshot=artifacts["source_snapshot"], knowledge_assembly=artifacts["knowledge_assembly"], decision_action_plan=artifacts["decision_action_plan"], pattern_selection=artifacts["pattern_selection"])
             artifacts["content_draft"] = draft
             
             if draft.get("article_content"):
@@ -137,36 +100,6 @@ class RuntimeOrchestrator:
             request = artifacts.get("normalized_request", {"request_id":"UNKNOWN"})
             status = "failed"
         return RuntimeResult(execution_id, request.get("request_id", "UNKNOWN"), status, records, manifest, artifacts)
-
-    @staticmethod
-    def _assemble_knowledge(request: dict[str, Any], intent_analysis: dict[str, Any]) -> dict[str, Any]:
-        selected = ["KN-SEO-001", "KN-SEO-CTR", "KN-WRI-INTRO"]
-        if request.get("supporting_queries"):
-            selected.append("KN-WRI-FAQ")
-        if intent_analysis.get("primary", {}).get("intent") == "troubleshooting":
-            selected.append("KN-WRI-TROUBLESHOOTING")
-        return {
-            "coverage": "deterministic_vertical_slice",
-            "selected": selected,
-            "selection_reason": "CTR improvement baseline selected from request metrics and requested components",
-        }
-
-    @staticmethod
-    def _build_content_plan(request: dict[str, Any], source_status: str, execution_id: str, intent_analysis: dict[str, Any], link_analysis: dict[str, Any]) -> dict[str, Any]:
-        goals = list(request.get("improvement_goal") or ["seo_title", "introduction", "faq"])
-        return {
-            "plan_id": f"PLN-{execution_id[4:]}",
-            "primary_intent": intent_analysis["primary"]["intent"],
-            "primary_intent_label": intent_analysis["primary"]["intent_label"],
-            "main_query": request["main_query"],
-            "main_answer": f"{request['main_query']}の検索意図に対する結論を冒頭で明確にする",
-            "recommended_headings": intent_analysis["heading_recommendations"],
-            "faq_candidates": intent_analysis["faq_candidates"],
-            "internal_link_candidates": link_analysis["internal_link_candidates"],
-            "separate_article_queries": link_analysis["separate_article_queries"],
-            "components": goals,
-            "status": "ready" if source_status == "available" else "manual_review_required",
-        }
 
     @staticmethod
     def _record(records, name): return next(r for r in records if r.name == name)
