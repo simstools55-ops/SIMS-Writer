@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.14.1-alpha.1
+
+- Added the missing `claude/` deployment package.
+- Updated Claude Project Instructions for RC2 human output plus final JSON.
+- Added output-mode, change-flag, internal-link, evidence, and JSON-last rules.
+- Added Claude setup guide and RC2 test checklist.
+- Corrective release for v0.14.0-alpha.1.
+
 ## [0.14.0-alpha.1] - 2026-07-17
 
 ### Added

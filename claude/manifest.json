@@ -1,0 +1,13 @@
+{
+  "package_version": "0.14.1-alpha.1",
+  "status": "rc2_claude_corrective",
+  "files": {
+    "CLAUDE_PROJECT_INSTRUCTIONS.md": "8b8b3659771e0bba6c1a6b71aa4796f4a2bc9ae4e60c64488624d80c1e1eddb3",
+    "README.md": "a41e228d43af9e5c237d5faf214b360c44c9d622d1f739e8194331195493f62b",
+    "SETUP_GUIDE.md": "bdbab630db3cef4c8c2425fc889d60a0348a0ea41e8102ec67333aaa0d656699",
+    "TEST_CHECKLIST.md": "88012114810fcc4a36c5317172024ce19ae7b5ee5314725095fc686a9bf1ea04",
+    "examples/EXAMPLE_REQUEST.json": "7e3a01618204a9f53558992b36dead6b2a89aa321efe7406926abcafeec62baf",
+    "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md": "d78fe01115a1faf79eab3b72046b6131f4193cbbe3454f51f3caee578d9a53f7",
+    "templates/IMPROVEMENT_REQUEST_TEMPLATE.json": "264d57a61ac1cde15e6592c4caa5fbeb549ac0a77cf431eb23b78811e8b4378a"
+  }
+}
