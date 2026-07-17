@@ -1,12 +1,12 @@
-# SIMS Writer Repository v1.2.0
+# SIMS Writer Repository v1.3.0
 
 Status: Release Candidate Verified
 
 ## Scope
 
-- Public URL article source acquisition (opt-in)
-- Safe HTTP(S) fetch policy and failure fallback
-- Runtime and batch integration
+- Article-aware HTML extraction noise filter
+- Hatena Blog / WordPress common layout noise removal
+- Extraction profile and removed-element traceability
 - Full repository validation
 
 ## Release command

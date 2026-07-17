@@ -68,3 +68,36 @@ def test_supplied_content_is_connected_to_runtime_snapshot():
     assert snapshot["content_format"] == "html"
     assert snapshot["headings"][0]["level"] == 1
     assert snapshot["original_content"].startswith("<article>")
+
+
+def test_removes_hatena_and_wordpress_page_noise():
+    html = """<html><head><title>実記事</title></head><body>
+    <header><p>サイト共通ヘッダー</p></header>
+    <nav><p>ホーム カテゴリー</p></nav>
+    <main><article class="entry-content">
+      <h1>実記事</h1><p>この記事の重要な導入本文です。</p>
+      <div class="adsbygoogle advertisement"><p>広告本文</p></div>
+      <h2>確認手順</h2><p>ここが残すべき詳しい本文です。</p>
+      <div class="hatena-module-related-entries related-posts"><p>関連記事タイトル</p></div>
+      <div class="social-share-buttons"><p>SNSで共有</p></div>
+    </article></main>
+    <aside><p>サイドバーランキング</p></aside>
+    <footer><p>著作権表記</p></footer>
+    </body></html>"""
+    snapshot = ArticleSourceExtractor().extract(html, content_format="html")
+    assert "重要な導入本文" in snapshot.plain_text
+    assert "残すべき詳しい本文" in snapshot.plain_text
+    for noise in ["サイト共通ヘッダー", "ホーム カテゴリー", "広告本文", "関連記事タイトル", "SNSで共有", "サイドバーランキング", "著作権表記"]:
+        assert noise not in snapshot.plain_text
+    assert snapshot.removed_noise_count >= 7
+    assert snapshot.extraction_profile == "article-aware-noise-filter-v1"
+
+
+def test_does_not_remove_article_text_containing_recommendation_words():
+    html = """<article><h1>おすすめ設定</h1>
+    <p>この記事ではおすすめの設定方法を本文として説明します。</p>
+    <section class="entry-content"><h2>推奨手順</h2><p>この文章は残ります。</p></section>
+    </article>"""
+    snapshot = ArticleSourceExtractor().extract(html, content_format="html")
+    assert "おすすめの設定方法" in snapshot.plain_text
+    assert "この文章は残ります" in snapshot.plain_text

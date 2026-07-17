@@ -1,3 +1,14 @@
+## 1.3.0
+
+### Added
+- Article-aware HTML noise filter for common Hatena Blog and WordPress layouts.
+- Removal of navigation, headers, footers, sidebars, ads, related posts, share controls, and hidden elements.
+- `extraction_profile` and `removed_noise_count` fields in Source Snapshot.
+- Regression tests that protect legitimate article text from over-filtering.
+
+### Changed
+- HTML extraction now removes repeated adjacent text and reports filtering activity as a warning.
+
 ## 1.2.0
 
 ### Added
