@@ -322,3 +322,10 @@
 - Claude UAT証拠取り込みからReadiness判定までの一括ワークフローを追加
 - UATセッション作成時に初心者セットアップ証拠テンプレートを同梱
 - 最終運用判定JSON・Markdownレポートを追加
+
+## 1.15.0
+
+- Added bulk Claude UAT result registration.
+- Validates every response against the Claude output contract and original request.
+- Writes normalized responses, validation reports, and response SHA-256 values.
+- Preserves human scoring fields and rejects unsafe overwrites or invalid outputs.

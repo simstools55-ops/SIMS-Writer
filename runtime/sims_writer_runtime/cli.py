@@ -12,6 +12,7 @@ from .claude.evidence_ingest import ClaudeUATEvidenceIngestError, ClaudeUATEvide
 from .claude.setup_evidence import BeginnerSetupEvidenceError, BeginnerSetupEvidenceValidator
 from .claude.workflow import ClaudeUATReadinessWorkflow
 from .claude.operator_pack import ClaudeUATOperatorPackBuilder, ClaudeUATOperatorPackError
+from .claude.result_registration import ClaudeUATResultRegistrar, ClaudeUATResultRegistrationError
 from .export import (
     ArtifactRollbackError,
     ArtifactRollbackManager,
@@ -41,6 +42,8 @@ def main() -> int:
     parser.add_argument("--validate-beginner-setup", help="Validate measured beginner setup evidence JSON")
     parser.add_argument("--run-claude-uat-readiness", help="Run UAT ingestion, beginner setup validation, and readiness evaluation")
     parser.add_argument("--build-claude-uat-operator-pack", help="Build a guided operator pack from a prepared UAT session")
+    parser.add_argument("--register-claude-uat-results", help="Prepared UAT session directory receiving validated Claude outputs")
+    parser.add_argument("--uat-results-dir", help="Directory containing Claude output JSON files for bulk registration")
     actions = parser.add_mutually_exclusive_group()
     actions.add_argument("--approve", action="store_true")
     actions.add_argument("--reject", action="store_true")
@@ -52,6 +55,32 @@ def main() -> int:
 
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
+
+
+    if args.register_claude_uat_results:
+        conflicting = (args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or
+                       args.evaluate_user_test_readiness or args.prepare_claude_uat_session or
+                       args.ingest_claude_uat_session or args.validate_beginner_setup or
+                       args.run_claude_uat_readiness or args.build_claude_uat_operator_pack or
+                       args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export)
+        if conflicting:
+            parser.error("--register-claude-uat-results cannot be combined with other actions")
+        if not args.uat_results_dir:
+            parser.error("--uat-results-dir is required with --register-claude-uat-results")
+        repo_root = Path(__file__).resolve().parents[2]
+        try:
+            report = ClaudeUATResultRegistrar(repo_root).register(
+                Path(args.register_claude_uat_results), Path(args.uat_results_dir)
+            )
+        except ClaudeUATResultRegistrationError as exc:
+            print(f"claude_uat_result_registration_failed={exc}")
+            return 2
+        counts = report["counts"]
+        print(
+            f"claude_uat_result_registration={report['status']} "
+            f"registered={counts['registered']} rejected={counts['rejected']} missing={counts['missing']}"
+        )
+        return 0 if report["status"] in {"complete", "partial"} else 1
 
     if args.build_claude_uat_operator_pack:
         conflicting = (args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or
