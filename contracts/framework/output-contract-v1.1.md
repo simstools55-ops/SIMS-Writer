@@ -1,4 +1,4 @@
-# Output Contract v1.3
+# Output Contract v1.4
 
 ## Purpose
 
@@ -39,7 +39,11 @@ JSONの後には文章を出力しない。
 ## Feedback Rules
 
 - `main_query` は検索クエリ文字列だけを格納する。
-- 推定・要確認などの注記は `warnings` に格納する。
+- 改善結果の安全性・正確性・反映判断に注意が必要な事項だけを `warnings` に格納する。
+- 推定した事実、任意入力の不足による通常スキップ、現状維持の補足は `information` に格納する。
+- `main_query_source` は `search_console` / `manual` / `estimated` / `unavailable` のいずれかとする。
+- `execution_mode` は `standard` または `graceful_degradation` とする。
+- 推定値は `estimated_fields` にフィールド名を列挙する。
 - 根拠のないCTR・クリック数の数値予測は禁止する。
 - JSONは機械連携用の要約であり、記事全文や長い評価レポートを格納しない。
 

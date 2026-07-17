@@ -27,7 +27,7 @@ def test_missing_main_query_is_inferred_without_annotation_in_field():
     s=CTRImprovementSlice(); req=s.normalize(raw); dec=s.decide(req); draft=s.build_draft(req,dec); package=s.build_output(req,dec,draft)
     assert req["main_query"]=="Product AとProduct B 比較"
     assert "推定" not in package["feedback"]["new_values"]["main_query"]
-    assert any("推定" in x for x in package["feedback"]["warnings"])
+    assert any("推定" in x for x in package["feedback"]["information"])
 
 
 def test_unverified_adopted_internal_link_is_rejected():
@@ -68,14 +68,15 @@ def test_response_must_end_with_single_json_code_block():
 
 def _strict_v11_contract():
     return {
-        "field_order": ["format","version","article_id","article_url","completed_at","changes","new_values","improvement_type","confidence","expected_effect","next_action","summary","warnings","estimated_minutes","recommended_review_days"],
+        "field_order": ["format","version","article_id","article_url","completed_at","changes","new_values","main_query_source","execution_mode","estimated_fields","improvement_type","confidence","expected_effect","next_action","summary","warnings","information","estimated_minutes","recommended_review_days"],
         "fields": {
             "format":"string","version":"string","article_id":"string","article_url":"string","completed_at":"string",
             "changes":{"article_title":"boolean","seo_title":"boolean","description":"boolean","introduction":"boolean","headings":"boolean","faq":"boolean","internal_links":"boolean","body":"boolean","images":"boolean"},
             "new_values":{"article_title":"string","seo_title":"string","description":"string","main_query":"string"},
+            "main_query_source":"string","execution_mode":"string","estimated_fields":"array",
             "improvement_type":"string","confidence":"string",
             "expected_effect":{"ctr":"string","clicks":"string"},
-            "next_action":"string","summary":"string","warnings":"array","estimated_minutes":"integer","recommended_review_days":"integer"
+            "next_action":"string","summary":"string","warnings":"array","information":"array","estimated_minutes":"integer","recommended_review_days":"integer"
         }
     }
 
@@ -110,10 +111,24 @@ def test_missing_main_query_without_title_continues_with_warning():
     assert req["main_query_missing"] is True
     assert package["feedback"]["confidence"] == "low"
     assert any("処理は継続" in x for x in package["feedback"]["warnings"])
+    assert package["feedback"]["main_query_source"] == "unavailable"
+    assert package["feedback"]["execution_mode"] == "graceful_degradation"
 
 
 def test_missing_article_catalog_skips_internal_links_only():
     raw={"ArticleID":"A000008","ArticleTitle":"比較記事","ExistingContent":"比較記事の本文です。"*30}
     s=CTRImprovementSlice(); req=s.normalize(raw); dec=s.decide(req); draft=s.build_draft(req,dec); package=s.build_output(req,dec,draft)
     assert package["feedback"]["changes"]["internal_links"] is False
-    assert any("内部リンク候補の選定のみSKIP" in x for x in package["feedback"]["warnings"])
+    assert any("内部リンク候補の選定のみSKIP" in x for x in package["feedback"]["information"])
+    assert package["feedback"]["execution_mode"] == "graceful_degradation"
+
+
+def test_inferred_query_metadata_and_information_are_explicit():
+    raw={"ArticleID":"A000008","ArticleTitle":"サイオスとLPLPを5つの項目で比較！","ExistingContent":"比較本文です。"*30}
+    s=CTRImprovementSlice(); req=s.normalize(raw); dec=s.decide(req); draft=s.build_draft(req,dec); package=s.build_output(req,dec,draft)
+    fb=package["feedback"]
+    assert fb["main_query_source"] == "estimated"
+    assert fb["execution_mode"] == "graceful_degradation"
+    assert fb["estimated_fields"] == ["main_query"]
+    assert fb["warnings"] == []
+    assert any("推定" in x for x in fb["information"])

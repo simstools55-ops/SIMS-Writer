@@ -1,6 +1,6 @@
 # Claude Project更新手順
 
-Version: 0.15.1-alpha.1
+Version: 0.15.2-alpha.1
 
 1. ClaudeでSIMS WriterのProjectを開きます。
 2. 現在登録されている旧`CLAUDE_PROJECT_INSTRUCTIONS.md`の内容を削除します。

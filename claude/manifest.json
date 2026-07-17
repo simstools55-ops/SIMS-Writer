@@ -1,14 +1,14 @@
 {
-  "package_version": "0.15.1-alpha.1",
-  "status": "Graceful Degradation Alpha",
+  "package_version": "0.15.2-alpha.1",
+  "status": "Explainable Graceful Degradation Alpha",
   "files": {
-    "CLAUDE_PROJECT_INSTRUCTIONS.md": "7a609b5ce171da102fc6300bad6b0bd61c1c052f433a4b874cc12360dc72851d",
-    "README.md": "f10742b57fa8add532478881eb56592c3374c57105a14a58d43f76798bd04fe2",
-    "SETUP_GUIDE.md": "915beee21f241e7ca8f33a060517491c1a6ee5fa0c0a07a0d341167389631de1",
-    "TEST_CHECKLIST.md": "2b370a524c1a4fe17fabff41399f379f1db3d1ad710ef3b983946172ae1c3887",
+    "CLAUDE_PROJECT_INSTRUCTIONS.md": "4aa969c9d13a68f3988875b659ba80a75c6a221aeb6051d771123db4e6a410b8",
+    "README.md": "51a3abd85f2b04428faaf9fefd14267c9eb8c2a45a0df8716ec1fada9238d310",
+    "SETUP_GUIDE.md": "06c8a9801216c0cc8c8af9538c675dbc7302f0824417c3f7c24429be349c5cc6",
+    "TEST_CHECKLIST.md": "85c4f204cb1d8cbf8829e64573d6cd435bf0152d2db2f61ccc210bc1793a87a4",
     "examples/EXAMPLE_REQUEST.json": "7e3a01618204a9f53558992b36dead6b2a89aa321efe7406926abcafeec62baf",
     "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md": "f8bc2995ff34d201f7b0ebd0b2ee35e643fb72bc817ed891bb38d998d8f5eb9b",
     "templates/IMPROVEMENT_REQUEST_TEMPLATE.json": "264d57a61ac1cde15e6592c4caa5fbeb549ac0a77cf431eb23b78811e8b4378a"
   },
-  "version": "0.15.1-alpha.1"
+  "version": "0.15.2-alpha.1"
 }

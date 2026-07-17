@@ -171,16 +171,23 @@ class CTRImprovementSlice:
         if decision.faq_action=="add":
             before_after.append({"component":"faq","before":"FAQなし、または不足","after":draft["faq"],"reason":"本文中の重要情報を質問形式で見つけやすく再整理するため","expected_effect":"疑問への回答を本文末でも見つけやすくなる"})
         warnings=[]
+        information=[]
+        estimated_fields=[]
+        main_query_source="manual"
         if request.get("main_query_inferred"):
-            warnings.append("main_queryが未入力だったため、タイトルから推定しています。正式なクエリ確認後に再調整してください。")
+            main_query_source="estimated"
+            estimated_fields.append("main_query")
+            information.append("main_queryが未入力だったため、タイトルから推定しました。")
         elif request.get("main_query_missing"):
-            warnings.append("main_queryが未入力で推定材料も不足しています。タイトル・導入文など改善可能な項目の処理は継続し、クエリ依存の判定のみ保留しました。")
+            main_query_source="unavailable"
+            warnings.append("main_queryが未入力で推定材料も不足しています。クエリ依存の判定は保留しましたが、改善可能な項目の処理は継続しました。")
         if not request.get("article_catalog"):
-            warnings.append("article_catalogが未入力のため、内部リンク候補の選定のみSKIPしました。")
+            information.append("article_catalogが未入力のため、内部リンク候補の選定のみSKIPしました。")
         elif not request.get("internal_link_candidates"):
-            warnings.append("内部リンク候補が未入力のため、内部リンクは変更していません。")
+            information.append("内部リンク候補が未入力のため、内部リンクは変更していません。")
+        execution_mode="graceful_degradation" if (request.get("main_query_inferred") or request.get("main_query_missing") or not request.get("article_catalog")) else "standard"
         effect={"ctr":"CTR改善余地はありますが、具体的な数値は実測データ不足のため予測しません。","clicks":"表示回数とクリック数の母数が小さい場合、定量予測は行わず再測定で確認します。"}
-        feedback=build_feedback(article_id=request.get("article_id"), article_url=request.get("target_url"), main_query=request.get("main_query", ""), before_after=before_after, summary=decision.reason, warnings=warnings, confidence="low" if request.get("main_query_missing") else ("medium" if request.get("main_query_inferred") else "high"), expected_effect=effect)
+        feedback=build_feedback(article_id=request.get("article_id"), article_url=request.get("target_url"), main_query=request.get("main_query", ""), before_after=before_after, summary=decision.reason, warnings=warnings, information=information, main_query_source=main_query_source, execution_mode=execution_mode, estimated_fields=estimated_fields, confidence="low" if request.get("main_query_missing") else ("medium" if request.get("main_query_inferred") else "high"), expected_effect=effect)
         feedback["estimated_minutes"] = decision.estimated_minutes
         publish_quality = {
             "improvement_judgment": decision.improvement_judgment,

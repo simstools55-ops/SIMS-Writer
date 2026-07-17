@@ -25,4 +25,4 @@ next_review_at: '2027-01-17'
 
 `new_values.main_query` には検索クエリ文字列だけを格納する。
 
-メインクエリを本文やタイトルから推定した場合も、注記を同じフィールドへ混在させず、`warnings` に「推定・要確認」と記録する。
+メインクエリを本文やタイトルから推定した場合も、注記を同じフィールドへ混在させず、`main_query_source="estimated"` と `estimated_fields=["main_query"]` で明示し、補足説明は `information` に記録する。

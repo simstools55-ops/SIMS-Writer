@@ -1,6 +1,6 @@
 # SIMS Writer RC3 Claude Package
 
-このフォルダーは、SIMS Writer v0.15.1-alpha.1をClaude Projectへ登録するためのファイル一式です。
+このフォルダーは、SIMS Writer v0.15.2-alpha.1をClaude Projectへ登録するためのファイル一式です。
 
 ## Claudeへ登録するファイル
 

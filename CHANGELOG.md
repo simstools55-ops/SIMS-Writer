@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.15.2-alpha.1
+
+- `warnings`と`information`を分離し、通常スキップ・推定・現状維持メモをInformationへ移動
+- `main_query_source`を追加し、`search_console` / `manual` / `estimated` / `unavailable`を明示
+- `execution_mode`を追加し、通常実行と`graceful_degradation`を区別
+- `estimated_fields`を追加し、推定された入力項目を機械判読可能に記録
+- SIMS_FEEDBACK_V1をv1.2へ更新し、メタデータ整合性Validatorと回帰テストを追加
+
 ## 0.15.1-alpha.1
 
 - `manual_review_required`を人手確認が不可欠な場合だけに限定

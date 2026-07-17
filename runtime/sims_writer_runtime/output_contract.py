@@ -107,6 +107,18 @@ class OutputContractValidator:
         if feedback.get("format") != "SIMS_FEEDBACK_V1":
             issues.append(OutputValidationIssue("OUT-003", "feedback.format must be SIMS_FEEDBACK_V1"))
 
+        if feedback.get("main_query_source") not in {"search_console", "manual", "estimated", "unavailable"}:
+            issues.append(OutputValidationIssue("OUT-025", "main_query_source must be search_console, manual, estimated, or unavailable"))
+        if feedback.get("execution_mode") not in {"standard", "graceful_degradation"}:
+            issues.append(OutputValidationIssue("OUT-026", "execution_mode must be standard or graceful_degradation"))
+        estimated_fields = feedback.get("estimated_fields")
+        if not isinstance(estimated_fields, list) or any(not isinstance(x, str) for x in estimated_fields):
+            issues.append(OutputValidationIssue("OUT-027", "estimated_fields must be an array of strings"))
+        if not isinstance(feedback.get("information"), list):
+            issues.append(OutputValidationIssue("OUT-028", "information must be an array"))
+        if feedback.get("main_query_source") == "estimated" and "main_query" not in (estimated_fields or []):
+            issues.append(OutputValidationIssue("OUT-029", "estimated main_query must be listed in estimated_fields"))
+
         changes = feedback.get("changes") or {}
         missing = [key for key in CHANGE_KEYS if key not in changes]
         if missing:
@@ -199,6 +211,10 @@ def infer_change_flags(before_after: list[dict[str, Any]], *, body_additions: li
 
 def build_feedback(*, article_id: str | None, article_url: str | None, main_query: str,
                    before_after: list[dict[str, Any]], summary: str, warnings: list[str],
+                   information: list[str] | None = None,
+                   main_query_source: str = "manual",
+                   execution_mode: str = "standard",
+                   estimated_fields: list[str] | None = None,
                    body_additions: list[dict[str, Any]] | None = None,
                    internal_link_report: list[dict[str, Any]] | None = None,
                    confidence: str = "medium", improvement_type: str = "normal",
@@ -217,18 +233,22 @@ def build_feedback(*, article_id: str | None, article_url: str | None, main_quer
         elif component == "description": new_values["description"] = item.get("after", "")
     return {
         "format": "SIMS_FEEDBACK_V1",
-        "version": "1.1",
+        "version": "1.2",
         "article_id": article_id or "",
         "article_url": article_url or "",
         "completed_at": date.today().isoformat(),
         "changes": changes,
         "new_values": new_values,
+        "main_query_source": main_query_source,
+        "execution_mode": execution_mode,
+        "estimated_fields": list(estimated_fields or []),
         "improvement_type": improvement_type,
         "confidence": confidence,
         "expected_effect": expected_effect or {"ctr": "", "clicks": ""},
         "next_action": next_action,
         "summary": summary,
         "warnings": warnings,
+        "information": list(information or []),
         "estimated_minutes": 20,
         "recommended_review_days": recommended_review_days,
     }

@@ -1,11 +1,11 @@
 # Validation Report
 
-Version: 0.15.1-alpha.1
-Status: Graceful Degradation Alpha
+Version: 0.15.2-alpha.1
+Status: Explainable Graceful Degradation Alpha
 
 ## Automated checks
 
-- Targeted pytest regression suite: 20 passed
+- Targeted pytest regression suite: 16 passed
 - Contract schema examples: 15 passed, 0 failed
 - Golden UAT: 12 passed, 0 failed
 - Runtime graceful-degradation checks: passed
@@ -26,9 +26,9 @@ Status: Graceful Degradation Alpha
 - `full` and `publish` remain beta.
 - Comparison consistency validation requires structured comparison data; Claude Instructions provide the human-output gate.
 
-## 0.15.1 scope
+## 0.15.2 scope
 
-- Missing `main_query` no longer causes a fatal stop.
-- Missing `article_catalog` skips internal-link selection only.
-- Source and optional-input shortages are warnings where processing can continue.
+- Warning and Information are separated by operational severity.
+- `main_query_source`, `execution_mode`, and `estimated_fields` make degraded execution machine-readable.
+- Missing `article_catalog` is an Information-level internal-link skip.
 - `manual_review_required` remains reserved for genuinely blocking human review.
