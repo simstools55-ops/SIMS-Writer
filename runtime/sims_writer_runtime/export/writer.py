@@ -148,6 +148,18 @@ class ResultArtifactWriter:
         else:
             lines.append("Before / Afterデータはありません。")
             lines.append("")
+        links = draft.get("internal_link_recommendations") or []
+        separate = draft.get("separate_article_queries") or []
+        if links:
+            lines.extend(["## 内部リンク候補", ""])
+            for item in links:
+                lines.append(f"- [{item.get('title') or item.get('url')}]({item.get('url')}) — {item.get('reason', '')}")
+            lines.append("")
+        if separate:
+            lines.extend(["## 別記事候補クエリ", ""])
+            for item in separate:
+                lines.append(f"- {item.get('query')} — {item.get('reason', '')}")
+            lines.append("")
         lines.extend([
             "## SEOメタ情報",
             "",

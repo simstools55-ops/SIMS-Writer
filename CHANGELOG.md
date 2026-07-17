@@ -1,3 +1,9 @@
+## 1.5.0 - 2026-07-17
+
+- Added grounded internal-link candidate selection from a supplied article catalog.
+- Added separation of low-relevance supporting queries as future article candidates.
+- Added link analysis to content plans, drafts, runtime artifacts, and reports.
+
 ## 1.4.0
 
 ### Added

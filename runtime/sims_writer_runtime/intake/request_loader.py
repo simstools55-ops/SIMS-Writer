@@ -107,6 +107,7 @@ class ImprovementRequestLoader:
                 "existing_content": payload.get("ExistingContent") or payload.get("ArticleContent") or "",
                 "content_format": payload.get("ContentFormat") or payload.get("ArticleContentFormat") or "auto",
                 "performance": {k: v for k, v in performance.items() if v is not None},
+                "article_catalog": payload.get("ArticleCatalog") or payload.get("InternalLinkCatalog") or [],
                 "source_system": "sims_blog_manager",
             }
         query = payload.get("query") if isinstance(payload.get("query"), dict) else {}
@@ -130,6 +131,7 @@ class ImprovementRequestLoader:
             "existing_content": payload.get("existing_content") or payload.get("article_content") or "",
             "content_format": payload.get("content_format") or "auto",
             "performance": payload.get("performance") or {},
+            "article_catalog": payload.get("article_catalog") or payload.get("internal_link_catalog") or [],
             "source_system": payload.get("source_system") or "generic_json",
         }
 

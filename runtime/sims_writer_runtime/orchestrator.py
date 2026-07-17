@@ -13,6 +13,7 @@ from .quality.engine import QualityValidationEngine
 from .refinement.engine import TargetedRefinementEngine
 from .source import ArticleSourceAcquisition, UrlSourceFetcher
 from .search_intent import SearchIntentAnalyzer
+from .link_analysis import LinkOpportunityAnalyzer
 
 class RuntimeOrchestrator:
     def __init__(self, repo_root: Path, adapter: ProductionAdapter | None = None, *, source_fetch_enabled: bool = False, source_fetcher: UrlSourceFetcher | None = None):
@@ -24,6 +25,7 @@ class RuntimeOrchestrator:
         self.source_fetch_enabled = source_fetch_enabled
         self.source_acquisition = ArticleSourceAcquisition(fetcher=source_fetcher)
         self.intent_analyzer = SearchIntentAnalyzer()
+        self.link_analyzer = LinkOpportunityAnalyzer()
 
     def execute(self, raw: dict[str, Any], input_type: str = "auto") -> RuntimeResult:
         execution_id = f"EXE-{uuid4().hex[:12].upper()}"
@@ -63,11 +65,18 @@ class RuntimeOrchestrator:
 
             intent_analysis = self.intent_analyzer.analyze(request["main_query"], request.get("supporting_queries") or [])
             artifacts["search_intent_analysis"] = intent_analysis
+            link_analysis = self.link_analyzer.analyze(
+                request["main_query"],
+                request.get("supporting_queries") or [],
+                request.get("article_catalog") or [],
+                current_url=request.get("target_url"),
+            )
+            artifacts["link_opportunity_analysis"] = link_analysis
 
             artifacts["knowledge_assembly"] = self._assemble_knowledge(request, intent_analysis)
             self._pass(records, "knowledge_assembly")
 
-            plan = self._build_content_plan(request, source_status, execution_id, intent_analysis)
+            plan = self._build_content_plan(request, source_status, execution_id, intent_analysis, link_analysis)
             artifacts["content_plan"] = plan
             if plan["status"] == "ready":
                 self._pass(records, "content_planning")
@@ -82,7 +91,7 @@ class RuntimeOrchestrator:
             artifacts["pattern_selection"] = {"selected_patterns": [], "blocked_by_action": action == "manual_review"}
             self._pass(records, "pattern_selection")
 
-            draft = self.adapter.produce(request, plan, source_snapshot=artifacts["source_snapshot"], search_intent_analysis=intent_analysis, knowledge_assembly=artifacts["knowledge_assembly"], decision_action_plan=artifacts["decision_action_plan"], pattern_selection=artifacts["pattern_selection"])
+            draft = self.adapter.produce(request, plan, source_snapshot=artifacts["source_snapshot"], search_intent_analysis=intent_analysis, link_opportunity_analysis=link_analysis, knowledge_assembly=artifacts["knowledge_assembly"], decision_action_plan=artifacts["decision_action_plan"], pattern_selection=artifacts["pattern_selection"])
             artifacts["content_draft"] = draft
             
             if draft.get("article_content"):
@@ -143,7 +152,7 @@ class RuntimeOrchestrator:
         }
 
     @staticmethod
-    def _build_content_plan(request: dict[str, Any], source_status: str, execution_id: str, intent_analysis: dict[str, Any]) -> dict[str, Any]:
+    def _build_content_plan(request: dict[str, Any], source_status: str, execution_id: str, intent_analysis: dict[str, Any], link_analysis: dict[str, Any]) -> dict[str, Any]:
         goals = list(request.get("improvement_goal") or ["seo_title", "introduction", "faq"])
         return {
             "plan_id": f"PLN-{execution_id[4:]}",
@@ -153,6 +162,8 @@ class RuntimeOrchestrator:
             "main_answer": f"{request['main_query']}の検索意図に対する結論を冒頭で明確にする",
             "recommended_headings": intent_analysis["heading_recommendations"],
             "faq_candidates": intent_analysis["faq_candidates"],
+            "internal_link_candidates": link_analysis["internal_link_candidates"],
+            "separate_article_queries": link_analysis["separate_article_queries"],
             "components": goals,
             "status": "ready" if source_status == "available" else "manual_review_required",
         }
