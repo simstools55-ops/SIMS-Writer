@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack
 
-Version: 1.10.0-preview.1
+Version: 1.11.0-preview.1
 
 ## Product principles
 

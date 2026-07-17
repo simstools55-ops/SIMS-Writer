@@ -7,6 +7,7 @@ from .batch import BatchInputError, BatchProcessor
 from .claude import ClaudeOutputAcceptanceError, ClaudeOutputValidator
 from .claude.uat import ClaudeGoldenUATRunner
 from .claude.readiness import ClaudeReadinessEvidenceError, ClaudeUserTestReadinessEvaluator, write_readiness_report
+from .claude.evidence_pack import ClaudeUATSessionBuilder, ClaudeUATSessionError
 from .export import (
     ArtifactRollbackError,
     ArtifactRollbackManager,
@@ -30,6 +31,8 @@ def main() -> int:
     parser.add_argument("--request-context", help="Original request JSON used to validate grounded links and safety")
     parser.add_argument("--run-claude-uat", action="store_true", help="Run Claude Project Golden UAT")
     parser.add_argument("--evaluate-user-test-readiness", help="Directory containing real-article Claude UAT evidence JSON files")
+    parser.add_argument("--prepare-claude-uat-session", help="Directory containing real-article request JSON files")
+    parser.add_argument("--uat-session-id", help="Optional stable UAT session identifier")
     actions = parser.add_mutually_exclusive_group()
     actions.add_argument("--approve", action="store_true")
     actions.add_argument("--reject", action="store_true")
@@ -42,8 +45,22 @@ def main() -> int:
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
 
+    if args.prepare_claude_uat_session:
+        if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.evaluate_user_test_readiness or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
+            parser.error("--prepare-claude-uat-session cannot be combined with other actions")
+        try:
+            result = ClaudeUATSessionBuilder().prepare(
+                Path(args.prepare_claude_uat_session), output, args.uat_session_id
+            )
+        except ClaudeUATSessionError as exc:
+            print(f"claude_uat_session_failed={exc}")
+            return 2
+        manifest = result["manifest"]
+        print(f"claude_uat_session={manifest['session_id']} requests={manifest['counts']['requests']}")
+        return 0
+
     if args.evaluate_user_test_readiness:
-        if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
+        if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.prepare_claude_uat_session or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
             parser.error("--evaluate-user-test-readiness cannot be combined with other actions")
         try:
             report = ClaudeUserTestReadinessEvaluator().evaluate_directory(Path(args.evaluate_user_test_readiness))

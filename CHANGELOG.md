@@ -1,3 +1,10 @@
+## 1.11.0 - 2026-07-17
+
+- 実記事UATセッション作成CLIを追加
+- 依頼、応答、検証、証拠をSession IDで追跡
+- 依頼JSONのSHA-256固定と記事ID重複拒否
+- 未実測の結果・点数を作らないpendingテンプレートを追加
+
 ## 1.10.0 - 2026-07-17
 
 - Added real-article Claude UAT evidence recording and validation.

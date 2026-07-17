@@ -39,7 +39,7 @@ def test_distribution_builder_creates_verified_zip(tmp_path: Path) -> None:
         text=True,
     )
     assert completed.returncode == 0, completed.stdout + completed.stderr
-    archive = tmp_path / "SIMS-Writer-Claude-Quality-UAT-v1.10.0.zip"
+    archive = tmp_path / "SIMS-Writer-Claude-Quality-UAT-v1.11.0.zip"
     report = json.loads((tmp_path / "claude-distribution-build.json").read_text(encoding="utf-8"))
     assert archive.is_file()
     assert report["status"] == "built"
