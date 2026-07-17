@@ -22,9 +22,16 @@ class SourceSnapshot:
     line_count: int = 0
     content_hash: str | None = None
     warnings: list[str] = field(default_factory=list)
+    requested_url: str | None = None
+    final_url: str | None = None
+    http_status: int | None = None
+    media_type: str | None = None
+    byte_count: int | None = None
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        data = asdict(self)
+        data["normalized_text"] = self.plain_text
+        return data
 
 
 class _HTMLContentParser(HTMLParser):
@@ -88,8 +95,8 @@ class _HTMLContentParser(HTMLParser):
 class ArticleSourceExtractor:
     """Convert supplied article content into a deterministic source snapshot.
 
-    This component intentionally does not perform network access. It accepts article
-    content supplied in the request and makes missing source state explicit.
+    It accepts supplied content and converts it into a deterministic snapshot.
+    Network access, when enabled, is handled by ArticleSourceAcquisition.
     """
 
     SUPPORTED_FORMATS = {"auto", "html", "markdown", "plain_text"}

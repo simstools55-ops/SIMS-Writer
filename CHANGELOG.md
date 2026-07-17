@@ -1,3 +1,15 @@
+## 1.2.0
+
+### Added
+- Opt-in public URL article source acquisition with `--fetch-source`.
+- HTTP(S), public-network, response size, status, and media-type safety validation.
+- Remote source metadata in Source Snapshot and deterministic fallback to manual review.
+- URL source acquisition unit and Runtime integration tests.
+
+### Changed
+- Source Snapshot now exposes `normalized_text` for all source types.
+- Batch processing can optionally acquire missing source content from target URLs.
+
 # CHANGELOG
 
 ## 1.1.0

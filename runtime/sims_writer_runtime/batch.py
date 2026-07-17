@@ -25,9 +25,9 @@ class BatchInputError(ValueError):
 class BatchProcessor:
     """Execute multiple improvement requests without stopping at the first failure."""
 
-    def __init__(self, repo_root: Path):
+    def __init__(self, repo_root: Path, *, source_fetch_enabled: bool = False):
         self.repo_root = Path(repo_root)
-        self.orchestrator = RuntimeOrchestrator(self.repo_root)
+        self.orchestrator = RuntimeOrchestrator(self.repo_root, source_fetch_enabled=source_fetch_enabled)
         self.writer = ResultArtifactWriter()
 
     def execute_directory(

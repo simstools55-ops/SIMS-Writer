@@ -1,29 +1,16 @@
-# SIMS Writer Repository v1.1.0
+# SIMS Writer Repository v1.2.0
 
-## Status
+Status: Release Candidate Verified
 
-Product 1.0 post-release implementation.
+## Scope
 
-## Implemented Vertical Slice
+- Public URL article source acquisition (opt-in)
+- Safe HTTP(S) fetch policy and failure fallback
+- Runtime and batch integration
+- Full repository validation
 
-- Multiple improvement request batch processing
-- Isolated per-article artifact directories
-- Continue-on-error processing and explicit error artifacts
-- Batch JSON and Markdown summaries
-- Existing single-article publication lifecycle retained
-
-## Batch Command
-
-```bash
-python -m runtime.sims_writer_runtime.cli \
-  --batch-input examples/batch/requests \
-  --output batch-output
-```
-
-## Release Gate
+## Release command
 
 ```bash
 python tools/test_repository.py
 ```
-
-The repository ZIP must pass the same gate after re-extraction.

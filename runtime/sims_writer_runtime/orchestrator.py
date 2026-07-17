@@ -11,16 +11,17 @@ from .adapters.deterministic_improvement import DeterministicImprovementAdapter
 from .adapters.model_protocol import ProductionAdapter
 from .quality.engine import QualityValidationEngine
 from .refinement.engine import TargetedRefinementEngine
-from .source.extractor import ArticleSourceExtractor
+from .source import ArticleSourceAcquisition, UrlSourceFetcher
 
 class RuntimeOrchestrator:
-    def __init__(self, repo_root: Path, adapter: ProductionAdapter | None = None):
+    def __init__(self, repo_root: Path, adapter: ProductionAdapter | None = None, *, source_fetch_enabled: bool = False, source_fetcher: UrlSourceFetcher | None = None):
         self.repo_root = repo_root
         self.adapter = adapter or DeterministicImprovementAdapter()
         self.request_loader = ImprovementRequestLoader(repo_root)
         self.quality_engine = QualityValidationEngine(repo_root)
         self.refinement_engine = TargetedRefinementEngine(self.quality_engine)
-        self.source_extractor = ArticleSourceExtractor()
+        self.source_fetch_enabled = source_fetch_enabled
+        self.source_acquisition = ArticleSourceAcquisition(fetcher=source_fetcher)
 
     def execute(self, raw: dict[str, Any], input_type: str = "auto") -> RuntimeResult:
         execution_id = f"EXE-{uuid4().hex[:12].upper()}"
@@ -39,11 +40,12 @@ class RuntimeOrchestrator:
             artifacts["article_context"] = context.to_dict()
             self._pass(records, "normalization")
 
-            source_snapshot = self.source_extractor.extract(
+            source_snapshot = self.source_acquisition.acquire(
                 context.existing_content,
                 content_format=context.content_format,
                 target_url=context.target_url,
                 fallback_title=context.current_title,
+                fetch_enabled=self.source_fetch_enabled,
             )
             artifacts["source_snapshot"] = source_snapshot.to_dict()
             source_status = source_snapshot.status

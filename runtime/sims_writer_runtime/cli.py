@@ -21,6 +21,7 @@ def main() -> int:
     parser.add_argument("--batch-input", help="Directory containing improvement request JSON files")
     parser.add_argument("--output", required=True)
     parser.add_argument("--input-type", choices=["auto", "generic", "sbm"], default="auto")
+    parser.add_argument("--fetch-source", action="store_true", help="Fetch target_url when existing_content is absent")
     parser.add_argument("--rollback-execution-id")
     actions = parser.add_mutually_exclusive_group()
     actions.add_argument("--approve", action="store_true")
@@ -39,7 +40,7 @@ def main() -> int:
             parser.error("--batch-input cannot be combined with rollback or publication actions")
         repo_root = Path(__file__).resolve().parents[2]
         try:
-            summary = BatchProcessor(repo_root).execute_directory(
+            summary = BatchProcessor(repo_root, source_fetch_enabled=args.fetch_source).execute_directory(
                 Path(args.batch_input), output, args.input_type
             )
         except BatchInputError as exc:
@@ -92,7 +93,7 @@ def main() -> int:
     input_path = Path(args.input).resolve()
     repo_root = Path(__file__).resolve().parents[2]
     raw = json.loads(input_path.read_text(encoding="utf-8"))
-    result = RuntimeOrchestrator(repo_root).execute(raw, args.input_type)
+    result = RuntimeOrchestrator(repo_root, source_fetch_enabled=args.fetch_source).execute(raw, args.input_type)
     ResultArtifactWriter().write(result, output)
     print(f"status={result.status} execution_id={result.execution_id}")
     return 0 if result.status != "failed" else 1
