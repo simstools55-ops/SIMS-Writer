@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims-writer.local/contracts/claude-output.schema.json",
+  "title": "SIMS Writer Claude Output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status", "seo_title", "meta_description", "h1", "article_content",
+    "change_summary", "faq", "internal_link_recommendations",
+    "separate_article_candidates", "unresolved_items"
+  ],
+  "properties": {
+    "status": {"enum": ["generated", "manual_review_required"]},
+    "seo_title": {"type": ["string", "null"], "maxLength": 120},
+    "meta_description": {"type": ["string", "null"], "maxLength": 300},
+    "h1": {"type": ["string", "null"], "maxLength": 160},
+    "article_content": {"type": ["string", "null"]},
+    "change_summary": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["area", "before", "after", "reason"],
+        "properties": {
+          "area": {"enum": ["title", "introduction", "heading", "body", "faq", "internal_link"]},
+          "before": {"type": ["string", "null"]},
+          "after": {"type": ["string", "null"]},
+          "reason": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "faq": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["question", "answer"],
+        "properties": {
+          "question": {"type": "string", "minLength": 1},
+          "answer": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "internal_link_recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["url", "title", "reason"],
+        "properties": {
+          "url": {"type": "string", "format": "uri"},
+          "title": {"type": "string", "minLength": 1},
+          "reason": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "separate_article_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["query", "reason"],
+        "properties": {
+          "query": {"type": "string", "minLength": 1},
+          "reason": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "unresolved_items": {"type": "array", "items": {"type": "string", "minLength": 1}}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "generated"}}},
+      "then": {
+        "properties": {
+          "seo_title": {"type": "string", "minLength": 1},
+          "meta_description": {"type": "string", "minLength": 1},
+          "h1": {"type": "string", "minLength": 1},
+          "article_content": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"status": {"const": "manual_review_required"}}},
+      "then": {"properties": {"unresolved_items": {"minItems": 1}}}
+    }
+  ]
+}

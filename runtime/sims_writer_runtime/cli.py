@@ -4,6 +4,7 @@ from pathlib import Path
 
 from .orchestrator import RuntimeOrchestrator
 from .batch import BatchInputError, BatchProcessor
+from .claude import ClaudeOutputAcceptanceError, ClaudeOutputValidator
 from .export import (
     ArtifactRollbackError,
     ArtifactRollbackManager,
@@ -23,6 +24,8 @@ def main() -> int:
     parser.add_argument("--input-type", choices=["auto", "generic", "sbm"], default="auto")
     parser.add_argument("--fetch-source", action="store_true", help="Fetch target_url when existing_content is absent")
     parser.add_argument("--rollback-execution-id")
+    parser.add_argument("--validate-claude-output", help="Validate a Claude Project output JSON file")
+    parser.add_argument("--request-context", help="Original request JSON used to validate grounded links and safety")
     actions = parser.add_mutually_exclusive_group()
     actions.add_argument("--approve", action="store_true")
     actions.add_argument("--reject", action="store_true")
@@ -34,6 +37,27 @@ def main() -> int:
 
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
+
+    if args.validate_claude_output:
+        if args.batch_input or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
+            parser.error("--validate-claude-output cannot be combined with batch, rollback, or publication actions")
+        repo_root = Path(__file__).resolve().parents[2]
+        try:
+            report = ClaudeOutputValidator(repo_root).validate_file(
+                Path(args.validate_claude_output).resolve(),
+                Path(args.request_context).resolve() if args.request_context else None,
+            )
+        except (ClaudeOutputAcceptanceError, json.JSONDecodeError) as exc:
+            print(f"claude_output_validation_failed={exc}")
+            return 2
+        report_path = output / "claude-output-validation.json"
+        report_path.write_text(json.dumps(report.to_dict(), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        if report.valid and report.normalized_output is not None:
+            (output / "accepted-claude-output.json").write_text(
+                json.dumps(report.normalized_output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+            )
+        print(f"claude_output_status={report.status} valid={str(report.valid).lower()}")
+        return 0 if report.valid else 1
 
     if args.batch_input:
         if args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:

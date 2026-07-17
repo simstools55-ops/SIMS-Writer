@@ -39,3 +39,16 @@ Status: Developer Preview
 - 日本語記事品質の実記事UATが合格する
 - セットアップ手順が初心者環境で再現できる
 - 配布ZIPの内容と登録対象が確定する
+
+## Claude出力の受け入れ検証（開発者向け）
+
+Claudeが返したJSONは、そのまま公開せずRepositoryの検証CLIを通してください。
+
+```bash
+python -m runtime.sims_writer_runtime.cli \
+  --validate-claude-output claude-output.json \
+  --request-context improvement-request.json \
+  --output validation-output
+```
+
+`claude-output-validation.json`が`valid: true`の場合だけ、`accepted-claude-output.json`が生成されます。

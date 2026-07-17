@@ -278,3 +278,10 @@
 - Safe deterministic fixes for placeholders, repetitive text, AI-like phrases, and heading hierarchy
 - Revision records, action plans, resume-stage routing, and revalidation loop
 - ADR-0014 Targeted Refinement Before Regeneration
+
+## 1.7.0 - 2026-07-17
+
+- Claude Project出力JSONの正式な受け入れContractを追加
+- JSON Schema、内部リンクのカタログ照合、本文不足時の安全検査を実装
+- Claude出力検証CLIと検証レポート、受理済みJSON出力を追加
+- Claude出力受け入れテストを5件追加
