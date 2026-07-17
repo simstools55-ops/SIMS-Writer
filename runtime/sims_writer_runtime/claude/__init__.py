@@ -14,3 +14,5 @@ __all__ = [
 ]
 
 from .evidence_ingest import ClaudeUATEvidenceIngestError, ClaudeUATEvidenceIngestor
+
+from .operator_pack import ClaudeUATOperatorPackBuilder, ClaudeUATOperatorPackError

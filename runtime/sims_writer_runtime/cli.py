@@ -11,6 +11,7 @@ from .claude.evidence_pack import ClaudeUATSessionBuilder, ClaudeUATSessionError
 from .claude.evidence_ingest import ClaudeUATEvidenceIngestError, ClaudeUATEvidenceIngestor
 from .claude.setup_evidence import BeginnerSetupEvidenceError, BeginnerSetupEvidenceValidator
 from .claude.workflow import ClaudeUATReadinessWorkflow
+from .claude.operator_pack import ClaudeUATOperatorPackBuilder, ClaudeUATOperatorPackError
 from .export import (
     ArtifactRollbackError,
     ArtifactRollbackManager,
@@ -39,6 +40,7 @@ def main() -> int:
     parser.add_argument("--ingest-claude-uat-session", help="Prepared UAT session directory to verify and consolidate")
     parser.add_argument("--validate-beginner-setup", help="Validate measured beginner setup evidence JSON")
     parser.add_argument("--run-claude-uat-readiness", help="Run UAT ingestion, beginner setup validation, and readiness evaluation")
+    parser.add_argument("--build-claude-uat-operator-pack", help="Build a guided operator pack from a prepared UAT session")
     actions = parser.add_mutually_exclusive_group()
     actions.add_argument("--approve", action="store_true")
     actions.add_argument("--reject", action="store_true")
@@ -50,6 +52,23 @@ def main() -> int:
 
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
+
+    if args.build_claude_uat_operator_pack:
+        conflicting = (args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or
+                       args.evaluate_user_test_readiness or args.prepare_claude_uat_session or
+                       args.ingest_claude_uat_session or args.validate_beginner_setup or
+                       args.run_claude_uat_readiness or args.rollback_execution_id or args.approve or
+                       args.reject or args.finalize or args.export)
+        if conflicting:
+            parser.error("--build-claude-uat-operator-pack cannot be combined with other actions")
+        try:
+            result = ClaudeUATOperatorPackBuilder().build(Path(args.build_claude_uat_operator_pack), output)
+        except ClaudeUATOperatorPackError as exc:
+            print(f"claude_uat_operator_pack_failed={exc}")
+            return 2
+        manifest = result["manifest"]
+        print(f"claude_uat_operator_pack={manifest['session_id']} articles={manifest['article_count']}")
+        return 0
 
     if args.run_claude_uat_readiness:
         if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.evaluate_user_test_readiness or args.prepare_claude_uat_session or args.ingest_claude_uat_session or args.validate_beginner_setup or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
