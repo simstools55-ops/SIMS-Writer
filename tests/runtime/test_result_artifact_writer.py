@@ -37,6 +37,7 @@ def test_writer_creates_complete_reviewable_artifact_set(tmp_path):
         "improvement-report.md", "execution-manifest.json",
         "artifact-validation.json", "publication-checklist.md",
         "artifact-diff.json", "execution-history.json",
+        "publication-approval.json", "approval-history.json",
     }
     assert {Path(path).name for path in written.values()} == expected
     assert all((tmp_path / name).exists() for name in expected)

@@ -7,6 +7,7 @@ from typing import Any
 
 from .validator import PublicationArtifactValidator
 from .history import ExecutionHistoryManager
+from .approval import PublicationApprovalManager
 
 
 class ResultArtifactWriter:
@@ -32,6 +33,8 @@ class ResultArtifactWriter:
             "publication_checklist": output_dir / "publication-checklist.md",
             "artifact_diff": output_dir / "artifact-diff.json",
             "execution_history": output_dir / "execution-history.json",
+            "publication_approval": output_dir / "publication-approval.json",
+            "approval_history": output_dir / "approval-history.json",
         }
 
         self._write_json(files["runtime_result"], data)
@@ -52,6 +55,9 @@ class ResultArtifactWriter:
         self._write_json(files["artifact_diff"], diff)
         history = history_manager.update_history(output_dir, previous, data, diff)
         self._write_json(files["execution_history"], history)
+        PublicationApprovalManager().initialize(
+            output_dir, str(data.get("execution_id") or ""), data.get("request_id")
+        )
         return {name: str(path) for name, path in files.items()}
 
     @staticmethod

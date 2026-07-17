@@ -19,6 +19,8 @@ class ExecutionHistoryManager:
         "execution-manifest.json",
         "artifact-validation.json",
         "publication-checklist.md",
+        "publication-approval.json",
+        "approval-history.json",
     )
 
     def capture_previous(self, output_dir: Path) -> dict[str, Any] | None:

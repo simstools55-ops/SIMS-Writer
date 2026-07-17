@@ -3,7 +3,13 @@ import json
 from pathlib import Path
 
 from .orchestrator import RuntimeOrchestrator
-from .export import ArtifactRollbackError, ArtifactRollbackManager, ResultArtifactWriter
+from .export import (
+    ArtifactRollbackError,
+    ArtifactRollbackManager,
+    PublicationApprovalError,
+    PublicationApprovalManager,
+    ResultArtifactWriter,
+)
 
 
 def main() -> int:
@@ -12,6 +18,12 @@ def main() -> int:
     parser.add_argument("--output", required=True)
     parser.add_argument("--input-type", choices=["auto", "generic", "sbm"], default="auto")
     parser.add_argument("--rollback-execution-id")
+    actions = parser.add_mutually_exclusive_group()
+    actions.add_argument("--approve", action="store_true")
+    actions.add_argument("--reject", action="store_true")
+    actions.add_argument("--finalize", action="store_true")
+    parser.add_argument("--reviewer")
+    parser.add_argument("--reason")
     args = parser.parse_args()
 
     output = Path(args.output).resolve()
@@ -29,8 +41,25 @@ def main() -> int:
         )
         return 0 if manifest.get("release_ready") else 1
 
+    if args.approve or args.reject or args.finalize:
+        manager = PublicationApprovalManager()
+        try:
+            if args.approve:
+                approval = manager.approve(output, args.reviewer, args.reason)
+                print(f"approval_status={approval['status']} execution_id={approval['execution_id']}")
+            elif args.reject:
+                approval = manager.reject(output, args.reviewer, args.reason)
+                print(f"approval_status={approval['status']} execution_id={approval['execution_id']}")
+            else:
+                manifest = manager.finalize(output, args.reviewer)
+                print(f"finalization_status={manifest['status']} execution_id={manifest['execution_id']}")
+        except PublicationApprovalError as exc:
+            print(f"approval_failed={exc}")
+            return 2
+        return 0
+
     if not args.input:
-        parser.error("--input is required unless --rollback-execution-id is used")
+        parser.error("--input is required unless a rollback or approval action is used")
 
     input_path = Path(args.input).resolve()
     repo_root = Path(__file__).resolve().parents[2]

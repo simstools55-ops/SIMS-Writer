@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.9.0
+
+- Added pending review, approval, rejection, and finalization workflow.
+- Added execution-bound approval records and append-only approval history.
+- Added immutable release snapshots with SHA-256 finalization manifests.
+- Added CLI approval operations and invalid-transition regression tests.
+
 ## 0.8.0
 
 - Added safe artifact rollback from archived executions.
