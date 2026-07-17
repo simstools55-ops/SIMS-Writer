@@ -1,30 +1,22 @@
-# Validation Report — 0.14.0-alpha.1
+# Validation Report
 
-Date: 2026-07-17
+Version: 0.14.2-alpha.1
 
 ## Result
 
-PASS
+- RC2 output contract tests: passed
+- CTR vertical slice tests: passed
+- Golden UAT tests: passed
+- Runtime core tests: passed
+- Quality runtime tests: passed
+- Total selected regression tests: 9 passed
 
-## Executed
+## Added checks
 
-- RC2 Output Contract tests: 4 passed
-- Existing CTR Vertical Slice test: passed
-- Existing repository test scripts: passed
-- Golden UAT: 12/12 passed
-- Contract examples: 15/15 passed
-- Quality Runtime: 42 rules / 7 gates passed
-- Knowledge validation: 33 items / 10 sets / 6 sources passed
-- Pattern validation: 61 patterns / 8 sets passed
-- Runtime asset validation: passed
-- CTR partial-mode execution sample: passed
-
-## Confirmed safeguards
-
-- Partial output excludes article_content
-- SIMS_FEEDBACK_V1 remains a separate final layer
-- Change flags are inferred from actual changes
-- Body additions require changes.body=true
-- main_query does not contain annotations
-- Unverified adopted internal links are rejected
-- Unsupported numeric CTR/click forecasts are rejected
+- Forbidden greeting / acknowledgment / honorific preface
+- SEO title recommended maximum 40 characters; hard maximum 45
+- Meta description recommended maximum 120 characters; hard maximum 140
+- Exactly one fenced `json` block
+- JSON block must be the final response element
+- `partial` positioned as the Product 1.0 primary mode
+- `full` and `publish` positioned as beta modes until embedded article assets can be preserved reliably

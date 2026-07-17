@@ -1,6 +1,6 @@
 {
   "package_version": "0.14.1-alpha.1",
-  "status": "rc2_claude_corrective",
+  "status": "RC2 Quality Patch",
   "files": {
     "CLAUDE_PROJECT_INSTRUCTIONS.md": "8b8b3659771e0bba6c1a6b71aa4796f4a2bc9ae4e60c64488624d80c1e1eddb3",
     "README.md": "a41e228d43af9e5c237d5faf214b360c44c9d622d1f739e8194331195493f62b",
@@ -9,5 +9,6 @@
     "examples/EXAMPLE_REQUEST.json": "7e3a01618204a9f53558992b36dead6b2a89aa321efe7406926abcafeec62baf",
     "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md": "d78fe01115a1faf79eab3b72046b6131f4193cbbe3454f51f3caee578d9a53f7",
     "templates/IMPROVEMENT_REQUEST_TEMPLATE.json": "264d57a61ac1cde15e6592c4caa5fbeb549ac0a77cf431eb23b78811e8b4378a"
-  }
+  },
+  "version": "0.14.2-alpha.1"
 }

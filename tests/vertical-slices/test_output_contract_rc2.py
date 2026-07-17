@@ -35,3 +35,32 @@ def test_unverified_adopted_internal_link_is_rejected():
     feedback["changes"]["internal_links"]=True
     bad={"output_mode":"partial","user_output":[],"internal_link_report":[{"classification":"adopted","verified":False,"applied":True}],"unresolved_items":[],"body_additions":[],"feedback":feedback,"effect_evidence":{}}
     assert any(i.code=="OUT-007" for i in OutputContractValidator().validate(bad))
+
+
+def _base_feedback(title="短いSEOタイトル", description="短い説明文"):
+    fb=build_feedback(article_id="A1",article_url="",main_query="query",before_after=[],summary="",warnings=[])
+    fb["new_values"]["seo_title"]=title
+    fb["new_values"]["description"]=description
+    return fb
+
+def test_forbidden_greeting_or_honorific_is_rejected():
+    package={"output_mode":"partial","user_output":[],"rendered_user_output":"マスター、改善結果です。","internal_link_report":[],"unresolved_items":[],"body_additions":[],"feedback":_base_feedback(),"effect_evidence":{}}
+    assert any(i.code=="OUT-011" for i in OutputContractValidator().validate(package))
+
+def test_seo_title_and_description_hard_limits_are_enforced():
+    package={"output_mode":"partial","user_output":[],"internal_link_report":[],"unresolved_items":[],"body_additions":[],"feedback":_base_feedback("あ"*46,"い"*141),"effect_evidence":{}}
+    codes={i.code for i in OutputContractValidator().validate(package)}
+    assert {"OUT-012","OUT-014"} <= codes
+
+def test_recommended_length_generates_warning_not_error():
+    package={"output_mode":"partial","user_output":[],"internal_link_report":[],"unresolved_items":[],"body_additions":[],"feedback":_base_feedback("あ"*41,"い"*121),"effect_evidence":{}}
+    issues=OutputContractValidator().validate(package)
+    assert {"OUT-013","OUT-015"} <= {i.code for i in issues}
+    OutputContractValidator().assert_valid(package)
+
+def test_response_must_end_with_single_json_code_block():
+    valid='改善結果\n\n```json\n{"schema":"SIMS_FEEDBACK_V1"}\n```'
+    package={"output_mode":"partial","user_output":[],"rendered_response":valid,"internal_link_report":[],"unresolved_items":[],"body_additions":[],"feedback":_base_feedback(),"effect_evidence":{}}
+    assert not any(i.code in {"OUT-016","OUT-017"} for i in OutputContractValidator().validate(package))
+    package["rendered_response"] = valid + "\n追記"
+    assert any(i.code=="OUT-016" for i in OutputContractValidator().validate(package))

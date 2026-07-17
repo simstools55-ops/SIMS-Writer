@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.14.2-alpha.1
+
+- 成果物前の不要な挨拶・了承文・呼称を禁止
+- SEOタイトルとメタディスクリプションの推奨値・上限値をValidatorへ追加
+- 回答末尾の単一 `json` コードブロックを強制
+- `partial` をProduct 1.0の正式な主力モードに位置付け
+- `full` / `publish` を構造保持未保証のベータモードに位置付け
+
+
 ## 0.14.1-alpha.1
 
 - Added the missing `claude/` deployment package.

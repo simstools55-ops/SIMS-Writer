@@ -7,6 +7,14 @@ from typing import Any
 import re
 
 OUTPUT_MODES = {"summary", "partial", "full", "publish", "json_only"}
+SEO_TITLE_RECOMMENDED_MAX = 40
+SEO_TITLE_HARD_MAX = 45
+META_DESCRIPTION_RECOMMENDED_MAX = 120
+META_DESCRIPTION_HARD_MAX = 140
+FORBIDDEN_PREFACE_PATTERNS = (
+    r"^\s*(?:承知しました|了解しました|かしこまりました)[。！!]?",
+    r"^\s*(?:マスター|幹事長|先生|社長|部長|課長|[ぁ-んァ-ヶ一-龠々ー]{1,12}さん)[、,]",
+)
 CHANGE_KEYS = (
     "article_title", "seo_title", "description", "introduction", "headings",
     "faq", "internal_links", "body", "images",
@@ -60,6 +68,29 @@ class OutputContractValidator:
         if mode == "json_only" and package.get("user_output"):
             issues.append(OutputValidationIssue("OUT-009", "json_only mode must not include user_output"))
 
+        user_text = str(package.get("rendered_user_output") or "")
+        if user_text and any(re.search(pattern, user_text) for pattern in FORBIDDEN_PREFACE_PATTERNS):
+            issues.append(OutputValidationIssue("OUT-011", "user output must start with the artifact, without greetings or honorifics"))
+
+        new_values = feedback.get("new_values") or {}
+        seo_title = str(new_values.get("seo_title") or "")
+        description = str(new_values.get("description") or new_values.get("meta_description") or "")
+        if len(seo_title) > SEO_TITLE_HARD_MAX:
+            issues.append(OutputValidationIssue("OUT-012", f"seo_title exceeds {SEO_TITLE_HARD_MAX} characters"))
+        elif len(seo_title) > SEO_TITLE_RECOMMENDED_MAX:
+            issues.append(OutputValidationIssue("OUT-013", f"seo_title exceeds recommended {SEO_TITLE_RECOMMENDED_MAX} characters", "warning"))
+        if len(description) > META_DESCRIPTION_HARD_MAX:
+            issues.append(OutputValidationIssue("OUT-014", f"description exceeds {META_DESCRIPTION_HARD_MAX} characters"))
+        elif len(description) > META_DESCRIPTION_RECOMMENDED_MAX:
+            issues.append(OutputValidationIssue("OUT-015", f"description exceeds recommended {META_DESCRIPTION_RECOMMENDED_MAX} characters", "warning"))
+
+        rendered_response = str(package.get("rendered_response") or "")
+        if rendered_response:
+            if not re.search(r"```json\s*\n\s*\{.*?\}\s*\n```\s*$", rendered_response, re.DOTALL):
+                issues.append(OutputValidationIssue("OUT-016", "response must end with exactly one fenced ```json code block"))
+            if len(re.findall(r"```json\b", rendered_response)) != 1:
+                issues.append(OutputValidationIssue("OUT-017", "response must contain exactly one JSON code block"))
+
         expected = feedback.get("expected_effect") or {}
         for key in ("ctr", "clicks"):
             value = str(expected.get(key, ""))
@@ -71,8 +102,9 @@ class OutputContractValidator:
 
     def assert_valid(self, package: dict[str, Any]) -> None:
         issues = self.validate(package)
-        if issues:
-            detail = "; ".join(f"{i.code}: {i.message}" for i in issues)
+        errors = [i for i in issues if i.severity == "error"]
+        if errors:
+            detail = "; ".join(f"{i.code}: {i.message}" for i in errors)
             raise ValueError(detail)
 
 
