@@ -39,7 +39,7 @@ def test_distribution_builder_creates_verified_zip(tmp_path: Path) -> None:
         text=True,
     )
     assert completed.returncode == 0, completed.stdout + completed.stderr
-    archive = tmp_path / "SIMS-Writer-Claude-Developer-Rehearsal-v1.9.0.zip"
+    archive = tmp_path / "SIMS-Writer-Claude-Quality-UAT-v1.10.0.zip"
     report = json.loads((tmp_path / "claude-distribution-build.json").read_text(encoding="utf-8"))
     assert archive.is_file()
     assert report["status"] == "built"
@@ -48,4 +48,5 @@ def test_distribution_builder_creates_verified_zip(tmp_path: Path) -> None:
         names = set(zf.namelist())
         assert "SIMS-Writer-Claude/CLAUDE_PROJECT_INSTRUCTIONS.md" in names
         assert "SIMS-Writer-Claude/USER_TEST_REHEARSAL.md" in names
+        assert "SIMS-Writer-Claude/REAL_ARTICLE_UAT_RESULT_TEMPLATE.json" in names
         assert "SIMS-Writer-Claude/manifest.json" in names

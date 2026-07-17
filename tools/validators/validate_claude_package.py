@@ -15,6 +15,7 @@ REQUIRED = {
     "SETUP_GUIDE.md",
     "USER_TEST_REHEARSAL.md",
     "TEST_CHECKLIST.md",
+    "REAL_ARTICLE_UAT_RESULT_TEMPLATE.json",
     "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md",
     "templates/IMPROVEMENT_REQUEST_TEMPLATE.json",
     "examples/EXAMPLE_REQUEST.json",
@@ -31,14 +32,14 @@ def main() -> int:
     missing = sorted(REQUIRED - files)
     if missing:
         errors.append(f"missing required files: {missing}")
-    if len(files) > 10:
+    if len(files) > 11:
         errors.append(f"too many distribution files: {len(files)}")
     if sum((CLAUDE / item).stat().st_size for item in files) >= 120_000:
         errors.append("distribution exceeds 120KB")
 
     expected = {
-        "package_version": "1.9.0-preview.1",
-        "status": "developer_rehearsal",
+        "package_version": "1.10.0-preview.1",
+        "status": "quality_uat_preview",
         "files": {item: sha256(CLAUDE / item) for item in sorted(files)},
     }
     if not MANIFEST.is_file():

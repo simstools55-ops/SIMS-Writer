@@ -1,0 +1,22 @@
+{
+  "evidence_id": "UAT-YYYYMMDD-001",
+  "article_id": "A000000",
+  "request_id": "REQ-YYYYMMDD-001",
+  "outcome": "generated",
+  "scores": {
+    "japanese_quality": 1,
+    "factual_grounding": 1,
+    "source_preservation": 1,
+    "internal_links": 1,
+    "output_completeness": 1,
+    "beginner_usability": 1
+  },
+  "blockers": [],
+  "unresolved_items": [],
+  "setup": {
+    "operator_level": "developer",
+    "completed": true,
+    "notes": ""
+  },
+  "review_notes": ""
+}

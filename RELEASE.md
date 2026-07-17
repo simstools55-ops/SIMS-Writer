@@ -1,12 +1,21 @@
-# SIMS Writer Repository v1.9.0
+# SIMS Writer Repository v1.10.0
 
-Status: Developer Rehearsal
-Release date: 2026-07-17
+Status: Quality UAT Preview
 
-## Scope
+This release adds real-article Claude Project UAT evidence capture and a conservative machine-readable readiness gate. It does not declare general user testing ready without recorded evidence.
 
-Claude Project向け配布ファイルだけで、セットアップから正常系・安全系の確認までを再現するための開発者リハーサル基盤を実装した。
+## Release gate
 
-## User testing decision
+Run:
 
-一般利用者テストはまだ開始しない。Repository内の固定Golden UATと配布整合性は合格しているが、実際のClaude Project上での複数実記事日本語品質UAT、および初心者環境でのセットアップ再現確認が未完了である。
+```bash
+python tools/test_repository.py
+```
+
+## User-test readiness evaluation
+
+```bash
+python -m runtime.sims_writer_runtime.cli \
+  --evaluate-user-test-readiness ./uat-evidence \
+  --output ./uat-report
+```

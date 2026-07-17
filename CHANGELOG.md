@@ -1,4 +1,11 @@
-## 1.9.0 - 2026-07-17
+## 1.10.0 - 2026-07-17
+
+- Added real-article Claude UAT evidence recording and validation.
+- Added machine-readable user-test readiness evaluation.
+- Added beginner setup, manual-review, score threshold, and blocker gates.
+- Added Claude Quality UAT result template and CLI reports.
+
+## 1.10.0 - 2026-07-17
 
 - Claude Project配布ファイルだけで完結する操作リハーサル手順を追加
 - Claude Projectテストチェックリストを追加

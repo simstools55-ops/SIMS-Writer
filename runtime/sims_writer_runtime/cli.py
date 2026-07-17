@@ -6,6 +6,7 @@ from .orchestrator import RuntimeOrchestrator
 from .batch import BatchInputError, BatchProcessor
 from .claude import ClaudeOutputAcceptanceError, ClaudeOutputValidator
 from .claude.uat import ClaudeGoldenUATRunner
+from .claude.readiness import ClaudeReadinessEvidenceError, ClaudeUserTestReadinessEvaluator, write_readiness_report
 from .export import (
     ArtifactRollbackError,
     ArtifactRollbackManager,
@@ -28,6 +29,7 @@ def main() -> int:
     parser.add_argument("--validate-claude-output", help="Validate a Claude Project output JSON file")
     parser.add_argument("--request-context", help="Original request JSON used to validate grounded links and safety")
     parser.add_argument("--run-claude-uat", action="store_true", help="Run Claude Project Golden UAT")
+    parser.add_argument("--evaluate-user-test-readiness", help="Directory containing real-article Claude UAT evidence JSON files")
     actions = parser.add_mutually_exclusive_group()
     actions.add_argument("--approve", action="store_true")
     actions.add_argument("--reject", action="store_true")
@@ -39,6 +41,18 @@ def main() -> int:
 
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
+
+    if args.evaluate_user_test_readiness:
+        if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
+            parser.error("--evaluate-user-test-readiness cannot be combined with other actions")
+        try:
+            report = ClaudeUserTestReadinessEvaluator().evaluate_directory(Path(args.evaluate_user_test_readiness))
+        except ClaudeReadinessEvidenceError as exc:
+            print(f"user_test_readiness_failed={exc}")
+            return 2
+        write_readiness_report(report, output)
+        print(f"user_test_readiness={report['status']} articles={report['counts']['distinct_articles']}")
+        return 0 if report["ready"] else 1
 
     if args.run_claude_uat:
         if args.input or args.batch_input or args.validate_claude_output or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
