@@ -1,7 +1,7 @@
 # SIMS Writer Knowledge Pack
 
-Version: 0.15.3-alpha.1
-Status: Explainable Graceful Degradation
+Version: 0.15.4-alpha.1
+Status: Editorial Output Deduplication Alpha
 
 ## Product principles
 
@@ -105,3 +105,12 @@ Status: Explainable Graceful Degradation
 ### 旧契約からの自動移行
 
 依頼文に`SIMS_FEEDBACK_V1` v1.0またはv1.1のサンプルが含まれていても、それは旧標準契約である。ユーザーが厳密固定を明示しない限りv1.2へ移行し、4つの説明可能性フィールドを必ず出力する。
+## Editorial output deduplication
+
+- `information`は機械処理用の非警告メモであり、利用者向けの`確認事項`へ同じ内容を言い換えて重複掲載しない。
+- `確認事項`には、利用者の回答、追加入力、事実確認、採用判断がないと次の反映へ進めない事項だけを書く。
+- 推定メインクエリや記事カタログ未入力が、処理継続済みの説明にとどまる場合は`information`だけで完結させる。
+- 確認事項が0件なら、利用者向け出力の`確認事項`見出しを省略する。
+- 検索意図はPrimaryを1つ決め、Secondaryは記事構成や結論に実際の影響がある場合だけ1つ補足する。
+- 期待効果は変更箇所に近い定性的効果を書く。タイトル変更ならCTR・視認性、導入変更なら理解・離脱、FAQなら疑問解消を中心とし、直接根拠のない順位改善を追加しない。
+

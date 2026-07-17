@@ -37,3 +37,19 @@ def test_estimation_and_catalog_skip_are_not_warnings():
 
 def test_body_flag_rule_is_explicit():
     assert '`changes.body=false`' in KNOWLEDGE
+
+
+def test_confirmation_items_do_not_duplicate_information():
+    assert "確認事項がなければ見出しごと省略" in INSTRUCTIONS
+    assert "単なる言い換え" in INSTRUCTIONS
+    assert "確認事項が0件なら" in KNOWLEDGE
+
+
+def test_primary_and_secondary_intent_rule_is_explicit():
+    assert "副次意図" in INSTRUCTIONS
+    assert "Primary" in KNOWLEDGE and "Secondary" in KNOWLEDGE
+
+
+def test_expected_effect_does_not_invent_ranking_gain():
+    assert "順位改善" in INSTRUCTIONS
+    assert "直接根拠のない順位改善" in KNOWLEDGE

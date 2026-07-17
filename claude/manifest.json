@@ -1,14 +1,14 @@
 {
-  "package_version": "0.15.3-alpha.1",
-  "status": "Explainable Degradation Contract Fix Alpha",
+  "package_version": "0.15.4-alpha.1",
+  "status": "Editorial Output Deduplication Alpha",
   "files": {
-    "CLAUDE_PROJECT_INSTRUCTIONS.md": "315a935d61eaf2d789229b3c414e3858612a907bca22524a6b90d8eb80b50149",
+    "CLAUDE_PROJECT_INSTRUCTIONS.md": "dd6a3d70bbd06abe9458de1aef38245509a6dbcae31d440939f192643226cce4",
     "README.md": "b49d04119c399c3e7bf840f341736a9efe05988c22f4154700213e2c381960fa",
     "SETUP_GUIDE.md": "a223d186f201aa6f681f95f8451eccfc6d1c7307cf4c0a91c6b2eea450da9997",
     "TEST_CHECKLIST.md": "91b72936f5b6525ae50e6b0edb4d42c997d928caac1263d1899db70f912ea68d",
     "examples/EXAMPLE_REQUEST.json": "7e3a01618204a9f53558992b36dead6b2a89aa321efe7406926abcafeec62baf",
-    "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md": "583e79eca80c55096aa1f0daf661d8255a7c856e72eddcddb11831a00f9fc086",
+    "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md": "0c90c250df60632cfd1e998b4f6ae3ee233d37238b69163b2ce615b9c02eb4f5",
     "templates/IMPROVEMENT_REQUEST_TEMPLATE.json": "264d57a61ac1cde15e6592c4caa5fbeb549ac0a77cf431eb23b78811e8b4378a"
   },
-  "version": "0.15.3-alpha.1"
+  "version": "0.15.4-alpha.1"
 }

@@ -5,6 +5,7 @@ sys.path.insert(0,str(ROOT))
 from runtime.sims_writer_runtime.publish_quality import (
     assess_improvement_need,
     classify_search_intent,
+    classify_search_intents,
     validate_before_after_editorial,
     validate_comparison_article,
 )
@@ -63,3 +64,8 @@ def test_ctr_slice_exposes_rc3_publish_quality():
     assert dec.improvement_judgment in {"minor_improvement", "improvement_recommended"}
     assert package["publish_quality"]["estimated_minutes"] in {10, 20}
     assert all("expected_effect" in item for item in package["user_output"])
+
+
+def test_search_intents_adds_purchase_only_when_supported():
+    assert classify_search_intents("商品A 商品B 比較 おすすめ") == ("comparison", "purchase")
+    assert classify_search_intents("商品A 商品B 違い") == ("comparison", None)

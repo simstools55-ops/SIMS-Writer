@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.15.4-alpha.1
+
+- 利用者向け`確認事項`とJSONの`information`の重複を禁止
+- 未解決事項がない場合は`確認事項`見出しを省略
+- 検索意図をPrimaryと任意のSecondaryで整理する規則を追加
+- 変更箇所と距離のある根拠なしの順位改善予測を抑止
+- Claude Project出力品質のリリースゲートを追加
+
 ## 0.15.3-alpha.1
 
 - Claude ProjectのKnowledge Packを現行版へ同期

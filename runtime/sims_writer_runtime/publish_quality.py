@@ -30,6 +30,24 @@ def classify_search_intent(main_query: str, title: str = "") -> str:
     return "unknown"
 
 
+def classify_search_intents(main_query: str, title: str = "") -> tuple[str, str | None]:
+    """Return one primary intent and an optional secondary intent.
+
+    Secondary intent is emitted only when the text contains a distinct,
+    decision-relevant signal in addition to the primary intent.
+    """
+    primary = classify_search_intent(main_query, title)
+    text = f"{main_query} {title}".lower()
+    secondary: str | None = None
+    if primary == "comparison" and any(token in text for token in ("購入", "価格", "料金", "最安", "公式", "おすすめ")):
+        secondary = "purchase"
+    elif primary == "informational" and any(token in text for token in ("方法", "やり方", "設定", "使い方")):
+        secondary = "how_to"
+    if secondary == primary:
+        secondary = None
+    return primary, secondary
+
+
 def assess_improvement_need(*, ctr: float | None, impressions: float | None,
                             average_position: float | None, title_aligned: bool,
                             intro_answer_first: bool) -> PublishQualityAssessment:
