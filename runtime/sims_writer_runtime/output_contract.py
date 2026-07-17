@@ -6,6 +6,8 @@ from datetime import date
 from typing import Any
 import re
 
+from .publish_quality import validate_before_after_editorial, validate_comparison_article
+
 USER_CONTRACT_TYPE_NAMES = {
     "string": str, "boolean": bool, "integer": int, "number": (int, float),
     "object": dict, "array": list, "null": type(None),
@@ -151,6 +153,14 @@ class OutputContractValidator:
             if len(re.findall(r"```json\b", rendered_response)) != 1:
                 issues.append(OutputValidationIssue("OUT-017", "response must contain exactly one JSON code block"))
 
+        if package.get("publish_quality"):
+            for message in validate_before_after_editorial(package.get("user_output") or []):
+                issues.append(OutputValidationIssue("OUT-023", message))
+
+        if package.get("comparison_validation"):
+            for message in validate_comparison_article(package.get("comparison_validation") or {}):
+                issues.append(OutputValidationIssue("OUT-024", message))
+
         expected = feedback.get("expected_effect") or {}
         for key in ("ctr", "clicks"):
             value = str(expected.get(key, ""))
@@ -230,7 +240,8 @@ def package_output(*, output_mode: str, before_after: list[dict[str, Any]], feed
                    body_additions: list[dict[str, Any]] | None = None,
                    article_content: str | None = None,
                    effect_evidence: dict[str, Any] | None = None,
-                   user_json_contract: dict[str, Any] | None = None) -> dict[str, Any]:
+                   user_json_contract: dict[str, Any] | None = None,
+                   publish_quality: dict[str, Any] | None = None) -> dict[str, Any]:
     if output_mode not in OUTPUT_MODES:
         raise ValueError(f"Unsupported output mode: {output_mode}")
     package = {
@@ -241,6 +252,7 @@ def package_output(*, output_mode: str, before_after: list[dict[str, Any]], feed
         "body_additions": deepcopy(body_additions or []),
         "feedback": deepcopy(feedback),
         "effect_evidence": deepcopy(effect_evidence or {}),
+        "publish_quality": deepcopy(publish_quality or {}),
     }
     if user_json_contract is not None:
         package["user_json_contract"] = deepcopy(user_json_contract)

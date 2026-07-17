@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from typing import Any
 import re
 from ..output_contract import build_feedback, package_output
+from ..publish_quality import assess_improvement_need, classify_search_intent
 
 SEMANTIC_PASS_IDS = (
     "QF-COM-001","QF-COM-002","QF-COM-003","QF-HLP-001","QF-HLP-002","QF-HLP-003",
@@ -17,6 +18,9 @@ class CTRDecision:
     introduction_action: str
     faq_action: str
     reason: str
+    improvement_judgment: str = "improvement_recommended"
+    search_intent: str = "unknown"
+    estimated_minutes: int = 20
 
 class CTRImprovementSlice:
     """CTR改善の最小Vertical Slice。
@@ -88,12 +92,23 @@ class CTRImprovementSlice:
         intro_action = "revise" if len(existing.strip()) < 120 or request["main_query"].lower() not in existing[:500].lower() else "preserve"
         faq_signal = len(request.get("supporting_queries") or []) >= 2
         faq_action = "add" if faq_signal else "no_change"
+        intro_answer_first = intro_action == "preserve"
+        assessment = assess_improvement_need(
+            ctr=ctr, impressions=imp, average_position=pos,
+            title_aligned=title_aligned, intro_answer_first=intro_answer_first,
+        )
+        search_intent = classify_search_intent(request["main_query"], title)
+        if assessment.improvement_judgment == "maintain_current":
+            title_action = "preserve"
+            intro_action = "preserve"
+            faq_action = "no_change"
         reasons=[]
         if not title_aligned: reasons.append("現行タイトルがメインクエリを十分に表していない")
         if low_ctr: reasons.append("順位・表示回数に対してCTR改善余地がある")
         if intro_action=="revise": reasons.append("導入で検索者の答えを早期提示する余地がある")
-        if faq_signal: reasons.append("補助クエリをFAQとして見つけやすく再整理できる")
-        return CTRDecision(title_action,intro_action,faq_action,"。".join(reasons) or "主要要素は維持可能")
+        if faq_signal and faq_action=="add": reasons.append("補助クエリをFAQとして見つけやすく再整理できる")
+        reasons.append(assessment.reason)
+        return CTRDecision(title_action,intro_action,faq_action,"。".join(reasons),assessment.improvement_judgment,search_intent,assessment.estimated_minutes)
 
     def build_draft(self, request: dict[str, Any], decision: CTRDecision) -> dict[str, Any]:
         q=request["main_query"]
@@ -128,6 +143,9 @@ class CTRImprovementSlice:
             "citations": [],
             "experience_verified": False,
             "model_assisted_checks": semantic,
+            "search_intent": decision.search_intent,
+            "improvement_judgment": decision.improvement_judgment,
+            "estimated_minutes": decision.estimated_minutes,
             "slice_metadata": {
                 "slice": "ctr_improvement",
                 "title_action": decision.title_action,
@@ -143,11 +161,11 @@ class CTRImprovementSlice:
         before_after=[]
         current_title=request.get("seo_title") or request.get("current_title") or ""
         if decision.title_action=="revise":
-            before_after.append({"component":"seo_title","before":current_title,"after":draft["seo_title"],"reason":"検索意図とタイトルの一致を高めるため"})
+            before_after.append({"component":"seo_title","before":current_title,"after":draft["seo_title"],"reason":"検索意図とタイトルの一致を高めるため","expected_effect":"検索結果で比較対象と記事内容が伝わりやすくなる"})
         if decision.introduction_action=="revise":
-            before_after.append({"component":"introduction","before":"既存導入文","after":draft["introduction"],"reason":"結論を冒頭で明示するため"})
+            before_after.append({"component":"introduction","before":"既存導入文","after":draft["introduction"],"reason":"結論を冒頭で明示するため","expected_effect":"読者が記事を読み進める判断を早く行える"})
         if decision.faq_action=="add":
-            before_after.append({"component":"faq","before":"FAQなし、または不足","after":draft["faq"],"reason":"本文中の重要情報を質問形式で見つけやすく再整理するため"})
+            before_after.append({"component":"faq","before":"FAQなし、または不足","after":draft["faq"],"reason":"本文中の重要情報を質問形式で見つけやすく再整理するため","expected_effect":"疑問への回答を本文末でも見つけやすくなる"})
         warnings=[]
         if request.get("main_query_inferred"):
             warnings.append("main_queryが未入力だったため、タイトルから推定しています。正式なクエリ確認後に再調整してください。")
@@ -155,7 +173,13 @@ class CTRImprovementSlice:
             warnings.append("内部リンク候補が未入力のため、内部リンクは変更していません。")
         effect={"ctr":"CTR改善余地はありますが、具体的な数値は実測データ不足のため予測しません。","clicks":"表示回数とクリック数の母数が小さい場合、定量予測は行わず再測定で確認します。"}
         feedback=build_feedback(article_id=request.get("article_id"), article_url=request.get("target_url"), main_query=request["main_query"], before_after=before_after, summary=decision.reason, warnings=warnings, confidence="medium" if request.get("main_query_inferred") else "high", expected_effect=effect)
-        return package_output(output_mode=request.get("output_mode","partial"), before_after=before_after, feedback=feedback, unresolved_items=warnings, article_content=draft.get("article_content"))
+        feedback["estimated_minutes"] = decision.estimated_minutes
+        publish_quality = {
+            "improvement_judgment": decision.improvement_judgment,
+            "search_intent": decision.search_intent,
+            "estimated_minutes": decision.estimated_minutes,
+        }
+        return package_output(output_mode=request.get("output_mode","partial"), before_after=before_after, feedback=feedback, unresolved_items=warnings, article_content=draft.get("article_content"), publish_quality=publish_quality)
 
     @staticmethod
     def _infer_query(title: str) -> str:

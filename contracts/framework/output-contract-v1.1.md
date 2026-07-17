@@ -1,4 +1,4 @@
-# Output Contract v1.2
+# Output Contract v1.3
 
 ## Purpose
 
@@ -31,6 +31,7 @@ JSONの後には文章を出力しない。
 - 対象
 - Before
 - After
+- 期待する効果
 - 理由
 
 本文へ新しい説明ブロックを追加した場合は `changes.body=true` とする。FAQだけの追加は `changes.faq=true` であり、通常本文を追加しない限り `body=false` を維持する。
@@ -60,3 +61,11 @@ Product 1.0では `partial` を正式な主力機能とする。`full` と `publ
 ## User-Provided JSON Contract Priority (v0.14.3)
 
 When the request includes an explicit JSON template or schema, that contract overrides the SIMS default feedback shape. The response must preserve exact field names, nesting, value types, required fields, enum constraints, and field order. Contract-external fields are prohibited. The JSON must be the single final fenced `json` block with no trailing content.
+
+## RC3 Publish Quality
+
+- 出力前に改善必要度を改善推奨・軽微改善・現状維持推奨の3段階で判定する。
+- 検索意図を分類し、比較記事では比較項目・おすすめの人・最終結論の整合性を確認する。
+- 変更箇所ごとに定性的な期待効果を示す。
+- 変更しない主要箇所は、必要に応じて変更しない理由を示す。
+- 反映作業の目安時間を提示する。

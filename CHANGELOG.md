@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.15.0-alpha.1
+
+- RC3 Publish Qualityを開始
+- 改善推奨・軽微改善・現状維持推奨の3段階判定を追加
+- 検索意図分類と比較記事整合性Validatorを追加
+- Before / Afterへ期待する効果と変更しない理由のルールを追加
+- 編集作業時間の目安を出力へ追加
+- RC3回帰テスト6件を追加
+
 ## 0.14.3-alpha.1
 
 - ユーザー提示JSON契約をSIMS標準より優先するSchema Lockを追加

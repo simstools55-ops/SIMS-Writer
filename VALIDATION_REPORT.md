@@ -1,31 +1,26 @@
 # Validation Report
 
-Version: 0.14.3-alpha.1
+Version: 0.15.0-alpha.1
+Status: RC3 Publish Quality Alpha
 
-## Result
+## Automated checks
 
-- RC2 output contract tests: passed
-- CTR vertical slice tests: passed
-- Golden UAT tests: passed
-- Runtime core tests: passed
-- Quality runtime tests: passed
-- Total selected regression tests: 9 passed
+- Pytest regression suite excluding standalone contract runner: 19 passed
+- Contract schema examples: 15 passed, 0 failed
+- RC3 Publish Quality tests: 6 passed
+- RC2 Strict Contract regression retained
 
-## Added checks
+## RC3 scope
 
-- Forbidden greeting / acknowledgment / honorific preface
-- SEO title recommended maximum 40 characters; hard maximum 45
-- Meta description recommended maximum 120 characters; hard maximum 140
-- Exactly one fenced `json` block
-- JSON block must be the final response element
-- `partial` positioned as the Product 1.0 primary mode
-- `full` and `publish` positioned as beta modes until embedded article assets can be preserved reliably
+- Three-level improvement necessity judgment
+- Search-intent classification
+- Comparison article consistency validation
+- Expected-effect requirement for changed items
+- Unchanged-reason rule
+- Estimated editing time
 
+## Known boundary
 
-## 0.14.3-alpha.1 Strict Contract Compliance
-
-- Output Contract regression: 12 passed
-- Contract schemas: 15 passed
-- Decision assets and contracts: passed
-- User JSON contract exact key/order/type validation: passed
-- Claude fixed legacy schema conflict: removed
+- `partial` remains the Product 1.0 primary mode.
+- `full` and `publish` remain beta.
+- Comparison consistency validation requires structured comparison data; Claude Instructions provide the human-output gate.

@@ -1,14 +1,14 @@
 {
-  "package_version": "0.14.3-alpha.1",
-  "status": "RC2 Strict Contract Compliance Patch",
+  "package_version": "0.15.0-alpha.1",
+  "status": "RC3 Publish Quality Alpha",
   "files": {
-    "CLAUDE_PROJECT_INSTRUCTIONS.md": "2b9dd800f4726d80712054ec20b304a0e3c6a013a465a078fd6f8ba8d2726172",
-    "README.md": "833b78472bf86c412c19ff0aae7c68b4558b29afe59fc336a2904f579218f38d",
-    "SETUP_GUIDE.md": "de3c87d73e6c4358765f0d6f2b0fc30e0b62680bfb363401589fbd7afc7f8e5c",
-    "TEST_CHECKLIST.md": "f2aabd4a879b682501cd40e33519565b92a76d8b7dfff4542de388630bd0cb73",
+    "CLAUDE_PROJECT_INSTRUCTIONS.md": "a4810922e71c32d9bef7b8ccfbf3c20c991fe6de0cf4c0232edc5b2992f3b4d2",
+    "README.md": "35864072e361575e55205be462eb054a0d2a95b805928e5ab9a1d4b75090118c",
+    "SETUP_GUIDE.md": "9f933cdeea1b7d7c08e9a0b42d7fca9cf00f9a09613d280a5bf43bbcc5e9b9b5",
+    "TEST_CHECKLIST.md": "2b370a524c1a4fe17fabff41399f379f1db3d1ad710ef3b983946172ae1c3887",
     "examples/EXAMPLE_REQUEST.json": "7e3a01618204a9f53558992b36dead6b2a89aa321efe7406926abcafeec62baf",
-    "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md": "4ea665a76c25d8dfa8f80dc84de7c8c329d8cec4ce25e573fa19deed6828b86f",
+    "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md": "f8bc2995ff34d201f7b0ebd0b2ee35e643fb72bc817ed891bb38d998d8f5eb9b",
     "templates/IMPROVEMENT_REQUEST_TEMPLATE.json": "264d57a61ac1cde15e6592c4caa5fbeb549ac0a77cf431eb23b78811e8b4378a"
   },
-  "version": "0.14.3-alpha.1"
+  "version": "0.15.0-alpha.1"
 }
