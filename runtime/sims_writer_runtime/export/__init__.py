@@ -3,6 +3,7 @@ from .writer import ResultArtifactWriter
 from .history import ExecutionHistoryManager
 from .rollback import ArtifactRollbackError, ArtifactRollbackManager
 from .approval import PublicationApprovalError, PublicationApprovalManager
+from .distribution import DistributionExportError, DistributionPackageExporter
 
 __all__ = [
     "PublicationArtifactValidator",
@@ -12,4 +13,6 @@ __all__ = [
     "ArtifactRollbackManager",
     "PublicationApprovalError",
     "PublicationApprovalManager",
+    "DistributionExportError",
+    "DistributionPackageExporter",
 ]

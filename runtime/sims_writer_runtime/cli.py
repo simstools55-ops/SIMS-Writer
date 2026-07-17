@@ -8,6 +8,8 @@ from .export import (
     ArtifactRollbackManager,
     PublicationApprovalError,
     PublicationApprovalManager,
+    DistributionExportError,
+    DistributionPackageExporter,
     ResultArtifactWriter,
 )
 
@@ -22,6 +24,7 @@ def main() -> int:
     actions.add_argument("--approve", action="store_true")
     actions.add_argument("--reject", action="store_true")
     actions.add_argument("--finalize", action="store_true")
+    actions.add_argument("--export", action="store_true")
     parser.add_argument("--reviewer")
     parser.add_argument("--reason")
     args = parser.parse_args()
@@ -41,7 +44,7 @@ def main() -> int:
         )
         return 0 if manifest.get("release_ready") else 1
 
-    if args.approve or args.reject or args.finalize:
+    if args.approve or args.reject or args.finalize or args.export:
         manager = PublicationApprovalManager()
         try:
             if args.approve:
@@ -50,10 +53,13 @@ def main() -> int:
             elif args.reject:
                 approval = manager.reject(output, args.reviewer, args.reason)
                 print(f"approval_status={approval['status']} execution_id={approval['execution_id']}")
-            else:
+            elif args.finalize:
                 manifest = manager.finalize(output, args.reviewer)
                 print(f"finalization_status={manifest['status']} execution_id={manifest['execution_id']}")
-        except PublicationApprovalError as exc:
+            else:
+                manifest = DistributionPackageExporter().export(output)
+                print(f"export_status={manifest['status']} execution_id={manifest['execution_id']} archive={manifest['archive_path']}")
+        except (PublicationApprovalError, DistributionExportError) as exc:
             print(f"approval_failed={exc}")
             return 2
         return 0

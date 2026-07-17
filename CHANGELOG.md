@@ -1,3 +1,14 @@
+# CHANGELOG
+
+## 1.0.0
+
+- 確定済み公開スナップショットの配布ZIP生成を実装
+- 公開成果物とFinalization Manifestのチェックサム再検証を実装
+- 配布ZIP内部の破損・内容・チェックサム検査を実装
+- Distribution ManifestとZIP全体SHA-256を生成
+- CLI `--export` を追加
+- 未確定・改変済み成果物の配布拒否テストを追加
+
 # Changelog
 
 ## 0.9.0

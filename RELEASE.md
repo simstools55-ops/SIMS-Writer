@@ -1,13 +1,25 @@
-# SIMS Writer Repository v0.9.0
+# SIMS Writer Repository v1.0.0
 
-Product 1.0 Implementation Phase repository release.
+## Status
 
-## Included vertical slice
+Product 1.0 implementation milestone.
 
-- Pending review state for every generated artifact set
-- Release-ready validation before approval
-- Reviewer-bound approval and reason-required rejection
-- Approval history tied to Execution ID
-- Final immutable release snapshot under `release/<execution_id>/`
-- Finalization manifest with SHA-256 checksums
-- CLI approval, rejection, and finalization operations
+## Implemented Vertical Slice
+
+- Improvement Request intake and normalization
+- Article Source Snapshot extraction
+- Deterministic improvement generation
+- Publication artifact output and validation
+- Execution history, diff, rollback
+- Approval, rejection, finalization
+- Finalized publication distribution ZIP export
+
+## Release Gate
+
+Run:
+
+```bash
+python tools/test_repository.py
+```
+
+The repository ZIP must pass the same gate after re-extraction.
