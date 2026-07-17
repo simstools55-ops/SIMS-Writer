@@ -5,6 +5,7 @@ from pathlib import Path
 from .orchestrator import RuntimeOrchestrator
 from .batch import BatchInputError, BatchProcessor
 from .claude import ClaudeOutputAcceptanceError, ClaudeOutputValidator
+from .claude.uat import ClaudeGoldenUATRunner
 from .export import (
     ArtifactRollbackError,
     ArtifactRollbackManager,
@@ -26,6 +27,7 @@ def main() -> int:
     parser.add_argument("--rollback-execution-id")
     parser.add_argument("--validate-claude-output", help="Validate a Claude Project output JSON file")
     parser.add_argument("--request-context", help="Original request JSON used to validate grounded links and safety")
+    parser.add_argument("--run-claude-uat", action="store_true", help="Run Claude Project Golden UAT")
     actions = parser.add_mutually_exclusive_group()
     actions.add_argument("--approve", action="store_true")
     actions.add_argument("--reject", action="store_true")
@@ -37,6 +39,17 @@ def main() -> int:
 
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
+
+    if args.run_claude_uat:
+        if args.input or args.batch_input or args.validate_claude_output or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
+            parser.error("--run-claude-uat cannot be combined with other actions")
+        repo_root = Path(__file__).resolve().parents[2]
+        report = ClaudeGoldenUATRunner(repo_root).run()
+        report_path = output / "claude-golden-uat-report.json"
+        report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        counts = report["counts"]
+        print(f"claude_uat_status={report['status']} passed={counts['passed']}/{counts['total']}")
+        return 0 if report["status"] == "passed" else 1
 
     if args.validate_claude_output:
         if args.batch_input or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:

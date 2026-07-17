@@ -1,3 +1,10 @@
+## 1.8.0 - 2026-07-17
+
+- Added Claude Project Golden UAT with six accepted/rejected safety cases.
+- Added conservative normalization for known camelCase keys, whitespace, empty arrays, and limited status aliases.
+- Added CLI `--run-claude-uat` and machine-readable UAT reports.
+- Kept unknown fields and unsafe groundedness violations rejectable instead of normalizing them away.
+
 ## 1.5.0 - 2026-07-17
 
 - Added grounded internal-link candidate selection from a supplied article catalog.

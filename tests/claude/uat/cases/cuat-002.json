@@ -1,0 +1,28 @@
+{
+  "case_id": "CUAT-002",
+  "expected": "accepted",
+  "request": {
+    "existing_content": "既存本文",
+    "supporting_queries": [
+      "discord pc 翻訳"
+    ],
+    "article_catalog": [
+      {
+        "url": "https://example.com/discord-settings",
+        "title": "Discord設定"
+      }
+    ]
+  },
+  "output": {
+    "status": " completed ",
+    "seoTitle": " Discord翻訳をiPhoneで使う方法 ",
+    "metaDescription": " 説明文です。 ",
+    "h1": " 見出し ",
+    "articleContent": " # 見出し\n\n本文 ",
+    "changeSummary": [],
+    "faq": null,
+    "internalLinkRecommendations": [],
+    "separateArticleCandidates": [],
+    "unresolvedItems": []
+  }
+}

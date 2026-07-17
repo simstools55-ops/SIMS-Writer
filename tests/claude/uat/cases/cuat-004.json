@@ -1,0 +1,46 @@
+{
+  "case_id": "CUAT-004",
+  "expected": "rejected",
+  "request": {
+    "existing_content": "既存本文",
+    "supporting_queries": [
+      "discord pc 翻訳"
+    ],
+    "article_catalog": [
+      {
+        "url": "https://example.com/discord-settings",
+        "title": "Discord設定"
+      }
+    ]
+  },
+  "output": {
+    "status": "generated",
+    "seo_title": "Discord翻訳をiPhoneで使う方法",
+    "meta_description": "DiscordをiPhoneで翻訳する方法と注意点を解説します。",
+    "h1": "Discord翻訳をiPhoneで使う方法",
+    "article_content": "# Discord翻訳をiPhoneで使う方法\n\n既存本文を生かした改善記事です。",
+    "change_summary": [
+      {
+        "area": "title",
+        "before": "旧タイトル",
+        "after": "新タイトル",
+        "reason": "検索意図を明確化"
+      }
+    ],
+    "faq": [],
+    "internal_link_recommendations": [
+      {
+        "url": "https://invented.example/x",
+        "title": "Discord設定",
+        "reason": "設定手順を補足"
+      }
+    ],
+    "separate_article_candidates": [
+      {
+        "query": "discord pc 翻訳",
+        "reason": "端末が異なる"
+      }
+    ],
+    "unresolved_items": []
+  }
+}

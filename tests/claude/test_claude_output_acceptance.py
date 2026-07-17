@@ -79,3 +79,31 @@ def test_accepts_fenced_json() -> None:
     text = "```json\n" + json.dumps(valid_output(), ensure_ascii=False) + "\n```"
     report = ClaudeOutputValidator(ROOT).validate_text(text, request_context())
     assert report.valid
+
+
+def test_normalizes_known_camel_case_variations() -> None:
+    output = {
+        "status": " completed ",
+        "seoTitle": " タイトル ",
+        "metaDescription": " 説明 ",
+        "h1": " 見出し ",
+        "articleContent": " # 見出し\n\n本文 ",
+        "changeSummary": [],
+        "faq": None,
+        "internalLinkRecommendations": [],
+        "separateArticleCandidates": [],
+        "unresolvedItems": [],
+    }
+    report = ClaudeOutputValidator(ROOT).validate_text(json.dumps(output, ensure_ascii=False), request_context())
+    assert report.valid
+    assert report.normalized_output["status"] == "generated"
+    assert report.normalized_output["seo_title"] == "タイトル"
+    assert any("key_alias" in warning for warning in report.warnings)
+
+
+def test_does_not_normalize_unknown_fields_away() -> None:
+    output = valid_output()
+    output["invented_field"] = "value"
+    report = ClaudeOutputValidator(ROOT).validate_text(json.dumps(output, ensure_ascii=False), request_context())
+    assert not report.valid
+    assert any("Additional properties" in error for error in report.errors)

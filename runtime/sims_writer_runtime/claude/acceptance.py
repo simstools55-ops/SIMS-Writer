@@ -9,6 +9,7 @@ from typing import Any
 from jsonschema import Draft202012Validator, FormatChecker
 
 from ..adapters.output_parser import extract_json
+from .normalization import ClaudeOutputNormalizer
 
 
 class ClaudeOutputAcceptanceError(ValueError):
@@ -41,6 +42,9 @@ class ClaudeOutputValidator:
             payload = extract_json(text)
         except (ValueError, json.JSONDecodeError) as exc:
             return ClaudeOutputValidationReport(False, "rejected", [f"invalid_json:{exc}"])
+
+        payload, normalization_warnings = ClaudeOutputNormalizer.normalize(payload)
+        warnings.extend(normalization_warnings)
 
         for error in sorted(self.validator.iter_errors(payload), key=lambda item: list(item.path)):
             location = ".".join(str(part) for part in error.path) or "$"
