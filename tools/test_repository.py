@@ -11,6 +11,7 @@ COMMANDS = [
     [sys.executable, "tools/validators/validate_knowledge.py"],
     [sys.executable, "tools/validators/validate_patterns.py"],
     [sys.executable, "tools/validators/validate_quality_rules.py"],
+    [sys.executable, "tools/validators/validate_claude_package.py"],
     [sys.executable, "tests/migration/test_sims_core_migration.py"],
 ]
 

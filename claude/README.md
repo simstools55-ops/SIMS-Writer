@@ -9,3 +9,7 @@
 - 入力雛形: `templates/IMPROVEMENT_REQUEST_TEMPLATE.json`
 
 現在はDeveloper Previewであり、一般利用者テスト開始版ではありません。
+
+## v1.9.0の位置づけ
+
+この配布物はDeveloper Rehearsal用です。`USER_TEST_REHEARSAL.md`と`TEST_CHECKLIST.md`を使って開発者が操作を確認します。一般利用者テスト開始版ではありません。

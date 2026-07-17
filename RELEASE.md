@@ -1,18 +1,12 @@
-# SIMS Writer Repository v1.5.0
+# SIMS Writer Repository v1.9.0
 
-Status: Release Candidate Verified
+Status: Developer Rehearsal
+Release date: 2026-07-17
 
 ## Scope
 
-- Grounded internal-link candidate selection from a supplied article catalog
-- Maximum eight candidates with relevance scores and evidence
-- Low-relevance supporting-query separation for future article planning
-- SIMS-Blog-Manager `ArticleCatalog` input compatibility
-- Content Plan, draft, runtime artifact, and report integration
-- Full repository validation
+Claude Project向け配布ファイルだけで、セットアップから正常系・安全系の確認までを再現するための開発者リハーサル基盤を実装した。
 
-## Release command
+## User testing decision
 
-```bash
-python tools/test_repository.py
-```
+一般利用者テストはまだ開始しない。Repository内の固定Golden UATと配布整合性は合格しているが、実際のClaude Project上での複数実記事日本語品質UAT、および初心者環境でのセットアップ再現確認が未完了である。

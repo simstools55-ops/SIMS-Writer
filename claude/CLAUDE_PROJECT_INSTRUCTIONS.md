@@ -1,6 +1,6 @@
 # SIMS Writer — Claude Project Instructions
 
-Version: 1.8.0-preview.3
+Version: 1.9.0-preview.1
 Status: Developer Preview
 
 ## Role

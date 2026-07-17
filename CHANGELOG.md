@@ -1,3 +1,12 @@
+## 1.9.0 - 2026-07-17
+
+- Claude Project配布ファイルだけで完結する操作リハーサル手順を追加
+- Claude Projectテストチェックリストを追加
+- Claude配布ManifestとSHA-256検証を追加
+- Claude専用配布ZIPビルダーを追加
+- 利用者テスト開始条件のReadiness Reportを追加
+- Repository Release GateへClaude配布検証を追加
+
 ## 1.8.0 - 2026-07-17
 
 - Added Claude Project Golden UAT with six accepted/rejected safety cases.

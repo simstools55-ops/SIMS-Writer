@@ -1,6 +1,6 @@
 # Claude Project Setup Guide
 
-Version: 1.6.0-preview.1
+Version: 1.9.0-preview.1
 Status: Developer Preview
 
 > このパッケージは構成検証用です。一般利用者テストはまだ開始しません。
@@ -52,3 +52,7 @@ python -m runtime.sims_writer_runtime.cli \
 ```
 
 `claude-output-validation.json`が`valid: true`の場合だけ、`accepted-claude-output.json`が生成されます。
+
+## 開発者リハーサル
+
+実際のClaude Projectで確認する場合は、`USER_TEST_REHEARSAL.md`の順に操作し、`TEST_CHECKLIST.md`へ結果を記録します。固定ケースの自動合格だけでは一般利用者テスト開始とは判定しません。
