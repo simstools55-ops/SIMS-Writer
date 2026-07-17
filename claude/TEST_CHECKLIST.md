@@ -21,3 +21,15 @@
 - [ ] JSONは `json` 言語指定付きコードブロックで1つだけ
 - [ ] JSONコードブロックの後に文章がない
 - [ ] partialは正式主力、full/publishはベータとして扱われている
+
+
+## Strict Contract Compliance UAT
+
+- ユーザー提示JSONの最上位キーが同名・同順序である
+- 入れ子キーが同名・同順序である
+- 文字列・真偽値・配列・オブジェクトの型が一致する
+- 必須項目の欠落が0件である
+- 契約外フィールドが0件である
+- `format`を`schema`へ変更していない
+- `description`を`meta_description`へ変更していない
+- JSONは回答末尾の単一`json`コードブロックである

@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack
 
-Version: 0.14.1-alpha.1
+Version: 0.14.3-alpha.1
 Status: RC2
 
 ## Product principles

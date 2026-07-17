@@ -6,6 +6,11 @@ from datetime import date
 from typing import Any
 import re
 
+USER_CONTRACT_TYPE_NAMES = {
+    "string": str, "boolean": bool, "integer": int, "number": (int, float),
+    "object": dict, "array": list, "null": type(None),
+}
+
 OUTPUT_MODES = {"summary", "partial", "full", "publish", "json_only"}
 SEO_TITLE_RECOMMENDED_MAX = 40
 SEO_TITLE_HARD_MAX = 45
@@ -19,6 +24,57 @@ CHANGE_KEYS = (
     "article_title", "seo_title", "description", "introduction", "headings",
     "faq", "internal_links", "body", "images",
 )
+
+
+def validate_user_json_contract(feedback: dict[str, Any], contract: dict[str, Any]) -> list[OutputValidationIssue]:
+    """Validate exact user-provided JSON contract: keys, order, required fields and types."""
+    issues: list[OutputValidationIssue] = []
+    expected_order = contract.get("field_order") or list((contract.get("fields") or {}).keys())
+    actual_order = list(feedback.keys())
+    if expected_order and actual_order != expected_order:
+        issues.append(OutputValidationIssue("OUT-018", "feedback field order must exactly match the user contract"))
+
+    fields = contract.get("fields") or {}
+    expected_keys = set(fields)
+    actual_keys = set(feedback)
+    missing = [k for k in expected_order if k not in actual_keys]
+    extra = [k for k in actual_order if k not in expected_keys]
+    if missing:
+        issues.append(OutputValidationIssue("OUT-019", f"feedback is missing contract fields: {', '.join(missing)}"))
+    if extra:
+        issues.append(OutputValidationIssue("OUT-020", f"feedback contains contract-external fields: {', '.join(extra)}"))
+
+    def check(value: Any, spec: Any, path: str) -> None:
+        if isinstance(spec, str):
+            expected = USER_CONTRACT_TYPE_NAMES.get(spec)
+            if expected is None:
+                return
+            if spec == "integer" and isinstance(value, bool):
+                ok = False
+            elif spec == "number" and isinstance(value, bool):
+                ok = False
+            else:
+                ok = isinstance(value, expected)
+            if not ok:
+                issues.append(OutputValidationIssue("OUT-021", f"{path} must be {spec}"))
+            return
+        if isinstance(spec, dict):
+            if not isinstance(value, dict):
+                issues.append(OutputValidationIssue("OUT-021", f"{path} must be object"))
+                return
+            expected_nested = list(spec.keys())
+            if list(value.keys()) != expected_nested:
+                issues.append(OutputValidationIssue("OUT-022", f"{path} keys and order must exactly match the user contract"))
+            for key, child in spec.items():
+                if key not in value:
+                    issues.append(OutputValidationIssue("OUT-019", f"{path}.{key} is required"))
+                else:
+                    check(value[key], child, f"{path}.{key}")
+
+    for key, spec in fields.items():
+        if key in feedback:
+            check(feedback[key], spec, key)
+    return issues
 
 
 @dataclass
@@ -41,6 +97,10 @@ class OutputContractValidator:
         if not isinstance(feedback, dict):
             issues.append(OutputValidationIssue("OUT-002", "feedback must be an object"))
             return issues
+
+        user_contract = package.get("user_json_contract")
+        if isinstance(user_contract, dict):
+            issues.extend(validate_user_json_contract(feedback, user_contract))
 
         if feedback.get("format") != "SIMS_FEEDBACK_V1":
             issues.append(OutputValidationIssue("OUT-003", "feedback.format must be SIMS_FEEDBACK_V1"))
@@ -169,7 +229,8 @@ def package_output(*, output_mode: str, before_after: list[dict[str, Any]], feed
                    unresolved_items: list[str] | None = None,
                    body_additions: list[dict[str, Any]] | None = None,
                    article_content: str | None = None,
-                   effect_evidence: dict[str, Any] | None = None) -> dict[str, Any]:
+                   effect_evidence: dict[str, Any] | None = None,
+                   user_json_contract: dict[str, Any] | None = None) -> dict[str, Any]:
     if output_mode not in OUTPUT_MODES:
         raise ValueError(f"Unsupported output mode: {output_mode}")
     package = {
@@ -181,6 +242,8 @@ def package_output(*, output_mode: str, before_after: list[dict[str, Any]], feed
         "feedback": deepcopy(feedback),
         "effect_evidence": deepcopy(effect_evidence or {}),
     }
+    if user_json_contract is not None:
+        package["user_json_contract"] = deepcopy(user_json_contract)
     if output_mode in {"full", "publish"}:
         package["article_content"] = article_content or ""
     OutputContractValidator().assert_valid(package)

@@ -55,3 +55,8 @@ JSONの後には文章を出力しない。
 ## Mode Positioning
 
 Product 1.0では `partial` を正式な主力機能とする。`full` と `publish` は、変更量が多い場合の作業負担を減らすベータ機能とする。記事構造保持型の全文生成は将来機能とし、アフィリエイトリンク、ブログカード、広告、装飾、独自HTMLを保持できることを検証してから正式化する。
+
+
+## User-Provided JSON Contract Priority (v0.14.3)
+
+When the request includes an explicit JSON template or schema, that contract overrides the SIMS default feedback shape. The response must preserve exact field names, nesting, value types, required fields, enum constraints, and field order. Contract-external fields are prohibited. The JSON must be the single final fenced `json` block with no trailing content.

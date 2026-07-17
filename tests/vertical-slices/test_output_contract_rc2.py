@@ -64,3 +64,40 @@ def test_response_must_end_with_single_json_code_block():
     assert not any(i.code in {"OUT-016","OUT-017"} for i in OutputContractValidator().validate(package))
     package["rendered_response"] = valid + "\n追記"
     assert any(i.code=="OUT-016" for i in OutputContractValidator().validate(package))
+
+
+def _strict_v11_contract():
+    return {
+        "field_order": ["format","version","article_id","article_url","completed_at","changes","new_values","improvement_type","confidence","expected_effect","next_action","summary","warnings","estimated_minutes","recommended_review_days"],
+        "fields": {
+            "format":"string","version":"string","article_id":"string","article_url":"string","completed_at":"string",
+            "changes":{"article_title":"boolean","seo_title":"boolean","description":"boolean","introduction":"boolean","headings":"boolean","faq":"boolean","internal_links":"boolean","body":"boolean","images":"boolean"},
+            "new_values":{"article_title":"string","seo_title":"string","description":"string","main_query":"string"},
+            "improvement_type":"string","confidence":"string",
+            "expected_effect":{"ctr":"string","clicks":"string"},
+            "next_action":"string","summary":"string","warnings":"array","estimated_minutes":"integer","recommended_review_days":"integer"
+        }
+    }
+
+
+def test_user_contract_accepts_exact_sims_feedback_v11():
+    fb=build_feedback(article_id="A000008",article_url="https://sugamitokyo.jp/syosscg-lplp-comp",main_query="サイオスカラージェニック LPLPカラートリートメント 比較",before_after=[],summary="改善",warnings=[])
+    package={"output_mode":"partial","user_output":[],"internal_link_report":[],"unresolved_items":[],"body_additions":[],"feedback":fb,"effect_evidence":{},"user_json_contract":_strict_v11_contract()}
+    assert not any(i.code in {"OUT-018","OUT-019","OUT-020","OUT-021","OUT-022"} for i in OutputContractValidator().validate(package))
+
+
+def test_user_contract_rejects_renamed_missing_extra_and_wrong_type_fields():
+    fb=build_feedback(article_id="A000008",article_url="https://example.com",main_query="query",before_after=[],summary="改善",warnings=[])
+    fb["schema"]=fb.pop("format")
+    fb["summary"]=["wrong type"]
+    fb["output_mode"]="partial"
+    package={"output_mode":"partial","user_output":[],"internal_link_report":[],"unresolved_items":[],"body_additions":[],"feedback":fb,"effect_evidence":{},"user_json_contract":_strict_v11_contract()}
+    codes={i.code for i in OutputContractValidator().validate(package)}
+    assert {"OUT-018","OUT-019","OUT-020","OUT-021"} <= codes
+
+
+def test_user_contract_rejects_nested_key_rename_and_order_change():
+    fb=build_feedback(article_id="A000008",article_url="https://example.com",main_query="query",before_after=[],summary="改善",warnings=[])
+    fb["new_values"]={"seo_title":"","article_title":"","description":"","main_query":"query"}
+    package={"output_mode":"partial","user_output":[],"internal_link_report":[],"unresolved_items":[],"body_additions":[],"feedback":fb,"effect_evidence":{},"user_json_contract":_strict_v11_contract()}
+    assert any(i.code=="OUT-022" for i in OutputContractValidator().validate(package))

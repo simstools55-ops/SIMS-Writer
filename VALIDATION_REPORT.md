@@ -1,6 +1,6 @@
 # Validation Report
 
-Version: 0.14.2-alpha.1
+Version: 0.14.3-alpha.1
 
 ## Result
 
@@ -20,3 +20,12 @@ Version: 0.14.2-alpha.1
 - JSON block must be the final response element
 - `partial` positioned as the Product 1.0 primary mode
 - `full` and `publish` positioned as beta modes until embedded article assets can be preserved reliably
+
+
+## 0.14.3-alpha.1 Strict Contract Compliance
+
+- Output Contract regression: 12 passed
+- Contract schemas: 15 passed
+- Decision assets and contracts: passed
+- User JSON contract exact key/order/type validation: passed
+- Claude fixed legacy schema conflict: removed

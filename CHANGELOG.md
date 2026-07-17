@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.14.3-alpha.1
+
+- ユーザー提示JSON契約をSIMS標準より優先するSchema Lockを追加
+- キー名・階層・型・必須項目・順序の厳密検証を追加
+- 契約外フィールドの追加を禁止
+- Claude Instructionsから競合する旧固定JSON例を撤去
+- A000008再UAT用Strict Contractテストを追加
+
 ## 0.14.2-alpha.1
 
 - 成果物前の不要な挨拶・了承文・呼称を禁止
