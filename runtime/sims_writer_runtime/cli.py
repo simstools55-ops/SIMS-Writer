@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 
 from .orchestrator import RuntimeOrchestrator
+from .batch import BatchInputError, BatchProcessor
 from .export import (
     ArtifactRollbackError,
     ArtifactRollbackManager,
@@ -17,6 +18,7 @@ from .export import (
 def main() -> int:
     parser = argparse.ArgumentParser(description="SIMS Writer Runtime Core")
     parser.add_argument("--input")
+    parser.add_argument("--batch-input", help="Directory containing improvement request JSON files")
     parser.add_argument("--output", required=True)
     parser.add_argument("--input-type", choices=["auto", "generic", "sbm"], default="auto")
     parser.add_argument("--rollback-execution-id")
@@ -31,6 +33,26 @@ def main() -> int:
 
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
+
+    if args.batch_input:
+        if args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
+            parser.error("--batch-input cannot be combined with rollback or publication actions")
+        repo_root = Path(__file__).resolve().parents[2]
+        try:
+            summary = BatchProcessor(repo_root).execute_directory(
+                Path(args.batch_input), output, args.input_type
+            )
+        except BatchInputError as exc:
+            print(f"batch_failed={exc}")
+            return 2
+        counts = summary["counts"]
+        print(
+            "batch_status="
+            f"{summary['status']} total={counts['total']} "
+            f"succeeded={counts['succeeded']} review={counts['manual_review_required']} "
+            f"failed={counts['failed']}"
+        )
+        return 1 if counts["failed"] else 0
 
     if args.rollback_execution_id:
         try:
@@ -65,7 +87,7 @@ def main() -> int:
         return 0
 
     if not args.input:
-        parser.error("--input is required unless a rollback or approval action is used")
+        parser.error("--input or --batch-input is required unless a rollback or approval action is used")
 
     input_path = Path(args.input).resolve()
     repo_root = Path(__file__).resolve().parents[2]

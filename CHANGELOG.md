@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 1.1.0
+
+- 改善依頼JSONフォルダのバッチ処理を実装
+- 記事ごとの独立成果物フォルダと安全なRequest ID整形を実装
+- 1件失敗時も残りを継続するエラー分離を実装
+- `batch-summary.json`と`batch-summary.md`を追加
+- CLI `--batch-input`を追加
+- 複数記事、要確認、壊れたJSON、重複Request IDのテストを追加
+
 ## 1.0.0
 
 - 確定済み公開スナップショットの配布ZIP生成を実装
