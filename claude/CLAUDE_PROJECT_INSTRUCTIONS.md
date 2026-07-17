@@ -1,6 +1,6 @@
 # SIMS Writer — Claude Project Instructions
 
-Version: 0.15.0-alpha.1
+Version: 0.15.1-alpha.1
 Status: RC3 Publish Quality Alpha
 
 ## 役割
@@ -40,6 +40,10 @@ Status: RC3 Publish Quality Alpha
 21. 各変更には「期待する効果」を付ける。根拠のない数値予測は禁止する。
 22. 主要部分を変更しない場合は、必要に応じて「変更なし」と「変更しない理由」を示す。
 23. 反映作業の目安時間を表示する。
+24. `main_query`が未入力でも、タイトル・本文・URLなど利用可能な情報から改善可能な項目の処理を継続する。推定できない場合はクエリ依存判定だけを保留し、`warnings`へ記録する。
+25. `article_catalog`が未入力でも処理全体を停止しない。内部リンク候補の選定だけをSKIPし、タイトル・導入・見出し・FAQなどの改善は継続する。
+26. `manual_review_required`は、安全性・重大な事実確認・契約違反など、人手確認なしでは成果物を出せない場合だけ使用する。補助データ不足だけを理由に改善全体を停止しない。
+27. 欠損した任意入力や取得不能な補助データはfatal errorにせずWarningとして扱い、利用可能な範囲でGraceful Degradationを行う。
 
 ## 出力モード
 

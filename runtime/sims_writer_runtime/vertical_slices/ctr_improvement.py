@@ -35,8 +35,9 @@ class CTRImprovementSlice:
             title_hint = raw.get("SEOTitle") or raw.get("seo_title") or raw.get("ArticleTitle") or raw.get("current_title") or raw.get("title") or ""
             main_query = self._infer_query(title_hint)
             query_inferred = bool(main_query)
-        if not main_query:
-            raise ValueError("MainQuery is missing and could not be inferred from the title")
+        main_query_missing = not bool(main_query)
+        if main_query_missing:
+            main_query = ""
         source = raw.get("ExistingContent") or raw.get("existing_content") or raw.get("article_content") or ""
         supporting = raw.get("SupportingQueries") or raw.get("supporting_queries") or []
         if isinstance(supporting, str):
@@ -46,6 +47,7 @@ class CTRImprovementSlice:
             "request_type": "existing_article_improvement",
             "main_query": str(main_query).strip(),
             "main_query_inferred": query_inferred,
+            "main_query_missing": main_query_missing,
             "supporting_queries": supporting[:20],
             "target_url": raw.get("URL") or raw.get("target_url"),
             "article_id": raw.get("ArticleID") or raw.get("article_id"),
@@ -61,6 +63,7 @@ class CTRImprovementSlice:
             "site_name": raw.get("SiteName") or raw.get("site_name") or "",
             "output_mode": raw.get("OutputMode") or raw.get("output_mode") or "partial",
             "internal_link_candidates": raw.get("InternalLinkCandidates") or raw.get("internal_link_candidates") or [],
+            "article_catalog": raw.get("ArticleCatalog") or raw.get("article_catalog") or [],
         }
 
     @staticmethod
@@ -82,14 +85,15 @@ class CTRImprovementSlice:
 
     def decide(self, request: dict[str, Any]) -> CTRDecision:
         title = request.get("seo_title") or request.get("current_title") or ""
-        qtokens=[x for x in request["main_query"].split() if x]
+        qtokens=[x for x in request.get("main_query", "").split() if x]
         title_aligned=all(tok.lower() in title.lower() for tok in qtokens) if title else False
         ctr=request.get("ctr"); pos=request.get("average_position"); imp=request.get("impressions")
         measurable = imp is None or imp >= 100
         low_ctr = ctr is not None and ctr < (0.01 if (pos is not None and pos <= 10) else 0.005)
         title_action = "revise" if (not title_aligned or (measurable and low_ctr)) else "preserve"
         existing=request.get("existing_content") or ""
-        intro_action = "revise" if len(existing.strip()) < 120 or request["main_query"].lower() not in existing[:500].lower() else "preserve"
+        main_query = request.get("main_query", "")
+        intro_action = "revise" if len(existing.strip()) < 120 or (main_query and main_query.lower() not in existing[:500].lower()) else "preserve"
         faq_signal = len(request.get("supporting_queries") or []) >= 2
         faq_action = "add" if faq_signal else "no_change"
         intro_answer_first = intro_action == "preserve"
@@ -111,7 +115,7 @@ class CTRImprovementSlice:
         return CTRDecision(title_action,intro_action,faq_action,"。".join(reasons),assessment.improvement_judgment,search_intent,assessment.estimated_minutes)
 
     def build_draft(self, request: dict[str, Any], decision: CTRDecision) -> dict[str, Any]:
-        q=request["main_query"]
+        q=request.get("main_query") or request.get("seo_title") or request.get("current_title") or "この記事"
         current=request.get("seo_title") or request.get("current_title") or q
         title=self._title(q,current,request) if decision.title_action=="revise" else current
         h1=request.get("current_title") or title
@@ -169,10 +173,14 @@ class CTRImprovementSlice:
         warnings=[]
         if request.get("main_query_inferred"):
             warnings.append("main_queryが未入力だったため、タイトルから推定しています。正式なクエリ確認後に再調整してください。")
-        if not request.get("internal_link_candidates"):
+        elif request.get("main_query_missing"):
+            warnings.append("main_queryが未入力で推定材料も不足しています。タイトル・導入文など改善可能な項目の処理は継続し、クエリ依存の判定のみ保留しました。")
+        if not request.get("article_catalog"):
+            warnings.append("article_catalogが未入力のため、内部リンク候補の選定のみSKIPしました。")
+        elif not request.get("internal_link_candidates"):
             warnings.append("内部リンク候補が未入力のため、内部リンクは変更していません。")
         effect={"ctr":"CTR改善余地はありますが、具体的な数値は実測データ不足のため予測しません。","clicks":"表示回数とクリック数の母数が小さい場合、定量予測は行わず再測定で確認します。"}
-        feedback=build_feedback(article_id=request.get("article_id"), article_url=request.get("target_url"), main_query=request["main_query"], before_after=before_after, summary=decision.reason, warnings=warnings, confidence="medium" if request.get("main_query_inferred") else "high", expected_effect=effect)
+        feedback=build_feedback(article_id=request.get("article_id"), article_url=request.get("target_url"), main_query=request.get("main_query", ""), before_after=before_after, summary=decision.reason, warnings=warnings, confidence="low" if request.get("main_query_missing") else ("medium" if request.get("main_query_inferred") else "high"), expected_effect=effect)
         feedback["estimated_minutes"] = decision.estimated_minutes
         publish_quality = {
             "improvement_judgment": decision.improvement_judgment,

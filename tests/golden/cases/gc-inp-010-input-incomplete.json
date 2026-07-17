@@ -43,7 +43,7 @@
     "experience_verified": false
   },
   "expected": {
-    "publish_decision": "failed",
+    "publish_decision": "revision_required",
     "rules_evaluated": 42,
     "gates_evaluated": 7,
     "must_include": [],

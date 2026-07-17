@@ -29,7 +29,12 @@ class RuntimeOrchestrator:
             self._pass(records, "intake")
             request = normalize_sbm(raw) if input_type == "sbm" else normalize_generic(raw)
             artifacts["normalized_request"] = request
-            self._pass(records, "normalization")
+            if request.get("main_query_inferred"):
+                self._warn(records, "normalization", "main_query was inferred from the title")
+            elif request.get("main_query_missing"):
+                self._warn(records, "normalization", "main_query is missing; query-dependent checks will be degraded")
+            else:
+                self._pass(records, "normalization")
 
             source_status = "unavailable" if request.get("target_url") else "not_applicable"
             artifacts["source_snapshot"] = {"status": source_status, "target_url": request.get("target_url")}
@@ -40,19 +45,27 @@ class RuntimeOrchestrator:
 
             plan = {
                 "plan_id": f"PLN-{execution_id[4:]}",
-                "primary_intent": request["main_query"],
+                "primary_intent": request.get("main_query") or request.get("seo_title") or request.get("current_title") or "",
                 "main_answer": None,
-                "status": "manual_review_required",
+                "status": "degraded" if request.get("main_query_missing") else "ready",
             }
             artifacts["content_plan"] = plan
-            self._warn(records, "content_planning", "Main answer requires production adapter")
+            if request.get("main_query_missing"):
+                self._warn(records, "content_planning", "Query-dependent planning was skipped; other improvements remain available")
+            else:
+                self._warn(records, "content_planning", "Main answer requires production adapter")
 
-            action = "manual_review" if source_status == "unavailable" else "revise"
-            artifacts["decision_action_plan"] = {"action": action, "components": [], "reason": "Alpha deterministic decision"}
+            action = "revise"
+            action_reason = "Continue with available input; unavailable source is advisory"
+            artifacts["decision_action_plan"] = {"action": action, "components": [], "reason": action_reason}
             self._pass(records, "decision_evaluation")
 
-            artifacts["pattern_selection"] = {"selected_patterns": [], "blocked_by_action": action == "manual_review"}
-            self._pass(records, "pattern_selection")
+            artifacts["pattern_selection"] = {"selected_patterns": [], "blocked_by_action": False}
+            if request.get("article_catalog"):
+                self._pass(records, "pattern_selection")
+            else:
+                artifacts["internal_link_selection"] = {"status": "skipped", "reason": "article_catalog is unavailable"}
+                self._skip(records, "pattern_selection", "article_catalog is unavailable; internal-link selection only was skipped")
 
             draft = self.adapter.produce(request, plan, source_snapshot=artifacts["source_snapshot"], knowledge_assembly=artifacts["knowledge_assembly"], decision_action_plan=artifacts["decision_action_plan"], pattern_selection=artifacts["pattern_selection"])
             artifacts["content_draft"] = draft

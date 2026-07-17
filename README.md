@@ -4,7 +4,7 @@ SIMS Writerは、Quality Framework・Contracts・Knowledge・Decision Framework�
 
 ## Version
 
-`0.15.0-alpha.1`
+`0.15.1-alpha.1`
 
 ## このパッケージ
 

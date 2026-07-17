@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.15.1-alpha.1
+
+- `manual_review_required`を人手確認が不可欠な場合だけに限定
+- `main_query`欠落時もタイトル等から推定し、推定不能時はWarning付きで処理継続
+- `article_catalog`欠落時は内部リンク候補選定だけをSKIP
+- 外部Sourceや補助入力の欠落をfatal errorではなくWarningとして扱うGraceful Degradationを実装
+- A000008相当の欠損入力回帰テストを追加
+- Golden UAT 12件を新しい継続動作へ更新
+
 ## 0.15.0-alpha.1
 
 - RC3 Publish Qualityを開始

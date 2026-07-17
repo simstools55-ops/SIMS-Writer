@@ -101,3 +101,19 @@ def test_user_contract_rejects_nested_key_rename_and_order_change():
     fb["new_values"]={"seo_title":"","article_title":"","description":"","main_query":"query"}
     package={"output_mode":"partial","user_output":[],"internal_link_report":[],"unresolved_items":[],"body_additions":[],"feedback":fb,"effect_evidence":{},"user_json_contract":_strict_v11_contract()}
     assert any(i.code=="OUT-022" for i in OutputContractValidator().validate(package))
+
+
+def test_missing_main_query_without_title_continues_with_warning():
+    raw={"ArticleID":"A000008","URL":"https://example.com","ExistingContent":"既存本文です。"*30}
+    s=CTRImprovementSlice(); req=s.normalize(raw); dec=s.decide(req); draft=s.build_draft(req,dec); package=s.build_output(req,dec,draft)
+    assert req["main_query"] == ""
+    assert req["main_query_missing"] is True
+    assert package["feedback"]["confidence"] == "low"
+    assert any("処理は継続" in x for x in package["feedback"]["warnings"])
+
+
+def test_missing_article_catalog_skips_internal_links_only():
+    raw={"ArticleID":"A000008","ArticleTitle":"比較記事","ExistingContent":"比較記事の本文です。"*30}
+    s=CTRImprovementSlice(); req=s.normalize(raw); dec=s.decide(req); draft=s.build_draft(req,dec); package=s.build_output(req,dec,draft)
+    assert package["feedback"]["changes"]["internal_links"] is False
+    assert any("内部リンク候補の選定のみSKIP" in x for x in package["feedback"]["warnings"])

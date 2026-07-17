@@ -1,14 +1,14 @@
 {
-  "package_version": "0.15.0-alpha.1",
-  "status": "RC3 Publish Quality Alpha",
+  "package_version": "0.15.1-alpha.1",
+  "status": "Graceful Degradation Alpha",
   "files": {
-    "CLAUDE_PROJECT_INSTRUCTIONS.md": "a4810922e71c32d9bef7b8ccfbf3c20c991fe6de0cf4c0232edc5b2992f3b4d2",
-    "README.md": "35864072e361575e55205be462eb054a0d2a95b805928e5ab9a1d4b75090118c",
-    "SETUP_GUIDE.md": "9f933cdeea1b7d7c08e9a0b42d7fca9cf00f9a09613d280a5bf43bbcc5e9b9b5",
+    "CLAUDE_PROJECT_INSTRUCTIONS.md": "7a609b5ce171da102fc6300bad6b0bd61c1c052f433a4b874cc12360dc72851d",
+    "README.md": "f10742b57fa8add532478881eb56592c3374c57105a14a58d43f76798bd04fe2",
+    "SETUP_GUIDE.md": "915beee21f241e7ca8f33a060517491c1a6ee5fa0c0a07a0d341167389631de1",
     "TEST_CHECKLIST.md": "2b370a524c1a4fe17fabff41399f379f1db3d1ad710ef3b983946172ae1c3887",
     "examples/EXAMPLE_REQUEST.json": "7e3a01618204a9f53558992b36dead6b2a89aa321efe7406926abcafeec62baf",
     "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md": "f8bc2995ff34d201f7b0ebd0b2ee35e643fb72bc817ed891bb38d998d8f5eb9b",
     "templates/IMPROVEMENT_REQUEST_TEMPLATE.json": "264d57a61ac1cde15e6592c4caa5fbeb549ac0a77cf431eb23b78811e8b4378a"
   },
-  "version": "0.15.0-alpha.1"
+  "version": "0.15.1-alpha.1"
 }
