@@ -21,7 +21,7 @@ def main() -> int:
     args = parser.parse_args()
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
-    archive = output / "SIMS-Writer-Claude-Quality-UAT-v1.15.0.zip"
+    archive = output / "SIMS-Writer-Claude-User-Test-RC1-v1.16.0.zip"
     files = sorted(path for path in CLAUDE.rglob("*") if path.is_file())
     with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED) as zf:
         for path in files:

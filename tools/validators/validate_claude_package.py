@@ -38,8 +38,8 @@ def main() -> int:
         errors.append("distribution exceeds 120KB")
 
     expected = {
-        "package_version": "1.15.0-preview.1",
-        "status": "quality_uat_preview",
+        "package_version": "1.16.0-rc1",
+        "status": "user_test_rc1",
         "files": {item: sha256(CLAUDE / item) for item in sorted(files)},
     }
     if not MANIFEST.is_file():

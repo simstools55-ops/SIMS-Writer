@@ -10,13 +10,13 @@ ROOT = Path(__file__).resolve().parents[2]
 CLAUDE = ROOT / "claude"
 
 
-def test_rehearsal_guides_exist_and_state_not_user_test_ready() -> None:
+def test_user_test_guides_exist_and_state_user_test_ready() -> None:
     rehearsal = (CLAUDE / "USER_TEST_REHEARSAL.md").read_text(encoding="utf-8")
     checklist = (CLAUDE / "TEST_CHECKLIST.md").read_text(encoding="utf-8")
-    assert "一般利用者テスト開始版ではありません" in rehearsal
+    assert "一般利用者テスト実施手順" in rehearsal
     assert "manual_review_required" in rehearsal
     assert "内部リンク" in checklist
-    assert "日本語品質" in checklist
+    assert "平均評価4/5以上" in checklist
 
 
 def test_manifest_matches_all_distribution_files() -> None:
@@ -39,7 +39,7 @@ def test_distribution_builder_creates_verified_zip(tmp_path: Path) -> None:
         text=True,
     )
     assert completed.returncode == 0, completed.stdout + completed.stderr
-    archive = tmp_path / "SIMS-Writer-Claude-Quality-UAT-v1.15.0.zip"
+    archive = tmp_path / "SIMS-Writer-Claude-User-Test-RC1-v1.16.0.zip"
     report = json.loads((tmp_path / "claude-distribution-build.json").read_text(encoding="utf-8"))
     assert archive.is_file()
     assert report["status"] == "built"
