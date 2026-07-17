@@ -122,9 +122,33 @@ class ClaudeUATSessionBuilder:
         }
         manifest_path = session_root / "session-manifest.json"
         manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        setup_evidence = {
+            "evidence_version": "1.0",
+            "operator_level": "beginner",
+            "operator_id": "",
+            "started_at": "",
+            "completed_at": "",
+            "completed": False,
+            "steps": [
+                {"step_id": step_id, "status": "pending", "notes": ""}
+                for step_id in (
+                    "create_claude_project",
+                    "set_project_instructions",
+                    "upload_knowledge_files",
+                    "submit_example_request",
+                    "save_json_output",
+                )
+            ],
+            "blockers": [],
+            "notes": "",
+        }
+        (session_root / "beginner-setup-evidence.json").write_text(
+            json.dumps(setup_evidence, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
         (session_root / "README.md").write_text(self._readme(resolved_session_id), encoding="utf-8")
         return {"session_root": str(session_root), "manifest": manifest}
 
     @staticmethod
     def _readme(session_id: str) -> str:
-        return f"""# SIMS Writer Claude実記事UATセッション\n\n- Session ID: `{session_id}`\n- 状態: `prepared`\n\n## 手順\n\n1. `requests/`の依頼を1件ずつClaude Projectへ送信する。\n2. JSON応答を対応する`responses/`の予定ファイル名で保存する。\n3. Runtimeの`--validate-claude-output`で検証し、結果を`validation/`へ保存する。\n4. `evidence/`の対応ファイルを実測結果で更新する。\n5. 推測で点数や合格を記入しない。未解決事項は`blockers`へ残す。\n6. 全件後、`--evaluate-user-test-readiness`を実行する。\n\n`outcome`は確認前の`pending`から、実測後に`generated`または`manual_review_required`へ変更してください。\n"""
+        return f"""# SIMS Writer Claude実記事UATセッション\n\n- Session ID: `{session_id}`\n- 状態: `prepared`\n\n## 手順\n\n1. `requests/`の依頼を1件ずつClaude Projectへ送信する。\n2. JSON応答を対応する`responses/`の予定ファイル名で保存する。\n3. Runtimeの`--validate-claude-output`で検証し、結果を`validation/`へ保存する。\n4. `evidence/`の対応ファイルを実測結果で更新する。\n5. 推測で点数や合格を記入しない。未解決事項は`blockers`へ残す。\n6. 初心者担当者が`beginner-setup-evidence.json`を実測結果で更新する。
+7. 全件後、`--run-claude-uat-readiness`で一括判定する。\n\n`outcome`は確認前の`pending`から、実測後に`generated`または`manual_review_required`へ変更してください。\n"""

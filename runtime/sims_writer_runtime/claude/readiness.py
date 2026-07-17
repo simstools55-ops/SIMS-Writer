@@ -38,7 +38,7 @@ class ClaudeUserTestReadinessEvaluator:
     minimum_articles = 3
     minimum_average_score = 4.0
 
-    def evaluate_directory(self, evidence_dir: Path) -> dict[str, Any]:
+    def evaluate_directory(self, evidence_dir: Path, beginner_setup_override: bool = False) -> dict[str, Any]:
         evidence_dir = evidence_dir.resolve()
         if not evidence_dir.is_dir():
             raise ClaudeReadinessEvidenceError(f"evidence directory not found: {evidence_dir}")
@@ -49,7 +49,7 @@ class ClaudeUserTestReadinessEvaluator:
         completed = [item for item in valid_results if item.outcome == "generated"]
         manual_review = [item for item in valid_results if item.outcome == "manual_review_required"]
         blockers = sorted({blocker for item in valid_results for blocker in item.blockers})
-        beginner_setup = any(self._beginner_setup_completed(path) for path in paths)
+        beginner_setup = beginner_setup_override or any(self._beginner_setup_completed(path) for path in paths)
         score_pass = bool(completed) and all(item.average_score >= self.minimum_average_score for item in completed)
         conditions = {
             "valid_evidence_files": len(valid_results) == len(results) and bool(results),

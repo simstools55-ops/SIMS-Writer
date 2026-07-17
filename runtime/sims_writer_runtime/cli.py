@@ -9,6 +9,8 @@ from .claude.uat import ClaudeGoldenUATRunner
 from .claude.readiness import ClaudeReadinessEvidenceError, ClaudeUserTestReadinessEvaluator, write_readiness_report
 from .claude.evidence_pack import ClaudeUATSessionBuilder, ClaudeUATSessionError
 from .claude.evidence_ingest import ClaudeUATEvidenceIngestError, ClaudeUATEvidenceIngestor
+from .claude.setup_evidence import BeginnerSetupEvidenceError, BeginnerSetupEvidenceValidator
+from .claude.workflow import ClaudeUATReadinessWorkflow
 from .export import (
     ArtifactRollbackError,
     ArtifactRollbackManager,
@@ -35,6 +37,8 @@ def main() -> int:
     parser.add_argument("--prepare-claude-uat-session", help="Directory containing real-article request JSON files")
     parser.add_argument("--uat-session-id", help="Optional stable UAT session identifier")
     parser.add_argument("--ingest-claude-uat-session", help="Prepared UAT session directory to verify and consolidate")
+    parser.add_argument("--validate-beginner-setup", help="Validate measured beginner setup evidence JSON")
+    parser.add_argument("--run-claude-uat-readiness", help="Run UAT ingestion, beginner setup validation, and readiness evaluation")
     actions = parser.add_mutually_exclusive_group()
     actions.add_argument("--approve", action="store_true")
     actions.add_argument("--reject", action="store_true")
@@ -47,8 +51,28 @@ def main() -> int:
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
 
+    if args.run_claude_uat_readiness:
+        if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.evaluate_user_test_readiness or args.prepare_claude_uat_session or args.ingest_claude_uat_session or args.validate_beginner_setup or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
+            parser.error("--run-claude-uat-readiness cannot be combined with other actions")
+        report = ClaudeUATReadinessWorkflow().run(Path(args.run_claude_uat_readiness), output)
+        print(f"claude_uat_readiness={report['status']} session={report['session_id']}")
+        return 0 if report["ready"] else 1
+
+    if args.validate_beginner_setup:
+        if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.evaluate_user_test_readiness or args.prepare_claude_uat_session or args.ingest_claude_uat_session or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
+            parser.error("--validate-beginner-setup cannot be combined with other actions")
+        try:
+            result = BeginnerSetupEvidenceValidator().validate_file(Path(args.validate_beginner_setup))
+        except BeginnerSetupEvidenceError as exc:
+            print(f"beginner_setup_validation_failed={exc}")
+            return 2
+        path = output / "beginner-setup-validation.json"
+        path.write_text(json.dumps(result.to_dict(), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(f"beginner_setup_valid={str(result.valid).lower()} completed={str(result.completed).lower()}")
+        return 0 if result.valid and result.completed else 1
+
     if args.ingest_claude_uat_session:
-        if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.evaluate_user_test_readiness or args.prepare_claude_uat_session or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
+        if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.evaluate_user_test_readiness or args.prepare_claude_uat_session or args.validate_beginner_setup or args.run_claude_uat_readiness or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
             parser.error("--ingest-claude-uat-session cannot be combined with other actions")
         try:
             report = ClaudeUATEvidenceIngestor().ingest(Path(args.ingest_claude_uat_session))
@@ -59,7 +83,7 @@ def main() -> int:
         return 0 if report['status'] in {'complete', 'in_progress'} else 1
 
     if args.prepare_claude_uat_session:
-        if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.evaluate_user_test_readiness or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
+        if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.evaluate_user_test_readiness or args.validate_beginner_setup or args.run_claude_uat_readiness or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
             parser.error("--prepare-claude-uat-session cannot be combined with other actions")
         try:
             result = ClaudeUATSessionBuilder().prepare(
@@ -73,7 +97,7 @@ def main() -> int:
         return 0
 
     if args.evaluate_user_test_readiness:
-        if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.prepare_claude_uat_session or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
+        if args.input or args.batch_input or args.validate_claude_output or args.run_claude_uat or args.prepare_claude_uat_session or args.validate_beginner_setup or args.run_claude_uat_readiness or args.rollback_execution_id or args.approve or args.reject or args.finalize or args.export:
             parser.error("--evaluate-user-test-readiness cannot be combined with other actions")
         try:
             report = ClaudeUserTestReadinessEvaluator().evaluate_directory(Path(args.evaluate_user_test_readiness))
