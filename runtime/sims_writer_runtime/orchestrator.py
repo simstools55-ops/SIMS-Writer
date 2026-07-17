@@ -12,6 +12,7 @@ from .adapters.model_protocol import ProductionAdapter
 from .quality.engine import QualityValidationEngine
 from .refinement.engine import TargetedRefinementEngine
 from .source import ArticleSourceAcquisition, UrlSourceFetcher
+from .search_intent import SearchIntentAnalyzer
 
 class RuntimeOrchestrator:
     def __init__(self, repo_root: Path, adapter: ProductionAdapter | None = None, *, source_fetch_enabled: bool = False, source_fetcher: UrlSourceFetcher | None = None):
@@ -22,6 +23,7 @@ class RuntimeOrchestrator:
         self.refinement_engine = TargetedRefinementEngine(self.quality_engine)
         self.source_fetch_enabled = source_fetch_enabled
         self.source_acquisition = ArticleSourceAcquisition(fetcher=source_fetcher)
+        self.intent_analyzer = SearchIntentAnalyzer()
 
     def execute(self, raw: dict[str, Any], input_type: str = "auto") -> RuntimeResult:
         execution_id = f"EXE-{uuid4().hex[:12].upper()}"
@@ -59,10 +61,13 @@ class RuntimeOrchestrator:
             else:
                 self._manual(records, "source_acquisition", "Existing article content must be supplied for grounded improvement")
 
-            artifacts["knowledge_assembly"] = self._assemble_knowledge(request)
+            intent_analysis = self.intent_analyzer.analyze(request["main_query"], request.get("supporting_queries") or [])
+            artifacts["search_intent_analysis"] = intent_analysis
+
+            artifacts["knowledge_assembly"] = self._assemble_knowledge(request, intent_analysis)
             self._pass(records, "knowledge_assembly")
 
-            plan = self._build_content_plan(request, source_status, execution_id)
+            plan = self._build_content_plan(request, source_status, execution_id, intent_analysis)
             artifacts["content_plan"] = plan
             if plan["status"] == "ready":
                 self._pass(records, "content_planning")
@@ -77,7 +82,7 @@ class RuntimeOrchestrator:
             artifacts["pattern_selection"] = {"selected_patterns": [], "blocked_by_action": action == "manual_review"}
             self._pass(records, "pattern_selection")
 
-            draft = self.adapter.produce(request, plan, source_snapshot=artifacts["source_snapshot"], knowledge_assembly=artifacts["knowledge_assembly"], decision_action_plan=artifacts["decision_action_plan"], pattern_selection=artifacts["pattern_selection"])
+            draft = self.adapter.produce(request, plan, source_snapshot=artifacts["source_snapshot"], search_intent_analysis=intent_analysis, knowledge_assembly=artifacts["knowledge_assembly"], decision_action_plan=artifacts["decision_action_plan"], pattern_selection=artifacts["pattern_selection"])
             artifacts["content_draft"] = draft
             
             if draft.get("article_content"):
@@ -125,10 +130,12 @@ class RuntimeOrchestrator:
         return RuntimeResult(execution_id, request.get("request_id", "UNKNOWN"), status, records, manifest, artifacts)
 
     @staticmethod
-    def _assemble_knowledge(request: dict[str, Any]) -> dict[str, Any]:
+    def _assemble_knowledge(request: dict[str, Any], intent_analysis: dict[str, Any]) -> dict[str, Any]:
         selected = ["KN-SEO-001", "KN-SEO-CTR", "KN-WRI-INTRO"]
         if request.get("supporting_queries"):
             selected.append("KN-WRI-FAQ")
+        if intent_analysis.get("primary", {}).get("intent") == "troubleshooting":
+            selected.append("KN-WRI-TROUBLESHOOTING")
         return {
             "coverage": "deterministic_vertical_slice",
             "selected": selected,
@@ -136,12 +143,16 @@ class RuntimeOrchestrator:
         }
 
     @staticmethod
-    def _build_content_plan(request: dict[str, Any], source_status: str, execution_id: str) -> dict[str, Any]:
+    def _build_content_plan(request: dict[str, Any], source_status: str, execution_id: str, intent_analysis: dict[str, Any]) -> dict[str, Any]:
         goals = list(request.get("improvement_goal") or ["seo_title", "introduction", "faq"])
         return {
             "plan_id": f"PLN-{execution_id[4:]}",
-            "primary_intent": request["main_query"],
-            "main_answer": f"{request['main_query']}の結論と確認方法を冒頭で明確にする",
+            "primary_intent": intent_analysis["primary"]["intent"],
+            "primary_intent_label": intent_analysis["primary"]["intent_label"],
+            "main_query": request["main_query"],
+            "main_answer": f"{request['main_query']}の検索意図に対する結論を冒頭で明確にする",
+            "recommended_headings": intent_analysis["heading_recommendations"],
+            "faq_candidates": intent_analysis["faq_candidates"],
             "components": goals,
             "status": "ready" if source_status == "available" else "manual_review_required",
         }

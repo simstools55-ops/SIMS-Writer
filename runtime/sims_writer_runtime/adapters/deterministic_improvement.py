@@ -20,6 +20,7 @@ class DeterministicImprovementAdapter:
 
     def produce(self, request: dict[str, Any], plan: dict[str, Any], **kwargs: Any) -> dict[str, Any]:
         source_snapshot = kwargs.get("source_snapshot") or {}
+        intent_analysis = kwargs.get("search_intent_analysis") or {}
         canonical = self._to_slice_request(request, source_snapshot)
         decision = self.slice.decide(canonical)
         draft = self.slice.build_draft(canonical, decision)
@@ -37,6 +38,14 @@ class DeterministicImprovementAdapter:
             },
         }
         draft["change_reasons"] = [x for x in decision.reason.split("。") if x]
+        draft["search_intent"] = intent_analysis
+        draft["recommended_headings"] = list(intent_analysis.get("heading_recommendations") or [])
+        faq_candidates = list(intent_analysis.get("faq_candidates") or [])
+        if faq_candidates:
+            draft["faq"] = [
+                {"question": question.rstrip("？?"), "answer": f"{question.rstrip('？?')}について、本文の該当手順と注意点を確認してください。条件によって結果が異なる場合があります。"}
+                for question in faq_candidates[:5]
+            ]
         return draft
 
     @staticmethod

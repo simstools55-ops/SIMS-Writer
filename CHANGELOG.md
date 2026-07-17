@@ -1,3 +1,14 @@
+## 1.4.0
+
+### Added
+- Deterministic search-intent analysis based only on supplied main and supporting queries.
+- Intent classification, modifier extraction, query clustering, FAQ candidates, and heading recommendations.
+- Search-intent artifacts integrated into Content Plan and generated draft.
+- Runtime tests for cost, troubleshooting, and how-to intent paths.
+
+### Changed
+- Content planning now records the intent category and recommended coverage instead of treating the raw query as the intent label.
+
 ## 1.3.0
 
 ### Added
