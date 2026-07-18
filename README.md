@@ -1,38 +1,78 @@
-# SIMS Writer Phase A5 — Quality Gate v1.0
+# SIMS Writer Phase A6 — Regression Test Framework v1.0
 
 ## 目的
-Phase A0〜A4の結果を統合し、改善案を利用者へ返してよいかを最終判定する。
 
-A5自身は記事品質を新たに評価せず、各フェーズの監査結果を統合する唯一の出口として動作する。
+Phase A0〜A5で設計した品質パイプラインが、実際の記事改善で正しく機能するかを10記事の回帰テストで検証する。
 
-## 最終判定
-- `PASS`
-- `PASS_WITH_WARNING`
-- `REVIEW_REQUIRED`
-- `BLOCK`
+Phase A6では新しい品質概念を追加しない。誤判定、過剰修正、修正不足、出力不整合を観測し、既存フェーズへフィードバックする。
 
-## 基本原則
-- Blocking Ruleはスコアで相殺しない。
-- データ不足と記事品質不足を区別する。
-- HIGH RiskとLOW Confidenceの組み合わせは人間確認へ送る。
-- LOW_SAMPLEを理由に全面改稿しない。
-- 外部JSONは`SIMS_FEEDBACK_V1 Version 1.2`を維持する。
+```text
+実記事入力
+    ↓
+A0〜A5で評価
+    ↓
+記事別テスト記録
+    ↓
+欠陥分類
+    ↓
+共通傾向分析
+    ↓
+修正対象Phase特定
+    ↓
+再テスト
+    ↓
+RC判定
+```
+
+## 検証対象
+
+- Contract Validation
+- Search Diagnosis
+- Consistency Audit
+- Evidence Audit
+- Coverage Audit
+- Preservation Score
+- Change Budget
+- Rewrite Level
+- Rewrite Scope
+- Risk Assessment
+- Quality Gate
+- SIMS_FEEDBACK_V1
 
 ## 収録ファイル
+
 ```text
 runtime/
-├─ quality-gate.md
-├─ gate-rules.md
-├─ quality-report.md
-├─ runtime-health.md
-└─ gate-decision-matrix.md
+├─ regression-test-procedure.md
+├─ article-evaluation-workflow.md
+├─ defect-classification.md
+└─ feedback-loop.md
 
-knowledge/
-├─ blocking-rule-registry.md
-├─ warning-policy.md
-├─ confidence-model.md
-└─ quality-thresholds.md
+templates/
+├─ article-test-input-template.md
+├─ article-evaluation-template.md
+├─ defect-report-template.md
+└─ ten-article-summary-template.md
 
 tests/
-└─ quality-gate-regression-manifest.md
+└─ regression-acceptance-criteria.md
 ```
+
+## テスト単位
+
+1記事につき、次の2つを同じ形式で受領する。
+
+1. SIMS-Blog-Managerの依頼文
+2. SIMS Writerの回答
+
+各記事を個別評価し、10記事終了時に累積分析を行う。
+
+## 完了条件
+
+- 10記事を同一基準で評価
+- 全記事の判定根拠を記録
+- 誤判定をPhase別に分類
+- 過剰修正率・修正不足率を算出
+- Blocking誤検出・見逃しを確認
+- A0〜A5の修正要否を確定
+- RC移行可否を判定
