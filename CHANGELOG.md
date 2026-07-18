@@ -226,3 +226,9 @@
 - Safe deterministic fixes for placeholders, repetitive text, AI-like phrases, and heading hierarchy
 - Revision records, action plans, resume-stage routing, and revalidation loop
 - ADR-0014 Targeted Refinement Before Regeneration
+
+## 0.2.1-rc.1 - 2026-07-19
+
+- Presentation vertical-scroll hotfix for long Before/After blocks.
+- Canonicalized additive SIMS_FEEDBACK_V2 contract.
+- Added multi-diagnosis and INTENT_MISMATCH runtime rules.

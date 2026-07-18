@@ -1,0 +1,67 @@
+{
+  "format": "SIMS_FEEDBACK_V2",
+  "version": "2.0",
+  "article_id": "A000301",
+  "article_url": "https://example.com/article",
+  "completed_at": "2026-07-19",
+  "diagnosis": [
+    "POSITION_OPPORTUNITY"
+  ],
+  "primary_intent": "Wi-Fiルーターの電気代を知りたい",
+  "secondary_intent": "つけっぱなしでもよいか知りたい",
+  "changes": {
+    "article_title": false,
+    "seo_title": true,
+    "description": true,
+    "introduction": true,
+    "headings": false,
+    "faq": true,
+    "internal_links": false,
+    "body": false,
+    "images": false
+  },
+  "new_values": {
+    "article_title": "",
+    "seo_title": "Wi-Fiルーターの電気代はいくら？",
+    "description": "説明文",
+    "main_query": "wi-fi 電気代"
+  },
+  "improvement_type": "normal",
+  "confidence": "high",
+  "effect_confidence": "medium",
+  "expected_effect": {
+    "ctr": "検索意図との一致改善によるCTR向上の可能性",
+    "clicks": "数値予測はしない"
+  },
+  "next_action": "remeasure",
+  "summary": "SERP要素と導入・FAQを局所改善。",
+  "warnings": [],
+  "estimated_minutes": 20,
+  "recommended_review_days": 30,
+  "preservation_score": 80,
+  "protected_elements": [
+    "広告コード",
+    "アフィリエイトリンク",
+    "実測値",
+    "比較表",
+    "まとめ"
+  ],
+  "change_budget_percent": 18,
+  "rewrite_level": "L2",
+  "rewrite_scope": "S3",
+  "risk": "LOW",
+  "validation": {
+    "result": "PASS",
+    "title_length": "PASS",
+    "intent_alignment": "PASS",
+    "change_budget": "PASS",
+    "protected_content": "PASS",
+    "failed_rules": [],
+    "warning_rules": []
+  },
+  "internal_link_evaluation": {
+    "added": 0,
+    "held": 0,
+    "rejected": 8
+  }
+}
