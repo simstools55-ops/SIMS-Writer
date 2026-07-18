@@ -16,6 +16,5 @@ for c in reg['contracts']:
         print('VALID FAILED',c['id']); failed+=1
     if not list(v.iter_errors(invalid)):
         print('INVALID PASSED',c['id']); failed+=1
-def test_all_contract_examples():
-    print(f'contracts={len(reg["contracts"])} failed={failed}')
-    assert failed == 0
+print(f'contracts={len(reg["contracts"])} failed={failed}')
+raise SystemExit(1 if failed else 0)

@@ -1,34 +1,28 @@
-# Validation Report
+# Validation Report — v0.16.0-alpha.1
 
-Version: 0.15.2-alpha.1
-Status: Explainable Graceful Degradation Alpha
+## Result
+PASS
 
-## Automated checks
+## Scope
+Quality Foundation Release A
 
-- Targeted pytest regression suite: 16 passed
-- Contract schema examples: 15 passed, 0 failed
-- Golden UAT: 12 passed, 0 failed
-- Runtime graceful-degradation checks: passed
-- RC2 Strict Contract regression retained
+## Automated validation
+- Runtime / vertical slice / model adapter / refinement / quality asset / release tests: 36 passed
+- Contract examples: 15 contracts, 0 failures
+- Decision definitions: 12 validated
+- Decision asset tests: PASS
+- Decision contract tests: PASS
 
-## RC3 scope
+## Implemented validation
+- Search position band diagnosis
+- Title/body numeric consistency
+- Scope consistency warning
+- Feedback new-value validation
+- execution_mode / estimated_fields validation
+- SEO title change / next_action validation
+- warnings / confidence validation
 
-- Three-level improvement necessity judgment
-- Search-intent classification
-- Comparison article consistency validation
-- Expected-effect requirement for changed items
-- Unchanged-reason rule
-- Estimated editing time
-
-## Known boundary
-
-- `partial` remains the Product 1.0 primary mode.
-- `full` and `publish` remain beta.
-- Comparison consistency validation requires structured comparison data; Claude Instructions provide the human-output gate.
-
-## 0.15.2 scope
-
-- Warning and Information are separated by operational severity.
-- `main_query_source`, `execution_mode`, and `estimated_fields` make degraded execution machine-readable.
-- Missing `article_catalog` is an Information-level internal-link skip.
-- `manual_review_required` remains reserved for genuinely blocking human review.
+## Deferred to Release B
+- External Evidence verification
+- Strong Claim domain detection
+- Internal-link cannibalization audit

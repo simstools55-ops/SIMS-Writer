@@ -1,18 +1,14 @@
 # Changelog
 
-## 0.2.0-alpha.1 - 2026-07-18
+## v0.16.0-alpha.1
 
-- Product 1.0 Implementation Foundationを実装
-- Quality Audit先行のRuntime順序を固定
-- Quality Gate / Evidence Verification / Consistency Auditを追加
-- 重大前提誤りの`stop_and_rewrite`判定を追加
-- SIMS Feedback JSON Contract v2.1とSchemaを追加
-- reason codes / warning codes / v1互換仕様を追加
-- 本文とJSONの同一Runtime State生成を実装
-- 4種類の回帰テストとRelease Validatorを追加
-- Claude配布物、README、セットアップ手順を更新
+- Added Quality Foundation validation derived from ten real-article tests.
+- Added search-position diagnosis reason codes.
+- Added title/body numeric consistency validation.
+- Added SIMS Feedback execution-mode, next-action, confidence, and new-value validation.
+- Integrated Quality Foundation report into runtime publication artifacts.
+- Updated Claude Project instructions and Knowledge Pack.
 
-# Changelog
 
 ## 0.15.4-alpha.1
 

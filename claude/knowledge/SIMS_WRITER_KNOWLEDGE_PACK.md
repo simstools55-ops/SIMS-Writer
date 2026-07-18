@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack
 
-Version: 0.2.0-alpha.1
+Version: 0.16.0-alpha.1
 Status: Editorial Output Deduplication Alpha
 
 ## Product principles
@@ -115,6 +115,19 @@ Status: Editorial Output Deduplication Alpha
 - 期待効果は変更箇所に近い定性的効果を書く。タイトル変更ならCTR・視認性、導入変更なら理解・離脱、FAQなら疑問解消を中心とし、直接根拠のない順位改善を追加しない。
 
 
-# Product 1.0 Implementation Addendum v0.2.0-alpha.1
 
-品質監査をSEO改善より先に行う。Evidence VerificationとConsistency Auditを経てQuality Gateを判定し、その結果から変更範囲を決める。重大な前提誤りはstop_and_rewrite。本文出力とSIMS Feedback JSON v2.1は同一Runtime Stateから生成し、内部思考・英文分析文・処理実況を表示しない。
+# Quality Foundation v1.0
+
+## Search Performance Diagnosis
+- 平均順位1〜10位：CTR・SERP訴求を優先可能。
+- 10.1〜20位：CTRと本文適合を併用。
+- 20.1位以下：CTR改善のみを主施策にしない。
+
+## Consistency Audit
+タイトル、導入、本文、FAQ、まとめ、SIMS Feedback JSON間で、時間・件数・価格・日数・対象範囲を照合する。重大な不一致がある場合は回答を修正して再検証する。
+
+## Contract Validation
+- SEOタイトル変更後は原則remeasure。
+- graceful_degradationにはestimated_fieldsが必要。
+- warningがある場合はconfidenceを再評価する。
+- changesは実際にAfterへ反映した変更だけをtrueにする。

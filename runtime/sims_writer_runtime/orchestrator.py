@@ -9,6 +9,7 @@ from .adapters.input_adapters import normalize_generic, normalize_sbm
 from .adapters.manual_model import ManualModelAdapter
 from .adapters.model_protocol import ProductionAdapter
 from .quality.engine import QualityValidationEngine
+from .quality.foundation import QualityFoundationValidator
 from .refinement.engine import TargetedRefinementEngine
 
 class RuntimeOrchestrator:
@@ -16,6 +17,7 @@ class RuntimeOrchestrator:
         self.repo_root = repo_root
         self.adapter = adapter or ManualModelAdapter()
         self.quality_engine = QualityValidationEngine(repo_root)
+        self.quality_foundation = QualityFoundationValidator()
         self.refinement_engine = TargetedRefinementEngine(self.quality_engine)
 
     def execute(self, raw: dict[str, Any], input_type: str = "generic") -> RuntimeResult:
@@ -82,6 +84,7 @@ class RuntimeOrchestrator:
                 "model_assisted_checks": draft.get("model_assisted_checks", {}),
             }
             artifacts["quality_report"] = self.quality_engine.evaluate(draft, quality_context)
+            artifacts["quality_foundation_report"] = self.quality_foundation.evaluate(request, draft)
             decision = artifacts["quality_report"]["publish_recommendation"]
             if decision == "publish_ready": self._pass(records, "quality_validation")
             elif decision == "publish_ready_with_advisory": self._warn(records, "quality_validation", "Quality rules completed with advisories")
@@ -91,6 +94,7 @@ class RuntimeOrchestrator:
             draft = refinement["revised_draft"]
             artifacts["content_draft"] = draft
             artifacts["quality_report"] = refinement["quality_report"]
+            artifacts["quality_foundation_report"] = self.quality_foundation.evaluate(request, draft)
             decision = artifacts["quality_report"]["publish_recommendation"]
             if refinement["revision_records"]:
                 self._warn(records, "refinement", f"Applied {len(refinement['revision_records'])} targeted auto-fix round(s)")
@@ -101,7 +105,7 @@ class RuntimeOrchestrator:
             else:
                 self._pass(records, "refinement")
 
-            artifacts["publication_package"] = {"publish_decision":decision,"article_content":draft.get("article_content"),"seo_title":draft.get("seo_title"),"meta_description":draft.get("meta_description"),"h1":draft.get("h1"),"quality_summary":artifacts["quality_report"],"refinement_summary":refinement,"runtime_notice":"All 42 canonical Quality Rules were executed and safe targeted fixes were applied before packaging. Context-dependent issues remain explicit."}
+            artifacts["publication_package"] = {"publish_decision":decision,"article_content":draft.get("article_content"),"seo_title":draft.get("seo_title"),"meta_description":draft.get("meta_description"),"h1":draft.get("h1"),"quality_summary":artifacts["quality_report"],"quality_foundation":artifacts["quality_foundation_report"],"refinement_summary":refinement,"runtime_notice":"All 42 canonical Quality Rules were executed and safe targeted fixes were applied before packaging. Context-dependent issues remain explicit."}
             if decision in ("revision_required", "manual_review_required", "rejected"): self._manual(records, "publication_packaging", "Package requires revision or review")
             elif decision == "publish_ready_with_advisory": self._warn(records, "publication_packaging", "Package generated with advisory")
             else: self._pass(records, "publication_packaging")

@@ -1,15 +1,14 @@
 {
-  "package_version": "0.2.0-alpha.1",
-  "status": "Product 1.0 Implementation Alpha",
+  "package_version": "0.16.0-alpha.1",
+  "status": "Quality Foundation Release A Alpha",
   "files": {
-    "CLAUDE_PROJECT_INSTRUCTIONS.md": "bb01a522e4654e52885a8b206048374aedaa91c625341d65305ca267d066a8a8",
+    "CLAUDE_PROJECT_INSTRUCTIONS.md": "0054a91b7600ee6fe436e5b02822801d7a792431ccc2fa2857b826c06bae8c94",
     "README.md": "b49d04119c399c3e7bf840f341736a9efe05988c22f4154700213e2c381960fa",
     "SETUP_GUIDE.md": "a223d186f201aa6f681f95f8451eccfc6d1c7307cf4c0a91c6b2eea450da9997",
     "TEST_CHECKLIST.md": "91b72936f5b6525ae50e6b0edb4d42c997d928caac1263d1899db70f912ea68d",
     "examples/EXAMPLE_REQUEST.json": "7e3a01618204a9f53558992b36dead6b2a89aa321efe7406926abcafeec62baf",
-    "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md": "302f9059738ac160f30ee0a543de4c05a5138dbc0fa6bb3809f1adc4c017a62c",
-    "templates/IMPROVEMENT_REQUEST_TEMPLATE.json": "264d57a61ac1cde15e6592c4caa5fbeb549ac0a77cf431eb23b78811e8b4378a",
-    "templates/OUTPUT_TEMPLATE_V2.1.md": "d4c0b302d7c232661217dd492ae8214c24001fa7b643c9a9b989ec0732a3dcbc"
+    "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md": "944bb33f30ccc00d9d7f7c552bd9c0af7f7ee79bd117c0969de234bd377483c5",
+    "templates/IMPROVEMENT_REQUEST_TEMPLATE.json": "264d57a61ac1cde15e6592c4caa5fbeb549ac0a77cf431eb23b78811e8b4378a"
   },
-  "version": "0.2.0-alpha.1"
+  "version": "0.16.0-alpha.1"
 }
