@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack
 
-Version: 0.15.4-alpha.1
+Version: 0.2.0-alpha.1
 Status: Editorial Output Deduplication Alpha
 
 ## Product principles
@@ -114,3 +114,7 @@ Status: Editorial Output Deduplication Alpha
 - 検索意図はPrimaryを1つ決め、Secondaryは記事構成や結論に実際の影響がある場合だけ1つ補足する。
 - 期待効果は変更箇所に近い定性的効果を書く。タイトル変更ならCTR・視認性、導入変更なら理解・離脱、FAQなら疑問解消を中心とし、直接根拠のない順位改善を追加しない。
 
+
+# Product 1.0 Implementation Addendum v0.2.0-alpha.1
+
+品質監査をSEO改善より先に行う。Evidence VerificationとConsistency Auditを経てQuality Gateを判定し、その結果から変更範囲を決める。重大な前提誤りはstop_and_rewrite。本文出力とSIMS Feedback JSON v2.1は同一Runtime Stateから生成し、内部思考・英文分析文・処理実況を表示しない。

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims-writer.local/contracts/sims-feedback/v2.1/schema.json",
+  "title": "SIMS Feedback JSON Contract v2.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format","version","runtime_state_id","decision","change_scope","reason_codes","warning_codes","changes"],
+  "properties": {
+    "format": {"const": "SIMS_FEEDBACK"},
+    "version": {"const": "2.1"},
+    "runtime_state_id": {"type": "string", "minLength": 1},
+    "decision": {"enum": ["proceed","proceed_with_warnings","stop_and_rewrite","manual_review_required"]},
+    "change_scope": {"enum": ["none","targeted","section_rewrite","full_rewrite"]},
+    "reason_codes": {"type": "array", "items": {"$ref": "reason-codes.schema.json"}, "uniqueItems": true},
+    "warning_codes": {"type": "array", "items": {"$ref": "warning-codes.schema.json"}, "uniqueItems": true},
+    "changes": {"type": "object"},
+    "legacy": {"type": "object"}
+  }
+}

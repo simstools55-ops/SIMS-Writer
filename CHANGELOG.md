@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.2.0-alpha.1 - 2026-07-18
+
+- Product 1.0 Implementation Foundationを実装
+- Quality Audit先行のRuntime順序を固定
+- Quality Gate / Evidence Verification / Consistency Auditを追加
+- 重大前提誤りの`stop_and_rewrite`判定を追加
+- SIMS Feedback JSON Contract v2.1とSchemaを追加
+- reason codes / warning codes / v1互換仕様を追加
+- 本文とJSONの同一Runtime State生成を実装
+- 4種類の回帰テストとRelease Validatorを追加
+- Claude配布物、README、セットアップ手順を更新
+
+# Changelog
+
 ## 0.15.4-alpha.1
 
 - 利用者向け`確認事項`とJSONの`information`の重複を禁止

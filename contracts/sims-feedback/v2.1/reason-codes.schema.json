@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"string","enum":["QG_CRITICAL_ASSUMPTION_ERROR","QG_LOW_INFORMATION_GAIN","QG_FACTUAL_RISK","QG_INTENT_MISMATCH","QG_CURRENT_CONTENT_ACCEPTABLE"]}
