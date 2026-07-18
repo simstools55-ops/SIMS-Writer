@@ -1,56 +1,67 @@
-# SIMS Writer Phase A3 — Consistency Audit Standard v1.0
+# SIMS Writer Phase A4 — Improvement Strategy Engine v1.0
 
 ## 目的
 
-記事の各構成要素を個別に評価するだけでなく、記事全体として結論・数値・年度・固有名詞・条件・回答が一致しているかを監査する。
+Phase A0〜A3の評価結果を利用し、記事を「直すべきか」「どこまで直すべきか」「どの範囲を守るべきか」を決定する。
 
 ```text
-SEO title
-Article title
-Introduction
-Headings
-Body
-FAQ
-Summary
-Internal links
-        ↓
+Quality Standard
+Contract Validation
+Search Diagnosis
 Consistency Audit
         ↓
-Change Decision
+Evidence Audit
+Coverage Audit
+        ↓
+Improvement Strategy Engine
+        ├─ Preservation Score
+        ├─ Change Budget
+        ├─ Rewrite Level
+        ├─ Rewrite Scope
+        └─ Risk Assessment
+        ↓
+Quality Gate
         ↓
 SIMS_FEEDBACK_V1
 ```
 
 ## 基本方針
 
-- 表記揺れと意味矛盾を区別する。
-- 記事の中心結論に影響する矛盾を優先する。
-- 年度、価格、条件、対象機種など変動しやすい情報を重点確認する。
-- 導入文だけ直して本文の古い表現を残さない。
-- FAQを独立要素として扱わず、本文との回答一致を確認する。
+- 良い記事ほど変更を抑える。
+- 検索順位やCTRだけで全面改稿しない。
+- 根拠不足と情報不足を区別する。
+- 本文変更の深さと広さを分けて決定する。
+- 変更量をChange Budgetで制御する。
+- 高リスク変更はQuality Gateで再審査する。
 - 外部出力はSIMS_FEEDBACK_V1 Version 1.2を維持する。
 
 ## 収録ファイル
 
 ```text
 runtime/
-├─ consistency-audit.md
-├─ consistency-check-rules.md
-└─ consistency-to-change-map.md
+├─ evidence-audit.md
+├─ coverage-audit.md
+├─ improvement-strategy-engine.md
+├─ preservation-score.md
+├─ change-budget-controller.md
+├─ rewrite-level-and-scope.md
+└─ risk-assessment.md
 
 knowledge/
-├─ contradiction-pattern-registry.md
-└─ entity-consistency-rules.md
+├─ evidence-level-registry.md
+├─ coverage-pattern-library.md
+└─ preservation-signal-registry.md
 
 tests/
-└─ consistency-regression-manifest.md
+└─ improvement-strategy-regression-manifest.md
 ```
 
 ## 完了条件
 
-1. 重大矛盾を見逃さない。
-2. 表記揺れを重大矛盾として扱わない。
-3. タイトル・導入・本文・FAQ間の結論を一致させる。
-4. 年度・価格・製品名・数値の不一致を検出する。
-5. 修正対象と`changes`フラグの矛盾を0件にする。
-6. 外部JSON構造を変更しない。
+1. 良好記事への過剰修正を抑止できる。
+2. 根拠のない強い断定を検出できる。
+3. 検索意図に必要な本文要素の欠落を判定できる。
+4. Rewrite LevelとRewrite Scopeを分離できる。
+5. Change Budgetを超える変更を警告できる。
+6. 高リスク変更をQuality Gateへ引き渡せる。
+7. SIMS_FEEDBACK_V1の外部構造を変更しない。
