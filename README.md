@@ -1,48 +1,56 @@
-# SIMS Writer Phase A2 — Search Diagnosis Standard v1.0
+# SIMS Writer Phase A3 — Consistency Audit Standard v1.0
 
 ## 目的
 
-Search Consoleデータを直接改善案へ結び付けず、必ず原因診断を経由してから改善方針を決定する。
+記事の各構成要素を個別に評価するだけでなく、記事全体として結論・数値・年度・固有名詞・条件・回答が一致しているかを監査する。
 
 ```text
-Search Console data
+SEO title
+Article title
+Introduction
+Headings
+Body
+FAQ
+Summary
+Internal links
         ↓
-Search Diagnosis
+Consistency Audit
         ↓
-Improvement Decision
+Change Decision
         ↓
 SIMS_FEEDBACK_V1
 ```
 
 ## 基本方針
 
-- CTRが低いだけでタイトル変更を決めない。
-- 平均順位、表示回数、クリック数、クエリ構成、記事ランクを併せて判断する。
-- データ不足時は無理に改善理由を断定しない。
-- 記事内容の監査結果と検索データの診断結果を混同しない。
-- 診断は内部契約として保持し、外部出力はSIMS_FEEDBACK_V1 Version 1.2を維持する。
+- 表記揺れと意味矛盾を区別する。
+- 記事の中心結論に影響する矛盾を優先する。
+- 年度、価格、条件、対象機種など変動しやすい情報を重点確認する。
+- 導入文だけ直して本文の古い表現を残さない。
+- FAQを独立要素として扱わず、本文との回答一致を確認する。
+- 外部出力はSIMS_FEEDBACK_V1 Version 1.2を維持する。
 
 ## 収録ファイル
 
 ```text
 runtime/
-├─ search-diagnosis.md
-├─ diagnosis-decision-table.md
-└─ diagnosis-to-improvement-map.md
+├─ consistency-audit.md
+├─ consistency-check-rules.md
+└─ consistency-to-change-map.md
 
 knowledge/
-├─ diagnosis-type-registry.md
-└─ search-console-interpretation-rules.md
+├─ contradiction-pattern-registry.md
+└─ entity-consistency-rules.md
 
 tests/
-└─ search-diagnosis-regression-manifest.md
+└─ consistency-regression-manifest.md
 ```
 
 ## 完了条件
 
-1. 低CTRを自動的にタイトル問題と断定しない。
-2. 低順位時にCTR改善だけを提案しない。
-3. 少数データをLOW_SAMPLEとして識別する。
-4. 良好記事への過剰修正を抑止する。
-5. 診断理由と改善対象の矛盾を0件にする。
-6. 既存JSONの外部契約を変更しない。
+1. 重大矛盾を見逃さない。
+2. 表記揺れを重大矛盾として扱わない。
+3. タイトル・導入・本文・FAQ間の結論を一致させる。
+4. 年度・価格・製品名・数値の不一致を検出する。
+5. 修正対象と`changes`フラグの矛盾を0件にする。
+6. 外部JSON構造を変更しない。
