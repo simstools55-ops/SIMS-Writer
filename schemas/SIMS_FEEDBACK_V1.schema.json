@@ -1,0 +1,348 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims-writer.local/schemas/SIMS_FEEDBACK_V1-v2.0.schema.json",
+  "title": "SIMS_FEEDBACK_V1 v2.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "article_id",
+    "url",
+    "decision",
+    "improvement_necessity",
+    "primary_intent",
+    "diagnosis",
+    "preservation_score",
+    "change_budget_percent",
+    "rewrite_level",
+    "rewrite_scope",
+    "risk",
+    "summary",
+    "protected_elements",
+    "changes",
+    "change_flags",
+    "new_values",
+    "main_query_source",
+    "execution_mode",
+    "estimated_fields",
+    "warnings",
+    "information",
+    "validation",
+    "next_action",
+    "confidence"
+  ],
+  "properties": {
+    "format": {
+      "const": "SIMS_FEEDBACK_V1"
+    },
+    "version": {
+      "const": "2.0"
+    },
+    "article_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision": {
+      "enum": [
+        "PASS",
+        "PASS_WITH_WARNING",
+        "REVIEW_REQUIRED",
+        "BLOCK"
+      ]
+    },
+    "improvement_necessity": {
+      "enum": [
+        "IMPROVEMENT_RECOMMENDED",
+        "MINOR_IMPROVEMENT",
+        "KEEP_CURRENT"
+      ]
+    },
+    "primary_intent": {
+      "type": "string",
+      "minLength": 1
+    },
+    "secondary_intent": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "diagnosis": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": [
+          "POSITION_OPPORTUNITY",
+          "CONTENT_OPPORTUNITY",
+          "LOW_SAMPLE",
+          "STRONG_CURRENT_PERFORMANCE",
+          "INTENT_MISMATCH",
+          "EVIDENCE_GAP",
+          "INPUT_INCOMPLETE",
+          "OTHER"
+        ]
+      }
+    },
+    "preservation_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "change_budget_percent": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "rewrite_level": {
+      "enum": [
+        "L0",
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ]
+    },
+    "rewrite_scope": {
+      "enum": [
+        "S0",
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5"
+      ]
+    },
+    "risk": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "protected_elements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "target",
+          "before",
+          "after",
+          "expected_effect",
+          "reason"
+        ],
+        "properties": {
+          "target": {
+            "enum": [
+              "seo_title",
+              "meta_description",
+              "introduction",
+              "heading",
+              "body",
+              "faq",
+              "internal_link",
+              "conclusion",
+              "other"
+            ]
+          },
+          "before": {
+            "type": "string"
+          },
+          "after": {
+            "type": "string"
+          },
+          "expected_effect": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "change_flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "seo_title",
+        "meta_description",
+        "introduction",
+        "headings",
+        "body",
+        "faq",
+        "internal_links",
+        "conclusion"
+      ],
+      "properties": {
+        "seo_title": {
+          "type": "boolean"
+        },
+        "meta_description": {
+          "type": "boolean"
+        },
+        "introduction": {
+          "type": "boolean"
+        },
+        "headings": {
+          "type": "boolean"
+        },
+        "body": {
+          "type": "boolean"
+        },
+        "faq": {
+          "type": "boolean"
+        },
+        "internal_links": {
+          "type": "boolean"
+        },
+        "conclusion": {
+          "type": "boolean"
+        }
+      }
+    },
+    "new_values": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "seo_title",
+        "meta_description"
+      ],
+      "properties": {
+        "seo_title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "meta_description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "main_query_source": {
+      "enum": [
+        "search_console",
+        "manual",
+        "estimated",
+        "unavailable"
+      ]
+    },
+    "execution_mode": {
+      "enum": [
+        "standard",
+        "graceful_degradation"
+      ]
+    },
+    "estimated_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "information": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "checks",
+        "estimated_change_percent",
+        "notes"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "PASS",
+            "PASS_WITH_WARNING",
+            "FAIL"
+          ]
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "code",
+              "status",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "PASS",
+                  "WARNING",
+                  "FAIL"
+                ]
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "estimated_change_percent": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "next_action": {
+      "enum": [
+        "apply",
+        "remeasure",
+        "monitor",
+        "manual_review",
+        "request_input",
+        "stop"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    }
+  }
+}

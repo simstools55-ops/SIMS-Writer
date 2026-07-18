@@ -1,0 +1,71 @@
+{
+  "format": "SIMS_FEEDBACK_V1",
+  "version": "2.0",
+  "article_id": "A000369",
+  "url": "https://example.com/a",
+  "decision": "PASS_WITH_WARNING",
+  "improvement_necessity": "IMPROVEMENT_RECOMMENDED",
+  "primary_intent": "リールを編集できるアプリを知る",
+  "secondary_intent": null,
+  "diagnosis": [
+    "POSITION_OPPORTUNITY",
+    "LOW_SAMPLE"
+  ],
+  "preservation_score": 62,
+  "change_budget_percent": 10,
+  "rewrite_level": "L2",
+  "rewrite_scope": "S3",
+  "risk": "LOW",
+  "summary": "編集意図に合わせて主要要素を限定修正する。",
+  "protected_elements": [
+    "広告",
+    "アフィリエイトリンク",
+    "体験談",
+    "比較表",
+    "まとめ結論"
+  ],
+  "changes": [
+    {
+      "target": "seo_title",
+      "before": "旧タイトル",
+      "after": "新タイトル",
+      "expected_effect": "検索意図を明確にする",
+      "reason": "作成中心から編集中心へ整合するため"
+    }
+  ],
+  "change_flags": {
+    "seo_title": true,
+    "meta_description": false,
+    "introduction": false,
+    "headings": false,
+    "body": false,
+    "faq": false,
+    "internal_links": false,
+    "conclusion": false
+  },
+  "new_values": {
+    "seo_title": "新タイトル",
+    "meta_description": null
+  },
+  "main_query_source": "search_console",
+  "execution_mode": "standard",
+  "estimated_fields": [],
+  "warnings": [
+    "表示回数が少ないため28日後に再測定する"
+  ],
+  "information": [],
+  "validation": {
+    "status": "PASS_WITH_WARNING",
+    "checks": [
+      {
+        "code": "VAL-SAMPLE-001",
+        "status": "WARNING",
+        "message": "LOW_SAMPLE"
+      }
+    ],
+    "estimated_change_percent": 18,
+    "notes": []
+  },
+  "next_action": "remeasure",
+  "confidence": "medium"
+}

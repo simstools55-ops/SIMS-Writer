@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0 - Quality Freeze
+
+- Froze quality behavior from the 10-article real-content regression test.
+- Added Quality Specification, Runtime Prompt, Presentation Template, JSON Contract v2.0, and Validation Layer.
+- Standardized preservation score, change budget, Rewrite Level L0–L4, Rewrite Scope S0–S5, diagnosis, and risk.
+- Added closed JSON Schema and validation tests.
+
 ## v0.16.0-alpha.1
 
 - Added Quality Foundation validation derived from ten real-article tests.
