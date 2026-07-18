@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.2.0 Quality Freeze Final
+
+- Validation、Presentation、JSON Contractを独立モジュール化
+- SIMS_FEEDBACK_V2 Schemaを正式採用
+- Claude配布版へ必須資産と参照順を追加
+- 3種の契約サンプルと検証テストを追加
+
+
 ## 0.2.0 - Quality Freeze
 
 - Froze quality behavior from the 10-article real-content regression test.

@@ -1,0 +1,19 @@
+{
+  "contract_version": "2.0",
+  "article_id": "A000301",
+  "url": "https://example.com/article-301",
+  "status": "IMPROVEMENT_REQUIRED",
+  "diagnosis": "POSITION_OPPORTUNITY",
+  "primary_intent": "Wi-Fiルーターの電気代を知りたい",
+  "preservation_score": 80,
+  "change_budget_percent": 20,
+  "rewrite_level": "L2",
+  "rewrite_scope": "S3",
+  "risk_level": "LOW",
+  "changed_sections": ["seo_title","introduction","heading","faq"],
+  "protected_elements": ["ads","affiliate_links","experience","comparison_table","conclusion"],
+  "warnings": [],
+  "remeasurement_days": null,
+  "validation": {"result":"PASS","failed_rules":[],"warning_rules":[]},
+  "recommendation_reason": "平均順位10位付近でCTRが低く、検索結果と冒頭の局所改善余地があるため。"
+}

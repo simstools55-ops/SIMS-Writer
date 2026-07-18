@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims-writer.local/schemas/SIMS_FEEDBACK_V2.schema.json",
+  "title": "SIMS Feedback V2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_version","article_id","url","status","diagnosis","primary_intent","preservation_score","change_budget_percent","rewrite_level","rewrite_scope","risk_level","changed_sections","protected_elements","validation","recommendation_reason"],
+  "properties": {
+    "contract_version": {"const": "2.0"},
+    "article_id": {"type": "string", "minLength": 1},
+    "url": {"type": "string", "format": "uri"},
+    "status": {"enum": ["PASS","PASS_WITH_WARNING","IMPROVEMENT_REQUIRED","NO_CHANGE","FAIL"]},
+    "diagnosis": {"enum": ["POSITION_OPPORTUNITY","LOW_SAMPLE","CTR_OPPORTUNITY","CONTENT_GAP","INTENT_MISMATCH","STABLE","UNKNOWN"]},
+    "primary_intent": {"type": "string", "minLength": 1},
+    "preservation_score": {"type": "integer", "minimum": 0, "maximum": 100},
+    "change_budget_percent": {"type": "number", "minimum": 0, "maximum": 100},
+    "rewrite_level": {"enum": ["L0","L1","L2","L3","L4"]},
+    "rewrite_scope": {"enum": ["S0","S1","S2","S3","S4","S5"]},
+    "risk_level": {"enum": ["LOW","MEDIUM","HIGH"]},
+    "changed_sections": {"type": "array", "items": {"enum": ["seo_title","meta_description","introduction","heading","body","faq","internal_link","conclusion"]}, "uniqueItems": true},
+    "protected_elements": {"type": "array", "items": {"enum": ["ads","affiliate_links","experience","original_review","comparison_table","original_images","cta","conclusion"]}, "uniqueItems": true},
+    "warnings": {"type": "array", "items": {"type": "string"}, "default": []},
+    "remeasurement_days": {"type": ["integer","null"], "minimum": 1},
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["result","failed_rules","warning_rules"],
+      "properties": {
+        "result": {"enum": ["PASS","PASS_WITH_WARNING","FAIL","UNVERIFIABLE"]},
+        "failed_rules": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "warning_rules": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      }
+    },
+    "recommendation_reason": {"type": "string", "minLength": 1}
+  }
+}
