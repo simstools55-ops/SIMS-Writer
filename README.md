@@ -1,67 +1,38 @@
-# SIMS Writer Phase A4 — Improvement Strategy Engine v1.0
+# SIMS Writer Phase A5 — Quality Gate v1.0
 
 ## 目的
+Phase A0〜A4の結果を統合し、改善案を利用者へ返してよいかを最終判定する。
 
-Phase A0〜A3の評価結果を利用し、記事を「直すべきか」「どこまで直すべきか」「どの範囲を守るべきか」を決定する。
+A5自身は記事品質を新たに評価せず、各フェーズの監査結果を統合する唯一の出口として動作する。
 
-```text
-Quality Standard
-Contract Validation
-Search Diagnosis
-Consistency Audit
-        ↓
-Evidence Audit
-Coverage Audit
-        ↓
-Improvement Strategy Engine
-        ├─ Preservation Score
-        ├─ Change Budget
-        ├─ Rewrite Level
-        ├─ Rewrite Scope
-        └─ Risk Assessment
-        ↓
-Quality Gate
-        ↓
-SIMS_FEEDBACK_V1
-```
+## 最終判定
+- `PASS`
+- `PASS_WITH_WARNING`
+- `REVIEW_REQUIRED`
+- `BLOCK`
 
-## 基本方針
-
-- 良い記事ほど変更を抑える。
-- 検索順位やCTRだけで全面改稿しない。
-- 根拠不足と情報不足を区別する。
-- 本文変更の深さと広さを分けて決定する。
-- 変更量をChange Budgetで制御する。
-- 高リスク変更はQuality Gateで再審査する。
-- 外部出力はSIMS_FEEDBACK_V1 Version 1.2を維持する。
+## 基本原則
+- Blocking Ruleはスコアで相殺しない。
+- データ不足と記事品質不足を区別する。
+- HIGH RiskとLOW Confidenceの組み合わせは人間確認へ送る。
+- LOW_SAMPLEを理由に全面改稿しない。
+- 外部JSONは`SIMS_FEEDBACK_V1 Version 1.2`を維持する。
 
 ## 収録ファイル
-
 ```text
 runtime/
-├─ evidence-audit.md
-├─ coverage-audit.md
-├─ improvement-strategy-engine.md
-├─ preservation-score.md
-├─ change-budget-controller.md
-├─ rewrite-level-and-scope.md
-└─ risk-assessment.md
+├─ quality-gate.md
+├─ gate-rules.md
+├─ quality-report.md
+├─ runtime-health.md
+└─ gate-decision-matrix.md
 
 knowledge/
-├─ evidence-level-registry.md
-├─ coverage-pattern-library.md
-└─ preservation-signal-registry.md
+├─ blocking-rule-registry.md
+├─ warning-policy.md
+├─ confidence-model.md
+└─ quality-thresholds.md
 
 tests/
-└─ improvement-strategy-regression-manifest.md
+└─ quality-gate-regression-manifest.md
 ```
-
-## 完了条件
-
-1. 良好記事への過剰修正を抑止できる。
-2. 根拠のない強い断定を検出できる。
-3. 検索意図に必要な本文要素の欠落を判定できる。
-4. Rewrite LevelとRewrite Scopeを分離できる。
-5. Change Budgetを超える変更を警告できる。
-6. 高リスク変更をQuality Gateへ引き渡せる。
-7. SIMS_FEEDBACK_V1の外部構造を変更しない。
