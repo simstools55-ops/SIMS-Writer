@@ -59,7 +59,7 @@ def test_recommended_length_generates_warning_not_error():
     OutputContractValidator().assert_valid(package)
 
 def test_response_must_end_with_single_json_code_block():
-    valid='改善結果\n\n```json\n{"schema":"SIMS_FEEDBACK_V1"}\n```'
+    valid='改善結果\n\n```json\n{"schema":"SIMS_FEEDBACK_V2"}\n```'
     package={"output_mode":"partial","user_output":[],"rendered_response":valid,"internal_link_report":[],"unresolved_items":[],"body_additions":[],"feedback":_base_feedback(),"effect_evidence":{}}
     assert not any(i.code in {"OUT-016","OUT-017"} for i in OutputContractValidator().validate(package))
     package["rendered_response"] = valid + "\n追記"

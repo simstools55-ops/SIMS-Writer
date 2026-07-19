@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.2 RC Hotfix - 2026-07-19
+
+- Enforce SIMS_FEEDBACK_V2 v2.0
+- Reject V1 regression and ID/URL mismatch
+- Add answer/title/source/domain validation
+- Replace HTML Before/After with Markdown blockquotes
+- Add 11-article regression suite
+
+# Changelog
+
 ## v0.2.0 Quality Freeze Final
 
 - Validation、Presentation、JSON Contractを独立モジュール化
@@ -36,7 +46,7 @@
 ## 0.15.3-alpha.1
 
 - Claude ProjectのKnowledge Packを現行版へ同期
-- `SIMS_FEEDBACK_V1` v1.0/v1.1サンプルをv1.2へ自動移行する規則を追加
+- `SIMS_FEEDBACK_V2` v1.0/v1.1サンプルをv1.2へ自動移行する規則を追加
 - 推定と通常SKIPを`information`へ分離する指示の矛盾を解消
 - Project InstructionsとKnowledge Packのバージョン整合をリリースゲート化
 
@@ -46,7 +56,7 @@
 - `main_query_source`を追加し、`search_console` / `manual` / `estimated` / `unavailable`を明示
 - `execution_mode`を追加し、通常実行と`graceful_degradation`を区別
 - `estimated_fields`を追加し、推定された入力項目を機械判読可能に記録
-- SIMS_FEEDBACK_V1をv1.2へ更新し、メタデータ整合性Validatorと回帰テストを追加
+- SIMS_FEEDBACK_V2をv1.2へ更新し、メタデータ整合性Validatorと回帰テストを追加
 
 ## 0.15.1-alpha.1
 
@@ -96,7 +106,7 @@
 ### Added
 - Output Contract v1.1 and Output Contract Validator
 - `summary / partial / full / publish / json_only` output modes
-- Human-facing Before/After layer separated from SIMS_FEEDBACK_V1
+- Human-facing Before/After layer separated from SIMS_FEEDBACK_V2
 - Automatic change-flag inference and main-query warning separation
 - Internal-link verification and unsupported forecast safeguards
 - RC2 regression tests based on eight real-article UAT cases
@@ -226,9 +236,3 @@
 - Safe deterministic fixes for placeholders, repetitive text, AI-like phrases, and heading hierarchy
 - Revision records, action plans, resume-stage routing, and revalidation loop
 - ADR-0014 Targeted Refinement Before Regeneration
-
-## 0.2.1-rc.1 - 2026-07-19
-
-- Presentation vertical-scroll hotfix for long Before/After blocks.
-- Canonicalized additive SIMS_FEEDBACK_V2 contract.
-- Added multi-diagnosis and INTENT_MISMATCH runtime rules.

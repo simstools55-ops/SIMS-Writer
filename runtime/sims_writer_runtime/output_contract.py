@@ -87,7 +87,7 @@ class OutputValidationIssue:
 
 
 class OutputContractValidator:
-    """Validates the human-facing result and SIMS_FEEDBACK_V1 as separate layers."""
+    """Validates the human-facing result and SIMS_FEEDBACK_V2 as separate layers."""
 
     def validate(self, package: dict[str, Any]) -> list[OutputValidationIssue]:
         issues: list[OutputValidationIssue] = []
@@ -104,8 +104,16 @@ class OutputContractValidator:
         if isinstance(user_contract, dict):
             issues.extend(validate_user_json_contract(feedback, user_contract))
 
-        if feedback.get("format") != "SIMS_FEEDBACK_V1":
-            issues.append(OutputValidationIssue("OUT-003", "feedback.format must be SIMS_FEEDBACK_V1"))
+        if feedback.get("format") != "SIMS_FEEDBACK_V2":
+            issues.append(OutputValidationIssue("OUT-003", "feedback.format must be SIMS_FEEDBACK_V2"))
+        if feedback.get("version") != "2.0":
+            issues.append(OutputValidationIssue("OUT-030", "feedback.version must be 2.0"))
+        required_v2 = ("diagnosis", "primary_intent", "effect_confidence", "preservation_score",
+                       "protected_elements", "change_budget_percent", "rewrite_level",
+                       "rewrite_scope", "risk", "validation", "internal_link_evaluation")
+        missing_v2 = [k for k in required_v2 if k not in feedback]
+        if missing_v2:
+            issues.append(OutputValidationIssue("OUT-031", f"V2 fields missing: {', '.join(missing_v2)}"))
 
         if feedback.get("main_query_source") not in {"search_console", "manual", "estimated", "unavailable"}:
             issues.append(OutputValidationIssue("OUT-025", "main_query_source must be search_console, manual, estimated, or unavailable"))
@@ -159,6 +167,9 @@ class OutputContractValidator:
             issues.append(OutputValidationIssue("OUT-015", f"description exceeds recommended {META_DESCRIPTION_RECOMMENDED_MAX} characters", "warning"))
 
         rendered_response = str(package.get("rendered_response") or "")
+        prose_output = str(package.get("rendered_user_output") or rendered_response)
+        if re.search(r"<(?:div|pre|code)\b|\bstyle\s*=", prose_output, re.IGNORECASE):
+            issues.append(OutputValidationIssue("OUT-032", "Before/After prose must not contain raw HTML wrappers"))
         if rendered_response:
             if not re.search(r"```json\s*\n\s*\{.*?\}\s*\n```\s*$", rendered_response, re.DOTALL):
                 issues.append(OutputValidationIssue("OUT-016", "response must end with exactly one fenced ```json code block"))
@@ -232,8 +243,8 @@ def build_feedback(*, article_id: str | None, article_url: str | None, main_quer
         elif component == "seo_title": new_values["seo_title"] = item.get("after", "")
         elif component == "description": new_values["description"] = item.get("after", "")
     return {
-        "format": "SIMS_FEEDBACK_V1",
-        "version": "1.2",
+        "format": "SIMS_FEEDBACK_V2",
+        "version": "2.0",
         "article_id": article_id or "",
         "article_url": article_url or "",
         "completed_at": date.today().isoformat(),

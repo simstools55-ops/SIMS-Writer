@@ -7,7 +7,7 @@
 - ArticleID不一致：0件
 - URL不一致：0件
 - 必須フィールド欠落：0件
-- SIMS_FEEDBACK_V1構造破損：0件
+- SIMS_FEEDBACK_V2構造破損：0件
 
 ### Safety and Evidence
 

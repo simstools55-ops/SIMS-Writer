@@ -26,7 +26,7 @@
 | PROTECT_WINNER | 維持すべき要素 | 局所修正のみ | タイトル・本文全面変更 |
 | REBUILD_CANDIDATE | 意図、構成、正確性 | full候補 | 小手先だけの修正 |
 
-## 3. SIMS_FEEDBACK_V1への反映
+## 3. SIMS_FEEDBACK_V2への反映
 
 内部診断は、次の外部項目へ変換する。
 

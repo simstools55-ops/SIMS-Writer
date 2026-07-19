@@ -2,7 +2,7 @@
 
 1. Replace Claude Project Instructions with `claude/CLAUDE_PROJECT_INSTRUCTIONS.md`.
 2. Replace the Claude Knowledge files with the contents of the Quality Freeze Claude package.
-3. Update consumers from `SIMS_FEEDBACK_V1` v1.2 to v2.0.
+3. Update consumers from `SIMS_FEEDBACK_V2` v1.2 to v2.0.
 4. Rename any legacy `change_budget` field to `change_budget_percent`.
 5. Remove legacy Rewrite Level `L5`; use `L4` with review justification.
 6. Treat `diagnosis` as an array.

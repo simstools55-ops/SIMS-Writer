@@ -1,0 +1,4 @@
+id: PT-ANT-015
+name: unsafe-redaction-advice
+trigger: privacy advice treats translucent markup, blur, mosaic, or object removal as guaranteed secure redaction
+action: require opaque masking, saved-file verification, metadata check, and pricing freshness

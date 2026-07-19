@@ -32,5 +32,5 @@
 - LOW Confidence + HIGH Riskの自動PASS 0件
 - ArticleID/URL不一致の出力許可0件
 - 必須フェーズ欠落の出力許可0件
-- SIMS_FEEDBACK_V1 Version変更0件
+- SIMS_FEEDBACK_V2 Version変更0件
 - Quality Gate未経由出力0件

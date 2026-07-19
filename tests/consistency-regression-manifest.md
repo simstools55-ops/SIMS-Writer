@@ -209,4 +209,4 @@ severity: high
 - 表記揺れをfail判定するケース0件
 - changesフラグ誤判定0件
 - 年度更新時の旧情報残存見逃し0件
-- SIMS_FEEDBACK_V1構造変更0件
+- SIMS_FEEDBACK_V2構造変更0件

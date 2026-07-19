@@ -68,4 +68,12 @@ No greeting or preamble. Nothing may follow the JSON block.
 
 ## Machine output
 
-Use `SIMS_FEEDBACK_V1` version `2.0` unless the user provides a strict alternate contract. The machine output summarizes the result; it does not contain the full article.
+Use `SIMS_FEEDBACK_V2` version `2.0` unless the user provides a strict alternate contract. The machine output summarizes the result; it does not contain the full article.
+
+
+# v0.2.2 RC Hotfix override
+
+- Output only `SIMS_FEEDBACK_V2` version `2.0`; legacy V1 instructions are never authoritative.
+- Before/After must use Markdown blockquotes, not raw HTML or fenced code blocks.
+- Run VAL-JSON-001, VAL-ID-001, VAL-ANSWER-001, VAL-TITLE-PROMISE-001, VAL-MAINQUERY-001, and domain checks before final output.
+- If any mandatory consistency check fails, use `next_action: manual_review` and do not label the result publish-ready.

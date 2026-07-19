@@ -1,4 +1,4 @@
-# Presentation Template v2.1
+# Presentation Template v2.0
 
 ## 改善サマリー
 
@@ -7,7 +7,6 @@
 - 診断：
 - 変更箇所：
 - 作業時間目安：
-- Preservation Score：
 - Change Budget：
 - Rewrite Level / Scope：
 - Risk：
@@ -18,48 +17,56 @@
 
 ## 変更対象
 
-変更した要素だけを、Before → After → 期待する効果 → 変更理由の順で出力する。
-
-### 短文のBefore / After
-
-```text
-Beforeの内容
-```
-
-```text
-Afterの内容
-```
-
-### 長文のBefore / After
-
-導入文、本文、FAQ群など長い文章は、ページ全体を伸ばさず比較できるよう、次の縦スクロール枠を使う。最大高さは24remを標準とする。横方向へは原則スクロールさせず、改行を保持しながら折り返す。
+### SEOタイトル
 
 **Before**
 
-<div style="max-height:24rem; overflow-y:auto; overflow-x:hidden; border:1px solid #d0d7de; border-radius:6px; padding:12px;">
-<pre style="white-space:pre-wrap; overflow-wrap:anywhere; margin:0;"><code>（変更前の全文）</code></pre>
-</div>
+```text
+（現状）
+```
 
 **After**
 
-<div style="max-height:24rem; overflow-y:auto; overflow-x:hidden; border:1px solid #d0d7de; border-radius:6px; padding:12px;">
-<pre style="white-space:pre-wrap; overflow-wrap:anywhere; margin:0;"><code>（そのまま貼り付けられる変更後の全文）</code></pre>
-</div>
+```text
+（改善案）
+```
 
-表示環境がHTML styleを無効化する場合だけ、独立した `text` コードブロックへフォールバックする。文章の省略は禁止。
+**期待する効果**
+
+（CTR・検索意図・可読性など。効果を断定しない）
+
+**変更理由**
+
+（データと検索意図に基づく理由）
+
+### メタディスクリプション
+
+変更する場合のみ、同じ形式で記載。
+
+### 導入文
+
+変更する場合のみ、同じ形式で記載。
+
+### 見出し
+
+変更する見出しだけを一対一で記載。
+
+### FAQ
+
+追加・変更するFAQのみ記載。本文の単純な言い換えは禁止。
 
 ## 内部リンク
 
-採用・保留・不採用を分類する。実際に追加・置換・削除した場合だけ `changes.internal_links` を true にする。
+採用候補、設置位置、リンク形式、理由を記載。候補が不適切なら不採用を明示する。
 
 ## 保護対象
 
-広告、アフィリエイトリンク、体験談、独自レビュー、比較表、独自画像、CTA、結論など、変更しない要素を明示する。
+変更しない要素を明示する。
 
 ## 注意事項
 
-LOW_SAMPLE、再測定、事実未確認、手動確認事項がある場合のみ記載する。
+LOW_SAMPLE、再測定、事実未確認、手動確認事項がある場合のみ記載。
 
 ## SIMSフィードバックJSON
 
-回答の最後に `SIMS_FEEDBACK_V2.schema.json` に適合するJSONを1件だけ出力する。JSONより後には何も書かない。
+最後に`SIMS_FEEDBACK_V2.schema.json`へ適合するJSONを1件だけ出力する。

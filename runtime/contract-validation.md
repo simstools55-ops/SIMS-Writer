@@ -1,7 +1,7 @@
 # SIMS Writer Contract Validation
 
 Version: 1.0.0  
-Applies to: `SIMS_FEEDBACK_V1` version `1.2`
+Applies to: `SIMS_FEEDBACK_V2` version `1.2`
 
 ## 1. Purpose
 
@@ -12,7 +12,7 @@ The validator has two responsibilities:
 1. Confirm that the output satisfies the external JSON contract.
 2. Prevent structurally valid but semantically contradictory output.
 
-The external contract remains backward compatible with `SIMS_FEEDBACK_V1` version `1.2`.
+The external contract remains backward compatible with `SIMS_FEEDBACK_V2` version `1.2`.
 
 ## 2. Validation sequence
 
@@ -56,7 +56,7 @@ The following fields are mandatory:
 ### 4.1 Format
 
 ```json
-"format": "SIMS_FEEDBACK_V1"
+"format": "SIMS_FEEDBACK_V2"
 ```
 
 ### 4.2 Version

@@ -23,7 +23,7 @@ next_review_at: '2027-01-17'
 
 ## Rule
 
-`SIMS_FEEDBACK_V1.changes` は実際に出力・適用した変更と一致させる。
+`SIMS_FEEDBACK_V2.changes` は実際に出力・適用した変更と一致させる。
 
 ## Examples
 

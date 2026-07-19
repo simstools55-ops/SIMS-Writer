@@ -280,4 +280,4 @@ Preservation加点
 - Change Budget超過の無警告0件
 - 独自体験の削除提案0件
 - 不自然なLevel/Scopeの見逃し0件
-- SIMS_FEEDBACK_V1構造変更0件
+- SIMS_FEEDBACK_V2構造変更0件

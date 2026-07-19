@@ -62,5 +62,5 @@ tests/
 - Blocking見逃し
 - 全文欠落
 - 内部思考混入
-- SIMS_FEEDBACK_V1破損
+- SIMS_FEEDBACK_V2破損
 - 過剰修正率が基準超過

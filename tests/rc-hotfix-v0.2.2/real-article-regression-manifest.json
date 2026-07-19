@@ -1,0 +1,85 @@
+{
+  "cases": [
+    {
+      "id": "A000369",
+      "focus": [
+        "LOW_SAMPLE",
+        "preservation"
+      ]
+    },
+    {
+      "id": "A000301",
+      "focus": [
+        "local_change",
+        "title_meta"
+      ]
+    },
+    {
+      "id": "A000135",
+      "focus": [
+        "LOW_SAMPLE",
+        "internal_links"
+      ]
+    },
+    {
+      "id": "A000004",
+      "focus": [
+        "VAL-TITLE-PROMISE-001"
+      ]
+    },
+    {
+      "id": "A000008",
+      "focus": [
+        "internal_link_preserved_vs_held",
+        "commercial_freshness"
+      ]
+    },
+    {
+      "id": "A000001-award",
+      "focus": [
+        "VAL-JSON-001",
+        "VAL-EARNINGS-001"
+      ]
+    },
+    {
+      "id": "A000001-fortune",
+      "focus": [
+        "VAL-ANSWER-001",
+        "VAL-SOURCE-001",
+        "VAL-ID-001"
+      ]
+    },
+    {
+      "id": "A000020",
+      "focus": [
+        "VAL-RANK-001",
+        "VAL-MAINQUERY-001",
+        "VAL-JSON-001"
+      ]
+    },
+    {
+      "id": "A000006",
+      "focus": [
+        "VAL-FOOD-001",
+        "VAL-SERP-001",
+        "VAL-JSON-001"
+      ]
+    },
+    {
+      "id": "A000036",
+      "focus": [
+        "VAL-LANGUAGE-001",
+        "VAL-MAINQUERY-001"
+      ]
+    },
+    {
+      "id": "A000063",
+      "focus": [
+        "VAL-PRIVACY-001",
+        "VAL-FREE-001",
+        "VAL-APP-FRESHNESS-001",
+        "VAL-PRESENTATION-001"
+      ]
+    }
+  ]
+}

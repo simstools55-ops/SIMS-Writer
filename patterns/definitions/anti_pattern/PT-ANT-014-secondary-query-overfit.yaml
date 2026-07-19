@@ -1,0 +1,4 @@
+id: PT-ANT-014
+name: secondary-query-overfit
+trigger: small secondary query becomes the main query or dominates the title without sufficient evidence
+action: preserve the primary query and treat the secondary phrase as supporting intent

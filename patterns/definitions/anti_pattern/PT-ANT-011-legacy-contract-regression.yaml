@@ -1,0 +1,4 @@
+id: PT-ANT-011
+name: legacy-contract-regression
+trigger: output format is SIMS_FEEDBACK_V1 or a legacy request is treated as authoritative
+action: reject and regenerate as SIMS_FEEDBACK_V2 version 2.0

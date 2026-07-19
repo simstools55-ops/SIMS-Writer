@@ -74,7 +74,7 @@ SEOタイトルを実際に変更した場合true。
 - 比較対象が途中で変わる
 - 記事全体が異なる検索意図を混在させる
 
-## 5. SIMS_FEEDBACK_V1への反映
+## 5. SIMS_FEEDBACK_V2への反映
 
 Consistency Auditの内部問題は、次へ変換する。
 

@@ -27,7 +27,7 @@
 - URL一致
 - 必須項目
 - 出力形式
-- SIMS_FEEDBACK_V1
+- SIMS_FEEDBACK_V2
 - Before/After対応
 
 ### Step 2 Search Diagnosis確認

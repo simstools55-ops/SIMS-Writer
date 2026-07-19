@@ -1,7 +1,7 @@
 # Contract Regression Test Manifest
 
 Version: 1.0.0  
-Target contract: `SIMS_FEEDBACK_V1` version `1.2`
+Target contract: `SIMS_FEEDBACK_V2` version `1.2`
 
 ## 1. Purpose
 
@@ -37,7 +37,7 @@ Expected:
 
 Expected:
 
-- `format` equals `SIMS_FEEDBACK_V1`.
+- `format` equals `SIMS_FEEDBACK_V2`.
 - `version` equals `1.2`.
 
 ### T-A1-003 Required fields

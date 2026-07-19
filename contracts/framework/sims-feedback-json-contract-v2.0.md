@@ -1,6 +1,6 @@
 # SIMS Feedback JSON Contract v2.0
 
-The default machine contract for Quality Freeze is `SIMS_FEEDBACK_V1` version `2.0`.
+The default machine contract for Quality Freeze is `SIMS_FEEDBACK_V2` version `2.0`.
 
 ## Frozen rules
 
@@ -15,4 +15,4 @@ The default machine contract for Quality Freeze is `SIMS_FEEDBACK_V1` version `2
 - `LOW_SAMPLE` normally prevents `confidence=high`.
 - A changed SEO title normally requires `next_action=remeasure` unless manual review is required.
 
-The authoritative schema is `schemas/SIMS_FEEDBACK_V1.schema.json`.
+The authoritative schema is `schemas/SIMS_FEEDBACK_V2.schema.json`.

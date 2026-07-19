@@ -215,4 +215,4 @@ Dランクだけを理由にREBUILD_CANDIDATEにしない。
 - LOW_SAMPLEの見逃し0件
 - 高順位・低CTRと低順位・低CTRの混同0件
 - 良好記事の過剰修正0件
-- SIMS_FEEDBACK_V1の構造変更0件
+- SIMS_FEEDBACK_V2の構造変更0件

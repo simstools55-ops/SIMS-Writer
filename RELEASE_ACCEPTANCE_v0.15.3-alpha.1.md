@@ -10,7 +10,7 @@
 ## Root cause fixed
 
 1. Knowledge Pack remained at `0.14.3-alpha.1` and instructed estimated queries to be warnings.
-2. Project Instructions treated the request's legacy `SIMS_FEEDBACK_V1` v1.1 sample as an immutable contract, suppressing v1.2 fields.
+2. Project Instructions treated the request's legacy `SIMS_FEEDBACK_V2` v1.1 sample as an immutable contract, suppressing v1.2 fields.
 
 ## Release gates
 

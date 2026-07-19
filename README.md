@@ -37,7 +37,7 @@ RC判定
 - Rewrite Scope
 - Risk Assessment
 - Quality Gate
-- SIMS_FEEDBACK_V1
+- SIMS_FEEDBACK_V2
 
 ## 収録ファイル
 
@@ -76,3 +76,8 @@ tests/
 - Blocking誤検出・見逃しを確認
 - A0〜A5の修正要否を確定
 - RC移行可否を判定
+
+
+## v0.2.2 RC Hotfix
+
+This release enforces V2 JSON, adds specialist validation, and replaces raw-HTML Before/After boxes with wrapping Markdown blockquotes. See `RELEASE_NOTES_v0.2.2_RC_HOTFIX.md`.

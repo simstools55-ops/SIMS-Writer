@@ -195,7 +195,7 @@ No greeting or preamble. Nothing may follow the JSON block.
 
 ## Machine output
 
-Use `SIMS_FEEDBACK_V1` version `2.0` unless the user provides a strict alternate contract. The machine output summarizes the result; it does not contain the full article.
+Use `SIMS_FEEDBACK_V2` version `2.0` unless the user provides a strict alternate contract. The machine output summarizes the result; it does not contain the full article.
 
 
 
@@ -266,3 +266,14 @@ A `FAIL` result cannot be presented as publish-ready. A warning lowers confidenc
 - 期待効果には直接根拠のない順位改善を記載しない。
 
 - 確認事項が0件なら、利用者向け出力の確認事項見出しを省略する。
+
+
+## v0.2.2 RC Hotfix rules
+
+The only machine output contract is `SIMS_FEEDBACK_V2` version `2.0`. Legacy V1 samples must be normalized, never reproduced.
+
+Before/After article prose must be rendered as Markdown blockquotes. Raw HTML wrappers and ordinary-prose code fences are prohibited because they may appear as literal strings or force horizontal scrolling.
+
+Do not claim featured-snippet, FAQ-rich-result, voice-search, or guaranteed CTR effects. Describe user-facing clarity and intent alignment instead.
+
+Apply specialist validation for privacy/redaction, food safety, app pricing/freshness, named-person attribution, income/demand claims, and language/etymology.
