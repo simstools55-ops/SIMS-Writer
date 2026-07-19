@@ -1,0 +1,20 @@
+{
+  "format": "SWLS_MEASUREMENT",
+  "version": "1.0-beta",
+  "article_id": "A000001",
+  "measured_at": "2026-08-18",
+  "days_after": 30,
+  "before": {
+    "clicks": 120,
+    "impressions": 11393,
+    "ctr_percent": 1.1,
+    "position": 8.2
+  },
+  "after": {
+    "clicks": 150,
+    "impressions": 12000,
+    "ctr_percent": 1.25,
+    "position": 7.9
+  },
+  "notes": "季節性の影響は未調整。"
+}

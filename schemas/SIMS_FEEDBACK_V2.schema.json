@@ -343,6 +343,9 @@
         "medium",
         "low"
       ]
+    },
+    "swls": {
+      "$ref": "../learning/schemas/SWLS_LEARNING_RECORD.schema.json"
     }
   }
 }

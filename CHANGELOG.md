@@ -1,8 +1,15 @@
+# Changelog
+
+## 1.0.0 - 2026-07-19
+
+- Established production baseline after five real-article regression tests.
+- Added SWLS Beta learning records, user feedback, measurements, and 10-article reports.
+- Added Markdown/JSON/CSV report generator and schemas.
+
 ## 0.2.3-validation-hotfix
 
 - Executable main-query, language, attribution/source, claim, internal-link, and validation-consistency checks.
 
-# Changelog
 
 ## 0.2.2 RC Hotfix - 2026-07-19
 

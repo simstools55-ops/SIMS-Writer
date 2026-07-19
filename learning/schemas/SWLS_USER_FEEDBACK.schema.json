@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims-writer.local/schemas/SWLS_USER_FEEDBACK-v1.0.schema.json",
+  "title": "SWLS User Feedback v1.0 Beta",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "article_id",
+    "submitted_at",
+    "adoption",
+    "rating",
+    "tags",
+    "comment"
+  ],
+  "properties": {
+    "format": {
+      "const": "SWLS_USER_FEEDBACK"
+    },
+    "version": {
+      "const": "1.0-beta"
+    },
+    "article_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "submitted_at": {
+      "type": "string"
+    },
+    "adoption": {
+      "enum": [
+        "all",
+        "partial",
+        "none",
+        "pending"
+      ]
+    },
+    "adopted_targets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "rating": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "TITLE_GOOD",
+          "INTRO_GOOD",
+          "FAQ_GOOD",
+          "BODY_GOOD",
+          "TOO_MANY_CHANGES",
+          "TOO_FEW_CHANGES",
+          "FACT_CHECK_NEEDED",
+          "SOURCE_WEAK",
+          "INTERNAL_LINK_GOOD",
+          "INTERNAL_LINK_BAD",
+          "OTHER"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "comment": {
+      "type": "string"
+    },
+    "manual_edits": {
+      "type": "string"
+    }
+  }
+}

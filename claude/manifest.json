@@ -1,14 +1,13 @@
 {
-  "package_version": "0.16.0-alpha.1",
-  "status": "Quality Foundation Release A Alpha",
+  "package_version": "1.0.0",
+  "status": "Production Baseline with SWLS Beta",
   "files": {
-    "CLAUDE_PROJECT_INSTRUCTIONS.md": "0054a91b7600ee6fe436e5b02822801d7a792431ccc2fa2857b826c06bae8c94",
+    "CLAUDE_PROJECT_INSTRUCTIONS.md": "8d2ecc1eba6923222007251ddca46239e3c0958ac1b4b2e6e178ed0e60ae6e25",
     "README.md": "b49d04119c399c3e7bf840f341736a9efe05988c22f4154700213e2c381960fa",
     "SETUP_GUIDE.md": "a223d186f201aa6f681f95f8451eccfc6d1c7307cf4c0a91c6b2eea450da9997",
     "TEST_CHECKLIST.md": "91b72936f5b6525ae50e6b0edb4d42c997d928caac1263d1899db70f912ea68d",
     "examples/EXAMPLE_REQUEST.json": "7e3a01618204a9f53558992b36dead6b2a89aa321efe7406926abcafeec62baf",
-    "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md": "944bb33f30ccc00d9d7f7c552bd9c0af7f7ee79bd117c0969de234bd377483c5",
+    "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md": "4fcd4b0fdf63b3d2d2a541248384d72210147f7939dca493677ba0d657b57343",
     "templates/IMPROVEMENT_REQUEST_TEMPLATE.json": "264d57a61ac1cde15e6592c4caa5fbeb549ac0a77cf431eb23b78811e8b4378a"
-  },
-  "version": "0.16.0-alpha.1"
+  }
 }
