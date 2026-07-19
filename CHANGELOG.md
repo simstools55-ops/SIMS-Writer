@@ -1,3 +1,7 @@
+## 0.2.3-validation-hotfix
+
+- Executable main-query, language, attribution/source, claim, internal-link, and validation-consistency checks.
+
 # Changelog
 
 ## 0.2.2 RC Hotfix - 2026-07-19

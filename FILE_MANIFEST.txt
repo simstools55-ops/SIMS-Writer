@@ -1,10 +1,12 @@
 .gitignore
 CHANGELOG.md
 CONTRIBUTING.md
+FILE_MANIFEST.txt
 LICENSE
 MIGRATION_GUIDE_v0.2.0.md
 MIGRATION_GUIDE_v0.2.0_FINAL.md
 MIGRATION_GUIDE_v0.2.2.md
+MIGRATION_GUIDE_v0.2.3.md
 QUALITY_FREEZE_REPORT_v0.2.0.md
 README.md
 RELEASE_ACCEPTANCE_v0.15.3-alpha.1.md
@@ -13,6 +15,7 @@ RELEASE_ACCEPTANCE_v0.16.0-alpha.1.md
 RELEASE_NOTES_v0.2.0.md
 RELEASE_NOTES_v0.2.0_FINAL.md
 RELEASE_NOTES_v0.2.2_RC_HOTFIX.md
+RELEASE_NOTES_v0.2.3_VALIDATION_HOTFIX.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/repository/repository-architecture-v1.0.md
@@ -513,7 +516,6 @@ tests/improvement-strategy-regression-manifest.md
 tests/knowledge/README.md
 tests/migration/test_sims_core_migration.py
 tests/model-adapters/test_model_adapters.py
-tests/quality-freeze-v0.2.0/__pycache__/test_quality_freeze_final.cpython-313-pytest-9.0.2.pyc
 tests/quality-freeze-v0.2.0/test_quality_freeze_final.py
 tests/quality-freeze/examples/invalid-budget-v2.json
 tests/quality-freeze/examples/valid-v2.json
@@ -532,6 +534,8 @@ tests/runtime/test_quality_foundation.py
 tests/runtime/test_quality_runtime.py
 tests/runtime/test_runtime_core.py
 tests/search-diagnosis-regression-manifest.md
+tests/validation-hotfix-v0.2.3/README.md
+tests/validation-hotfix-v0.2.3/test_validation_hotfix.py
 tests/vertical-slices/test_ctr_vertical_slice.py
 tests/vertical-slices/test_output_contract_rc2.py
 tests/vertical-slices/test_publish_quality_rc3.py
@@ -551,5 +555,6 @@ tools/validators/validate_quality_runtime.py
 tools/validators/validate_runtime.py
 validation/QUALITY_GATE.md
 validation/RC_HOTFIX_VALIDATION_v2.2.md
+validation/VALIDATION_HOTFIX_v0.2.3.md
 validation/VALIDATION_LAYER.md
 validation/VALIDATION_RULES.md
