@@ -1,6 +1,9 @@
 {
   "format": "SWLS_LEARNING_RECORD",
   "version": "1.0-beta",
+  "site_id": "",
+  "site_name": "",
+  "site_url": "",
   "article_id": "A000001",
   "article_url": "https://example.com/article",
   "recorded_at": "2026-07-19",

@@ -77,3 +77,15 @@ Use `SIMS_FEEDBACK_V2` version `2.0` unless the user provides a strict alternate
 - Before/After must use Markdown blockquotes, not raw HTML or fenced code blocks.
 - Run VAL-JSON-001, VAL-ID-001, VAL-ANSWER-001, VAL-TITLE-PROMISE-001, VAL-MAINQUERY-001, and domain checks before final output.
 - If any mandatory consistency check fails, use `next_action: manual_review` and do not label the result publish-ready.
+
+## v1.1.0 editorial diagnostic extension
+
+After primary intent selection and before component selection:
+1. Compare expected answer with actual subject and record Intent Gap as LOW/MEDIUM/HIGH.
+2. Extract only grounded Hidden Anxiety that remains unanswered.
+3. Identify SERP entities that must survive title/meta/introduction edits.
+4. Classify evidence strength and calibrate assertion strength.
+5. Evaluate internal-link candidates by next-question value, complementarity, cannibalization risk, anchor naturalness, and verified URL.
+6. Add Decision Support only when the article lacks an equivalent aid.
+
+These checks do not override Preservation Score, Rewrite Level, Rewrite Scope, or Change Budget.

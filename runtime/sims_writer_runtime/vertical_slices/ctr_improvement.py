@@ -187,7 +187,7 @@ class CTRImprovementSlice:
             information.append("内部リンク候補が未入力のため、内部リンクは変更していません。")
         execution_mode="graceful_degradation" if (request.get("main_query_inferred") or request.get("main_query_missing") or not request.get("article_catalog")) else "standard"
         effect={"ctr":"CTR改善余地はありますが、具体的な数値は実測データ不足のため予測しません。","clicks":"表示回数とクリック数の母数が小さい場合、定量予測は行わず再測定で確認します。"}
-        feedback=build_feedback(article_id=request.get("article_id"), article_url=request.get("target_url"), main_query=request.get("main_query", ""), before_after=before_after, summary=decision.reason, warnings=warnings, information=information, main_query_source=main_query_source, execution_mode=execution_mode, estimated_fields=estimated_fields, confidence="low" if request.get("main_query_missing") else ("medium" if request.get("main_query_inferred") else "high"), expected_effect=effect)
+        feedback=build_feedback(article_id=request.get("article_id"), article_url=request.get("target_url"), main_query=request.get("main_query", ""), site_id=request.get("site_id"), site_name=request.get("site_name"), site_url=request.get("site_url"), before_after=before_after, summary=decision.reason, warnings=warnings, information=information, main_query_source=main_query_source, execution_mode=execution_mode, estimated_fields=estimated_fields, confidence="low" if request.get("main_query_missing") else ("medium" if request.get("main_query_inferred") else "high"), expected_effect=effect)
         feedback["estimated_minutes"] = decision.estimated_minutes
         publish_quality = {
             "improvement_judgment": decision.improvement_judgment,

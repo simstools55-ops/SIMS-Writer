@@ -39,6 +39,15 @@
     "version": {
       "const": "2.0"
     },
+    "site_id": {
+      "type": "string"
+    },
+    "site_name": {
+      "type": "string"
+    },
+    "site_url": {
+      "type": "string"
+    },
     "article_id": {
       "type": "string",
       "minLength": 1

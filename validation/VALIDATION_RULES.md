@@ -18,3 +18,16 @@
 | VAL-014 | 英文分析・内部思考なし | BLOCKER | FAIL |
 | VAL-015 | LOW_SAMPLE警告と再測定 | MAJOR | FAIL |
 | VAL-016 | 出力の冒頭・末尾省略なし | MAJOR | FAIL |
+
+
+## v1.1.0追加ルール
+
+| Rule ID | 検査内容 | Severity | 失敗時 |
+|---|---|---|---|
+| VAL-017 | 検索文脈を識別するSERPエンティティを不用意に削除していない | MAJOR | FAIL/WARNING |
+| VAL-018 | Hidden Anxietyが根拠・未回答・判断影響の条件を満たす | MINOR | WARNING |
+| VAL-019 | FAQが本文読後の残存疑問を解決し、本文と過度に重複しない | MINOR | WARNING |
+| VAL-020 | 内部リンク採用が意味的補完性と確認済みURLを満たす | MAJOR | FAIL |
+| VAL-021 | 断定表現がEvidence分類の強さを超えていない | MAJOR | FAIL/WARNING |
+| VAL-022 | 条件付き結論が既存根拠に基づき、体験を創作していない | BLOCKER | FAIL |
+| VAL-023 | 入力されたSiteID/SiteName/SiteURL/ArticleID/ArticleURLを透過保持する | MAJOR | FAIL |

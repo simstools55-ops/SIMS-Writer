@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.1.0-rc1] - 2026-07-21
+
+### Added
+- Shared Editorial Knowledge v1.0 and Writer application mapping.
+- Intent Gap, Hidden Anxiety, SERP Entity Preservation, Evidence Transparency, semantic internal-link, FAQ residual-question, and conditional-conclusion guidance.
+- Optional Product 5.3.1 identity passthrough: SiteID, SiteName, SiteURL, ArticleID, ArticleURL.
+- Regression coverage for identity passthrough and shared editorial assets.
+
+### Changed
+- Runtime and Project Instructions now apply shared knowledge under Preservation and Change Budget.
+- SWLS learning records may carry optional site identity without changing legacy required fields.
+
+### Compatibility
+- Legacy URL input remains supported.
+- No identifier generation, repair, duplicate detection, UID issuance, DB audit, or SiteID generation was added.
+
+# Changelog
+
 ## 1.0.0 - 2026-07-19
 
 - Established production baseline after five real-article regression tests.

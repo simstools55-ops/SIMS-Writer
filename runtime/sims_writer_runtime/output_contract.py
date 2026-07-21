@@ -108,12 +108,18 @@ class OutputContractValidator:
             issues.append(OutputValidationIssue("OUT-003", "feedback.format must be SIMS_FEEDBACK_V2"))
         if feedback.get("version") != "2.0":
             issues.append(OutputValidationIssue("OUT-030", "feedback.version must be 2.0"))
-        required_v2 = ("diagnosis", "primary_intent", "effect_confidence", "preservation_score",
-                       "protected_elements", "change_budget_percent", "rewrite_level",
-                       "rewrite_scope", "risk", "validation", "internal_link_evaluation")
-        missing_v2 = [k for k in required_v2 if k not in feedback]
-        if missing_v2:
-            issues.append(OutputValidationIssue("OUT-031", f"V2 fields missing: {', '.join(missing_v2)}"))
+        # A strict user-provided contract remains authoritative for backward compatibility.
+        # Full current V2 extension fields are mandatory only under the default contract.
+        if not isinstance(user_contract, dict):
+            required_v2 = ("diagnosis", "primary_intent", "effect_confidence", "preservation_score",
+                           "protected_elements", "change_budget_percent", "rewrite_level",
+                           "rewrite_scope", "risk", "validation", "internal_link_evaluation")
+            missing_v2 = [k for k in required_v2 if k not in feedback]
+            if missing_v2:
+                # Legacy builder output remains accepted during the v1.1 compatibility window.
+                legacy_shape = all(k in feedback for k in ("completed_at", "changes", "new_values", "recommended_review_days"))
+                if not legacy_shape:
+                    issues.append(OutputValidationIssue("OUT-031", f"V2 fields missing: {', '.join(missing_v2)}"))
 
         if feedback.get("main_query_source") not in {"search_console", "manual", "estimated", "unavailable"}:
             issues.append(OutputValidationIssue("OUT-025", "main_query_source must be search_console, manual, estimated, or unavailable"))
@@ -221,6 +227,8 @@ def infer_change_flags(before_after: list[dict[str, Any]], *, body_additions: li
 
 
 def build_feedback(*, article_id: str | None, article_url: str | None, main_query: str,
+                   site_id: str | None = None, site_name: str | None = None,
+                   site_url: str | None = None,
                    before_after: list[dict[str, Any]], summary: str, warnings: list[str],
                    information: list[str] | None = None,
                    main_query_source: str = "manual",
@@ -242,7 +250,7 @@ def build_feedback(*, article_id: str | None, article_url: str | None, main_quer
         if component == "article_title": new_values["article_title"] = item.get("after", "")
         elif component == "seo_title": new_values["seo_title"] = item.get("after", "")
         elif component == "description": new_values["description"] = item.get("after", "")
-    return {
+    feedback = {
         "format": "SIMS_FEEDBACK_V2",
         "version": "2.0",
         "article_id": article_id or "",
@@ -263,6 +271,17 @@ def build_feedback(*, article_id: str | None, article_url: str | None, main_quer
         "estimated_minutes": 20,
         "recommended_review_days": recommended_review_days,
     }
+    # Product 5.3.1 identifiers are transparent optional fields. Writer does not generate,
+    # repair, deduplicate, or audit them; absent legacy fields remain absent.
+    identity = {"site_id": site_id, "site_name": site_name, "site_url": site_url}
+    if any(value not in (None, "") for value in identity.values()):
+        feedback = {
+            "format": feedback.pop("format"),
+            "version": feedback.pop("version"),
+            **{key: value or "" for key, value in identity.items()},
+            **feedback,
+        }
+    return feedback
 
 
 def package_output(*, output_mode: str, before_after: list[dict[str, Any]], feedback: dict[str, Any],

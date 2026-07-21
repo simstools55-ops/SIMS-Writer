@@ -31,6 +31,13 @@ class RuntimeOrchestrator:
             self._pass(records, "intake")
             request = normalize_sbm(raw) if input_type == "sbm" else normalize_generic(raw)
             artifacts["normalized_request"] = request
+            artifacts["source_identity"] = {
+                "site_id": request.get("site_id"),
+                "site_name": request.get("site_name"),
+                "site_url": request.get("site_url"),
+                "article_id": request.get("article_id"),
+                "article_url": request.get("target_url"),
+            }
             if request.get("main_query_inferred"):
                 self._warn(records, "normalization", "main_query was inferred from the title")
             elif request.get("main_query_missing"):

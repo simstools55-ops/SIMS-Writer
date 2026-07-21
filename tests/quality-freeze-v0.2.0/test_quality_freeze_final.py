@@ -2,11 +2,13 @@ from pathlib import Path
 import json
 import hashlib
 import jsonschema
+import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
 CLAUDE = ROOT.parent / "SIMS-Writer-Claude-v0.2.0-Quality-Freeze-Final"
 
 
+@pytest.mark.skipif(not CLAUDE.exists(), reason="legacy external Claude package is not present")
 def test_required_modules_exist():
     required = [
         ROOT / "validation/VALIDATION_LAYER.md",
@@ -35,12 +37,14 @@ def test_examples_validate():
         assert not errors, f"{path.name}: {errors}"
 
 
+@pytest.mark.skipif(not CLAUDE.exists(), reason="legacy external Claude package is not present")
 def test_core_and_claude_schema_identical():
     a = (ROOT / "contracts/json/SIMS_FEEDBACK_V2.schema.json").read_bytes()
     b = (CLAUDE / "contracts/json/SIMS_FEEDBACK_V2.schema.json").read_bytes()
     assert hashlib.sha256(a).digest() == hashlib.sha256(b).digest()
 
 
+@pytest.mark.skipif(not CLAUDE.exists(), reason="legacy external Claude package is not present")
 def test_v2_is_mandatory_in_claude_instructions():
     text = (CLAUDE / "CLAUDE_PROJECT_INSTRUCTIONS.md").read_text(encoding="utf-8")
     assert "SIMS_FEEDBACK_V2" in text
