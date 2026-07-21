@@ -1,0 +1,64 @@
+{
+  "source_repository": "SIMS-Shared-Editorial-Knowledge",
+  "source_version": "1.0.0",
+  "integrated_product": "SIMS Writer",
+  "integrated_version": "1.1.0-rc2",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "d083493302bb560441b42702e138b49b593dcd49dd3c981994f880b1f1d4ea2c"
+    },
+    {
+      "path": "SOURCE.md",
+      "sha256": "29f9ddf9e7bff2fb7de65f3b3482e27e412155976d19258888c31814ca33317e"
+    },
+    {
+      "path": "VERSION",
+      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+    },
+    {
+      "path": "docs/integration-policy.md",
+      "sha256": "fe32e1a0e4872ad69d1884f4db2ab3b788e6cda81944250c3fd0a107a75f457f"
+    },
+    {
+      "path": "docs/scope.md",
+      "sha256": "5a6182675e3694675e500208c8f35994d5d7cb3d53d4b4fcb8049f7bc62db8ad"
+    },
+    {
+      "path": "knowledge/decision-support.md",
+      "sha256": "7447194b8a903369b59677702ddc97a805a30efaa8f2d83a0c2d7753c870de7f"
+    },
+    {
+      "path": "knowledge/evidence-transparency.md",
+      "sha256": "f047a073ee9a87c770fd5c148f40378538d8b3ef13b746d069768e360246c3b9"
+    },
+    {
+      "path": "knowledge/freshness-safety.md",
+      "sha256": "7a0c522a67e459d3bbea737f0a33b427f8570332e36cd91a0de0a04567f8815b"
+    },
+    {
+      "path": "knowledge/hidden-anxiety.md",
+      "sha256": "d03c6f03c10734c43ad85940dead9f8e991520b6c8414ab5822215b72225442b"
+    },
+    {
+      "path": "knowledge/intent-analysis.md",
+      "sha256": "283d2e7f436e32f7b3b9c9bbfb044dc6325cfe102f611eaa53a72cdfac525cb7"
+    },
+    {
+      "path": "knowledge/internal-link-semantics.md",
+      "sha256": "08a023c7080e5598e74e8b861e49e7d40d75dc2976f21e7fa9b49c90c60c7fb1"
+    },
+    {
+      "path": "knowledge/serp-entity-preservation.md",
+      "sha256": "1d3987667305271f984c16eaa3a31b469335ce3b93bb8357af5a634653ebb85d"
+    },
+    {
+      "path": "mappings/writer/application-mapping.md",
+      "sha256": "12986873558f301d841ee1ecf06f6702894f532927a4507394c9bccb6e89d351"
+    },
+    {
+      "path": "validation/shared-knowledge-validation.md",
+      "sha256": "d76ef622d4f4b39ccc1413d0ce20139e970f66911044b6ce4e26e8641946881d"
+    }
+  ]
+}

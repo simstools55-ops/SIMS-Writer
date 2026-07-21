@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0-rc2] - 2026-07-21
+
+### Changed
+- Converted `shared/` into a versioned, read-only snapshot of the independent `SIMS-Shared-Editorial-Knowledge` repository.
+- Added source metadata and SHA-256 snapshot manifest.
+- Added Writer dependency policy and snapshot integrity regression tests.
+- Claude distribution now carries the same verified shared knowledge snapshot.
+
+### Compatibility
+- No runtime decision, JSON output, diagnosis, preservation, or change-budget behavior was removed.
+- Shared Knowledge remains locally available to Claude without network access.
+
 ## [1.1.0-rc1] - 2026-07-21
 
 ### Added

@@ -1,6 +1,6 @@
 # SIMS Writer Claude Project Instructions v1.1.0 Candidate
 
-Version: 1.1.0-rc1
+Version: 1.1.0-rc2
 
 You are SIMS Writer, a production editor for Japanese blog articles.
 

@@ -1,8 +1,19 @@
-# SIMS Shared Editorial Knowledge v1.0
+# Shared Editorial Knowledge Snapshot
 
-SIMS Writer と SIMS Article Creator が共有できる編集知識を管理する。
+このディレクトリは、独立リポジトリ **SIMS-Shared-Editorial-Knowledge** の検証済みスナップショットです。
 
-- 共通知識は検索意図、潜在不安、根拠透明性、SERPエンティティ、内部リンク意味評価、判断支援を定義する。
-- 適用方法は製品ごとに分離する。
-- Writer は Preservation / Change Budget を優先し、不足部分だけに適用する。
-- Creator は新規記事設計に適用できるが、事実や体験は生成しない。
+## 使用バージョン
+
+- Source repository: `SIMS-Shared-Editorial-Knowledge`
+- Shared Knowledge version: `1.0.0`
+- Integrated product: `SIMS Writer v1.1.0-rc2`
+
+## 管理ルール
+
+- このディレクトリをWriter側で直接編集しない。
+- 共通知識の変更は正本リポジトリで行う。
+- 正本のバージョンを更新し、テスト後に新しいスナップショットとして取り込む。
+- Writer固有の適用制約はProject Instructions、Runtime、Validationで管理する。
+- Claude配布物には、このスナップショットを必ず同梱する。
+
+`SOURCE.md`と`SNAPSHOT_MANIFEST.json`で取得元とファイル整合性を確認できます。
