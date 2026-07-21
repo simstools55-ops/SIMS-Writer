@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.0 - 2026-07-21
+
+- Promoted seven Shared Editorial Knowledge capabilities to production.
+- Added executable FAQ Evolution and Conditional Editorial Opinion signals.
+- Updated runtime, validation, pattern selection, tests, and Claude snapshot.
+- Preserved Change Budget, Rewrite Level/Scope, JSON Contract, and Product 5.3.1 compatibility.
+
 ## [1.1.0-rc3] - 2026-07-21
 
 ### Added

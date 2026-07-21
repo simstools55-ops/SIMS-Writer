@@ -53,7 +53,7 @@ class RuntimeOrchestrator:
             artifacts["editorial_signals"] = build_editorial_signals(request)
             artifacts["knowledge_assembly"] = {
                 "coverage": "partial",
-                "selected": ["shared-editorial-knowledge@1.0.0"],
+                "selected": ["shared-editorial-knowledge@1.1.0"],
                 "shared_editorial_signals": artifacts["editorial_signals"],
                 "note": "Shared Knowledge is applied as advisory signals under Writer preservation constraints",
             }
@@ -76,7 +76,7 @@ class RuntimeOrchestrator:
             artifacts["decision_action_plan"] = {"action": action, "components": [], "reason": action_reason, "editorial_signals": artifacts["editorial_signals"]}
             self._pass(records, "decision_evaluation")
 
-            artifacts["pattern_selection"] = {"selected_patterns": ["PT-PLN-008", "PT-SEO-008", "PT-SEO-009", "PT-EVD-007"], "blocked_by_action": False, "selection_basis": "shared_editorial_signals"}
+            artifacts["pattern_selection"] = {"selected_patterns": ["PT-PLN-008", "PT-PLN-009", "PT-SEO-008", "PT-SEO-009", "PT-IMP-007", "PT-SEC-009", "PT-EVD-007"], "blocked_by_action": False, "selection_basis": "shared_editorial_signals"}
             if request.get("article_catalog"):
                 self._pass(records, "pattern_selection")
             else:

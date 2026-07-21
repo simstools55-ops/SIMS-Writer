@@ -1,4 +1,7 @@
-from runtime.sims_writer_runtime.editorial_signals import build_editorial_signals, detect_intent_gap, detect_hidden_anxiety, evaluate_internal_links
+from runtime.sims_writer_runtime.editorial_signals import (
+    build_editorial_signals, detect_intent_gap, detect_hidden_anxiety,
+    evaluate_internal_links, evolve_faq, evaluate_conditional_editorial_opinion,
+)
 from runtime.sims_writer_runtime.orchestrator import RuntimeOrchestrator
 from runtime.sims_writer_runtime.adapters.fixture_model import FixtureTransport
 from runtime.sims_writer_runtime.adapters.structured_model import StructuredModelAdapter
@@ -40,5 +43,46 @@ def test_orchestrator_connects_shared_signals():
     raw={"request_id":"REQ-SHARED","main_query":"iPhone トラッカーとは","seo_title":"トラッカーとは","existing_content":"通知の意味","article_catalog":[]}
     result=RuntimeOrchestrator(Path(__file__).resolve().parents[2], adapter=StructuredModelAdapter(FixtureTransport(), "fixture-model")).execute(raw)
     assert "editorial_signals" in result.artifacts
-    assert result.artifacts["knowledge_assembly"]["selected"] == ["shared-editorial-knowledge@1.0.0"]
+    assert result.artifacts["knowledge_assembly"]["selected"] == ["shared-editorial-knowledge@1.1.0"]
     assert result.artifacts["decision_action_plan"]["editorial_signals"] == result.artifacts["editorial_signals"]
+
+
+def test_faq_evolution_adds_only_residual_decision_question():
+    result=evolve_faq({
+        "main_query":"サービス 料金",
+        "supporting_queries":["サービス 解約 方法"],
+        "existing_content":"料金プランを説明します",
+        "existing_faq":[],
+    })
+    assert result["needed"] is True
+    assert any(c["action"] == "add" for c in result["candidates"])
+    answered=evolve_faq({
+        "main_query":"サービス 解約 方法",
+        "existing_content":"サービスの解約方法を手順付きで説明します",
+    })
+    assert answered["needed"] is False
+
+
+def test_conditional_editorial_opinion_requires_missing_decision_support():
+    result=evaluate_conditional_editorial_opinion({
+        "main_query":"A B 比較 おすすめ",
+        "existing_content":"Aは安く、Bは機能が多いです",
+        "source_evidence":[{"type":"official"}],
+    })
+    assert result["applicable"] is True
+    existing=evaluate_conditional_editorial_opinion({
+        "main_query":"A B 比較 おすすめ",
+        "existing_content":"価格を重視するならAがおすすめです",
+        "source_evidence":[{"type":"official"}],
+    })
+    assert existing["applicable"] is False
+
+
+def test_all_seven_editorial_capabilities_are_emitted():
+    signals=build_editorial_signals({"main_query":"A B 比較 おすすめ", "existing_content":"AとBの違い", "source_evidence":[{"type":"official"}]})
+    required={
+        "intent_gap", "hidden_anxiety", "serp_entity_preservation",
+        "internal_link_semantics", "faq_evolution",
+        "conditional_editorial_opinion", "evidence_transparency",
+    }
+    assert required <= set(signals)
