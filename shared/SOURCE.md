@@ -3,7 +3,7 @@
 - Repository: `SIMS-Shared-Editorial-Knowledge`
 - Repository version: `1.0.0`
 - Snapshot format: vendored, read-only product dependency
-- Integrated into: `SIMS Writer 1.1.0-rc2`
+- Integrated into: `SIMS Writer 1.1.0-rc3`
 - Integration date: `2026-07-21`
 
 ## Dependency policy

@@ -1,8 +1,8 @@
-# SIMS Writer v1.1.0-rc2
+# SIMS Writer v1.1.0-rc3
 
 Google Search Console等の実データをもとに、既存記事を壊さず局所改善するための品質・契約・Knowledge・Pattern中心のリライトシステムです。
 
-## v1.1.0-rc2の位置付け
+## v1.1.0-rc3の位置付け
 
 - 実記事回帰テスト5件：PASS 3件、PASS_WITH_WARNING 2件、FAIL 0件
 - v0.2.3 Validation Hotfixを運用ベースラインとして固定

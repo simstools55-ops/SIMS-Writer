@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.0-rc3] - 2026-07-21
+
+### Added
+- Shared Editorial Knowledgeの実行時診断信号。
+- Intent Gap、Hidden Anxiety、SERP Entity、Evidence、Semantic Internal Linkの回帰テスト。
+- Writer制約付き編集Pattern 6件。
+
+### Changed
+- Knowledge AssemblyとDecision Action PlanへShared Editorial Signalsを接続。
+
 ## [1.1.0-rc2] - 2026-07-21
 
 ### Changed

@@ -43,6 +43,7 @@ def normalize_generic(payload: dict[str, Any]) -> dict[str, Any]:
         "supporting_queries": payload.get("supporting_queries") or [],
         "performance": payload.get("performance") or {},
         "article_catalog": payload.get("article_catalog") or payload.get("ArticleCatalog") or [],
+        "source_evidence": payload.get("source_evidence") or payload.get("SourceEvidence") or [],
     }
 
 
@@ -70,4 +71,5 @@ def normalize_sbm(payload: dict[str, Any]) -> dict[str, Any]:
         "supporting_queries": payload.get("SupportingQueries") or [],
         "performance": {"clicks": payload.get("Clicks"), "impressions": payload.get("Impressions"), "ctr": payload.get("CTR"), "average_position": payload.get("AveragePosition")},
         "article_catalog": payload.get("ArticleCatalog") or payload.get("article_catalog") or [],
+        "source_evidence": payload.get("SourceEvidence") or payload.get("source_evidence") or [],
     }

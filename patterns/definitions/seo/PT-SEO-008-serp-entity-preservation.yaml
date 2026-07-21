@@ -1,0 +1,71 @@
+{
+  "id": "PT-SEO-008",
+  "name": "SERP Entity Preservation",
+  "category": "seo",
+  "version": "1.1.0",
+  "status": "active",
+  "problem": "短縮時に検索文脈を識別する固有名詞や通知文言を失う",
+  "context": "Shared Editorial KnowledgeのWriter適用条件を満たす場合に限り、Preservation制約下で適用する。",
+  "applicability": {
+    "decision_results": [
+      "DEC-IMP-001"
+    ],
+    "conditions": [
+      "shared_signal_grounded",
+      "preservation_guard_passed"
+    ]
+  },
+  "non_applicability": [
+    "signal_is_ungrounded",
+    "equivalent_support_already_exists",
+    "change_budget_exceeded"
+  ],
+  "required_inputs": [
+    "writing_request",
+    "shared_editorial_signals",
+    "source_content_snapshot"
+  ],
+  "optional_inputs": [
+    "performance_data",
+    "site_knowledge",
+    "article_catalog"
+  ],
+  "method": [
+    "confirm_shared_signal",
+    "confirm_existing_content_gap",
+    "select_smallest_patch",
+    "validate_preservation"
+  ],
+  "expected_outputs": [
+    "protected_serp_entities",
+    "entity_safe_metadata_patch"
+  ],
+  "quality_criteria": [
+    "minimal_change",
+    "search_intent_preserved",
+    "shared_validation_pass"
+  ],
+  "related_decisions": [
+    "DEC-IMP-001"
+  ],
+  "related_knowledge": [
+    "SHARED-SERP-001"
+  ],
+  "related_quality_rules": [
+    "VAL-017"
+  ],
+  "risks": [
+    "over_application",
+    "context_mismatch",
+    "preservation_violation"
+  ],
+  "examples": [
+    "operational_test_grounded_case"
+  ],
+  "counterexamples": [
+    "creator_style_structure_forcing"
+  ],
+  "reviewed_at": "2026-07-21",
+  "next_review_at": "2027-01-21",
+  "owner": "product-governance"
+}

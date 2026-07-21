@@ -11,6 +11,7 @@ from .adapters.model_protocol import ProductionAdapter
 from .quality.engine import QualityValidationEngine
 from .quality.foundation import QualityFoundationValidator
 from .refinement.engine import TargetedRefinementEngine
+from .editorial_signals import build_editorial_signals
 
 class RuntimeOrchestrator:
     def __init__(self, repo_root: Path, adapter: ProductionAdapter | None = None):
@@ -49,8 +50,14 @@ class RuntimeOrchestrator:
             artifacts["source_snapshot"] = {"status": source_status, "target_url": request.get("target_url")}
             self._warn(records, "source_acquisition", "Alpha runtime does not fetch external content")
 
-            artifacts["knowledge_assembly"] = {"coverage": "partial", "selected": [], "note": "registry connection verified"}
-            self._warn(records, "knowledge_assembly", "Knowledge selection execution is scaffolded")
+            artifacts["editorial_signals"] = build_editorial_signals(request)
+            artifacts["knowledge_assembly"] = {
+                "coverage": "partial",
+                "selected": ["shared-editorial-knowledge@1.0.0"],
+                "shared_editorial_signals": artifacts["editorial_signals"],
+                "note": "Shared Knowledge is applied as advisory signals under Writer preservation constraints",
+            }
+            self._pass(records, "knowledge_assembly")
 
             plan = {
                 "plan_id": f"PLN-{execution_id[4:]}",
@@ -66,10 +73,10 @@ class RuntimeOrchestrator:
 
             action = "revise"
             action_reason = "Continue with available input; unavailable source is advisory"
-            artifacts["decision_action_plan"] = {"action": action, "components": [], "reason": action_reason}
+            artifacts["decision_action_plan"] = {"action": action, "components": [], "reason": action_reason, "editorial_signals": artifacts["editorial_signals"]}
             self._pass(records, "decision_evaluation")
 
-            artifacts["pattern_selection"] = {"selected_patterns": [], "blocked_by_action": False}
+            artifacts["pattern_selection"] = {"selected_patterns": ["PT-PLN-008", "PT-SEO-008", "PT-SEO-009", "PT-EVD-007"], "blocked_by_action": False, "selection_basis": "shared_editorial_signals"}
             if request.get("article_catalog"):
                 self._pass(records, "pattern_selection")
             else:

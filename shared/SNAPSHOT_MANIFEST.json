@@ -2,7 +2,7 @@
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
   "source_version": "1.0.0",
   "integrated_product": "SIMS Writer",
-  "integrated_version": "1.1.0-rc2",
+  "integrated_version": "1.1.0-rc3",
   "files": [
     {
       "path": "README.md",
@@ -10,7 +10,7 @@
     },
     {
       "path": "SOURCE.md",
-      "sha256": "29f9ddf9e7bff2fb7de65f3b3482e27e412155976d19258888c31814ca33317e"
+      "sha256": "cd474dbcf3f3c8e57e36577a0cdcda87b19f5dc757db303aa7a91232dfa94cb6"
     },
     {
       "path": "VERSION",

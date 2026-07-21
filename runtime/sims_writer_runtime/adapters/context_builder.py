@@ -17,6 +17,7 @@ def build_context_bundle(request: dict[str, Any], plan: dict[str, Any], **contex
         "patterns": context.get("pattern_selection", {}),
         "source": {**source, "article_content": content},
         "quality_requirements": context.get("quality_requirements", []),
+        "editorial_signals": context.get("editorial_signals") or (context.get("knowledge_assembly", {}) or {}).get("shared_editorial_signals", {}),
     }
 
 def render_user_message(bundle: dict[str, Any]) -> str:

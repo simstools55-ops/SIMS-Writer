@@ -1,5 +1,5 @@
 {
-  "framework_version": "1.0.0",
+  "framework_version": "1.1.0",
   "patterns": [
     {
       "id": "PT-PLN-001",
@@ -677,6 +677,72 @@
       "path": "patterns/definitions/anti_pattern/PT-ANT-010-prompt-only-quality-rule.yaml",
       "related_decisions": [
         "DEC-PUB-001"
+      ]
+    },
+    {
+      "id": "PT-PLN-008",
+      "name": "Intent Gap Local Resolution",
+      "category": "planning",
+      "version": "1.1.0",
+      "status": "active",
+      "path": "patterns/definitions/planning/PT-PLN-008-intent-gap-local-resolution.yaml",
+      "related_decisions": [
+        "DEC-IMP-001"
+      ]
+    },
+    {
+      "id": "PT-PLN-009",
+      "name": "Grounded Hidden Anxiety",
+      "category": "planning",
+      "version": "1.1.0",
+      "status": "active",
+      "path": "patterns/definitions/planning/PT-PLN-009-hidden-anxiety-grounding.yaml",
+      "related_decisions": [
+        "DEC-IMP-001"
+      ]
+    },
+    {
+      "id": "PT-SEO-008",
+      "name": "SERP Entity Preservation",
+      "category": "seo",
+      "version": "1.1.0",
+      "status": "active",
+      "path": "patterns/definitions/seo/PT-SEO-008-serp-entity-preservation.yaml",
+      "related_decisions": [
+        "DEC-IMP-001"
+      ]
+    },
+    {
+      "id": "PT-SEO-009",
+      "name": "Semantic Internal Link Rejection",
+      "category": "seo",
+      "version": "1.1.0",
+      "status": "active",
+      "path": "patterns/definitions/seo/PT-SEO-009-semantic-internal-link-rejection.yaml",
+      "related_decisions": [
+        "DEC-IMP-001"
+      ]
+    },
+    {
+      "id": "PT-EVD-007",
+      "name": "Evidence Transparency",
+      "category": "evidence",
+      "version": "1.1.0",
+      "status": "active",
+      "path": "patterns/definitions/evidence/PT-EVD-007-evidence-transparency.yaml",
+      "related_decisions": [
+        "DEC-IMP-001"
+      ]
+    },
+    {
+      "id": "PT-SEC-009",
+      "name": "Conditional Editorial Conclusion",
+      "category": "section",
+      "version": "1.1.0",
+      "status": "active",
+      "path": "patterns/definitions/section/PT-SEC-009-conditional-editorial-conclusion.yaml",
+      "related_decisions": [
+        "DEC-IMP-001"
       ]
     }
   ]

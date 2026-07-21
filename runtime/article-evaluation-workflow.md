@@ -104,3 +104,8 @@ L1/S5などの不自然な組み合わせは欠陥。
 - 良かった判断
 - 最も重要な問題
 - 次の記事で観察すべき点
+
+
+## 7. Shared Editorial Knowledge評価（v1.1.0）
+
+差分評価の前に`runtime/shared-editorial-application.md`に従い、Intent Gap、Hidden Anxiety、SERP Entity、Evidence、内部リンク意味評価を作成する。これらは局所改善の判断材料であり、Preservation・Change Budget・Rewrite Level/Scopeを上書きしない。
