@@ -30,3 +30,6 @@ next_review_at: '2027-01-17'
 - 不採用: 検索意図または本文の流れに合わない。
 
 URLまたはタイトルを確認できない候補はHTMLリンクとして出力しない。
+
+## v1.1.1 clarification
+保留は、関連性があるが今回のChange Budget外、本文修正時にのみ自然に接続できる、または読者導線が弱い場合にも使用する。採用しない限り `changes.internal_links` はfalseとする。

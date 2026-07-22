@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1 - 2026-07-22
+- 運用試験LearningをWriter Runtimeへ反映。
+- LOW_SAMPLE説明、confidence基準、Canonical JSON方針を強化。
+- 内部リンク保留、既存本文反映、中心主張優先検証を追加。
+- Shared Editorial Knowledge v1.1.1へ同期。
+
 ## 1.1.0 - 2026-07-21
 
 - Promoted seven Shared Editorial Knowledge capabilities to production.
