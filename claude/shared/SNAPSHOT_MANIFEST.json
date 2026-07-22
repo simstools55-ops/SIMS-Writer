@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "1.1.0",
-  "integrated_version": "1.1.0",
+  "source_version": "1.1.1",
+  "integrated_version": "1.1.1",
   "files": [
     {
       "path": ".gitignore",
@@ -9,7 +9,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "f083eb920144f289e3913edeb143a4e0970a0e34805964167a65c2b2c231d042"
+      "sha256": "26271b6dc73272d09d93f0a22b7a6d648b6e513bdd8f5f6154def82362af8171"
     },
     {
       "path": "LICENSE",
@@ -17,15 +17,15 @@
     },
     {
       "path": "README.md",
-      "sha256": "b31ed744db4614091ff1094063ded78fd939af582f6c9e1ce7e3377081ae7550"
+      "sha256": "507441a041e8d7221e4109eed70eb9379533047a2fccad722b896b6aaeb71fa6"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "542f03a2a5171ba6c77ef52cfe351b1126b2bc0fadef46df2721ce66eb64b606"
+      "sha256": "bbc169a37d80f3f5c2a07712f92ede48ea7ca36fc2498ac22b084b5889b4d00b"
     },
     {
       "path": "VERSION",
-      "sha256": "1575e1af4a95f12f70b4ee6a6adce8160953d93ea17dc2611b90883ccc3ad3b8"
+      "sha256": "cc52f678848b814373757b460383bf61960e4943c203735adde0a350b3e50989"
     },
     {
       "path": "docs/integration-policy.md",
@@ -36,6 +36,14 @@
       "sha256": "5a6182675e3694675e500208c8f35994d5d7cb3d53d4b4fcb8049f7bc62db8ad"
     },
     {
+      "path": "knowledge/buyer-trust-and-freshness.md",
+      "sha256": "e3254c8c3eb8dc34b5a8c5bd33c446738bd3c3cb8ab26d4c63390b78608e5238"
+    },
+    {
+      "path": "knowledge/central-claim-evidence-priority.md",
+      "sha256": "321dc11dfccb7df4360165c381caeb8f5a027be78cc1cff68d6d64fad4df85f1"
+    },
+    {
       "path": "knowledge/conditional-editorial-opinion.md",
       "sha256": "8fa50c7c784bd5a6c58ee2809ca5c7c8187467271e1bcd482938e343668b67f7"
     },
@@ -44,16 +52,36 @@
       "sha256": "7447194b8a903369b59677702ddc97a805a30efaa8f2d83a0c2d7753c870de7f"
     },
     {
+      "path": "knowledge/entity-alias-and-taxonomy-freshness.md",
+      "sha256": "59d658a8b65043c3955f598255859cfda7ceb74d34899e45ba12f5f7a2bebd17"
+    },
+    {
+      "path": "knowledge/evidence-strength-wording.md",
+      "sha256": "35d8ae33b23f3f1c0592a42326459ff6fe4f9509834aa4208826be8a54d4ab06"
+    },
+    {
       "path": "knowledge/evidence-transparency.md",
       "sha256": "f047a073ee9a87c770fd5c148f40378538d8b3ef13b746d069768e360246c3b9"
+    },
+    {
+      "path": "knowledge/existing-content-reflection.md",
+      "sha256": "b16df7ea899eafe72c187e98a1e8341c6f0515e79e15e29c92735dd50caca581"
     },
     {
       "path": "knowledge/faq-evolution.md",
       "sha256": "47512904314a6b2fadc40491b2b078c3c9783dacbf555acd0ac6ebbe1524dfb9"
     },
     {
+      "path": "knowledge/faq-reconstruction.md",
+      "sha256": "52d1c48d61708109c16a3f14b1fc21ac3becf3585f71b8e3f70e0c2b318ffcd5"
+    },
+    {
       "path": "knowledge/freshness-safety.md",
       "sha256": "7a0c522a67e459d3bbea737f0a33b427f8570332e36cd91a0de0a04567f8815b"
+    },
+    {
+      "path": "knowledge/graceful-degradation.md",
+      "sha256": "026c0f3e5d32fe7c3d7981d3f97cb148e8cd45b3f25b57a240f9c736b40b8988"
     },
     {
       "path": "knowledge/hidden-anxiety.md",
@@ -72,6 +100,10 @@
       "sha256": "1d3987667305271f984c16eaa3a31b469335ce3b93bb8357af5a634653ebb85d"
     },
     {
+      "path": "knowledge/source-scope-qualification.md",
+      "sha256": "89d78dc42924fa4cb55a699e2d3002cca98b5b4e54b41a907d10e94f24a95647"
+    },
+    {
       "path": "mappings/article-creator/application-mapping.md",
       "sha256": "a6d4b3abc2122a8ea07085dc2e758189ca523b2181a759515a41396aef479358"
     },
@@ -81,7 +113,15 @@
     },
     {
       "path": "tests/test_repository.py",
-      "sha256": "4fd4f251bb39f46f46355dff9c4775c2c8bdb022d3545414cf3b397926118f6c"
+      "sha256": "39ac6ea45f8d5afebe1cf26104ed650ad83bbfc33b4608b06daf12bc575b06dc"
+    },
+    {
+      "path": "tests/test_v1_1_0_knowledge.py",
+      "sha256": "55b856ad4300cad968c981b2a9f9e1bfb6e6e956f9bf5b8b7a4b8497e1ec54b1"
+    },
+    {
+      "path": "tests/test_v1_1_1_operational_learning.py",
+      "sha256": "e8d4a6bebad32a0fb94eb8940b0332799048c613cbac55960ff5807781fc6a75"
     },
     {
       "path": "validation/shared-knowledge-validation.md",

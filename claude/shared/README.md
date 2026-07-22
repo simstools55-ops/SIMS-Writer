@@ -29,3 +29,7 @@ docs/                      運用・統合ドキュメント
 ## Version
 
 `1.0.0`
+
+
+## v1.1.1 Operational Learning
+中心主張、Evidence表現、データ不足時の縮退、購入情報鮮度を共通ルールとして追加しました。

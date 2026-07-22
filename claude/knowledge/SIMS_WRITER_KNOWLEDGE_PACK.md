@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack v0.2.0
 
-Version: 1.1.0
+Version: 1.1.1
 
 
 # SIMS Writer Quality Specification v0.2.0
@@ -277,3 +277,7 @@ Before/After article prose must be rendered as Markdown blockquotes. Raw HTML wr
 Do not claim featured-snippet, FAQ-rich-result, voice-search, or guaranteed CTR effects. Describe user-facing clarity and intent alignment instead.
 
 Apply specialist validation for privacy/redaction, food safety, app pricing/freshness, named-person attribution, income/demand claims, and language/etymology.
+
+
+# v1.1.1 Operational Learning
+Shared v1.1.1の中心主張優先、Source Scope、Evidence強度、Graceful Degradation、FAQ再構成、Buyer Trustを必須参照する。
