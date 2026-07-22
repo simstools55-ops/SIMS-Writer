@@ -25,8 +25,8 @@ def test_required_files_exist():
     assert not missing, f"Missing required files: {missing}"
 
 
-def test_version_is_1_1_0():
-    assert (ROOT / "VERSION").read_text(encoding="utf-8").strip() == "1.1.1"
+def test_version_is_current():
+    assert (ROOT / "VERSION").read_text(encoding="utf-8").strip() == "1.1.2"
 
 
 def test_no_empty_markdown_files():

@@ -1,7 +1,8 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "1.1.1",
-  "integrated_version": "1.1.1",
+  "source_version": "1.1.2",
+  "integrated_version": "1.1.2",
+  "snapshot_policy": "read-only verified release snapshot",
   "files": [
     {
       "path": ".gitignore",
@@ -20,12 +21,8 @@
       "sha256": "507441a041e8d7221e4109eed70eb9379533047a2fccad722b896b6aaeb71fa6"
     },
     {
-      "path": "SOURCE.md",
-      "sha256": "bbc169a37d80f3f5c2a07712f92ede48ea7ca36fc2498ac22b084b5889b4d00b"
-    },
-    {
       "path": "VERSION",
-      "sha256": "cc52f678848b814373757b460383bf61960e4943c203735adde0a350b3e50989"
+      "sha256": "77123b8e4bdbd54505bf6e8021527ac60281602a06fe307564532c4dba39dbca"
     },
     {
       "path": "docs/integration-policy.md",
@@ -109,11 +106,11 @@
     },
     {
       "path": "mappings/writer/application-mapping.md",
-      "sha256": "84d053d0956eea85f05988afa67a71b5b49a5b14fe35cc7bc070d7b68fc2e564"
+      "sha256": "3127beeb9386f077276edc3a5c55086713505e56c9949c2c66665f4c4cbaab2f"
     },
     {
       "path": "tests/test_repository.py",
-      "sha256": "39ac6ea45f8d5afebe1cf26104ed650ad83bbfc33b4608b06daf12bc575b06dc"
+      "sha256": "df7dbbbb46b35235a1c8a0333d3b609e523bd8b790b645a1c3214c79287bf2e0"
     },
     {
       "path": "tests/test_v1_1_0_knowledge.py",
@@ -121,7 +118,11 @@
     },
     {
       "path": "tests/test_v1_1_1_operational_learning.py",
-      "sha256": "e8d4a6bebad32a0fb94eb8940b0332799048c613cbac55960ff5807781fc6a75"
+      "sha256": "2f872b150f8a4a090e3fa6426f77502ce143ada46043918ad86d98600e1ad443"
+    },
+    {
+      "path": "tests/test_v1_1_2_writer_mapping.py",
+      "sha256": "1aa45358e2830f04e14b49abd0d2ae06ac608a5cc7dde5260100ddebc549e319"
     },
     {
       "path": "validation/shared-knowledge-validation.md",

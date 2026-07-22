@@ -22,3 +22,8 @@
 - `main_query`へ説明文が混ざらない
 - 本文セクション追加時は`changes.body=true`
 - 未確認URLが`adopted`にならない
+
+
+## v1.1.2 Sprint 1 product guides
+
+Claude Projectは`product/quality/QUALITY_FRAMEWORK.md`、`product/platform/SIMS_PLATFORM_GUIDE.md`、`product/roadmap/WRITER_v1.1.2_IMPROVEMENT_PLAN.md`をWriter本体と同一内容で参照します。

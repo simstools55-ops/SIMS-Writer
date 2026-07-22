@@ -13,4 +13,4 @@ def test_operational_learning_files_exist():
         assert (ROOT / "knowledge" / name).is_file(), name
 
 def test_version():
-    assert (ROOT / "VERSION").read_text(encoding="utf-8").strip() == "1.1.1"
+    assert (ROOT / "VERSION").read_text(encoding="utf-8").strip() == "1.1.2"

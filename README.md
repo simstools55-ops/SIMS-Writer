@@ -1,4 +1,4 @@
-# SIMS Writer v1.1.1
+# SIMS Writer v1.1.2
 
 Google Search Console等の実データをもとに、既存記事を壊さず局所改善するための品質・契約・Knowledge・Pattern中心のリライトシステムです。
 
@@ -30,3 +30,10 @@ SIMS Writerは、独立製品`SIMS-Shared-Editorial-Knowledge`を正本として
 
 ## v1.1.1
 運用試験で確認したEvidence、LOW_SAMPLE、Canonical JSON、内部リンク保留ルールを反映。
+
+## v1.1.2 Sprint 1
+
+- `product/platform/SIMS_PLATFORM_GUIDE.md`：公開先形式とSite Fitの適用ガイド
+- `product/quality/QUALITY_FRAMEWORK.md`：既存Quality資産の統合運用フレームワーク
+- `product/roadmap/WRITER_v1.1.2_IMPROVEMENT_PLAN.md`：承認済みSprint実装計画
+- Shared Knowledgeの正本性、Writer固有責務、Claude Project同期を明文化
