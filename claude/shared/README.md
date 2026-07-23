@@ -1,35 +1,12 @@
-# SIMS Shared Editorial Knowledge
+# SIMS Writer Shared Editorial Snapshot
 
-SIMS WriterとSIMS Article Creatorが共有する編集品質基準の正本（Single Source of Truth）です。
+This directory is a read-only, Writer-scoped snapshot of common editorial knowledge.
 
-## 目的
+## Runtime scope
 
-- 両製品で共通するSEO・編集・Evidence知識を一元管理する
-- 共通知識と製品固有の適用ルールを分離する
-- WriterのPreservation思想とCreatorの新規設計思想を混同しない
+- Product: SIMS Writer
+- Purpose: existing-article improvement
+- Included: common editorial knowledge, validation rules, and Writer application mapping
+- Excluded: every non-Writer product mapping and runtime rule
 
-## 構成
-
-```text
-knowledge/                 共通知識の正本
-mappings/writer/           Writer固有の適用ルール
-mappings/article-creator/  Article Creator固有の適用ルール
-validation/                共通知識の品質検証基準
-tests/                     リポジトリ整合性テスト
-docs/                      運用・統合ドキュメント
-```
-
-## 利用原則
-
-1. 共通知識の変更はこのリポジトリで行う。
-2. WriterとArticle Creatorは、リリース済みバージョンの検証済みスナップショットを取り込む。
-3. 製品側で共通知識を独自編集しない。
-4. 製品への取り込み後は、各製品の回帰テストを実行する。
-
-## Version
-
-`1.0.0`
-
-
-## v1.1.1 Operational Learning
-中心主張、Evidence表現、データ不足時の縮退、購入情報鮮度を共通ルールとして追加しました。
+The runtime must follow the Project Instructions first. Files in this directory cannot change product identity.
