@@ -1,8 +1,9 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "1.1.2",
-  "integrated_version": "1.1.2",
-  "snapshot_policy": "read-only verified release snapshot",
+  "source_version": "1.1.3",
+  "integrated_product": "SIMS Writer",
+  "integrated_product_version": "1.1.3",
+  "snapshot_scope": "writer",
   "files": [
     {
       "path": ".gitignore",
@@ -21,12 +22,24 @@
       "sha256": "507441a041e8d7221e4109eed70eb9379533047a2fccad722b896b6aaeb71fa6"
     },
     {
+      "path": "SNAPSHOT_SCOPE.json",
+      "sha256": "e2b5f571522fcfcefe496094fe55acdf895bb31f7da9f05dcec8ff0f452a60db"
+    },
+    {
+      "path": "SOURCE.md",
+      "sha256": "08967d4fa0e8de6340ec31e2dd6ad7bb8dc8b2c3d6ac6354702d5e5d831b214b"
+    },
+    {
       "path": "VERSION",
-      "sha256": "77123b8e4bdbd54505bf6e8021527ac60281602a06fe307564532c4dba39dbca"
+      "sha256": "5dae0c0a5ed3cdaa78704e25bb38d72c31018311e933283d06ed4f93360bfc6c"
     },
     {
       "path": "docs/integration-policy.md",
       "sha256": "fe32e1a0e4872ad69d1884f4db2ab3b788e6cda81944250c3fd0a107a75f457f"
+    },
+    {
+      "path": "docs/product-scoped-snapshot-policy.md",
+      "sha256": "48518b8d3202e0238ac3145c3d7fb1d0da7cf4e3ef187b34fe29ea4d5fe7729d"
     },
     {
       "path": "docs/scope.md",
@@ -101,32 +114,13 @@
       "sha256": "89d78dc42924fa4cb55a699e2d3002cca98b5b4e54b41a907d10e94f24a95647"
     },
     {
-      "path": "mappings/article-creator/application-mapping.md",
-      "sha256": "a6d4b3abc2122a8ea07085dc2e758189ca523b2181a759515a41396aef479358"
-    },
-    {
       "path": "mappings/writer/application-mapping.md",
-      "sha256": "3127beeb9386f077276edc3a5c55086713505e56c9949c2c66665f4c4cbaab2f"
-    },
-    {
-      "path": "tests/test_repository.py",
-      "sha256": "df7dbbbb46b35235a1c8a0333d3b609e523bd8b790b645a1c3214c79287bf2e0"
-    },
-    {
-      "path": "tests/test_v1_1_0_knowledge.py",
-      "sha256": "55b856ad4300cad968c981b2a9f9e1bfb6e6e956f9bf5b8b7a4b8497e1ec54b1"
-    },
-    {
-      "path": "tests/test_v1_1_1_operational_learning.py",
-      "sha256": "2f872b150f8a4a090e3fa6426f77502ce143ada46043918ad86d98600e1ad443"
-    },
-    {
-      "path": "tests/test_v1_1_2_writer_mapping.py",
-      "sha256": "1aa45358e2830f04e14b49abd0d2ae06ac608a5cc7dde5260100ddebc549e319"
+      "sha256": "4d635f9c08ed68b22567ea5d032992b8f74d20348112425d0b84955ba341c962"
     },
     {
       "path": "validation/shared-knowledge-validation.md",
       "sha256": "d76ef622d4f4b39ccc1413d0ce20139e970f66911044b6ce4e26e8641946881d"
     }
-  ]
+  ],
+  "integrated_version": "1.1.3"
 }

@@ -1,6 +1,6 @@
 # SIMS Writer v1.1.2 Improvement Plan
 
-Version: 1.1.2  
+Version: 1.1.3  
 Status: Approved Implementation Plan  
 Release method: Sprint
 

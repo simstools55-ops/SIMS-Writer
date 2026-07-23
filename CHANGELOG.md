@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.3 - 2026-07-23
+
+### Fixed
+- Excluded Article Creator mapping from Writer Shared snapshots.
+- Added hard Writer identity lock and direct execution rule for existing-article improvement requests.
+- Added regression tests preventing cross-product mapping contamination.
+
 ## 1.1.1 - 2026-07-22
 - 運用試験LearningをWriter Runtimeへ反映。
 - LOW_SAMPLE説明、confidence基準、Canonical JSON方針を強化。

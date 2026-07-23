@@ -14,7 +14,7 @@
 Preservation Score、Rewrite Level、Rewrite Scope、Change Budgetを上書きしない。
 
 
-## v1.1.2 Platform and Quality application boundary
+## v1.1.3 Platform and Quality application boundary
 
 - Shared Editorial Knowledge remains the source of truth for product-neutral editorial knowledge.
 - SIMS Writer applies that knowledge through `product/quality/QUALITY_FRAMEWORK.md`.

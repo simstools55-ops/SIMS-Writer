@@ -1,0 +1,6 @@
+{
+  "target_product": "writer",
+  "included_mapping": "writer",
+  "excluded_mapping": "article-creator",
+  "shared_version": "1.1.3"
+}

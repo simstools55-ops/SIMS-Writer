@@ -23,7 +23,7 @@ RELEASE_NOTES_v1.1.0_RC1.md
 RELEASE_NOTES_v1.1.0_RC2.md
 RELEASE_NOTES_v1.1.0_RC3.md
 RELEASE_NOTES_v1.1.1.md
-RELEASE_NOTES_v1.1.2_SPRINT1.md
+RELEASE_NOTES_v1.1.3_SPRINT1.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/repository/repository-architecture-v1.0.md
@@ -40,7 +40,7 @@ claude/CHANGELOG.md
 claude/CLAUDE_PROJECT_INSTRUCTIONS.md
 claude/FILE_MANIFEST.txt
 claude/README.md
-claude/RELEASE_NOTES_v1.1.2_SPRINT1.md
+claude/RELEASE_NOTES_v1.1.3_SPRINT1.md
 claude/SETUP_GUIDE.md
 claude/SHA256SUMS.txt
 claude/TEST_CHECKLIST.md
@@ -50,7 +50,7 @@ claude/knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md
 claude/manifest.json
 claude/product/platform/SIMS_PLATFORM_GUIDE.md
 claude/product/quality/QUALITY_FRAMEWORK.md
-claude/product/roadmap/WRITER_v1.1.2_IMPROVEMENT_PLAN.md
+claude/product/roadmap/WRITER_v1.1.3_IMPROVEMENT_PLAN.md
 claude/shared/.gitignore
 claude/shared/CHANGELOG.md
 claude/shared/LICENSE
@@ -399,7 +399,7 @@ product/philosophy/product-philosophy-v1.0.md
 product/platform/SIMS_PLATFORM_GUIDE.md
 product/principles/core-principles-v1.0.md
 product/quality/QUALITY_FRAMEWORK.md
-product/roadmap/WRITER_v1.1.2_IMPROVEMENT_PLAN.md
+product/roadmap/WRITER_v1.1.3_IMPROVEMENT_PLAN.md
 product/roadmap/product-roadmap.md
 product/specifications/product-specification-v1.0.md
 product/specifications/quality-specification-v0.2.0.md
