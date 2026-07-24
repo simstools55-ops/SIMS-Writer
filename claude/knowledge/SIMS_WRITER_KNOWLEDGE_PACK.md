@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack v0.2.0
 
-Version: 1.3.4
+Version: 1.3.5
 
 
 # SIMS Writer Quality Specification v0.2.0

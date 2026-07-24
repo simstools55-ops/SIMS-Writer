@@ -347,3 +347,8 @@
 
 ## 1.3.4
 - Added platform-neutral self QA runtime contract and review trace.
+
+## 1.3.5 - Final Output Integration
+- Added canonical final publication view and QA metadata extension.
+- Added release-content suppression for held drafts.
+- Added publication output regression tests.

@@ -12,7 +12,7 @@ from .quality.engine import QualityValidationEngine
 from .quality.foundation import QualityFoundationValidator
 from .refinement.engine import TargetedRefinementEngine
 from .editorial_signals import build_editorial_signals
-from .qa import PublicationQAEngine
+from .qa import PublicationQAEngine, apply_qa_to_feedback, build_publication_view
 
 class RuntimeOrchestrator:
     def __init__(self, repo_root: Path, adapter: ProductionAdapter | None = None):
@@ -99,6 +99,7 @@ class RuntimeOrchestrator:
                 "experience_verified": bool(draft.get("experience_verified", False)),
                 "model_assisted_checks": draft.get("model_assisted_checks", {}),
             }
+            initial_draft = dict(draft)
             qa_result = self.publication_qa.review(request, draft, quality_context)
             artifacts["publication_qa"] = qa_result
             artifacts["quality_report"] = qa_result["final_quality_report"]
@@ -124,7 +125,28 @@ class RuntimeOrchestrator:
             else:
                 self._pass(records, "refinement")
 
-            artifacts["publication_package"] = {"publish_decision":decision,"qa_verdict":verdict,"release_action":qa_result["release_action"],"article_content":draft.get("article_content"),"seo_title":draft.get("seo_title"),"meta_description":draft.get("meta_description"),"h1":draft.get("h1"),"quality_summary":artifacts["quality_report"],"quality_foundation":artifacts["quality_foundation_report"],"refinement_summary":refinement,"runtime_notice":"Publication QA evaluated the draft, applied eligible targeted fixes, re-evaluated the result, and packaged only the final reviewed version."}
+            publication_view = build_publication_view(initial_draft, qa_result)
+            artifacts["publication_view"] = publication_view
+            artifacts["feedback_with_qa"] = apply_qa_to_feedback(draft.get("feedback"), publication_view)
+            artifacts["publication_package"] = {
+                "publish_decision": decision,
+                "qa_verdict": verdict,
+                "release_action": qa_result["release_action"],
+                "publishable": qa_result["publishable"],
+                "public_message": publication_view["public_message"],
+                "qa_change_components": [item["component"] for item in publication_view["qa_changes"]],
+                "advisories": publication_view["advisories"],
+                "article_content": draft.get("article_content") if qa_result["publishable"] else None,
+                "seo_title": draft.get("seo_title") if qa_result["publishable"] else None,
+                "meta_description": draft.get("meta_description") if qa_result["publishable"] else None,
+                "h1": draft.get("h1") if qa_result["publishable"] else None,
+                "held_draft": draft if not qa_result["publishable"] else None,
+                "feedback": artifacts["feedback_with_qa"],
+                "quality_summary": artifacts["quality_report"],
+                "quality_foundation": artifacts["quality_foundation_report"],
+                "refinement_summary": refinement,
+                "runtime_notice": "Publication QA evaluated the draft, applied eligible targeted fixes, re-evaluated the result, and packaged only the final reviewed version.",
+            }
             if not qa_result["publishable"]: self._manual(records, "publication_packaging", f"Package held by Publication QA: {verdict}")
             elif verdict == "PASS_WITH_WARNING": self._warn(records, "publication_packaging", "Package generated with advisory")
             elif verdict == "PASS_WITH_MINOR_FIX": self._warn(records, "publication_packaging", "Corrected package generated after automatic minor fix")

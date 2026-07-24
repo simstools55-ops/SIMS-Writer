@@ -30,6 +30,7 @@ RELEASE_NOTES_v1.3.0_QUALITY_VALIDATION_HARDENING.md
 RELEASE_NOTES_v1.3.2_PUBLICATION_QA_FOUNDATION.md
 RELEASE_NOTES_v1.3.3_REGRESSION_EVALUATION_PROFILES.md
 RELEASE_NOTES_v1.3.4_SELF_QA_RUNTIME.md
+RELEASE_NOTES_v1.3.5_FINAL_OUTPUT_INTEGRATION.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/domain/editorial-qa-boundary-v1.0.md
@@ -45,6 +46,7 @@ archive/sims-core/review/remove/README.md
 changes/index.yaml
 claude/CHANGELOG.md
 claude/CLAUDE_PROJECT_INSTRUCTIONS.md
+claude/FINAL_OUTPUT_INTEGRATION_INSTRUCTIONS.md
 claude/PROJECT_INSTRUCTIONS_TO_PASTE.md
 claude/PROJECT_RESET_CHECKLIST.md
 claude/QA_FINAL_REVIEW_CHECKLIST.md
@@ -54,6 +56,7 @@ claude/RELEASE_NOTES_v1.3.0_QUALITY_VALIDATION_HARDENING.md
 claude/RELEASE_NOTES_v1.3.2_PUBLICATION_QA_FOUNDATION.md
 claude/RELEASE_NOTES_v1.3.3_REGRESSION_EVALUATION_PROFILES.md
 claude/RELEASE_NOTES_v1.3.4_SELF_QA_RUNTIME.md
+claude/RELEASE_NOTES_v1.3.5_FINAL_OUTPUT_INTEGRATION.md
 claude/SELF_QA_RUNTIME_INSTRUCTIONS.md
 claude/SETUP_GUIDE.md
 claude/TEST_CHECKLIST.md
@@ -96,6 +99,7 @@ claude/shared/knowledge/evidence-transparency.md
 claude/shared/knowledge/existing-content-reflection.md
 claude/shared/knowledge/faq-evolution.md
 claude/shared/knowledge/faq-reconstruction.md
+claude/shared/knowledge/final-publication-output-principles.md
 claude/shared/knowledge/freshness-safety.md
 claude/shared/knowledge/graceful-degradation.md
 claude/shared/knowledge/hidden-anxiety.md
@@ -521,6 +525,7 @@ runtime/diagnosis-decision-table.md
 runtime/diagnosis-to-improvement-map.md
 runtime/evidence-audit.md
 runtime/feedback-loop.md
+runtime/final-publication-output-v1.0.md
 runtime/gate-decision-matrix.md
 runtime/gate-rules.md
 runtime/improvement-strategy-engine.md
@@ -577,6 +582,7 @@ runtime/sims_writer_runtime/output_contract.py
 runtime/sims_writer_runtime/publish_quality.py
 runtime/sims_writer_runtime/qa/__init__.py
 runtime/sims_writer_runtime/qa/contracts.py
+runtime/sims_writer_runtime/qa/presentation.py
 runtime/sims_writer_runtime/qa/publication_qa.py
 runtime/sims_writer_runtime/quality/__init__.py
 runtime/sims_writer_runtime/quality/engine.py
@@ -621,6 +627,7 @@ shared/knowledge/evidence-transparency.md
 shared/knowledge/existing-content-reflection.md
 shared/knowledge/faq-evolution.md
 shared/knowledge/faq-reconstruction.md
+shared/knowledge/final-publication-output-principles.md
 shared/knowledge/freshness-safety.md
 shared/knowledge/graceful-degradation.md
 shared/knowledge/hidden-anxiety.md
@@ -685,6 +692,7 @@ tests/migration/test_sims_core_migration.py
 tests/model-adapters/test_model_adapters.py
 tests/patterns/test_v1_1_0_editorial_patterns.py
 tests/publication-qa/test_official_regression_suite.py
+tests/publication-qa/test_publication_output.py
 tests/publication-qa/test_publication_qa.py
 tests/publication-qa/test_self_review_runtime.py
 tests/quality-freeze/examples/invalid-budget-v2.json
