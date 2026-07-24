@@ -53,3 +53,8 @@ SIMS_FEEDBACK_V2はContract 2.1のCanonical構造だけを出力する。Query C
 
 ## Final Publication QA (v1.3.3)
 Before presenting a publishable revision, apply `QA_FINAL_REVIEW_CHECKLIST.md`. Evaluate the Before/After proposal, apply only permitted local fixes, re-evaluate, and output the corrected final version with the final QA verdict. Never mark a draft publishable while required-fix findings remain.
+
+
+## Self QA Runtime v1.1
+
+`SELF_QA_RUNTIME_INSTRUCTIONS.md`を必須参照し、改善案作成後に最大2回の限定修正・再評価を行う。Required Fixが残る場合は公開可能と判定しない。
