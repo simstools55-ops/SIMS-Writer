@@ -77,6 +77,7 @@ class PublicationQAEngine:
             "final_verdict": final_verdict,
             "publishable": publishable,
             "auto_fix_applied": any_fix,
+            "auto_fixes": self._auto_fixes(all_revision_records),
             "review_cycles_used": len(cycles),
             "review_trace": cycles,
             "initial_quality_report": initial_quality,
@@ -128,6 +129,18 @@ class PublicationQAEngine:
     def _record_allowed(record: dict[str, Any], policy: QAReviewPolicy) -> bool:
         routes = record.get("routes") or []
         return bool(routes) and all(r.get("recovery_type") in policy.allowed_auto_fix_classes for r in routes)
+
+    @staticmethod
+    def _auto_fixes(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        fixes=[]
+        for record in records:
+            routes=record.get("routes") or []
+            fixes.append({
+                "component": record.get("component") or record.get("target_component") or "unknown",
+                "action": record.get("action") or record.get("revision_type") or "targeted_revision",
+                "rules": [r.get("rule_id") or r.get("recovery_type") for r in routes if r.get("rule_id") or r.get("recovery_type")],
+            })
+        return fixes
 
     @staticmethod
     def _release_action(verdict: str) -> str:

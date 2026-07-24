@@ -228,17 +228,10 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "target",
-          "implementation_status",
-          "before",
-          "after",
-          "reason"
+          "component",
+          "implementation_status"
         ],
         "properties": {
-          "target": {
-            "type": "string",
-            "minLength": 1
-          },
           "implementation_status": {
             "enum": [
               "proposed",
@@ -252,19 +245,26 @@
             "type": [
               "string",
               "null"
-            ]
+            ],
+            "minLength": 1
           },
           "after": {
             "type": [
               "string",
               "null"
-            ]
+            ],
+            "minLength": 1
           },
           "reason": {
             "type": [
               "string",
               "null"
-            ]
+            ],
+            "minLength": 1
+          },
+          "component": {
+            "type": "string",
+            "minLength": 1
           }
         }
       }
@@ -430,10 +430,10 @@
         "final_verdict",
         "publishable",
         "release_action",
-        "auto_fix_applied",
         "review_cycles_used",
         "review_trace",
-        "unresolved_findings"
+        "unresolved_findings",
+        "auto_fixes"
       ],
       "properties": {
         "contract": {
@@ -472,9 +472,6 @@
             "null"
           ]
         },
-        "auto_fix_applied": {
-          "type": "boolean"
-        },
         "review_cycles_used": {
           "type": "integer",
           "minimum": 0,
@@ -497,7 +494,61 @@
           "items": {
             "type": "string"
           }
+        },
+        "auto_fixes": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "auto_fix_applied": {
+          "type": "boolean",
+          "deprecated": true
         }
+      }
+    },
+    "internal_link_evaluation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "decision",
+          "reason"
+        ],
+        "properties": {
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "decision": {
+            "enum": [
+              "adopted",
+              "held",
+              "rejected",
+              "existing"
+            ]
+          },
+          "implementation_status": {
+            "enum": [
+              "implemented",
+              "not_implemented",
+              "pending_verification"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
       }
     }
   }

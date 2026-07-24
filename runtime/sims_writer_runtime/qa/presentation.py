@@ -42,11 +42,13 @@ def build_publication_view(initial_draft: dict[str, Any], qa_result: dict[str, A
         "qa_contract": qa_result.get("qa_contract", "SIMS_EDITORIAL_QA_V1"),
         "qa_engine_version": qa_result.get("qa_engine_version"),
         "publication_verdict": verdict,
+        "publication_verdict_label": _verdict_label(verdict),
         "initial_verdict": qa_result.get("initial_verdict", verdict),
         "publishable": publishable,
         "release_action": qa_result.get("release_action"),
         "public_message": _public_message(verdict),
         "auto_fix_applied": bool(qa_result.get("auto_fix_applied")),
+        "auto_fixes": deepcopy(qa_result.get("auto_fixes") or []),
         "review_cycles_used": int(qa_result.get("review_cycles_used") or 0),
         "review_trace": deepcopy(qa_result.get("review_trace") or []),
         "unresolved_findings": _unresolved_findings(qa_result),
@@ -69,6 +71,7 @@ def apply_qa_to_feedback(feedback: dict[str, Any] | None, publication_view: dict
         "publishable": publication_view["publishable"],
         "release_action": publication_view["release_action"],
         "auto_fix_applied": publication_view["auto_fix_applied"],
+        "auto_fixes": publication_view["auto_fixes"],
         "review_cycles_used": publication_view["review_cycles_used"],
         "review_trace": publication_view["review_trace"],
         "unresolved_findings": publication_view["unresolved_findings"],
@@ -124,3 +127,13 @@ def _unresolved_findings(qa_result: dict[str, Any]) -> list[dict[str, Any]]:
                 if normalized not in findings:
                     findings.append(normalized)
     return findings
+
+
+def _verdict_label(verdict: str) -> str:
+    return {
+        "PASS": "公開可能",
+        "PASS_WITH_WARNING": "注意事項付きで公開可能",
+        "PASS_WITH_MINOR_FIX": "軽微な修正後に公開可能",
+        "PASS_WITH_REQUIRED_FIX": "修正後に公開可能",
+        "FAIL": "公開不可",
+    }.get(verdict, "判定不明")

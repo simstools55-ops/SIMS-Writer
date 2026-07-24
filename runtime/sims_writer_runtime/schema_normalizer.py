@@ -58,13 +58,19 @@ def normalize_feedback(payload: dict[str,Any]) -> dict[str,Any]:
         changes=[]
         for target,changed in flags.items():
             if changed:
-                changes.append({"target":target,"implementation_status":"implemented","before":None,"after":new_values.get(target),"reason":"normalized from legacy change_flags"})
+                changes.append({"component":target,"implementation_status":"implemented","after":new_values.get(target),"reason":"normalized from legacy change_flags"})
     normalized=[]
     for item in changes:
         if not isinstance(item,dict): continue
         status=item.get("implementation_status") or item.get("status") or "implemented"
         if status not in STATUSES: status="implemented"
-        normalized.append({"target":item.get("target") or item.get("component") or "unknown","implementation_status":status,"before":item.get("before"),"after":item.get("after"),"reason":item.get("reason")})
+        if status in {"not_implemented", "not_applicable"}:
+            continue
+        change={"component":item.get("component") or item.get("target") or "unknown","implementation_status":status}
+        if item.get("before") not in (None, ""): change["before"]=item.get("before")
+        if item.get("after") not in (None, ""): change["after"]=item.get("after")
+        if item.get("reason") not in (None, ""): change["reason"]=item.get("reason")
+        normalized.append(change)
     p["changes"]=normalized
 
     if isinstance(new_values,dict): p["new_values"]={k:v for k,v in new_values.items() if v is not None and v!=""}
@@ -78,10 +84,20 @@ def normalize_feedback(payload: dict[str,Any]) -> dict[str,Any]:
     warned=list(val.get("warning_rules") or [])
     for check in checks:
         if not isinstance(check,dict) or not check.get("code"): continue
+        if not str(check.get("message") or "").strip():
+            check["message"] = f"{check['code']} の確認を完了"
         status=str(check.get("status") or "").upper()
         bucket=passed if status=="PASS" else failed if status=="FAIL" else warned
         if check["code"] not in bucket: bucket.append(check["code"])
     p["validation"]={"result":val.get("result") or val.get("status") or "UNVERIFIABLE","checks":checks,"failed_rules":failed,"warning_rules":warned,"passed_rules":passed,"notes":val.get("notes") or []}
+
+
+    ile=p.get("internal_link_evaluation")
+    if isinstance(ile,dict):
+        p["internal_link_evaluation_summary"]=_clean(ile)
+        p["internal_link_evaluation"]=[]
+    elif not isinstance(ile,list):
+        p["internal_link_evaluation"]=[]
 
     p["warnings"]=p.get("warnings") or []
     p["information"]=p.get("information") or []
