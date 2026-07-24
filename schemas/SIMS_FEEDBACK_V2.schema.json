@@ -1,52 +1,37 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://sims-writer.local/schemas/SIMS_FEEDBACK_V2-v2.0.schema.json",
-  "title": "SIMS_FEEDBACK_V2 v2.0",
+  "$id": "https://sims-writer.local/schemas/SIMS_FEEDBACK_V2.schema.json",
+  "title": "SIMS Feedback V2.1 Canonical",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "format",
-    "version",
+    "contract_version",
     "article_id",
     "url",
-    "decision",
-    "improvement_necessity",
-    "primary_intent",
+    "status",
     "diagnosis",
+    "primary_intent",
+    "query_coverage",
     "preservation_score",
     "change_budget_percent",
     "rewrite_level",
     "rewrite_scope",
-    "risk",
-    "summary",
-    "protected_elements",
+    "risk_level",
     "changes",
-    "change_flags",
-    "new_values",
-    "main_query_source",
-    "execution_mode",
-    "estimated_fields",
+    "protected_elements",
+    "implementation_status",
+    "validation",
     "warnings",
     "information",
-    "validation",
-    "next_action",
-    "confidence"
+    "recommendation_reason"
   ],
   "properties": {
     "format": {
       "const": "SIMS_FEEDBACK_V2"
     },
-    "version": {
-      "const": "2.0"
-    },
-    "site_id": {
-      "type": "string"
-    },
-    "site_name": {
-      "type": "string"
-    },
-    "site_url": {
-      "type": "string"
+    "contract_version": {
+      "const": "2.1"
     },
     "article_id": {
       "type": "string",
@@ -56,45 +41,97 @@
       "type": "string",
       "minLength": 1
     },
-    "decision": {
+    "status": {
       "enum": [
         "PASS",
         "PASS_WITH_WARNING",
-        "REVIEW_REQUIRED",
-        "BLOCK"
+        "IMPROVEMENT_REQUIRED",
+        "NO_CHANGE",
+        "FAIL"
       ]
     },
-    "improvement_necessity": {
-      "enum": [
-        "IMPROVEMENT_RECOMMENDED",
-        "MINOR_IMPROVEMENT",
-        "KEEP_CURRENT"
-      ]
+    "diagnosis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "confidence",
+        "reasons"
+      ],
+      "properties": {
+        "code": {
+          "enum": [
+            "POSITION_OPPORTUNITY",
+            "LOW_SAMPLE",
+            "CTR_OPPORTUNITY",
+            "CONTENT_GAP",
+            "INTENT_MISMATCH",
+            "QUERY_MIX",
+            "STABLE",
+            "UNKNOWN"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     },
     "primary_intent": {
       "type": "string",
       "minLength": 1
     },
-    "secondary_intent": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "diagnosis": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "enum": [
-          "POSITION_OPPORTUNITY",
-          "CONTENT_OPPORTUNITY",
-          "LOW_SAMPLE",
-          "STRONG_CURRENT_PERFORMANCE",
-          "INTENT_MISMATCH",
-          "EVIDENCE_GAP",
-          "INPUT_INCOMPLETE",
-          "OTHER"
-        ]
+    "query_coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "confidence",
+        "primary",
+        "secondary",
+        "adjacent",
+        "separate_article"
+      ],
+      "properties": {
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "primary": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secondary": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "adjacent": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "separate_article": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
     "preservation_score": {
@@ -103,7 +140,7 @@
       "maximum": 100
     },
     "change_budget_percent": {
-      "type": "integer",
+      "type": "number",
       "minimum": 0,
       "maximum": 100
     },
@@ -126,22 +163,12 @@
         "S5"
       ]
     },
-    "risk": {
+    "risk_level": {
       "enum": [
         "LOW",
         "MEDIUM",
         "HIGH"
       ]
-    },
-    "summary": {
-      "type": "string"
-    },
-    "protected_elements": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "uniqueItems": true
     },
     "changes": {
       "type": "array",
@@ -150,33 +177,36 @@
         "additionalProperties": false,
         "required": [
           "target",
+          "status",
           "before",
           "after",
-          "expected_effect",
           "reason"
         ],
         "properties": {
           "target": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
             "enum": [
-              "seo_title",
-              "meta_description",
-              "introduction",
-              "heading",
-              "body",
-              "faq",
-              "internal_link",
-              "conclusion",
-              "other"
+              "proposed",
+              "approved",
+              "implemented",
+              "not_implemented",
+              "not_applicable"
             ]
           },
           "before": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "after": {
-            "type": "string"
-          },
-          "expected_effect": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "reason": {
             "type": "string"
@@ -184,88 +214,62 @@
         }
       }
     },
-    "change_flags": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "seo_title",
-        "meta_description",
-        "introduction",
-        "headings",
-        "body",
-        "faq",
-        "internal_links",
-        "conclusion"
-      ],
-      "properties": {
-        "seo_title": {
-          "type": "boolean"
-        },
-        "meta_description": {
-          "type": "boolean"
-        },
-        "introduction": {
-          "type": "boolean"
-        },
-        "headings": {
-          "type": "boolean"
-        },
-        "body": {
-          "type": "boolean"
-        },
-        "faq": {
-          "type": "boolean"
-        },
-        "internal_links": {
-          "type": "boolean"
-        },
-        "conclusion": {
-          "type": "boolean"
-        }
-      }
-    },
-    "new_values": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "seo_title",
-        "meta_description"
-      ],
-      "properties": {
-        "seo_title": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "meta_description": {
-          "type": [
-            "string",
-            "null"
-          ]
-        }
-      }
-    },
-    "main_query_source": {
-      "enum": [
-        "search_console",
-        "manual",
-        "estimated",
-        "unavailable"
-      ]
-    },
-    "execution_mode": {
-      "enum": [
-        "standard",
-        "graceful_degradation"
-      ]
-    },
-    "estimated_fields": {
+    "protected_elements": {
       "type": "array",
       "items": {
         "type": "string"
       },
       "uniqueItems": true
+    },
+    "implementation_status": {
+      "enum": [
+        "proposed",
+        "approved",
+        "implemented",
+        "not_implemented",
+        "not_applicable"
+      ]
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "result",
+        "failed_rules",
+        "warning_rules",
+        "passed_rules"
+      ],
+      "properties": {
+        "result": {
+          "enum": [
+            "PASS",
+            "PASS_WITH_WARNING",
+            "FAIL",
+            "UNVERIFIABLE"
+          ]
+        },
+        "failed_rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "warning_rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "passed_rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
     },
     "warnings": {
       "type": "array",
@@ -279,82 +283,27 @@
         "type": "string"
       }
     },
-    "validation": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "status",
-        "checks",
-        "estimated_change_percent",
-        "notes"
-      ],
-      "properties": {
-        "status": {
-          "enum": [
-            "PASS",
-            "PASS_WITH_WARNING",
-            "FAIL"
-          ]
-        },
-        "checks": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "code",
-              "status",
-              "message"
-            ],
-            "properties": {
-              "code": {
-                "type": "string"
-              },
-              "status": {
-                "enum": [
-                  "PASS",
-                  "WARNING",
-                  "FAIL"
-                ]
-              },
-              "message": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "estimated_change_percent": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 100
-        },
-        "notes": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
+    "recommendation_reason": {
+      "type": "string",
+      "minLength": 1
     },
-    "next_action": {
-      "enum": [
-        "apply",
-        "remeasure",
-        "monitor",
-        "manual_review",
-        "request_input",
-        "stop"
+    "site_id": {
+      "type": [
+        "string",
+        "null"
       ]
     },
-    "confidence": {
-      "enum": [
-        "high",
-        "medium",
-        "low"
+    "site_name": {
+      "type": [
+        "string",
+        "null"
       ]
     },
-    "swls": {
-      "$ref": "../learning/schemas/SWLS_LEARNING_RECORD.schema.json"
+    "site_url": {
+      "type": [
+        "string",
+        "null"
+      ]
     }
   }
 }

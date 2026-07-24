@@ -1,3 +1,10 @@
+# 1.3.0 - Writer Quality & Validation Hardening
+
+- 6つの共通Validationコードを追加
+- Writer/Article Creator Mappingへ共通Validationを接続
+- 製品固有のQuery IntelligenceとJSON ContractをSharedから分離維持
+- Snapshot生成時の版数・Manifest整合性を強化
+
 # Changelog
 
 ## 1.2.0 - 2026-07-24

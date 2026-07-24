@@ -1,6 +1,4 @@
-# Shared Snapshot Source
+# Snapshot Source
 
-Source repository: SIMS-Shared-Editorial-Knowledge
-Source version: 1.2.0
-Integrated for: SIMS Writer 1.2.0
-Target product: writer
+Source: SIMS-Shared-Editorial-Knowledge
+Integrated for: SIMS Writer 1.3.0

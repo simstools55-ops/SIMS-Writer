@@ -1,3 +1,11 @@
+# 1.3.0 - Writer Quality & Validation Hardening
+
+- SIMS_FEEDBACK_V2 Contract 2.1固定
+- Schema Normalizer追加
+- Query Coverage常時表示、QUERY_MIX、Winner Query Preservation強化
+- Shared v1.3.0共通Validation適用
+- Writer/Writer-Claude同期修復
+
 # Changelog
 
 ## 1.2.0 - 2026-07-24

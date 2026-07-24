@@ -1,3 +1,7 @@
+# SIMS_FEEDBACK_V2 Canonical Contract 2.1
+
+Canonical fieldはdiagnosis、changes、query_coverage、implementation_status、validationである。diagnosis_codeとchange_flagsはNormalizer入力互換に限り、最終出力は禁止する。warningsは公開判断へ影響する事項だけ、その他はinformationへ格納する。
+
 # SIMS Feedback JSON Contract v2.0
 
 ## 契約名

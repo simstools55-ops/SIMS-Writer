@@ -81,3 +81,8 @@ Required候補：
 このPattern LibraryはArticle Type Routerではない。
 
 Phase Aでは、検索意図から期待論点を補助生成するためだけに使う。
+
+
+## v1.3.0 Hardening
+
+Query Coverageは常時表示し、Primary／Secondary／Adjacent／Separate Articleへ分類する。Coverage Confidenceをhigh／medium／lowで示す。高CTR語句、完全一致クエリ、エラー文、固有名詞はWinner Query Preservation対象とする。複数意図が競合する場合はQUERY_MIXを検討する。warningは公開判断へ影響する事項に限定し、それ以外はinformationとする。

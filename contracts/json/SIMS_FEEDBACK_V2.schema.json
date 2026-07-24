@@ -1,29 +1,37 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://sims-writer.local/schemas/SIMS_FEEDBACK_V2.schema.json",
-  "title": "SIMS Feedback V2",
+  "title": "SIMS Feedback V2.1 Canonical",
   "type": "object",
   "additionalProperties": false,
   "required": [
+    "format",
     "contract_version",
     "article_id",
     "url",
     "status",
     "diagnosis",
     "primary_intent",
+    "query_coverage",
     "preservation_score",
     "change_budget_percent",
     "rewrite_level",
     "rewrite_scope",
     "risk_level",
-    "changed_sections",
+    "changes",
     "protected_elements",
+    "implementation_status",
     "validation",
+    "warnings",
+    "information",
     "recommendation_reason"
   ],
   "properties": {
+    "format": {
+      "const": "SIMS_FEEDBACK_V2"
+    },
     "contract_version": {
-      "const": "2.0"
+      "const": "2.1"
     },
     "article_id": {
       "type": "string",
@@ -31,7 +39,7 @@
     },
     "url": {
       "type": "string",
-      "format": "uri"
+      "minLength": 1
     },
     "status": {
       "enum": [
@@ -43,19 +51,88 @@
       ]
     },
     "diagnosis": {
-      "enum": [
-        "POSITION_OPPORTUNITY",
-        "LOW_SAMPLE",
-        "CTR_OPPORTUNITY",
-        "CONTENT_GAP",
-        "INTENT_MISMATCH",
-        "STABLE",
-        "UNKNOWN"
-      ]
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "confidence",
+        "reasons"
+      ],
+      "properties": {
+        "code": {
+          "enum": [
+            "POSITION_OPPORTUNITY",
+            "LOW_SAMPLE",
+            "CTR_OPPORTUNITY",
+            "CONTENT_GAP",
+            "INTENT_MISMATCH",
+            "QUERY_MIX",
+            "STABLE",
+            "UNKNOWN"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     },
     "primary_intent": {
       "type": "string",
       "minLength": 1
+    },
+    "query_coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "confidence",
+        "primary",
+        "secondary",
+        "adjacent",
+        "separate_article"
+      ],
+      "properties": {
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "primary": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secondary": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "adjacent": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "separate_article": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     },
     "preservation_score": {
       "type": "integer",
@@ -93,51 +170,65 @@
         "HIGH"
       ]
     },
-    "changed_sections": {
+    "changes": {
       "type": "array",
       "items": {
-        "enum": [
-          "seo_title",
-          "meta_description",
-          "introduction",
-          "heading",
-          "body",
-          "faq",
-          "internal_link",
-          "conclusion"
-        ]
-      },
-      "uniqueItems": true
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "target",
+          "status",
+          "before",
+          "after",
+          "reason"
+        ],
+        "properties": {
+          "target": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "proposed",
+              "approved",
+              "implemented",
+              "not_implemented",
+              "not_applicable"
+            ]
+          },
+          "before": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "after": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
     },
     "protected_elements": {
       "type": "array",
       "items": {
-        "enum": [
-          "ads",
-          "affiliate_links",
-          "experience",
-          "original_review",
-          "comparison_table",
-          "original_images",
-          "cta",
-          "conclusion"
-        ]
+        "type": "string"
       },
       "uniqueItems": true
     },
-    "warnings": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "default": []
-    },
-    "remeasurement_days": {
-      "type": [
-        "integer",
-        "null"
-      ],
-      "minimum": 1
+    "implementation_status": {
+      "enum": [
+        "proposed",
+        "approved",
+        "implemented",
+        "not_implemented",
+        "not_applicable"
+      ]
     },
     "validation": {
       "type": "object",
@@ -145,7 +236,8 @@
       "required": [
         "result",
         "failed_rules",
-        "warning_rules"
+        "warning_rules",
+        "passed_rules"
       ],
       "properties": {
         "result": {
@@ -169,12 +261,49 @@
             "type": "string"
           },
           "uniqueItems": true
+        },
+        "passed_rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
         }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "information": {
+      "type": "array",
+      "items": {
+        "type": "string"
       }
     },
     "recommendation_reason": {
       "type": "string",
       "minLength": 1
+    },
+    "site_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "site_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "site_url": {
+      "type": [
+        "string",
+        "null"
+      ]
     }
   }
 }

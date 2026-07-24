@@ -1,3 +1,9 @@
+# 1.3.0 - Quality & Validation Hardening
+
+- Writer本体v1.3.0と完全同期
+- Shared Snapshot v1.3.0
+- Contract 2.1運用指示を追加
+
 # Changelog
 
 ## 1.1.1 - 2026-07-22

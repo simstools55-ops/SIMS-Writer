@@ -1,3 +1,5 @@
+# SIMS Shared Editorial Knowledge v1.3.0
+
 # SIMS Shared Editorial Knowledge
 
 SIMS WriterとSIMS Article Creatorが共有する編集品質基準の正本（Single Source of Truth）です。

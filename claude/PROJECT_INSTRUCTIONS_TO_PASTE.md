@@ -27,3 +27,8 @@ Follow the repository contracts, runtime rules, quality gates, and the Writer-sc
 - Do not assert cannibalization from this block alone.
 - Protect high-ranking/high-CTR winner queries and titles; prefer FAQ, heading, internal link, or separate article before title change.
 - Skip malformed rows, report the validation warning, and continue with valid rows.
+
+
+## v1.3.0 Quality & Validation Hardening
+
+SIMS_FEEDBACK_V2はContract 2.1のCanonical構造だけを出力する。Query Coverageを常時表示し、QUERY_MIXとWinner Query Preservationを適用する。Shared v1.3.0のVAL-FACT-001、VAL-EVIDENCE-002、VAL-CAUSAL-001、VAL-CONSISTENCY-001、VAL-ENTITY-001、VAL-LINK-001を公開前に検証する。proposed／approved／implementedを混同しない。

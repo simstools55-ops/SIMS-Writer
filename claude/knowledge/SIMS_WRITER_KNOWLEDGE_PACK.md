@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack v0.2.0
 
-Version: 1.2.0
+Version: 1.3.0
 
 
 # SIMS Writer Quality Specification v0.2.0
@@ -291,3 +291,8 @@ Shared v1.1.1の中心主張優先、Source Scope、Evidence強度、Graceful De
 - A separate-article candidate needs a distinct user task, meaningful demand, and poor fit with the current article.
 - Internal links must use supplied verified candidates; URLs are never invented.
 - Search Console data alone cannot prove cannibalization.
+
+
+## v1.3.0 Quality & Validation Hardening
+
+SIMS_FEEDBACK_V2はContract 2.1のCanonical構造だけを出力する。Query Coverageを常時表示し、QUERY_MIXとWinner Query Preservationを適用する。Shared v1.3.0のVAL-FACT-001、VAL-EVIDENCE-002、VAL-CAUSAL-001、VAL-CONSISTENCY-001、VAL-ENTITY-001、VAL-LINK-001を公開前に検証する。proposed／approved／implementedを混同しない。

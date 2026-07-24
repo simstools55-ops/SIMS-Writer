@@ -1,3 +1,5 @@
+# SIMS Writer v1.3.0
+
 # SIMS Writer v1.1.3
 
 Google Search Console等の実データをもとに、既存記事を壊さず局所改善するための品質・契約・Knowledge・Pattern中心のリライトシステムです。
