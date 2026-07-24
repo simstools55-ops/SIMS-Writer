@@ -54,3 +54,9 @@
 - Added five Official Regression Suite case profiles and expected findings.
 - Added regression readiness runner and QA checklist integration.
 - Source article fixtures remain pending and are reported as SKIP.
+
+## 1.3.4
+- Added platform-neutral Editorial QA Contract v1.
+
+## 1.3.5
+- Added final publication output principles and held-draft suppression rule.

@@ -420,6 +420,85 @@
         "string",
         "null"
       ]
+    },
+    "publication_qa": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contract",
+        "initial_verdict",
+        "final_verdict",
+        "publishable",
+        "release_action",
+        "auto_fix_applied",
+        "review_cycles_used",
+        "review_trace",
+        "unresolved_findings"
+      ],
+      "properties": {
+        "contract": {
+          "const": "SIMS_EDITORIAL_QA_V1"
+        },
+        "engine_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "initial_verdict": {
+          "enum": [
+            "PASS",
+            "PASS_WITH_WARNING",
+            "PASS_WITH_MINOR_FIX",
+            "PASS_WITH_REQUIRED_FIX",
+            "FAIL"
+          ]
+        },
+        "final_verdict": {
+          "enum": [
+            "PASS",
+            "PASS_WITH_WARNING",
+            "PASS_WITH_MINOR_FIX",
+            "PASS_WITH_REQUIRED_FIX",
+            "FAIL"
+          ]
+        },
+        "publishable": {
+          "type": "boolean"
+        },
+        "release_action": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "auto_fix_applied": {
+          "type": "boolean"
+        },
+        "review_cycles_used": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "review_trace": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "unresolved_findings": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "advisories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }

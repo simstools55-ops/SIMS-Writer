@@ -1,3 +1,6 @@
+# 1.3.6
+- Locked Publication QA pipeline and canonical final output.
+
 # 1.3.0 - Quality & Validation Hardening
 
 - Writer本体v1.3.0と完全同期

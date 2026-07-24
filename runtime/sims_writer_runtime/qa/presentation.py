@@ -42,11 +42,14 @@ def build_publication_view(initial_draft: dict[str, Any], qa_result: dict[str, A
         "qa_contract": qa_result.get("qa_contract", "SIMS_EDITORIAL_QA_V1"),
         "qa_engine_version": qa_result.get("qa_engine_version"),
         "publication_verdict": verdict,
+        "initial_verdict": qa_result.get("initial_verdict", verdict),
         "publishable": publishable,
         "release_action": qa_result.get("release_action"),
         "public_message": _public_message(verdict),
         "auto_fix_applied": bool(qa_result.get("auto_fix_applied")),
         "review_cycles_used": int(qa_result.get("review_cycles_used") or 0),
+        "review_trace": deepcopy(qa_result.get("review_trace") or []),
+        "unresolved_findings": _unresolved_findings(qa_result),
         "qa_changes": changes,
         "advisories": advisory,
         "publication_content": final_draft if publishable else None,
@@ -60,11 +63,15 @@ def apply_qa_to_feedback(feedback: dict[str, Any] | None, publication_view: dict
     result["publication_qa"] = {
         "contract": publication_view["qa_contract"],
         "engine_version": publication_view["qa_engine_version"],
+        "initial_verdict": publication_view["initial_verdict"],
+        "final_verdict": publication_view["publication_verdict"],
         "verdict": publication_view["publication_verdict"],
         "publishable": publication_view["publishable"],
         "release_action": publication_view["release_action"],
         "auto_fix_applied": publication_view["auto_fix_applied"],
         "review_cycles_used": publication_view["review_cycles_used"],
+        "review_trace": publication_view["review_trace"],
+        "unresolved_findings": publication_view["unresolved_findings"],
         "advisories": publication_view["advisories"],
     }
     return result
@@ -105,3 +112,15 @@ def _public_message(verdict: str) -> str:
         "PASS_WITH_REQUIRED_FIX": "公開前の修正が必要です。現在の内容は公開しないでください。",
         "FAIL": "公開できません。手動レビューが必要です。",
     }.get(verdict, "公開判定を確認できません。")
+
+
+def _unresolved_findings(qa_result: dict[str, Any]) -> list[dict[str, Any]]:
+    findings: list[dict[str, Any]] = []
+    for report_key in ("final_quality_report", "final_foundation_report"):
+        report = qa_result.get(report_key) or {}
+        for key in ("issues", "failed_rules", "blocking_issues"):
+            for item in report.get(key) or []:
+                normalized = item if isinstance(item, dict) else {"message": str(item)}
+                if normalized not in findings:
+                    findings.append(normalized)
+    return findings

@@ -1,32 +1,12 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "1.3.4",
-  "integrated_version": "1.3.4",
-  "target_product": "writer",
+  "source_version": "1.3.6",
+  "integrated_version": "1.3.6",
+  "scope": "writer",
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "5dd395b5b61232f32ad27c8041b002253f5ad013cf120accd5a7a9d8ed282b2c"
-    },
-    {
-      "path": "Decision-Support.md",
-      "sha256": "7447194b8a903369b59677702ddc97a805a30efaa8f2d83a0c2d7753c870de7f"
-    },
-    {
-      "path": "Evidence-Transparency.md",
-      "sha256": "f047a073ee9a87c770fd5c148f40378538d8b3ef13b746d069768e360246c3b9"
-    },
-    {
-      "path": "Hidden-Anxiety.md",
-      "sha256": "d03c6f03c10734c43ad85940dead9f8e991520b6c8414ab5822215b72225442b"
-    },
-    {
-      "path": "Intent-Analysis.md",
-      "sha256": "283d2e7f436e32f7b3b9c9bbfb044dc6325cfe102f611eaa53a72cdfac525cb7"
-    },
-    {
-      "path": "Internal-Link-Semantics.md",
-      "sha256": "08a023c7080e5598e74e8b861e49e7d40d75dc2976f21e7fa9b49c90c60c7fb1"
+      "sha256": "c36fcb0dcfcda3c5087af3d860ac7b99a91a381150ce4ec5bb6a34657d46951b"
     },
     {
       "path": "LICENSE",
@@ -37,24 +17,16 @@
       "sha256": "a6ab0cd469eee6245a7505f14ca4c144745987f25610ea5665091e4790b91878"
     },
     {
-      "path": "SERP-Entity-Preservation.md",
-      "sha256": "1d3987667305271f984c16eaa3a31b469335ce3b93bb8357af5a634653ebb85d"
-    },
-    {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "ed406bee5042ee3ddd89d06cd91aaa897afb4da91529cc42941f07c9c35a1c20"
+      "sha256": "cf5d28ed1f19967d1c3e68418bb56c4952a5e9b4b3975232336522c1670c6b65"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "382eb30c7792f3eac809a850816b07cd84666565768cb602b20a1505be8a821f"
+      "sha256": "aeec87b64572e83dd6ae6f8a3277db606031f2e73ab8883410ce6acaa3e9104e"
     },
     {
       "path": "VERSION",
-      "sha256": "e0a72941ba72e471c37b0bce5e8c292659befc51dbf1c7ceea354b26642c39c3"
-    },
-    {
-      "path": "Writer-Application-Mapping.md",
-      "sha256": "075cc40240989f1e61a91a88939d72d54a5d6348fcc55580023ebaf264e98126"
+      "sha256": "f4eaae07c72dd003028a4583ee93e5146e4fb2e5ba80566d3e79d73edd39ee36"
     },
     {
       "path": "docs/integration-policy.md",
@@ -153,6 +125,10 @@
       "sha256": "3fae1a438249420205598a748f9feaf95f237e855f8f4cd9329c65983fb32850"
     },
     {
+      "path": "knowledge/publication-pipeline-integrity.md",
+      "sha256": "65ca0f183b12bd53e0cd38ac11c869d35669f63613f0a623c2d5beaff43988dd"
+    },
+    {
       "path": "knowledge/publication-qa-evaluation-standard.md",
       "sha256": "300bfbb653ea3aa37f67727a866997848bf9b4653f4792a980a4a7db6102ec86"
     },
@@ -177,8 +153,52 @@
       "sha256": "075cc40240989f1e61a91a88939d72d54a5d6348fcc55580023ebaf264e98126"
     },
     {
+      "path": "quality/EDITORIAL_QA_CONTRACT_V1.md",
+      "sha256": "19b875e619af3c5f97aec46eb84cf19612e6c8f3d87d9cf1f511049ffd078253"
+    },
+    {
+      "path": "quality/final-publication-output-principles.md",
+      "sha256": "594d4017941f4cd78542ed30568d4dd742a119d7a405b4d4bebc06ce8efecfef"
+    },
+    {
+      "path": "tests/test_repository.py",
+      "sha256": "76df73d64fadb95ebde1feb57dc44a1cd577d96df6a53fc96ca725a8d517bdd6"
+    },
+    {
+      "path": "tests/test_v1_1_0_knowledge.py",
+      "sha256": "55b856ad4300cad968c981b2a9f9e1bfb6e6e956f9bf5b8b7a4b8497e1ec54b1"
+    },
+    {
+      "path": "tests/test_v1_1_1_operational_learning.py",
+      "sha256": "dde71bc3baa04aa702792351be74f2ce0c9404f1171a78e75fedc38a64bfe771"
+    },
+    {
+      "path": "tests/test_v1_1_2_writer_mapping.py",
+      "sha256": "a028c5bd29967fd6b203183a7d6d57aa0db302824ccac22ff2059842fd097f19"
+    },
+    {
+      "path": "tests/test_v1_1_3_snapshot_scope.py",
+      "sha256": "03b8aa892ab463d8ca90f5c723c96e963cde38da22dc46bfed1738649b191632"
+    },
+    {
+      "path": "tests/test_v1_3_0_common_validation.py",
+      "sha256": "13860ab5f8e5e38f718cf44fae994e1a26ebd3a18130a8cad701c33a2bd0e4a5"
+    },
+    {
+      "path": "tests/test_v1_3_1_entity_integrity.py",
+      "sha256": "4ae7038abd3c0ada9f743fd4dede3825e43d597f5d56c2c2ff2773b1d8b8295d"
+    },
+    {
+      "path": "tools/build_scoped_snapshot.py",
+      "sha256": "5c5fa1c063508bd0bbee28fa37546bee2bfccefb5d12cbdfa620ab5ee6d2c455"
+    },
+    {
       "path": "validation/common-editorial-validation.md",
       "sha256": "16a3d7a600cea9b92bca0617e7364c0b59f407ada65469d1a2f3e0e64d62f9cf"
+    },
+    {
+      "path": "validation/publication-pipeline-integrity-validation.md",
+      "sha256": "5b065c2a37f4709deba84f015525bc14fbc5bed8a5c8765f6738a793fc145bc6"
     },
     {
       "path": "validation/publication-qa-regression-validation.md",
@@ -191,10 +211,6 @@
     {
       "path": "validation/shared-knowledge-validation.md",
       "sha256": "d76ef622d4f4b39ccc1413d0ce20139e970f66911044b6ce4e26e8641946881d"
-    },
-    {
-      "path": "knowledge/editorial-qa-contract-v1.md",
-      "sha256": "19b875e619af3c5f97aec46eb84cf19612e6c8f3d87d9cf1f511049ffd078253"
     }
   ]
 }

@@ -1,3 +1,6 @@
+# 1.3.6
+- Locked Publication QA pipeline and canonical final output.
+
 ## 1.3.1 - 2026-07-24
 
 - SIMS_FEEDBACK_V2 Contract 2.1のCanonical出力をHotfix。
