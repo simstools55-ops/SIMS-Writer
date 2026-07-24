@@ -41,19 +41,16 @@ archive/sims-core/review/remove/README.md
 changes/index.yaml
 claude/CHANGELOG.md
 claude/CLAUDE_PROJECT_INSTRUCTIONS.md
-claude/FILE_MANIFEST.txt
 claude/PROJECT_INSTRUCTIONS_TO_PASTE.md
 claude/PROJECT_RESET_CHECKLIST.md
 claude/README.md
 claude/RELEASE_NOTES_v1.1.2_SPRINT1.md
 claude/RELEASE_NOTES_v1.3.0_QUALITY_VALIDATION_HARDENING.md
 claude/SETUP_GUIDE.md
-claude/SHA256SUMS.txt
 claude/TEST_CHECKLIST.md
 claude/VERSION
 claude/examples/EXAMPLE_REQUEST.json
 claude/knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md
-claude/manifest.json
 claude/product/platform/SIMS_PLATFORM_GUIDE.md
 claude/product/quality/QUALITY_FRAMEWORK.md
 claude/product/roadmap/WRITER_v1.1.2_IMPROVEMENT_PLAN.md
@@ -648,7 +645,6 @@ tests/golden/cases/gc-new-001-new-how-to.json
 tests/golden/cases/gc-rec-012-placeholder-recovery.json
 tests/golden/cases/gc-trb-005-troubleshooting-safe.json
 tests/golden/cases/gc-upd-004-outdated-content.json
-tests/golden/manifest.json
 tests/golden/reports/latest-report.json
 tests/golden/test_golden_uat.py
 tests/golden/uat-strategy-v1.0.md

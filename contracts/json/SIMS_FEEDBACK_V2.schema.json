@@ -1,30 +1,21 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://sims-writer.local/schemas/SIMS_FEEDBACK_V2.schema.json",
-  "title": "SIMS Feedback V2.1 Canonical",
+  "title": "SIMS Feedback V2.1 Canonical Hotfix",
   "type": "object",
   "additionalProperties": false,
   "required": [
     "format",
     "contract_version",
     "article_id",
-    "url",
-    "status",
+    "article_url",
     "diagnosis",
-    "primary_intent",
     "query_coverage",
-    "preservation_score",
-    "change_budget_percent",
-    "rewrite_level",
-    "rewrite_scope",
-    "risk_level",
     "changes",
-    "protected_elements",
     "implementation_status",
     "validation",
     "warnings",
-    "information",
-    "recommendation_reason"
+    "information"
   ],
   "properties": {
     "format": {
@@ -33,21 +24,36 @@
     "contract_version": {
       "const": "2.1"
     },
+    "site_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "site_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "site_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "article_id": {
       "type": "string",
       "minLength": 1
     },
-    "url": {
+    "article_url": {
       "type": "string",
       "minLength": 1
     },
-    "status": {
-      "enum": [
-        "PASS",
-        "PASS_WITH_WARNING",
-        "IMPROVEMENT_REQUIRED",
-        "NO_CHANGE",
-        "FAIL"
+    "completed_at": {
+      "type": [
+        "string",
+        "null"
       ]
     },
     "diagnosis": {
@@ -83,25 +89,63 @@
           "items": {
             "type": "string"
           }
+        },
+        "main_query": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "main_query_source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sample_size_flag": {
+          "type": [
+            "string",
+            "null"
+          ]
         }
       }
     },
     "primary_intent": {
-      "type": "string",
-      "minLength": 1
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "query_coverage": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "confidence",
+        "coverage_confidence",
         "primary",
         "secondary",
         "adjacent",
         "separate_article"
       ],
       "properties": {
-        "confidence": {
+        "captured_impressions": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "total_impressions": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "coverage_percent": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "coverage_confidence": {
           "enum": [
             "high",
             "medium",
@@ -134,40 +178,48 @@
         }
       }
     },
-    "preservation_score": {
-      "type": "integer",
-      "minimum": 0,
-      "maximum": 100
+    "execution_mode": {
+      "type": [
+        "string",
+        "null"
+      ]
     },
-    "change_budget_percent": {
-      "type": "number",
+    "preservation_score": {
+      "type": [
+        "integer",
+        "null"
+      ],
       "minimum": 0,
       "maximum": 100
     },
     "rewrite_level": {
-      "enum": [
-        "L0",
-        "L1",
-        "L2",
-        "L3",
-        "L4"
+      "type": [
+        "string",
+        "null"
       ]
     },
     "rewrite_scope": {
-      "enum": [
-        "S0",
-        "S1",
-        "S2",
-        "S3",
-        "S4",
-        "S5"
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "change_budget_percent": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "estimated_change_percent": {
+      "type": [
+        "number",
+        "null"
       ]
     },
     "risk_level": {
-      "enum": [
-        "LOW",
-        "MEDIUM",
-        "HIGH"
+      "type": [
+        "string",
+        "null"
       ]
     },
     "changes": {
@@ -177,7 +229,7 @@
         "additionalProperties": false,
         "required": [
           "target",
-          "status",
+          "implementation_status",
           "before",
           "after",
           "reason"
@@ -187,7 +239,7 @@
             "type": "string",
             "minLength": 1
           },
-          "status": {
+          "implementation_status": {
             "enum": [
               "proposed",
               "approved",
@@ -209,17 +261,67 @@
             ]
           },
           "reason": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           }
         }
       }
     },
-    "protected_elements": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "uniqueItems": true
+    "new_values": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      }
+    },
+    "improvement_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        null
+      ]
+    },
+    "expected_effect": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      }
+    },
+    "next_action": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "recommended_review_days": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "summary": {
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "implementation_status": {
       "enum": [
@@ -230,48 +332,7 @@
         "not_applicable"
       ]
     },
-    "validation": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "result",
-        "failed_rules",
-        "warning_rules",
-        "passed_rules"
-      ],
-      "properties": {
-        "result": {
-          "enum": [
-            "PASS",
-            "PASS_WITH_WARNING",
-            "FAIL",
-            "UNVERIFIABLE"
-          ]
-        },
-        "failed_rules": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "uniqueItems": true
-        },
-        "warning_rules": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "uniqueItems": true
-        },
-        "passed_rules": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "uniqueItems": true
-        }
-      }
-    },
-    "warnings": {
+    "protected_elements": {
       "type": "array",
       "items": {
         "type": "string"
@@ -283,23 +344,78 @@
         "type": "string"
       }
     },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "result",
+        "checks",
+        "failed_rules",
+        "warning_rules",
+        "passed_rules",
+        "notes"
+      ],
+      "properties": {
+        "result": {
+          "enum": [
+            "PASS",
+            "PASS_WITH_WARNING",
+            "FAIL",
+            "UNVERIFIABLE"
+          ]
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "failed_rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "warning_rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "passed_rules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "estimated_minutes": {
+      "type": [
+        "integer",
+        "number",
+        "null"
+      ]
+    },
+    "swls": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
     "recommendation_reason": {
-      "type": "string",
-      "minLength": 1
-    },
-    "site_id": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "site_name": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "site_url": {
       "type": [
         "string",
         "null"

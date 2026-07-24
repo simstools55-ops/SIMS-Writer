@@ -1,3 +1,12 @@
+## 1.3.1 - 2026-07-24
+
+- SIMS_FEEDBACK_V2 Contract 2.1のCanonical出力をHotfix。
+- `version`を`contract_version`へ、`change_flags`を`changes[]`へ正規化。
+- `implementation_status`を必須化し、空文字をnullまたは省略へ正規化。
+- Query Coverageの信頼度を`coverage_confidence`（high/medium/low）へ統一。
+- VAL-CONTRACT-001〜005を追加し、Legacy field、null処理、実装状態、Coverage構造を検証。
+- Shared Snapshotを1.3.1へ更新。
+
 # 1.3.0 - Writer Quality & Validation Hardening
 
 - SIMS_FEEDBACK_V2 Contract 2.1固定

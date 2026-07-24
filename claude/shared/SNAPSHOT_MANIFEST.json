@@ -1,12 +1,12 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "1.3.0",
-  "integrated_version": "1.3.0",
+  "source_version": "1.3.1",
+  "integrated_version": "1.3.1",
   "target_product": "writer",
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "5358ae1cdd99e51dc1e4adc0786b6b607dbd9c2a49deef44d48b34ab8dec345d"
+      "sha256": "b997834e753b218f70440f9295cee9458b9b5bf5996fd28b050a4f9fd07d0c9c"
     },
     {
       "path": "Decision-Support.md",
@@ -42,15 +42,15 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "621ec8f4ffd4f997dd675a53ab835adaa0bdcc6f5a444136f77e1faa9922510d"
+      "sha256": "1c7d087f5bd09ad175c4344e61b92c31893171e535c18309f278c0956d398fa3"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "b6d7c74c7303ae6400e12b6e8c3d36ebed59674c0bf99f901c236f2050116f66"
+      "sha256": "4640b0f48690e5be15bcb8b908bddc136edb708acb9fd76ca15a6f109135e7ea"
     },
     {
       "path": "VERSION",
-      "sha256": "64d23f858ef51b0f996e4966d4e27c0371b437e2d2787890b1f7ad22d4ec5663"
+      "sha256": "10e2e117b01523891ca271a615ae36e9d5e52348fd7d642f66727602c1b8dcbe"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -130,7 +130,7 @@
     },
     {
       "path": "knowledge/html-entity-integrity.md",
-      "sha256": "571950ac0d55d6e23ea74ec1b2e91569cc9a69044fafbc859ea245aa58f8c183"
+      "sha256": "b15da27cf5524551c716d19fe7524e3597c1154a5dd1e6ed510189f97a5d1972"
     },
     {
       "path": "knowledge/intent-analysis.md",

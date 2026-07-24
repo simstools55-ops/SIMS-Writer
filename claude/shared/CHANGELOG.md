@@ -1,3 +1,8 @@
+## 1.3.1 - 2026-07-24
+
+- KN-ENTITY-001を明文化し、メタディスクリプションを含むHTML Entity二重エンコード防止規則を強化。
+- VAL-ENTITY-001のPASS条件と検出対象を明確化。
+
 # 1.3.0 - Writer Quality & Validation Hardening
 
 - 6つの共通Validationコードを追加

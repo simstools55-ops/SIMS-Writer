@@ -1,3 +1,11 @@
+## Contract 2.1 Hotfix - 2026-07-24
+
+- Canonical version field: `contract_version`.
+- Canonical changes field: `changes[]` with per-change `implementation_status`.
+- Empty strings are forbidden in canonical output.
+- Query Coverage uses `coverage_confidence` with `high|medium|low`.
+- Legacy aliases remain input-only through Schema Normalizer.
+
 # JSON Contract Changelog
 
 ## 2.0

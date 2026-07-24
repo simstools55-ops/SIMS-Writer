@@ -1,4 +1,4 @@
-# SIMS Writer v1.3.0
+# SIMS Writer v1.3.1
 
 # SIMS Writer v1.1.3
 
