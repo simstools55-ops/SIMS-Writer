@@ -89,3 +89,8 @@ After primary intent selection and before component selection:
 6. Add Decision Support only when the article lacks an equivalent aid.
 
 These checks do not override Preservation Score, Rewrite Level, Rewrite Scope, or Change Budget.
+
+
+## v1.2.0 Search Console Query Data extension
+
+When the SBM request contains `Search Console Query Data`, parse up to 200 rows and use it before legacy top-query summaries. Preserve raw rows, then build an internal intent map. Interpret Coverage as HIGH (>=80%), MEDIUM (>=50%), LOW (<50%), or UNKNOWN. Low/unknown Coverage forbids definitive QUERY MIX, CONTENT GAP, user-behavior, or cannibalization claims. Classify intent clusters into strengthen existing content, add internal link, create separate article, monitor, or noise. Protect winner queries and titles. Invalid rows are skipped and recorded; they do not invalidate valid rows or the whole request.

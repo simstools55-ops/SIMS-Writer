@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack v0.2.0
 
-Version: 1.1.3
+Version: 1.2.0
 
 
 # SIMS Writer Quality Specification v0.2.0
@@ -281,3 +281,13 @@ Apply specialist validation for privacy/redaction, food safety, app pricing/fres
 
 # v1.1.1 Operational Learning
 Shared v1.1.1の中心主張優先、Source Scope、Evidence強度、Graceful Degradation、FAQ再構成、Buyer Trustを必須参照する。
+
+
+# Search Console Query Intelligence v1.2.0
+
+- Up to 200 raw rows may be used to identify main, sub, adjacent, separate-intent, and noise candidates.
+- Coverage adjusts confidence, not diagnosis by itself.
+- QUERY MIX and CONTENT GAP require article-content comparison and must not be inferred from query presence alone.
+- A separate-article candidate needs a distinct user task, meaningful demand, and poor fit with the current article.
+- Internal links must use supplied verified candidates; URLs are never invented.
+- Search Console data alone cannot prove cannibalization.

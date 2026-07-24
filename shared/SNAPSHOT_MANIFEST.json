@@ -1,17 +1,12 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "1.1.3",
-  "integrated_product": "SIMS Writer",
-  "integrated_product_version": "1.1.3",
-  "snapshot_scope": "writer",
+  "source_version": "1.2.0",
+  "integrated_version": "1.2.0",
+  "target_product": "writer",
   "files": [
     {
-      "path": ".gitignore",
-      "sha256": "9075b30f288237a4372c62272a65a34039819e9b75eb7363e0d96a8b06e7c30a"
-    },
-    {
       "path": "CHANGELOG.md",
-      "sha256": "26271b6dc73272d09d93f0a22b7a6d648b6e513bdd8f5f6154def82362af8171"
+      "sha256": "c8f8ffd74b3abd3edc27716ae524c7b78b87c42c3741fe73ecd4e49202c58930"
     },
     {
       "path": "Decision-Support.md",
@@ -20,10 +15,6 @@
     {
       "path": "Evidence-Transparency.md",
       "sha256": "f047a073ee9a87c770fd5c148f40378538d8b3ef13b746d069768e360246c3b9"
-    },
-    {
-      "path": "Freshness-Safety.md",
-      "sha256": "7a0c522a67e459d3bbea737f0a33b427f8570332e36cd91a0de0a04567f8815b"
     },
     {
       "path": "Hidden-Anxiety.md",
@@ -43,7 +34,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "507441a041e8d7221e4109eed70eb9379533047a2fccad722b896b6aaeb71fa6"
+      "sha256": "5052d5d7aa6c3fbbf9dd964ca03a7f1c6eae2f0265e11de9493b2a08fdc3e9dc"
     },
     {
       "path": "SERP-Entity-Preservation.md",
@@ -51,23 +42,19 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "e2b5f571522fcfcefe496094fe55acdf895bb31f7da9f05dcec8ff0f452a60db"
+      "sha256": "6553a5046beee3fc6cb934d44edc75bf858578aa491a0e6ea158a9ccfdb054d2"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "08967d4fa0e8de6340ec31e2dd6ad7bb8dc8b2c3d6ac6354702d5e5d831b214b"
-    },
-    {
-      "path": "Shared-Editorial-Knowledge.md",
-      "sha256": "f19a9a5d4c396e1bbc6fe76e2a333fa2adc367c4ed164ff7caad8f5a81113c6c"
+      "sha256": "96db72368b6456d3dc8cc61e56bdd16865b9b8fa4fdb6a69d75aeeb77c8710fc"
     },
     {
       "path": "VERSION",
-      "sha256": "5dae0c0a5ed3cdaa78704e25bb38d72c31018311e933283d06ed4f93360bfc6c"
+      "sha256": "1e5b51cde515396a9fa762909cf8ca6584ccc564b325d2eebeea76175fe95c4d"
     },
     {
       "path": "Writer-Application-Mapping.md",
-      "sha256": "12986873558f301d841ee1ecf06f6702894f532927a4507394c9bccb6e89d351"
+      "sha256": "d3e1f05e48023fae7963b927699ae00eca20d071ed3342765539c2cd8c8558ed"
     },
     {
       "path": "docs/integration-policy.md",
@@ -142,6 +129,10 @@
       "sha256": "08a023c7080e5598e74e8b861e49e7d40d75dc2976f21e7fa9b49c90c60c7fb1"
     },
     {
+      "path": "knowledge/query-data-analysis.md",
+      "sha256": "b982977740424a6ddf2950ba586d0f8d66816dac5a61616da43b92d12a46561b"
+    },
+    {
       "path": "knowledge/serp-entity-preservation.md",
       "sha256": "1d3987667305271f984c16eaa3a31b469335ce3b93bb8357af5a634653ebb85d"
     },
@@ -151,12 +142,11 @@
     },
     {
       "path": "mappings/writer/application-mapping.md",
-      "sha256": "4d635f9c08ed68b22567ea5d032992b8f74d20348112425d0b84955ba341c962"
+      "sha256": "185e97e4a42c58c5ff2cb9f1a5d56ea4473d8007b6cdc39839d43a44ee9d3eb1"
     },
     {
       "path": "validation/shared-knowledge-validation.md",
       "sha256": "d76ef622d4f4b39ccc1413d0ce20139e970f66911044b6ce4e26e8641946881d"
     }
-  ],
-  "integrated_version": "1.1.3"
+  ]
 }

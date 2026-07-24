@@ -1,6 +1,6 @@
 # SIMS Writer Quality Framework
 
-Version: 1.1.3  
+Version: 1.2.0  
 Status: Production  
 Owner: SIMS Writer
 
@@ -226,3 +226,9 @@ Graceful Degradationでは`estimated_fields`を空にしない。
 - Shared mappingに責務境界が反映される。
 - Claude Projectへ同一内容が同梱される。
 - 文書存在・同期・version整合の回帰テストが合格する。
+
+
+## Search Console Query Intelligence v1.2.0
+- 最大200件の生クエリを解析し、Coverageで信頼度を調整する。
+- QUERY MIX、CONTENT GAP、別記事・内部リンク・カニバリ候補は本文との照合とEvidence Boundaryに従う。
+- Winnerクエリとタイトルを保護する。

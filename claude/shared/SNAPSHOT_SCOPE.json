@@ -1,10 +1,5 @@
 {
-  "schema_version": "1.0",
-  "product": "writer",
-  "runtime_purpose": "existing-article-improvement",
-  "allowed_mapping": "writer",
-  "excluded_mappings": [
-    "all_non_writer"
-  ],
-  "identity_authority": "CLAUDE_PROJECT_INSTRUCTIONS.md"
+  "target_product": "writer",
+  "included_mapping": "writer",
+  "excluded_mapping": "article-creator"
 }

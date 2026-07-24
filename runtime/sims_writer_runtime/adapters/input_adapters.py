@@ -16,6 +16,52 @@ def _infer_main_query(payload: dict[str, Any]) -> tuple[str, bool]:
     return re.sub(r"\s+", " ", clean)[:120], bool(clean)
 
 
+
+def parse_search_console_query_data(text: str, max_rows: int = 200) -> dict[str, Any]:
+    """Parse the SBM Product 5.6.6 query block without failing the whole request."""
+    result: dict[str, Any] = {
+        "present": False, "data_timestamp": None, "query_rows_declared": None,
+        "captured_impressions": None, "total_impressions": None, "coverage_percent": None,
+        "coverage_confidence": "COVERAGE_UNKNOWN", "rows": [], "invalid_rows": [],
+    }
+    if not text or "Search Console Query Data" not in text:
+        return result
+    result["present"] = True
+    def field(name: str):
+        m = re.search(rf"^{name}\s*:\s*(.+?)\s*$", text, re.MULTILINE)
+        return m.group(1).strip() if m else None
+    result["data_timestamp"] = field("DataTimestamp")
+    for name, key in [("QueryRows","query_rows_declared"),("CapturedImp","captured_impressions"),("TotalImp","total_impressions")]:
+        value=field(name)
+        if value is not None:
+            try: result[key]=int(str(value).replace(",",""))
+            except ValueError: pass
+    cov=field("Coverage")
+    if cov is not None:
+        try: result["coverage_percent"]=float(cov.replace("%","").replace(",",""))
+        except ValueError: pass
+    c=result["coverage_percent"]
+    if c is not None:
+        result["coverage_confidence"] = "HIGH_COVERAGE" if c >= 80 else "MEDIUM_COVERAGE" if c >= 50 else "LOW_COVERAGE"
+    header=re.search(r"^Query\|Clicks\|Impressions\|CTR\|Position\s*$", text, re.MULTILINE)
+    if not header: return result
+    for raw in text[header.end():].splitlines():
+        line=raw.strip()
+        if not line or line.startswith("=") or line.startswith("-"): continue
+        parts=[x.strip() for x in line.split("|")]
+        if len(parts)!=5:
+            result["invalid_rows"].append(line); continue
+        q, clicks, imp, ctr, pos=parts
+        try:
+            row={"query":q,"clicks":int(clicks.replace(",","")),"impressions":int(imp.replace(",","")),"ctr_percent":float(ctr.replace("%","")),"position":float(pos)}
+        except ValueError:
+            result["invalid_rows"].append(line); continue
+        if len(result["rows"]) < max_rows: result["rows"].append(row)
+    result["row_count_actual"]=len(result["rows"])
+    result["row_count_matches_declared"]=(result["query_rows_declared"] is None or result["query_rows_declared"]==len(result["rows"]))
+    result["captured_impressions_calculated"]=sum(r["impressions"] for r in result["rows"])
+    return result
+
 def normalize_generic(payload: dict[str, Any]) -> dict[str, Any]:
     if "payload" in payload and isinstance(payload["payload"], dict):
         payload = payload["payload"]
@@ -44,6 +90,7 @@ def normalize_generic(payload: dict[str, Any]) -> dict[str, Any]:
         "performance": payload.get("performance") or {},
         "article_catalog": payload.get("article_catalog") or payload.get("ArticleCatalog") or [],
         "source_evidence": payload.get("source_evidence") or payload.get("SourceEvidence") or [],
+        "search_console_query_data": parse_search_console_query_data(payload.get("raw_request_text") or payload.get("RequestText") or payload.get("ImprovementRequest") or ""),
     }
 
 
@@ -72,4 +119,5 @@ def normalize_sbm(payload: dict[str, Any]) -> dict[str, Any]:
         "performance": {"clicks": payload.get("Clicks"), "impressions": payload.get("Impressions"), "ctr": payload.get("CTR"), "average_position": payload.get("AveragePosition")},
         "article_catalog": payload.get("ArticleCatalog") or payload.get("article_catalog") or [],
         "source_evidence": payload.get("SourceEvidence") or payload.get("source_evidence") or [],
+        "search_console_query_data": parse_search_console_query_data(payload.get("raw_request_text") or payload.get("RequestText") or payload.get("ImprovementRequest") or ""),
     }
