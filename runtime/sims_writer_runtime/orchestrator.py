@@ -12,6 +12,7 @@ from .quality.engine import QualityValidationEngine
 from .quality.foundation import QualityFoundationValidator
 from .refinement.engine import TargetedRefinementEngine
 from .editorial_signals import build_editorial_signals
+from .qa import PublicationQAEngine
 
 class RuntimeOrchestrator:
     def __init__(self, repo_root: Path, adapter: ProductionAdapter | None = None):
@@ -20,6 +21,7 @@ class RuntimeOrchestrator:
         self.quality_engine = QualityValidationEngine(repo_root)
         self.quality_foundation = QualityFoundationValidator()
         self.refinement_engine = TargetedRefinementEngine(self.quality_engine)
+        self.publication_qa = PublicationQAEngine(self.quality_engine, self.quality_foundation, self.refinement_engine)
 
     def execute(self, raw: dict[str, Any], input_type: str = "generic") -> RuntimeResult:
         execution_id = f"EXE-{uuid4().hex[:12].upper()}"
@@ -97,19 +99,22 @@ class RuntimeOrchestrator:
                 "experience_verified": bool(draft.get("experience_verified", False)),
                 "model_assisted_checks": draft.get("model_assisted_checks", {}),
             }
-            artifacts["quality_report"] = self.quality_engine.evaluate(draft, quality_context)
-            artifacts["quality_foundation_report"] = self.quality_foundation.evaluate(request, draft)
-            decision = artifacts["quality_report"]["publish_recommendation"]
-            if decision == "publish_ready": self._pass(records, "quality_validation")
-            elif decision == "publish_ready_with_advisory": self._warn(records, "quality_validation", "Quality rules completed with advisories")
-            else: self._manual(records, "quality_validation", "Quality rules require revision or review")
-            refinement = self.refinement_engine.refine(draft, artifacts["quality_report"], quality_context)
+            qa_result = self.publication_qa.review(request, draft, quality_context)
+            artifacts["publication_qa"] = qa_result
+            artifacts["quality_report"] = qa_result["final_quality_report"]
+            artifacts["quality_foundation_report"] = qa_result["final_foundation_report"]
+            refinement = qa_result["refinement_result"]
             artifacts["refinement_result"] = refinement
-            draft = refinement["revised_draft"]
+            draft = qa_result["final_draft"]
             artifacts["content_draft"] = draft
-            artifacts["quality_report"] = refinement["quality_report"]
-            artifacts["quality_foundation_report"] = self.quality_foundation.evaluate(request, draft)
             decision = artifacts["quality_report"]["publish_recommendation"]
+            verdict = qa_result["final_verdict"]
+
+            if verdict == "PASS": self._pass(records, "quality_validation")
+            elif verdict in ("PASS_WITH_WARNING", "PASS_WITH_MINOR_FIX"):
+                self._warn(records, "quality_validation", f"Publication QA completed: {verdict}")
+            else: self._manual(records, "quality_validation", f"Publication QA requires intervention: {verdict}")
+
             if refinement["revision_records"]:
                 self._warn(records, "refinement", f"Applied {len(refinement['revision_records'])} targeted auto-fix round(s)")
             elif refinement["status"] == "manual_review_required":
@@ -119,9 +124,10 @@ class RuntimeOrchestrator:
             else:
                 self._pass(records, "refinement")
 
-            artifacts["publication_package"] = {"publish_decision":decision,"article_content":draft.get("article_content"),"seo_title":draft.get("seo_title"),"meta_description":draft.get("meta_description"),"h1":draft.get("h1"),"quality_summary":artifacts["quality_report"],"quality_foundation":artifacts["quality_foundation_report"],"refinement_summary":refinement,"runtime_notice":"All 42 canonical Quality Rules were executed and safe targeted fixes were applied before packaging. Context-dependent issues remain explicit."}
-            if decision in ("revision_required", "manual_review_required", "rejected"): self._manual(records, "publication_packaging", "Package requires revision or review")
-            elif decision == "publish_ready_with_advisory": self._warn(records, "publication_packaging", "Package generated with advisory")
+            artifacts["publication_package"] = {"publish_decision":decision,"qa_verdict":verdict,"release_action":qa_result["release_action"],"article_content":draft.get("article_content"),"seo_title":draft.get("seo_title"),"meta_description":draft.get("meta_description"),"h1":draft.get("h1"),"quality_summary":artifacts["quality_report"],"quality_foundation":artifacts["quality_foundation_report"],"refinement_summary":refinement,"runtime_notice":"Publication QA evaluated the draft, applied eligible targeted fixes, re-evaluated the result, and packaged only the final reviewed version."}
+            if not qa_result["publishable"]: self._manual(records, "publication_packaging", f"Package held by Publication QA: {verdict}")
+            elif verdict == "PASS_WITH_WARNING": self._warn(records, "publication_packaging", "Package generated with advisory")
+            elif verdict == "PASS_WITH_MINOR_FIX": self._warn(records, "publication_packaging", "Corrected package generated after automatic minor fix")
             else: self._pass(records, "publication_packaging")
             status = decision
         except Exception as exc:

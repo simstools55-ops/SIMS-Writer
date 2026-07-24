@@ -27,6 +27,7 @@ RELEASE_NOTES_v1.1.3_KNOWLEDGE_SCOPE_HOTFIX.md
 RELEASE_NOTES_v1.1.4_WRITER_IDENTITY_HOTFIX.md
 RELEASE_NOTES_v1.2.0_QUERY_INTELLIGENCE.md
 RELEASE_NOTES_v1.3.0_QUALITY_VALIDATION_HARDENING.md
+RELEASE_NOTES_v1.3.2_PUBLICATION_QA_FOUNDATION.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/repository/repository-architecture-v1.0.md
@@ -51,7 +52,11 @@ claude/TEST_CHECKLIST.md
 claude/VERSION
 claude/examples/EXAMPLE_REQUEST.json
 claude/knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md
+claude/manifest.json
 claude/product/platform/SIMS_PLATFORM_GUIDE.md
+claude/product/quality/AUTO_FIX_RULES.md
+claude/product/quality/PUBLIC_RELEASE_GATE.md
+claude/product/quality/QA_ENGINE_SPECIFICATION.md
 claude/product/quality/QUALITY_FRAMEWORK.md
 claude/product/roadmap/WRITER_v1.1.2_IMPROVEMENT_PLAN.md
 claude/shared/CHANGELOG.md
@@ -92,11 +97,13 @@ claude/shared/knowledge/internal-link-integrity.md
 claude/shared/knowledge/internal-link-semantics.md
 claude/shared/knowledge/logical-consistency.md
 claude/shared/knowledge/numeric-consistency.md
+claude/shared/knowledge/publication-qa-principles.md
 claude/shared/knowledge/query-data-analysis.md
 claude/shared/knowledge/serp-entity-preservation.md
 claude/shared/knowledge/source-scope-qualification.md
 claude/shared/mappings/writer/application-mapping.md
 claude/shared/validation/common-editorial-validation.md
+claude/shared/validation/publication-qa-validation.md
 claude/shared/validation/shared-knowledge-validation.md
 claude/templates/IMPROVEMENT_REQUEST_TEMPLATE.json
 contracts/decision/action-plan/action-plan-contract.md
@@ -206,6 +213,7 @@ decisions/ADR-0016-sims-core-knowledge-not-architecture-migration.md
 decisions/ADR-0017-ctr-improvement-as-first-vertical-slice.md
 decisions/ADR-0018-human-and-machine-output-separation.md
 decisions/ADR-0019-quality-foundation-from-ten-article-regression.md
+decisions/ADR-0020-publication-qa-as-final-release-gate.md
 examples/decisions/decision-action-plan.invalid.json
 examples/decisions/decision-action-plan.valid.json
 examples/decisions/decision-context.invalid.json
@@ -317,6 +325,7 @@ learning/schemas/SWLS_USER_FEEDBACK.schema.json
 learning/templates/LEARNING_RECORD_TEMPLATE.json
 learning/templates/MEASUREMENT_TEMPLATE.json
 learning/templates/USER_FEEDBACK_TEMPLATE.json
+manifest.json
 migrations/sims-core/asset-mapping.md
 migrations/sims-core/migration-framework-v1.0.md
 migrations/sims-core/migration-inventory.yaml
@@ -412,6 +421,9 @@ presentation/PRESENTATION_TEMPLATE.md
 product/philosophy/product-philosophy-v1.0.md
 product/platform/SIMS_PLATFORM_GUIDE.md
 product/principles/core-principles-v1.0.md
+product/quality/AUTO_FIX_RULES.md
+product/quality/PUBLIC_RELEASE_GATE.md
+product/quality/QA_ENGINE_SPECIFICATION.md
 product/quality/QUALITY_FRAMEWORK.md
 product/roadmap/WRITER_v1.1.2_IMPROVEMENT_PLAN.md
 product/roadmap/product-roadmap.md
@@ -552,6 +564,8 @@ runtime/sims_writer_runtime/models.py
 runtime/sims_writer_runtime/orchestrator.py
 runtime/sims_writer_runtime/output_contract.py
 runtime/sims_writer_runtime/publish_quality.py
+runtime/sims_writer_runtime/qa/__init__.py
+runtime/sims_writer_runtime/qa/publication_qa.py
 runtime/sims_writer_runtime/quality/__init__.py
 runtime/sims_writer_runtime/quality/engine.py
 runtime/sims_writer_runtime/quality/foundation.py
@@ -603,11 +617,13 @@ shared/knowledge/internal-link-integrity.md
 shared/knowledge/internal-link-semantics.md
 shared/knowledge/logical-consistency.md
 shared/knowledge/numeric-consistency.md
+shared/knowledge/publication-qa-principles.md
 shared/knowledge/query-data-analysis.md
 shared/knowledge/serp-entity-preservation.md
 shared/knowledge/source-scope-qualification.md
 shared/mappings/writer/application-mapping.md
 shared/validation/common-editorial-validation.md
+shared/validation/publication-qa-validation.md
 shared/validation/shared-knowledge-validation.md
 templates/adr-template.md
 templates/article-evaluation-template.md
@@ -645,6 +661,7 @@ tests/golden/cases/gc-new-001-new-how-to.json
 tests/golden/cases/gc-rec-012-placeholder-recovery.json
 tests/golden/cases/gc-trb-005-troubleshooting-safe.json
 tests/golden/cases/gc-upd-004-outdated-content.json
+tests/golden/manifest.json
 tests/golden/reports/latest-report.json
 tests/golden/test_golden_uat.py
 tests/golden/uat-strategy-v1.0.md
@@ -653,6 +670,7 @@ tests/knowledge/README.md
 tests/migration/test_sims_core_migration.py
 tests/model-adapters/test_model_adapters.py
 tests/patterns/test_v1_1_0_editorial_patterns.py
+tests/publication-qa/test_publication_qa.py
 tests/quality-freeze/examples/invalid-budget-v2.json
 tests/quality-freeze/examples/valid-v2.json
 tests/quality-freeze/test_quality_freeze.py
@@ -664,6 +682,8 @@ tests/rc-hotfix-v0.2.2/README.md
 tests/rc-hotfix-v0.2.2/real-article-regression-manifest.json
 tests/rc-hotfix-v0.2.2/test_rc_hotfix.py
 tests/refinement/test_targeted_refinement.py
+tests/regression/official-v1/README.md
+tests/regression/official-v1/manifest.json
 tests/regression-acceptance-criteria.md
 tests/release/test_claude_package_consistency.py
 tests/release-a/README.md

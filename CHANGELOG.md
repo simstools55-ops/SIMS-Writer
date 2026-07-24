@@ -331,3 +331,9 @@
 - Safe deterministic fixes for placeholders, repetitive text, AI-like phrases, and heading hierarchy
 - Revision records, action plans, resume-stage routing, and revalidation loop
 - ADR-0014 Targeted Refinement Before Regeneration
+
+## 1.3.2 - Publication QA Foundation
+
+- Added PublicationQAEngine to coordinate initial review, safe targeted refinement, re-review, and release action.
+- Added five-level publication verdicts.
+- Added QA Engine specification, auto-fix boundary, release gate, ADR-0020, and Official Regression Suite v1 draft manifest.
