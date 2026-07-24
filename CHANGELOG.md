@@ -337,3 +337,10 @@
 - Added PublicationQAEngine to coordinate initial review, safe targeted refinement, re-review, and release action.
 - Added five-level publication verdicts.
 - Added QA Engine specification, auto-fix boundary, release gate, ADR-0020, and Official Regression Suite v1 draft manifest.
+
+## 1.3.3 - Regression Evaluation Profiles
+
+- Added formal Publication QA evaluation standard.
+- Added five Official Regression Suite case profiles and expected findings.
+- Added regression readiness runner and QA checklist integration.
+- Source article fixtures remain pending and are reported as SKIP.

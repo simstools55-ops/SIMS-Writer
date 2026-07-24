@@ -1,13 +1,65 @@
 {
   "suite": "SIMS Writer Official Regression Suite",
-  "version": "1.0.0-draft",
-  "status": "awaiting_source_artifacts",
+  "version": "1.0.0-rc1",
+  "status": "evaluation_profiles_ready_awaiting_source_artifacts",
   "immutability_policy": "Once input and original output are captured, they must not be edited. Corrections belong in expected QA and expected final output files.",
   "cases": [
-    {"id":"REG-001","article_id":"A000001","label":"Something went wrong","focus":["winner_query_preservation","schema_regression","causal_wording"]},
-    {"id":"REG-002","article_id":"A000050","label":"Notion iPhone Widget","focus":["query_coverage","internal_link_state","contract_completeness"]},
-    {"id":"REG-003","article_id":"A000340","label":"Excel not responding","focus":["query_mix","empty_string","validation_consistency"]},
-    {"id":"REG-004","article_id":"A000301","label":"Wi-Fi router electricity cost","focus":["numeric_consistency","faq_merge","all_links_rejected"]},
-    {"id":"REG-005","article_id":null,"label":"Feng Shui bag","focus":["low_coverage","uncertainty_wording","legacy_contract_regression"]}
-  ]
+    {
+      "id": "REG-001",
+      "article_id": "A000001",
+      "label": "Something went wrong",
+      "focus": [
+        "winner_query_preservation",
+        "schema_regression",
+        "causal_wording"
+      ],
+      "case_spec": "cases/REG-001/case.json"
+    },
+    {
+      "id": "REG-002",
+      "article_id": "A000050",
+      "label": "Notion iPhone Widget",
+      "focus": [
+        "query_coverage",
+        "internal_link_state",
+        "contract_completeness"
+      ],
+      "case_spec": "cases/REG-002/case.json"
+    },
+    {
+      "id": "REG-003",
+      "article_id": "A000340",
+      "label": "Excel not responding",
+      "focus": [
+        "query_mix",
+        "empty_string",
+        "validation_consistency"
+      ],
+      "case_spec": "cases/REG-003/case.json"
+    },
+    {
+      "id": "REG-004",
+      "article_id": "A000301",
+      "label": "Wi-Fi router electricity cost",
+      "focus": [
+        "numeric_consistency",
+        "faq_merge",
+        "all_links_rejected"
+      ],
+      "case_spec": "cases/REG-004/case.json"
+    },
+    {
+      "id": "REG-005",
+      "article_id": null,
+      "label": "Feng Shui bag",
+      "focus": [
+        "low_coverage",
+        "uncertainty_wording",
+        "legacy_contract_regression"
+      ],
+      "case_spec": "cases/REG-005/case.json"
+    }
+  ],
+  "evaluation_standard": "product/quality/QA_EVALUATION_STANDARD.md",
+  "runner": "tools/run_official_regression.py"
 }

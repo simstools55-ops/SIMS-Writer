@@ -1,0 +1,17 @@
+{
+  "case_id": "REG-004",
+  "required_findings": [
+    "monthly_annual_cost_mismatch",
+    "validation_false_pass"
+  ],
+  "permitted_auto_fixes": [
+    "numeric_recalculation",
+    "faq_consistency_fix"
+  ],
+  "prohibited_actions": [
+    "change_primary_intent",
+    "rewrite_original_experience",
+    "invent_evidence",
+    "remove_winner_query_without_gate"
+  ]
+}

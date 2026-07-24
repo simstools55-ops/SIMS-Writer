@@ -1,12 +1,12 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "1.3.2",
-  "integrated_version": "1.3.2",
+  "source_version": "1.3.3",
+  "integrated_version": "1.3.3",
   "target_product": "writer",
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "b997834e753b218f70440f9295cee9458b9b5bf5996fd28b050a4f9fd07d0c9c"
+      "sha256": "5dd395b5b61232f32ad27c8041b002253f5ad013cf120accd5a7a9d8ed282b2c"
     },
     {
       "path": "Decision-Support.md",
@@ -42,15 +42,15 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "1c7d087f5bd09ad175c4344e61b92c31893171e535c18309f278c0956d398fa3"
+      "sha256": "5f9c843c9c91e42c946aef6bddfbe0d3e9aafd7b0b53cfd0d7f187b3fefecb06"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "a3781e5d77d208103462112b9e8ad8daa0d84aaeba2d2fffdfc70b881169bf32"
+      "sha256": "2dcc008fcfb9aaf9b4d29f0acfc18ab6a22434ea817e8de74a2e24e01572a2b7"
     },
     {
       "path": "VERSION",
-      "sha256": "33158972a53877b421cfe2598b8d93cab169963a4964b45ee889e85349979018"
+      "sha256": "a74a0cf84ef0b15e01e64746c3465813312b763796f4f6362b092f092dccb8b5"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -153,6 +153,14 @@
       "sha256": "3fae1a438249420205598a748f9feaf95f237e855f8f4cd9329c65983fb32850"
     },
     {
+      "path": "knowledge/publication-qa-evaluation-standard.md",
+      "sha256": "300bfbb653ea3aa37f67727a866997848bf9b4653f4792a980a4a7db6102ec86"
+    },
+    {
+      "path": "knowledge/publication-qa-principles.md",
+      "sha256": "4eee3d51b2a11bbe0c0b0a79863f82e8f5720d04b3eeb42335d7eb0001e033d0"
+    },
+    {
       "path": "knowledge/query-data-analysis.md",
       "sha256": "b982977740424a6ddf2950ba586d0f8d66816dac5a61616da43b92d12a46561b"
     },
@@ -173,17 +181,16 @@
       "sha256": "16a3d7a600cea9b92bca0617e7364c0b59f407ada65469d1a2f3e0e64d62f9cf"
     },
     {
-      "path": "validation/shared-knowledge-validation.md",
-      "sha256": "d76ef622d4f4b39ccc1413d0ce20139e970f66911044b6ce4e26e8641946881d"
-    },
-    {
-      "path": "knowledge/publication-qa-principles.md",
-      "sha256": "4eee3d51b2a11bbe0c0b0a79863f82e8f5720d04b3eeb42335d7eb0001e033d0"
+      "path": "validation/publication-qa-regression-validation.md",
+      "sha256": "77b21c874310f4f49a775561d13652aad2d4eb66b1ac295e710b9f026b84fec5"
     },
     {
       "path": "validation/publication-qa-validation.md",
       "sha256": "01a40461a69feeeac2c8a2509801508c003bbe32cc8f3aed253d33d0851c99d2"
+    },
+    {
+      "path": "validation/shared-knowledge-validation.md",
+      "sha256": "d76ef622d4f4b39ccc1413d0ce20139e970f66911044b6ce4e26e8641946881d"
     }
-  ],
-  "integrated_for": "SIMS Writer 1.3.2"
+  ]
 }

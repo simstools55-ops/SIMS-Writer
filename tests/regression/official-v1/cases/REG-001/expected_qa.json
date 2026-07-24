@@ -1,0 +1,17 @@
+{
+  "case_id": "REG-001",
+  "required_findings": [
+    "legacy_contract_shape",
+    "unsupported_causal_wording"
+  ],
+  "permitted_auto_fixes": [
+    "contract_normalization",
+    "causal_wording_softening"
+  ],
+  "prohibited_actions": [
+    "change_primary_intent",
+    "rewrite_original_experience",
+    "invent_evidence",
+    "remove_winner_query_without_gate"
+  ]
+}

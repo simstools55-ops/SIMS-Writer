@@ -1,0 +1,30 @@
+{
+  "case_id": "REG-004",
+  "article_id": "A000301",
+  "label": "Wi-Fi router electricity cost",
+  "fixture_status": "awaiting_source_artifacts",
+  "immutable_after_capture": [
+    "input.md",
+    "original_output.md"
+  ],
+  "expected_initial_verdict": "PASS_WITH_REQUIRED_FIX",
+  "expected_final_verdict": "PASS",
+  "focus": [
+    "numeric_consistency",
+    "faq_merge",
+    "all_links_rejected"
+  ],
+  "required_findings": [
+    "monthly_annual_cost_mismatch",
+    "validation_false_pass"
+  ],
+  "permitted_auto_fixes": [
+    "numeric_recalculation",
+    "faq_consistency_fix"
+  ],
+  "source_files": {
+    "input": "input.md",
+    "original_output": "original_output.md",
+    "expected_qa": "expected_qa.json"
+  }
+}

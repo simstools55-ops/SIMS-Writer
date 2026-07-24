@@ -43,3 +43,14 @@
 ## 1.0.0
 
 - Established the Shared Editorial Knowledge repository and Writer/Article Creator mappings.
+
+## 1.3.2
+
+- Added common Publication QA principles and validation requirements for final editorial release review.
+
+## 1.3.3 - Regression Evaluation Profiles
+
+- Added formal Publication QA evaluation standard.
+- Added five Official Regression Suite case profiles and expected findings.
+- Added regression readiness runner and QA checklist integration.
+- Source article fixtures remain pending and are reported as SKIP.

@@ -1,0 +1,30 @@
+{
+  "case_id": "REG-005",
+  "article_id": null,
+  "label": "Feng Shui bag",
+  "fixture_status": "awaiting_source_artifacts",
+  "immutable_after_capture": [
+    "input.md",
+    "original_output.md"
+  ],
+  "expected_initial_verdict": "PASS_WITH_WARNING",
+  "expected_final_verdict": "PASS_WITH_WARNING",
+  "focus": [
+    "low_coverage",
+    "uncertainty_wording",
+    "legacy_contract_regression"
+  ],
+  "required_findings": [
+    "low_coverage_overstatement",
+    "legacy_contract_shape"
+  ],
+  "permitted_auto_fixes": [
+    "uncertainty_wording_softening",
+    "contract_normalization"
+  ],
+  "source_files": {
+    "input": "input.md",
+    "original_output": "original_output.md",
+    "expected_qa": "expected_qa.json"
+  }
+}
