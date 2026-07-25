@@ -1,7 +1,7 @@
 {
   "target_product": "writer",
-  "source_version": "2.0.0-dev.1",
-  "integrated_version": "2.0.0-dev.1",
+  "source_version": "2.0.0-dev.2",
+  "integrated_version": "2.0.0-dev.2",
   "included_mapping": "writer",
   "excluded_mapping": "article-creator"
 }

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.0-dev.2
+- Added mandatory SERP-first intent and gap analysis for main-query positions below the top three.
+- Added non-fabrication and unavailable-SERP safeguards.
+
+
 ## 2.0.0-dev.1
 
 - Introduced user-centered SEO editorial output architecture.

@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack v0.2.0
 
-Version: 2.0.0-dev.1
+Version: 2.0.0-dev.2
 
 
 # SIMS Writer Quality Specification v0.2.0

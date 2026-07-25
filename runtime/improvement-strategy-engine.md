@@ -1,4 +1,4 @@
-# Improvement Strategy Engine v1.0
+# Improvement Strategy Engine v2.0
 
 ## 1. 役割
 
@@ -16,6 +16,16 @@ Phase A0〜A4の監査結果を統合し、最適な改善範囲を決定する�
 - current performance
 - improvement_history
 - requested_priorities
+
+
+## 2A. SERP-first mandatory gate
+
+Before selecting `minor_polish`, `targeted_revision`, `section_rebuild` or broader scope:
+
+- If the supplied main-query average position is greater than 3.0, run the current top-10 SERP analysis, Search Intent Model and Gap Analysis Engine.
+- LOW_SAMPLE reduces confidence in CTR diagnosis; it does not suppress SERP/gap analysis for a deeply ranked article.
+- A deep rank must not be attributed automatically to content quality, but it requires comparison before deciding that only title/meta polishing is sufficient.
+- If SERP evidence is unavailable, do not invent gaps and do not approve competitor-gap-dependent content edits.
 
 ## 3. 内部出力
 
