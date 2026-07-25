@@ -1,3 +1,11 @@
+# Changelog
+
+## 2.0.0-dev.1
+
+- Introduced user-centered SEO editorial output architecture.
+- Added PUBLIC_OK / USER_DECISION / INTERNAL_REJECT separation.
+- Moved QA and validation detail to internal audit records.
+
 # v1.4.0
 - Validationメッセージを簡潔化し監査形式を統一
 - review_traceをchecked配列中心へ構造化
@@ -34,7 +42,6 @@
 - Shared Snapshot v1.3.0
 - Contract 2.1運用指示を追加
 
-# Changelog
 
 ## 1.1.1 - 2026-07-22
 - Shared Editorial Knowledge v1.1.1へ同期。

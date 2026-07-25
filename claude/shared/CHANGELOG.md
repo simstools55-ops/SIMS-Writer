@@ -1,3 +1,18 @@
+# Changelog
+
+## 2.0.0-dev.1
+
+- Introduced user-centered SEO editorial output architecture.
+- Added PUBLIC_OK / USER_DECISION / INTERNAL_REJECT separation.
+- Moved QA and validation detail to internal audit records.
+
+# v1.4.0
+- Validation監査メッセージとQA履歴構造を標準化
+
+# v1.3.9
+
+- Validation Message Integrity Hotfix。空メッセージを正例・Schema・Normalizer・最終ゲート・テストの全層で禁止。
+
 ## 1.3.8 - Regression Hotfix
 
 # Shared Editorial Knowledge v1.3.8 Regression Hotfix
@@ -19,7 +34,6 @@ Canonical Publication QA output, unresolved-finding verdict alignment, claim-pre
 - 製品固有のQuery IntelligenceとJSON ContractをSharedから分離維持
 - Snapshot生成時の版数・Manifest整合性を強化
 
-# Changelog
 
 ## 1.2.0 - 2026-07-24
 - 最大200件のSearch Console Query Data解析ルールを追加。

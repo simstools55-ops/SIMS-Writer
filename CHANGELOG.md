@@ -1,3 +1,11 @@
+# Changelog
+
+## 2.0.0-dev.1
+
+- Introduced user-centered SEO editorial output architecture.
+- Added PUBLIC_OK / USER_DECISION / INTERNAL_REJECT separation.
+- Moved QA and validation detail to internal audit records.
+
 # v1.4.0
 - Validationメッセージを簡潔化し監査形式を統一
 - review_traceをchecked配列中心へ構造化
@@ -52,7 +60,6 @@
 - Shared v1.3.0共通Validation適用
 - Writer/Writer-Claude同期修復
 
-# Changelog
 
 ## 1.2.0 - 2026-07-24
 - SBM Product 5.6.6 Search Console Query Data（最大200件）へ対応。

@@ -39,3 +39,8 @@ Preservation Score、Rewrite Level、Rewrite Scope、Change Budgetを上書き�
 - VAL-CONSISTENCY-001 論理整合性
 - VAL-ENTITY-001 HTML Entity整合性
 - VAL-LINK-001 内部リンク整合性
+
+
+## v2.0 Editorial application
+
+`editorial-decision-and-visibility.md`、`COPY_READY_OUTPUT_STANDARD_V2.md`、`PUBLICATION_VISIBILITY_POLICY_V2.md`をWriterのEditorial Decision Layerと利用者向け出力生成に適用する。

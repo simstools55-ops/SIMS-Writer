@@ -1,12 +1,12 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "1.4.0",
-  "integrated_version": "1.4.0",
+  "source_version": "2.0.0-dev.1",
+  "integrated_version": "2.0.0-dev.1",
   "target_product": "writer",
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "7178555be2b44c1bea2d265a28fc95a93f8c7e52cee8cbbc65e9d6b931cb4f20"
+      "sha256": "c3689effff235f5d3142ead91a81bdc9995ae1f52f58bb6f8da1019487dfd792"
     },
     {
       "path": "Decision-Support.md",
@@ -42,19 +42,19 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "a2a25d1f6ec546441185ee8d0ef65c145fe912703cbbd2829785c6f1abcd20f7"
+      "sha256": "b188b92eac0b3ade52a2b98e9f4e0b773adf828e528d191ce8f3f33160b3b553"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "a1b0f75e894e5f67b43402e34ff29278d0b8cd07cb8989ef446ca2415e693ca0"
+      "sha256": "3251cf3756f015676ee8190a05df76755397f532b2941fc6de88a981e5ae72f0"
     },
     {
       "path": "VERSION",
-      "sha256": "78b591400c56b7b67b8cb3b2b8a8e65e9093897f02ce0878e6b5405c68620fa7"
+      "sha256": "1b541bd7a31c77cf631e6f29e1cd8c879ba469f1f941183f65ef12d81590c39a"
     },
     {
       "path": "Writer-Application-Mapping.md",
-      "sha256": "075cc40240989f1e61a91a88939d72d54a5d6348fcc55580023ebaf264e98126"
+      "sha256": "36582cc262ab9af57597fcfdfbd77cc85b69ceb141078f67e17c991af60809d9"
     },
     {
       "path": "docs/integration-policy.md",
@@ -87,6 +87,10 @@
     {
       "path": "knowledge/decision-support.md",
       "sha256": "7447194b8a903369b59677702ddc97a805a30efaa8f2d83a0c2d7753c870de7f"
+    },
+    {
+      "path": "knowledge/editorial-decision-and-visibility.md",
+      "sha256": "6dd1c636f929ab2e6b57e0793513868d680409d0b88f24e7392b3ac72f506dbf"
     },
     {
       "path": "knowledge/entity-alias-and-taxonomy-freshness.md",
@@ -177,8 +181,12 @@
       "sha256": "89d78dc42924fa4cb55a699e2d3002cca98b5b4e54b41a907d10e94f24a95647"
     },
     {
+      "path": "knowledge/validation-auditability.md",
+      "sha256": "b7092000193af8ee6ae340961b06e1f6d8f1d8b063e27f5d2e2d4217c5ebc8d3"
+    },
+    {
       "path": "mappings/writer/application-mapping.md",
-      "sha256": "075cc40240989f1e61a91a88939d72d54a5d6348fcc55580023ebaf264e98126"
+      "sha256": "36582cc262ab9af57597fcfdfbd77cc85b69ceb141078f67e17c991af60809d9"
     },
     {
       "path": "validation/common-editorial-validation.md",
@@ -199,10 +207,6 @@
     {
       "path": "validation/shared-knowledge-validation.md",
       "sha256": "d76ef622d4f4b39ccc1413d0ce20139e970f66911044b6ce4e26e8641946881d"
-    },
-    {
-      "path": "validation/validation-auditability.md",
-      "sha256": "b7092000193af8ee6ae340961b06e1f6d8f1d8b063e27f5d2e2d4217c5ebc8d3"
     },
     {
       "path": "validation/validation-message-integrity.md",

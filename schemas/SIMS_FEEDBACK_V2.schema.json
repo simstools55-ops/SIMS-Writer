@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://sims-writer.local/schemas/SIMS_FEEDBACK_V2.schema.json",
-  "title": "SIMS Feedback V2.1 Canonical Hotfix",
+  "title": "SIMS Feedback V2 Contract 3.0 - User-Centered Editorial Output",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -9,12 +9,7 @@
     "contract_version",
     "article_id",
     "article_url",
-    "diagnosis",
-    "query_coverage",
-    "changes",
-    "implementation_status",
-    "validation",
-    "warnings",
+    "publication_result",
     "information"
   ],
   "properties": {
@@ -22,7 +17,7 @@
       "const": "SIMS_FEEDBACK_V2"
     },
     "contract_version": {
-      "const": "2.1"
+      "const": "3.0"
     },
     "site_id": {
       "type": [
@@ -47,8 +42,7 @@
       "minLength": 1
     },
     "article_url": {
-      "type": "string",
-      "minLength": 1
+      "type": "string"
     },
     "completed_at": {
       "type": [
@@ -56,272 +50,34 @@
         "null"
       ]
     },
-    "diagnosis": {
+    "publication_result": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "code",
-        "confidence",
-        "reasons"
+        "change_summary",
+        "public_ok_changes",
+        "user_decision_changes"
       ],
       "properties": {
-        "code": {
-          "enum": [
-            "POSITION_OPPORTUNITY",
-            "LOW_SAMPLE",
-            "CTR_OPPORTUNITY",
-            "CONTENT_GAP",
-            "INTENT_MISMATCH",
-            "QUERY_MIX",
-            "STABLE",
-            "UNKNOWN"
-          ]
-        },
-        "confidence": {
-          "enum": [
-            "high",
-            "medium",
-            "low"
-          ]
-        },
-        "reasons": {
+        "change_summary": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "main_query": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "main_query_source": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "sample_size_flag": {
-          "type": [
-            "string",
-            "null"
-          ]
-        }
-      }
-    },
-    "primary_intent": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "main_query": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "main_query_source": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "query_coverage": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "coverage_confidence",
-        "primary",
-        "secondary",
-        "adjacent",
-        "separate_article"
-      ],
-      "properties": {
-        "captured_impressions": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "total_impressions": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "coverage_percent": {
-          "type": [
-            "number",
-            "null"
-          ]
-        },
-        "coverage_confidence": {
-          "enum": [
-            "high",
-            "medium",
-            "low"
-          ]
-        },
-        "primary": {
+        "public_ok_changes": {
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/publicOkChange"
           }
         },
-        "secondary": {
+        "user_decision_changes": {
           "type": "array",
           "items": {
-            "type": "string"
-          }
-        },
-        "adjacent": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "separate_article": {
-          "type": "array",
-          "items": {
-            "type": "string"
+            "$ref": "#/$defs/userDecisionChange"
           }
         }
       }
-    },
-    "execution_mode": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "preservation_score": {
-      "type": [
-        "integer",
-        "null"
-      ],
-      "minimum": 0,
-      "maximum": 100
-    },
-    "rewrite_level": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "rewrite_scope": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "change_budget_percent": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "estimated_change_percent": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "risk_level": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "changes": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "component",
-          "implementation_status"
-        ],
-        "properties": {
-          "implementation_status": {
-            "enum": [
-              "proposed",
-              "approved",
-              "implemented",
-              "not_implemented",
-              "not_applicable"
-            ]
-          },
-          "before": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "minLength": 1
-          },
-          "after": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "minLength": 1
-          },
-          "reason": {
-            "type": [
-              "string",
-              "null"
-            ],
-            "minLength": 1
-          },
-          "component": {
-            "type": "string",
-            "minLength": 1
-          }
-        }
-      }
-    },
-    "new_values": {
-      "type": "object",
-      "additionalProperties": {
-        "type": [
-          "string",
-          "number",
-          "boolean",
-          "null"
-        ]
-      }
-    },
-    "improvement_type": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "confidence": {
-      "enum": [
-        "high",
-        "medium",
-        "low",
-        null
-      ]
-    },
-    "expected_effect": {
-      "type": "object",
-      "additionalProperties": {
-        "type": [
-          "string",
-          "number",
-          "boolean",
-          "null"
-        ]
-      }
-    },
-    "next_action": {
-      "type": [
-        "string",
-        "null"
-      ]
     },
     "recommended_review_days": {
       "type": [
@@ -329,260 +85,147 @@
         "null"
       ]
     },
-    "summary": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "implementation_status": {
-      "enum": [
-        "proposed",
-        "approved",
-        "implemented",
-        "not_implemented",
-        "not_applicable"
-      ]
-    },
-    "protected_elements": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
     "information": {
       "type": "array",
       "items": {
         "type": "string"
       }
-    },
-    "warnings": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "validation": {
+    }
+  },
+  "$defs": {
+    "baseChange": {
       "type": "object",
-      "additionalProperties": false,
       "required": [
-        "result",
-        "checks",
-        "failed_rules",
-        "warning_rules",
-        "passed_rules",
-        "notes"
+        "component",
+        "component_label",
+        "before",
+        "after"
       ],
       "properties": {
-        "result": {
-          "enum": [
-            "PASS",
-            "PASS_WITH_WARNING",
-            "FAIL",
-            "UNVERIFIABLE"
+        "component": {
+          "type": [
+            "string",
+            "null"
           ]
         },
-        "checks": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "additionalProperties": true,
-            "required": [
-              "code",
-              "status",
-              "message"
-            ],
-            "properties": {
-              "code": {
-                "type": "string",
-                "minLength": 1
-              },
-              "status": {
-                "type": "string",
-                "minLength": 1
-              },
-              "message": {
-                "type": "string",
-                "minLength": 1,
-                "pattern": ".*\\S.*"
-              }
+        "component_label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "before": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "after": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "publicOkChange": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseChange"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "component",
+            "component_label",
+            "before",
+            "after",
+            "implementation_instruction"
+          ],
+          "properties": {
+            "component": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "component_label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "before": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "after": {
+              "type": "string",
+              "minLength": 1
+            },
+            "implementation_instruction": {
+              "type": "string",
+              "minLength": 1
             }
           }
+        }
+      ]
+    },
+    "userDecisionChange": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/baseChange"
         },
-        "failed_rules": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "warning_rules": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "passed_rules": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "notes": {
-          "type": "array",
-          "items": {
-            "type": "string"
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "component",
+            "component_label",
+            "before",
+            "after",
+            "decision_reason",
+            "benefit_if_adopted",
+            "impact_if_not_adopted",
+            "confirmation_point"
+          ],
+          "properties": {
+            "component": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "component_label": {
+              "type": "string",
+              "minLength": 1
+            },
+            "before": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "after": {
+              "type": "string",
+              "minLength": 1
+            },
+            "decision_reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "benefit_if_adopted": {
+              "type": "string",
+              "minLength": 1
+            },
+            "impact_if_not_adopted": {
+              "type": "string",
+              "minLength": 1
+            },
+            "confirmation_point": {
+              "type": "string",
+              "minLength": 1
+            }
           }
         }
-      }
-    },
-    "estimated_minutes": {
-      "type": [
-        "integer",
-        "number",
-        "null"
       ]
-    },
-    "swls": {
-      "type": [
-        "object",
-        "null"
-      ]
-    },
-    "recommendation_reason": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "publication_qa": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "contract",
-        "initial_verdict",
-        "final_verdict",
-        "publishable",
-        "release_action",
-        "review_cycles_used",
-        "review_trace",
-        "unresolved_findings",
-        "auto_fixes"
-      ],
-      "properties": {
-        "contract": {
-          "const": "SIMS_EDITORIAL_QA_V1"
-        },
-        "engine_version": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "initial_verdict": {
-          "enum": [
-            "PASS",
-            "PASS_WITH_WARNING",
-            "PASS_WITH_MINOR_FIX",
-            "PASS_WITH_REQUIRED_FIX",
-            "FAIL"
-          ]
-        },
-        "final_verdict": {
-          "enum": [
-            "PASS",
-            "PASS_WITH_WARNING",
-            "PASS_WITH_MINOR_FIX",
-            "PASS_WITH_REQUIRED_FIX",
-            "FAIL"
-          ]
-        },
-        "publishable": {
-          "type": "boolean"
-        },
-        "release_action": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "review_cycles_used": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 3
-        },
-        "review_trace": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
-        },
-        "unresolved_findings": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
-        },
-        "advisories": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "auto_fixes": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          }
-        },
-        "auto_fix_applied": {
-          "type": "boolean",
-          "deprecated": true
-        }
-      }
-    },
-    "internal_link_evaluation": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "decision",
-          "reason"
-        ],
-        "properties": {
-          "url": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "title": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "decision": {
-            "enum": [
-              "adopted",
-              "held",
-              "rejected",
-              "existing"
-            ]
-          },
-          "implementation_status": {
-            "enum": [
-              "implemented",
-              "not_implemented",
-              "pending_verification"
-            ]
-          },
-          "reason": {
-            "type": "string",
-            "minLength": 1
-          }
-        },
-        "additionalProperties": true
-      }
     }
   }
 }

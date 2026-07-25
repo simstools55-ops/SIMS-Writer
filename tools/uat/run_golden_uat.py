@@ -24,9 +24,21 @@ def run_case(path:Path):
         if qr.get("rules_evaluated") != expected["rules_evaluated"]: errors.append("quality rule count mismatch")
         if len(qr.get("gate_results",[])) != expected["gates_evaluated"]: errors.append("quality gate count mismatch")
         package=result.artifacts.get("publication_package",{})
-        text=json.dumps(package,ensure_ascii=False)
+        # Contract 3.0 intentionally preserves Before text. Forbidden-text checks
+        # therefore inspect only publishable content and After values.
+        feedback=package.get("feedback") or {}
+        publication_result=feedback.get("publication_result") or {}
+        visible_after=[item.get("after") for key in ("public_ok_changes","user_decision_changes") for item in publication_result.get(key,[]) or []]
+        text=json.dumps({
+            "article_content": package.get("article_content"),
+            "seo_title": package.get("seo_title"),
+            "meta_description": package.get("meta_description"),
+            "h1": package.get("h1"),
+            "visible_after": visible_after,
+        },ensure_ascii=False)
+        include_text=json.dumps(package,ensure_ascii=False)
         for word in expected.get("must_include",[]):
-            if word not in text: errors.append(f"missing required text: {word}")
+            if word not in include_text: errors.append(f"missing required text: {word}")
         for word in expected.get("must_not_include",[]):
             if word in text: errors.append(f"forbidden text remains: {word}")
     return {"id":case["id"],"status":"pass" if not errors else "fail","expected":expected["publish_decision"],"actual":result.status,"errors":errors}
