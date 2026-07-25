@@ -43,7 +43,7 @@
 {
   "status": "PASS",
   "checks": [
-    {"code": "VAL-INTENT-001", "status": "PASS", "message": ""}
+    {"code": "VAL-INTENT-001", "status": "PASS", "message": "タイトル・導入・見出し・結論が主要検索意図を維持していることを確認"}
   ],
   "estimated_change_percent": 18,
   "notes": []

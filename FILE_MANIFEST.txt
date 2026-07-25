@@ -34,6 +34,7 @@ RELEASE_NOTES_v1.3.5_FINAL_OUTPUT_INTEGRATION.md
 RELEASE_NOTES_v1.3.6_PUBLICATION_PIPELINE_LOCK.md
 RELEASE_NOTES_v1.3.7_CONTRACT_CLEANUP.md
 RELEASE_NOTES_v1.3.8_REGRESSION_HOTFIX.md
+RELEASE_NOTES_v1.3.9_VALIDATION_MESSAGE_INTEGRITY.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/domain/editorial-qa-boundary-v1.0.md
@@ -64,9 +65,11 @@ claude/RELEASE_NOTES_v1.3.5_FINAL_OUTPUT_INTEGRATION.md
 claude/RELEASE_NOTES_v1.3.6_PUBLICATION_PIPELINE_LOCK.md
 claude/RELEASE_NOTES_v1.3.7_CONTRACT_CLEANUP.md
 claude/RELEASE_NOTES_v1.3.8_REGRESSION_HOTFIX.md
+claude/RELEASE_NOTES_v1.3.9_VALIDATION_MESSAGE_INTEGRITY.md
 claude/SELF_QA_RUNTIME_INSTRUCTIONS.md
 claude/SETUP_GUIDE.md
 claude/TEST_CHECKLIST.md
+claude/VALIDATION_MESSAGE_INTEGRITY.md
 claude/VERSION
 claude/examples/EXAMPLE_REQUEST.json
 claude/knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md
@@ -128,6 +131,7 @@ claude/shared/validation/publication-pipeline-integrity-validation.md
 claude/shared/validation/publication-qa-regression-validation.md
 claude/shared/validation/publication-qa-validation.md
 claude/shared/validation/shared-knowledge-validation.md
+claude/shared/validation/validation-message-integrity.md
 claude/templates/IMPROVEMENT_REQUEST_TEMPLATE.json
 contracts/decision/action-plan/action-plan-contract.md
 contracts/decision/action-plan/action-plan.schema.json
@@ -465,6 +469,7 @@ quality/framework/quality-framework-v1.0.md
 quality/framework/reason-warning-codes-v1.0.md
 quality/framework/search-performance-diagnosis-v1.0.md
 quality/framework/validation-layer-v0.2.0.md
+quality/framework/validation-message-integrity-v1.3.9.md
 quality/gates/draft-gate.yaml
 quality/gates/evidence-gate.yaml
 quality/gates/final-publication-gate.yaml
@@ -604,6 +609,7 @@ runtime/sims_writer_runtime/refinement/__init__.py
 runtime/sims_writer_runtime/refinement/engine.py
 runtime/sims_writer_runtime/refinement/router.py
 runtime/sims_writer_runtime/schema_normalizer.py
+runtime/sims_writer_runtime/validation_message_gate.py
 runtime/sims_writer_runtime/vertical_slices/__init__.py
 runtime/sims_writer_runtime/vertical_slices/ctr_improvement.py
 runtime/validators/quality-validation-runtime.md
@@ -660,6 +666,7 @@ shared/validation/publication-pipeline-integrity-validation.md
 shared/validation/publication-qa-regression-validation.md
 shared/validation/publication-qa-validation.md
 shared/validation/shared-knowledge-validation.md
+shared/validation/validation-message-integrity.md
 templates/adr-template.md
 templates/article-evaluation-template.md
 templates/article-test-input-template.md
@@ -711,6 +718,7 @@ tests/publication-qa/test_publication_output.py
 tests/publication-qa/test_publication_qa.py
 tests/publication-qa/test_regression_hotfix_v1_3_8.py
 tests/publication-qa/test_self_review_runtime.py
+tests/publication-qa/test_validation_message_integrity_v1_3_9.py
 tests/quality-freeze/examples/invalid-budget-v2.json
 tests/quality-freeze/examples/valid-v2.json
 tests/quality-freeze/test_quality_freeze.py

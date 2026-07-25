@@ -97,6 +97,8 @@ This section overrides every older output example or template in the repository.
 - `publication_qa.auto_fixes` は構造化配列。`auto_fix_applied` は出力禁止。
 - `review_trace` と `unresolved_findings` は必ずオブジェクト配列。
 - Validationの `message`、`expected_effect`、Before/Afterに空文字を出力しない。
+- `validation.checks[]` は全ステータスで `code`・`status`・具体的な `message` を必須とする。PASSでも空欄・「確認済み」・「問題なし」・コード名の反復は禁止。何を確認し、何が分かったかを日本語で記録する。
+- `validation.checks[].message` が欠落・空白・汎用文の場合は `VAL-CONTRACT-006` として最終出力を停止し、ルール別の具体的な確認結果へ修正してから再評価する。
 - 未変更・不採用・保留項目を `changes[]` に入れない。内部リンク評価は `internal_link_evaluation` に候補単位で記録する。
 - 未解決事項が1件でもある場合、`final_verdict: PASS` は禁止。公開可能なら `PASS_WITH_WARNING` とする。
 - 「完全解説」「徹底調査」「必ず」「唯一」「5分で解決」、条件不明の「2〜3倍」「60〜80%」、主観的な「コスパが良い/悪い」、別エラーの「同種/似たエラー」は根拠確認なしに使用しない。

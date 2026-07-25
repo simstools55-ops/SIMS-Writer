@@ -1,3 +1,7 @@
+# v1.3.9
+
+- Validation Message Integrity Hotfix。空メッセージを正例・Schema・Normalizer・最終ゲート・テストの全層で禁止。
+
 ## 1.3.8 - Regression Hotfix
 
 # SIMS Writer v1.3.8 Regression Hotfix

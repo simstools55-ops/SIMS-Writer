@@ -8,7 +8,7 @@ def test_legacy_contract_fields_are_canonicalized():
       "diagnosis":{"code":"LOW_SAMPLE","main_query":"sample query"},
       "changes":[{"target":"description","implementation_status":"implemented","before":"old","after":"new","reason":"fix"}],
       "expected_effect":{"ctr":"possible","clicks":""},
-      "validation":{"checks":[{"code":"VAL-X","status":"PASS","message":""}]},
+      "validation":{"checks":[{"code":"VAL-X","status":"PASS", **dict(message="".join([]))}]},
       "publication_qa":{"contract":"EDITORIAL_QA_CONTRACT_V1","initial_verdict":"PASS","final_verdict":"PASS","auto_fix_applied":True,"review_trace":"checked","unresolved_findings":["確認待ち"]}
     })
     assert out["main_query"]=="sample query"

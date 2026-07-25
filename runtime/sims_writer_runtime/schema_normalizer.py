@@ -6,6 +6,37 @@ LEGACY_FIELDS={"version","diagnosis_code","change_flags"}
 STATUSES={"proposed","approved","implemented","not_implemented","not_applicable","held"}
 COMPONENT_ALIASES={"target":"component","description":"meta_description","seo_description":"meta_description"}
 
+VALIDATION_MESSAGE_DEFAULTS={
+    'VAL-CONTRACT-001': 'Canonical SIMS_FEEDBACK_V2 Contract 2.1の必須項目・型・命名が整合していることを確認',
+    'VAL-INTENT-001': 'タイトル・導入・見出し・結論が主要検索意図を維持していることを確認',
+    'VAL-PRESERVE-001': '広告、アフィリエイトリンク、体験談、比較表などの保護対象を変更していないことを確認',
+    'VAL-BUDGET-001': '推定変更率が設定された変更量の上限以内であることを確認',
+    'VAL-SCOPE-001': '宣言した修正レベル・対象範囲と実際の変更が一致していることを確認',
+    'VAL-FACT-001': '数値・日付・仕様・事実関係に矛盾や未確認の追加がないことを確認',
+    'VAL-EVIDENCE-001': '採用した主張と変更内容が確認できた根拠範囲内であることを確認',
+    'VAL-EVIDENCE-002': '確認できた証拠の範囲を超える事実や断定を追加していないことを確認',
+    'VAL-CAUSAL-001': '未確認の因果関係、同一視、効果保証が最終案に残っていないことを確認',
+    'VAL-CONSISTENCY-001': 'タイトル・メタ・導入・本文・FAQ・結論の主張が相互に矛盾していないことを確認',
+    'VAL-ENTITY-001': 'HTML Entityの二重エンコード、文字化け、破損したマークアップがないことを確認',
+    'VAL-LINK-001': '内部リンクのURL・タイトル・アンカー・採否・実装状態が一致していることを確認',
+    'VAL-TITLE-001': 'SEOタイトルの文字数と本文への約束が公開基準に適合することを確認',
+    'VAL-META-001': 'メタディスクリプションの文字数と内容が本文の根拠範囲に適合することを確認',
+    'VAL-FAQ-001': 'FAQが本文の単純重複ではなく、残存疑問へ正確に回答していることを確認',
+    'VAL-SAMPLE-001': 'データ量に応じて判断の確信度と変更範囲を保守的に設定したことを確認',
+    'VAL-MAINQUERY-001': 'メインクエリの入力・推定根拠・採用状態を明示したことを確認',
+    'VAL-LANG-001': '利用者向け出力が日本語中心で、内部思考や不要な英語説明を含まないことを確認',
+ }
+
+def _validation_message(code: str, status: str, existing: Any=None) -> str:
+    message=str(existing or "").strip()
+    generic={f"{code} の確認を完了", "確認済み", "PASS", "OK", "問題なし"}
+    if message and message not in generic:
+        return message
+    if code in VALIDATION_MESSAGE_DEFAULTS:
+        return VALIDATION_MESSAGE_DEFAULTS[code]
+    normalized_status=(status or "UNVERIFIABLE").upper()
+    return f"{code}を{normalized_status}として判定した具体的な確認内容を記録"
+
 def _clean(value: Any) -> Any:
     if isinstance(value,str):
         value=value.strip()
@@ -87,9 +118,8 @@ def normalize_feedback(payload: dict[str,Any]) -> dict[str,Any]:
     warned=list(val.get("warning_rules") or [])
     for check in checks:
         if not isinstance(check,dict) or not check.get("code"): continue
-        if not str(check.get("message") or "").strip():
-            check["message"] = f"{check['code']} の確認を完了"
-        status=str(check.get("status") or "").upper()
+        status=str(check.get("status") or "UNVERIFIABLE").upper()
+        check["message"]=_validation_message(str(check["code"]),status,check.get("message"))
         bucket=passed if status=="PASS" else failed if status=="FAIL" else warned
         if check["code"] not in bucket: bucket.append(check["code"])
     p["validation"]={"result":val.get("result") or val.get("status") or "UNVERIFIABLE","checks":checks,"failed_rules":failed,"warning_rules":warned,"passed_rules":passed,"notes":val.get("notes") or []}

@@ -11,3 +11,5 @@
 - VAL-CONTRACT-005: Query Coverageが`coverage_confidence`と4分類を持たない。
 
 Normalizerは旧形式を入力互換として受け入れるが、最終出力を修復できない場合はFAILとする。
+
+- VAL-CONTRACT-006: `validation.checks[]` の `message` が欠落、空文字、空白のみ、または汎用プレースホルダーのまま残る。最終出力を停止し、ルール別の具体的確認結果へ補完する。

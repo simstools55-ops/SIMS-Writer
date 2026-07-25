@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack v0.2.0
 
-Version: 1.3.8
+Version: 1.3.9
 
 
 # SIMS Writer Quality Specification v0.2.0
@@ -244,7 +244,7 @@ Use `SIMS_FEEDBACK_V2` version `2.0` unless the user provides a strict alternate
 {
   "status": "PASS",
   "checks": [
-    {"code": "VAL-INTENT-001", "status": "PASS", "message": ""}
+    {"code": "VAL-INTENT-001", "status": "PASS", "message": "タイトル・導入・見出し・結論が主要検索意図を維持していることを確認"}
   ],
   "estimated_change_percent": 18,
   "notes": []

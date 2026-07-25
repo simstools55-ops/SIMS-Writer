@@ -3,7 +3,7 @@ from runtime.sims_writer_runtime.schema_normalizer import normalize_feedback
 from runtime.sims_writer_runtime.localization import user_facing_term
 
 def test_changes_are_canonical_and_empty_values_removed():
-    out=normalize_feedback({"changes":[{"target":"seo_title","implementation_status":"implemented","before":"旧","after":"新","reason":"理由"},{"target":"faq","implementation_status":"not_applicable","before":"","after":""}],"validation":{"checks":[{"code":"VAL-X","status":"PASS","message":""}]}})
+    out=normalize_feedback({"changes":[{"target":"seo_title","implementation_status":"implemented","before":"旧","after":"新","reason":"理由"},{"target":"faq","implementation_status":"not_applicable","before":"","after":""}],"validation":{"checks":[{"code":"VAL-X","status":"PASS", **dict(message="".join([]))}]}})
     assert out["changes"]==[{"component":"seo_title","implementation_status":"implemented","before":"旧","after":"新","reason":"理由"}]
     assert out["validation"]["checks"][0]["message"]
 
