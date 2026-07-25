@@ -3,7 +3,8 @@ from copy import deepcopy
 from typing import Any
 
 LEGACY_FIELDS={"version","diagnosis_code","change_flags"}
-STATUSES={"proposed","approved","implemented","not_implemented","not_applicable"}
+STATUSES={"proposed","approved","implemented","not_implemented","not_applicable","held"}
+COMPONENT_ALIASES={"target":"component","description":"meta_description","seo_description":"meta_description"}
 
 def _clean(value: Any) -> Any:
     if isinstance(value,str):
@@ -66,7 +67,9 @@ def normalize_feedback(payload: dict[str,Any]) -> dict[str,Any]:
         if status not in STATUSES: status="implemented"
         if status in {"not_implemented", "not_applicable"}:
             continue
-        change={"component":item.get("component") or item.get("target") or "unknown","implementation_status":status}
+        component=item.get("component") or item.get("target") or "unknown"
+        if component in {"description","seo_description"}: component="meta_description"
+        change={"component":component,"implementation_status":status}
         if item.get("before") not in (None, ""): change["before"]=item.get("before")
         if item.get("after") not in (None, ""): change["after"]=item.get("after")
         if item.get("reason") not in (None, ""): change["reason"]=item.get("reason")
@@ -98,6 +101,61 @@ def normalize_feedback(payload: dict[str,Any]) -> dict[str,Any]:
         p["internal_link_evaluation"]=[]
     elif not isinstance(ile,list):
         p["internal_link_evaluation"]=[]
+
+
+    # Canonical top-level main_query and aliases.
+    if not p.get("main_query"):
+        mq=(p.get("diagnosis") or {}).get("main_query")
+        if mq: p["main_query"]=mq
+    if isinstance(p.get("new_values"),dict) and "description" in p["new_values"] and "meta_description" not in p["new_values"]:
+        p["new_values"]["meta_description"]=p["new_values"].pop("description")
+
+    # Canonical Publication QA. Legacy fields may be accepted as input but never emitted as the primary form.
+    qa=p.get("publication_qa") or {}
+    if isinstance(qa,dict) and qa:
+        qa["contract"]="SIMS_EDITORIAL_QA_V1"
+        legacy_fix=qa.pop("auto_fix_applied",None)
+        fixes=qa.get("auto_fixes")
+        if not isinstance(fixes,list):
+            fixes=[]
+        if legacy_fix is True and not fixes:
+            fixes=[{"rule":"LEGACY_AUTO_FIX","component":"unknown","action":"legacy_auto_fix_recorded"}]
+        qa["auto_fixes"]=fixes
+        trace=qa.get("review_trace")
+        if isinstance(trace,str):
+            trace=[{"cycle":1,"finding":"review_completed","action":trace,"result":qa.get("final_verdict") or "UNKNOWN"}]
+        elif isinstance(trace,list):
+            converted=[]
+            for idx,item in enumerate(trace,1):
+                if isinstance(item,dict): converted.append(item)
+                else: converted.append({"cycle":idx,"finding":str(item),"action":"recorded","result":"recorded"})
+            trace=converted
+        else: trace=[]
+        qa["review_trace"]=trace
+        unresolved=qa.get("unresolved_findings") or []
+        structured=[]
+        for item in unresolved:
+            if isinstance(item,dict): structured.append(item)
+            else: structured.append({"item":str(item),"severity":"info","blocking":False,"status":"pending_verification","detail":str(item)})
+        qa["unresolved_findings"]=structured
+        if structured and qa.get("final_verdict")=="PASS":
+            qa["final_verdict"]="PASS_WITH_WARNING"
+            qa["release_action"]="publish_with_advisory"
+        p["publication_qa"]=_clean(qa)
+
+    # Candidate-level internal-link evaluation aliases.
+    normalized_links=[]
+    for item in p.get("internal_link_evaluation") or []:
+        if not isinstance(item,dict): continue
+        decision=item.get("decision") or item.get("status") or "held"
+        normalized_links.append({
+            "title": item.get("title") or item.get("candidate"),
+            "url": item.get("url") or item.get("candidate_url"),
+            "decision": decision,
+            "implementation_status": "implemented" if decision=="adopted" else "not_implemented",
+            "reason": item.get("reason") or "評価理由未記載",
+        })
+    p["internal_link_evaluation"]=_clean(normalized_links)
 
     p["warnings"]=p.get("warnings") or []
     p["information"]=p.get("information") or []

@@ -9,5 +9,5 @@ This file is a mandatory final gate and overrides older output examples.
 5. For `PASS_WITH_MINOR_FIX`, expose only the corrected After text and record the fix.
 6. For `PASS_WITH_REQUIRED_FIX` or `FAIL`, set `publishable: false`; do not call the draft publishable.
 7. Canonicalize Contract 2.1 before output: no empty strings, no unchanged entries in `changes[]`, no duplicate boolean/status fields, and no legacy `version`, `change_flags`, or `diagnosis_code`.
-8. Every changed item has `target`, `implementation_status`, `before`, `after`, and `reason`.
+8. Every changed item has `component`, `implementation_status`, `before`, `after`, and `reason`. Use `meta_description`, never `description` or `seo_description`.
 9. Validate Winner Query preservation, evidence strength, numeric consistency, HTML entities, internal-link state, and JSON completeness immediately before final rendering.

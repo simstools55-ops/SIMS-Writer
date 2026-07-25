@@ -1,3 +1,12 @@
+## 1.3.8 - Regression Hotfix
+
+# Shared Editorial Knowledge v1.3.8 Regression Hotfix
+
+Canonical Publication QA output, unresolved-finding verdict alignment, claim-precision rules, and Japanese user-facing terminology were hardened.
+
+# 1.3.6
+- Locked Publication QA pipeline and canonical final output.
+
 ## 1.3.1 - 2026-07-24
 
 - KN-ENTITY-001を明文化し、メタディスクリプションを含むHTML Entity二重エンコード防止規則を強化。

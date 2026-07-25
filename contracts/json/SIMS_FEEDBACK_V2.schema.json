@@ -116,6 +116,18 @@
         "null"
       ]
     },
+    "main_query": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "main_query_source": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "query_coverage": {
       "type": "object",
       "additionalProperties": false,

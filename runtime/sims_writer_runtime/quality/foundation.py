@@ -23,6 +23,7 @@ class QualityFoundationValidator:
         reasons = self._diagnose_search(request)
         self._numeric_consistency(draft, issues)
         self._scope_consistency(draft, issues)
+        self._claim_precision(draft, issues)
         self._contract_consistency(draft, issues)
         blocking = [i for i in issues if i.severity == "blocking"]
         status = "fail" if blocking else ("pass_with_warnings" if issues else "pass")
@@ -79,6 +80,22 @@ class QualityFoundationValidator:
                     "WC_SCOPE_MISMATCH", "warning",
                     f"タイトルの範囲表現「{word}」を本文側で確認できません。",
                     [word]
+                ))
+
+    def _claim_precision(self, draft: dict[str, Any], issues: list[FoundationIssue]) -> None:
+        text = "\n".join(str(draft.get(k) or "") for k in ("seo_title", "meta_description", "introduction", "article_content"))
+        risky = (
+            ("完全解説", "過度な網羅性表現"), ("徹底調査", "調査範囲が不明な強い表現"),
+            ("必ず", "絶対表現"), ("唯一", "絶対表現"), ("5分で解決", "解決時間の保証表現"),
+            ("2〜3倍", "比較条件が必要な数値一般化"), ("60〜80%", "機種差を無視した比率一般化"),
+            ("コスパは正直良くない", "主観評価"), ("同種のエラー", "未確認の同一視"),
+            ("似た生成エラー", "未確認の同一視"), ("増えている新しいパターン", "未確認の時系列断定"),
+        )
+        for phrase, label in risky:
+            if phrase in text:
+                issues.append(FoundationIssue(
+                    "WC_CLAIM_PRECISION", "blocking",
+                    f"公開前に再確認が必要な表現を検出しました: {label}", [phrase]
                 ))
 
     def _contract_consistency(self, draft: dict[str, Any], issues: list[FoundationIssue]) -> None:

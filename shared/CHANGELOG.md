@@ -1,3 +1,12 @@
+## 1.3.8 - Regression Hotfix
+
+# Shared Editorial Knowledge v1.3.8 Regression Hotfix
+
+Canonical Publication QA output, unresolved-finding verdict alignment, claim-precision rules, and Japanese user-facing terminology were hardened.
+
+# 1.3.6
+- Locked Publication QA pipeline and canonical final output.
+
 ## 1.3.1 - 2026-07-24
 
 - KN-ENTITY-001を明文化し、メタディスクリプションを含むHTML Entity二重エンコード防止規則を強化。
@@ -54,3 +63,9 @@
 - Added five Official Regression Suite case profiles and expected findings.
 - Added regression readiness runner and QA checklist integration.
 - Source article fixtures remain pending and are reported as SKIP.
+
+## 1.3.4
+- Added platform-neutral Editorial QA Contract v1.
+
+## 1.3.5
+- Added final publication output principles and held-draft suppression rule.

@@ -33,6 +33,7 @@ RELEASE_NOTES_v1.3.4_SELF_QA_RUNTIME.md
 RELEASE_NOTES_v1.3.5_FINAL_OUTPUT_INTEGRATION.md
 RELEASE_NOTES_v1.3.6_PUBLICATION_PIPELINE_LOCK.md
 RELEASE_NOTES_v1.3.7_CONTRACT_CLEANUP.md
+RELEASE_NOTES_v1.3.8_REGRESSION_HOTFIX.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/domain/editorial-qa-boundary-v1.0.md
@@ -61,6 +62,8 @@ claude/RELEASE_NOTES_v1.3.3_REGRESSION_EVALUATION_PROFILES.md
 claude/RELEASE_NOTES_v1.3.4_SELF_QA_RUNTIME.md
 claude/RELEASE_NOTES_v1.3.5_FINAL_OUTPUT_INTEGRATION.md
 claude/RELEASE_NOTES_v1.3.6_PUBLICATION_PIPELINE_LOCK.md
+claude/RELEASE_NOTES_v1.3.7_CONTRACT_CLEANUP.md
+claude/RELEASE_NOTES_v1.3.8_REGRESSION_HOTFIX.md
 claude/SELF_QA_RUNTIME_INSTRUCTIONS.md
 claude/SETUP_GUIDE.md
 claude/TEST_CHECKLIST.md
@@ -73,13 +76,22 @@ claude/product/quality/PUBLIC_RELEASE_GATE.md
 claude/product/quality/QA_ENGINE_SPECIFICATION.md
 claude/product/quality/QUALITY_FRAMEWORK.md
 claude/product/roadmap/WRITER_v1.1.2_IMPROVEMENT_PLAN.md
+claude/quality/REVIEWER_PRECISION_RULES_v1.3.7.md
+claude/quality/USER_FACING_TERMINOLOGY_JA.md
 claude/shared/CHANGELOG.md
+claude/shared/Decision-Support.md
+claude/shared/Evidence-Transparency.md
+claude/shared/Hidden-Anxiety.md
+claude/shared/Intent-Analysis.md
+claude/shared/Internal-Link-Semantics.md
 claude/shared/LICENSE
 claude/shared/README.md
+claude/shared/SERP-Entity-Preservation.md
 claude/shared/SNAPSHOT_MANIFEST.json
 claude/shared/SNAPSHOT_SCOPE.json
 claude/shared/SOURCE.md
 claude/shared/VERSION
+claude/shared/Writer-Application-Mapping.md
 claude/shared/docs/integration-policy.md
 claude/shared/docs/product-scoped-snapshot-policy.md
 claude/shared/docs/scope.md
@@ -111,16 +123,6 @@ claude/shared/knowledge/query-data-analysis.md
 claude/shared/knowledge/serp-entity-preservation.md
 claude/shared/knowledge/source-scope-qualification.md
 claude/shared/mappings/writer/application-mapping.md
-claude/shared/quality/EDITORIAL_QA_CONTRACT_V1.md
-claude/shared/quality/final-publication-output-principles.md
-claude/shared/tests/test_repository.py
-claude/shared/tests/test_v1_1_0_knowledge.py
-claude/shared/tests/test_v1_1_1_operational_learning.py
-claude/shared/tests/test_v1_1_2_writer_mapping.py
-claude/shared/tests/test_v1_1_3_snapshot_scope.py
-claude/shared/tests/test_v1_3_0_common_validation.py
-claude/shared/tests/test_v1_3_1_entity_integrity.py
-claude/shared/tools/build_scoped_snapshot.py
 claude/shared/validation/common-editorial-validation.md
 claude/shared/validation/publication-pipeline-integrity-validation.md
 claude/shared/validation/publication-qa-regression-validation.md
@@ -630,7 +632,6 @@ shared/knowledge/causal-expression-safety.md
 shared/knowledge/central-claim-evidence-priority.md
 shared/knowledge/conditional-editorial-opinion.md
 shared/knowledge/decision-support.md
-shared/knowledge/editorial-qa-contract-v1.md
 shared/knowledge/entity-alias-and-taxonomy-freshness.md
 shared/knowledge/evidence-boundary.md
 shared/knowledge/evidence-strength-wording.md
@@ -638,7 +639,6 @@ shared/knowledge/evidence-transparency.md
 shared/knowledge/existing-content-reflection.md
 shared/knowledge/faq-evolution.md
 shared/knowledge/faq-reconstruction.md
-shared/knowledge/final-publication-output-principles.md
 shared/knowledge/freshness-safety.md
 shared/knowledge/graceful-degradation.md
 shared/knowledge/hidden-anxiety.md
@@ -648,6 +648,7 @@ shared/knowledge/internal-link-integrity.md
 shared/knowledge/internal-link-semantics.md
 shared/knowledge/logical-consistency.md
 shared/knowledge/numeric-consistency.md
+shared/knowledge/publication-pipeline-integrity.md
 shared/knowledge/publication-qa-evaluation-standard.md
 shared/knowledge/publication-qa-principles.md
 shared/knowledge/query-data-analysis.md
@@ -655,6 +656,7 @@ shared/knowledge/serp-entity-preservation.md
 shared/knowledge/source-scope-qualification.md
 shared/mappings/writer/application-mapping.md
 shared/validation/common-editorial-validation.md
+shared/validation/publication-pipeline-integrity-validation.md
 shared/validation/publication-qa-regression-validation.md
 shared/validation/publication-qa-validation.md
 shared/validation/shared-knowledge-validation.md
@@ -707,6 +709,7 @@ tests/publication-qa/test_official_regression_suite.py
 tests/publication-qa/test_pipeline_lock_v1_3_6.py
 tests/publication-qa/test_publication_output.py
 tests/publication-qa/test_publication_qa.py
+tests/publication-qa/test_regression_hotfix_v1_3_8.py
 tests/publication-qa/test_self_review_runtime.py
 tests/quality-freeze/examples/invalid-budget-v2.json
 tests/quality-freeze/examples/valid-v2.json
