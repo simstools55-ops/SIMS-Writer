@@ -49,6 +49,54 @@
           }
         }
       }
+    },
+    "serp_evidence_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "usable_result_count",
+        "blocked_change_types",
+        "allowed_non_serp_changes"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "verified",
+            "partial",
+            "unavailable"
+          ]
+        },
+        "checked_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "usable_result_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "blocked_change_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "allowed_non_serp_changes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence_sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }

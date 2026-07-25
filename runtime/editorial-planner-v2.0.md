@@ -1,8 +1,17 @@
-# Editorial Planner v2.0
+# Editorial Planner v2.1
 
-The planner receives the SERP analysis, intent model, gap analysis, preservation audit and evidence audit before selecting edits.
+The planner receives the SERP evidence gate result, SERP analysis, intent model, gap analysis, preservation audit and evidence audit before selecting edits.
 
-## Planning order
+## Blocking precondition
+When average position is greater than 3.0:
+1. Run the SERP Evidence Gate.
+2. If the gate is `OPEN`, continue with the full planning order.
+3. If the gate is `LIMITED`, plan only whitelist corrections that do not depend on current search intent or competitor gaps.
+4. If a proposed heading, FAQ, body, structure or title-promise change depends on SERP comparison while the gate is not `OPEN`, classify it as `INTERNAL_REJECT`; do not present it as 公開OK or 利用者判断.
+
+Search Console query rows may identify questions worth investigating, but they cannot alone authorize content expansion when the mandatory SERP inspection is incomplete.
+
+## Planning order after gate opens
 1. Preserve article-unique value and proven winner entities.
 2. Correct factual, promise or consistency defects.
 3. Strengthen weakly covered material.
@@ -16,6 +25,7 @@ Every proposed change must contain an internal `change_basis`:
 - `accuracy`;
 - `consistency`;
 - `usability`;
-- `preservation`.
+- `preservation`;
+- `mechanical`.
 
 No change may be proposed merely because it appears in a competitor article.

@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0-dev.2",
-  "integrated_version": "2.0.0-dev.2",
+  "source_version": "2.0.0-dev.3",
+  "integrated_version": "2.0.0-dev.3",
   "target_product": "writer",
   "files": [
     {
@@ -42,19 +42,19 @@
     },
     {
       "path": "SERP-First-Editorial-Planning.md",
-      "sha256": "dac849c046662ce9b30ed52a985b7bf9ff4a691c6d3c4c7dc71c2b1dda3ce3b4"
+      "sha256": "34258afbce7f7bd2478554b87c2e23559786b15764f3d9a12753172579f6c021"
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "26a7f9bdb207a9726c987611dc0e436efe26644f958f987cd1bcd42b054dba79"
+      "sha256": "164f83be75b75168cf3b59882e71cafdcd8dd221f84d85257e68988682a2136a"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "0794a6c5e0aefcc28968165af46446d29057d64796383f9ee417f198725b4db1"
+      "sha256": "8afe4b37e15ca08ea0b6e902846204b3d0a65451ef44f43f2a48190fa82066ea"
     },
     {
       "path": "VERSION",
-      "sha256": "d0828b6aef0f969bb9f8a5b40f5e22e9fe7bd552d862799929a9330ffea975f4"
+      "sha256": "a3c2ad98a9febd2161d5377dd5a397882e65dc921645dcbc0c62bba11278cc83"
     },
     {
       "path": "Writer-Application-Mapping.md",
