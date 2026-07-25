@@ -35,6 +35,7 @@ RELEASE_NOTES_v1.3.6_PUBLICATION_PIPELINE_LOCK.md
 RELEASE_NOTES_v1.3.7_CONTRACT_CLEANUP.md
 RELEASE_NOTES_v1.3.8_REGRESSION_HOTFIX.md
 RELEASE_NOTES_v1.3.9_VALIDATION_MESSAGE_INTEGRITY.md
+RELEASE_NOTES_v1.4.0_VALIDATION_AUDITABILITY.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/domain/editorial-qa-boundary-v1.0.md
@@ -66,9 +67,11 @@ claude/RELEASE_NOTES_v1.3.6_PUBLICATION_PIPELINE_LOCK.md
 claude/RELEASE_NOTES_v1.3.7_CONTRACT_CLEANUP.md
 claude/RELEASE_NOTES_v1.3.8_REGRESSION_HOTFIX.md
 claude/RELEASE_NOTES_v1.3.9_VALIDATION_MESSAGE_INTEGRITY.md
+claude/RELEASE_NOTES_v1.4.0_VALIDATION_AUDITABILITY.md
 claude/SELF_QA_RUNTIME_INSTRUCTIONS.md
 claude/SETUP_GUIDE.md
 claude/TEST_CHECKLIST.md
+claude/VALIDATION_AUDITABILITY.md
 claude/VALIDATION_MESSAGE_INTEGRITY.md
 claude/VERSION
 claude/examples/EXAMPLE_REQUEST.json
@@ -131,6 +134,7 @@ claude/shared/validation/publication-pipeline-integrity-validation.md
 claude/shared/validation/publication-qa-regression-validation.md
 claude/shared/validation/publication-qa-validation.md
 claude/shared/validation/shared-knowledge-validation.md
+claude/shared/validation/validation-auditability.md
 claude/shared/validation/validation-message-integrity.md
 claude/templates/IMPROVEMENT_REQUEST_TEMPLATE.json
 contracts/decision/action-plan/action-plan-contract.md
@@ -468,6 +472,7 @@ quality/framework/quality-foundation-v1.0.md
 quality/framework/quality-framework-v1.0.md
 quality/framework/reason-warning-codes-v1.0.md
 quality/framework/search-performance-diagnosis-v1.0.md
+quality/framework/validation-auditability-v1.4.0.md
 quality/framework/validation-layer-v0.2.0.md
 quality/framework/validation-message-integrity-v1.3.9.md
 quality/gates/draft-gate.yaml
@@ -666,6 +671,7 @@ shared/validation/publication-pipeline-integrity-validation.md
 shared/validation/publication-qa-regression-validation.md
 shared/validation/publication-qa-validation.md
 shared/validation/shared-knowledge-validation.md
+shared/validation/validation-auditability.md
 shared/validation/validation-message-integrity.md
 templates/adr-template.md
 templates/article-evaluation-template.md
@@ -703,6 +709,7 @@ tests/golden/cases/gc-new-001-new-how-to.json
 tests/golden/cases/gc-rec-012-placeholder-recovery.json
 tests/golden/cases/gc-trb-005-troubleshooting-safe.json
 tests/golden/cases/gc-upd-004-outdated-content.json
+tests/golden/manifest.json
 tests/golden/reports/latest-report.json
 tests/golden/test_golden_uat.py
 tests/golden/uat-strategy-v1.0.md
@@ -718,11 +725,12 @@ tests/publication-qa/test_publication_output.py
 tests/publication-qa/test_publication_qa.py
 tests/publication-qa/test_regression_hotfix_v1_3_8.py
 tests/publication-qa/test_self_review_runtime.py
+tests/publication-qa/test_validation_auditability_v1_4_0.py
 tests/publication-qa/test_validation_message_integrity_v1_3_9.py
+tests/quality-freeze-v0.2.0/test_quality_freeze_final.py
 tests/quality-freeze/examples/invalid-budget-v2.json
 tests/quality-freeze/examples/valid-v2.json
 tests/quality-freeze/test_quality_freeze.py
-tests/quality-freeze-v0.2.0/test_quality_freeze_final.py
 tests/quality-gate-regression-manifest.md
 tests/quality-rules/README.md
 tests/quality-rules/test_quality_assets.py
@@ -730,6 +738,7 @@ tests/rc-hotfix-v0.2.2/README.md
 tests/rc-hotfix-v0.2.2/real-article-regression-manifest.json
 tests/rc-hotfix-v0.2.2/test_rc_hotfix.py
 tests/refinement/test_targeted_refinement.py
+tests/regression-acceptance-criteria.md
 tests/regression/official-v1/README.md
 tests/regression/official-v1/cases/REG-001/README.md
 tests/regression/official-v1/cases/REG-001/case.json
@@ -746,9 +755,9 @@ tests/regression/official-v1/cases/REG-004/expected_qa.json
 tests/regression/official-v1/cases/REG-005/README.md
 tests/regression/official-v1/cases/REG-005/case.json
 tests/regression/official-v1/cases/REG-005/expected_qa.json
-tests/regression-acceptance-criteria.md
-tests/release/test_claude_package_consistency.py
+tests/regression/official-v1/manifest.json
 tests/release-a/README.md
+tests/release/test_claude_package_consistency.py
 tests/runtime/test_quality_foundation.py
 tests/runtime/test_quality_runtime.py
 tests/runtime/test_runtime_core.py

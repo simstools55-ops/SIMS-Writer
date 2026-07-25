@@ -1,3 +1,8 @@
+# v1.4.0
+- Validationメッセージを簡潔化し監査形式を統一
+- review_traceをchecked配列中心へ構造化
+- cycle数とauto_fixesの正規化を強化
+
 # v1.3.9
 
 - Validation Message Integrity Hotfix。空メッセージを正例・Schema・Normalizer・最終ゲート・テストの全層で禁止。

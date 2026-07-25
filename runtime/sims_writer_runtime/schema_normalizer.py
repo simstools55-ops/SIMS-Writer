@@ -1,30 +1,31 @@
 from __future__ import annotations
 from copy import deepcopy
 from typing import Any
+import re
 
 LEGACY_FIELDS={"version","diagnosis_code","change_flags"}
 STATUSES={"proposed","approved","implemented","not_implemented","not_applicable","held"}
 COMPONENT_ALIASES={"target":"component","description":"meta_description","seo_description":"meta_description"}
 
 VALIDATION_MESSAGE_DEFAULTS={
-    'VAL-CONTRACT-001': 'Canonical SIMS_FEEDBACK_V2 Contract 2.1の必須項目・型・命名が整合していることを確認',
-    'VAL-INTENT-001': 'タイトル・導入・見出し・結論が主要検索意図を維持していることを確認',
-    'VAL-PRESERVE-001': '広告、アフィリエイトリンク、体験談、比較表などの保護対象を変更していないことを確認',
+    'VAL-CONTRACT-001': '必須項目・型・命名がContract 2.1に整合することを確認',
+    'VAL-INTENT-001': '主要検索意図が変更前後で維持されていることを確認',
+    'VAL-PRESERVE-001': '保護対象一覧と差分を照合し、未承認の変更がないことを確認',
     'VAL-BUDGET-001': '推定変更率が設定された変更量の上限以内であることを確認',
-    'VAL-SCOPE-001': '宣言した修正レベル・対象範囲と実際の変更が一致していることを確認',
-    'VAL-FACT-001': '数値・日付・仕様・事実関係に矛盾や未確認の追加がないことを確認',
-    'VAL-EVIDENCE-001': '採用した主張と変更内容が確認できた根拠範囲内であることを確認',
-    'VAL-EVIDENCE-002': '確認できた証拠の範囲を超える事実や断定を追加していないことを確認',
-    'VAL-CAUSAL-001': '未確認の因果関係、同一視、効果保証が最終案に残っていないことを確認',
-    'VAL-CONSISTENCY-001': 'タイトル・メタ・導入・本文・FAQ・結論の主張が相互に矛盾していないことを確認',
-    'VAL-ENTITY-001': 'HTML Entityの二重エンコード、文字化け、破損したマークアップがないことを確認',
-    'VAL-LINK-001': '内部リンクのURL・タイトル・アンカー・採否・実装状態が一致していることを確認',
-    'VAL-TITLE-001': 'SEOタイトルの文字数と本文への約束が公開基準に適合することを確認',
-    'VAL-META-001': 'メタディスクリプションの文字数と内容が本文の根拠範囲に適合することを確認',
-    'VAL-FAQ-001': 'FAQが本文の単純重複ではなく、残存疑問へ正確に回答していることを確認',
-    'VAL-SAMPLE-001': 'データ量に応じて判断の確信度と変更範囲を保守的に設定したことを確認',
-    'VAL-MAINQUERY-001': 'メインクエリの入力・推定根拠・採用状態を明示したことを確認',
-    'VAL-LANG-001': '利用者向け出力が日本語中心で、内部思考や不要な英語説明を含まないことを確認',
+    'VAL-SCOPE-001': '宣言した修正範囲と実際の変更項目が一致することを確認',
+    'VAL-FACT-001': '数値・日付・仕様に矛盾や未確認の追加がないことを確認',
+    'VAL-EVIDENCE-001': '主張と変更内容が確認できた根拠範囲内であることを確認',
+    'VAL-EVIDENCE-002': '確認できた証拠を超える事実や断定がないことを確認',
+    'VAL-CAUSAL-001': '未確認の因果関係・同一視・効果保証がないことを確認',
+    'VAL-CONSISTENCY-001': '各コンポーネント間で主張の矛盾がないことを確認',
+    'VAL-ENTITY-001': 'Entityエンコードと文字コードに異常がないことを確認',
+    'VAL-LINK-001': 'リンクのURL・アンカー・採否・実装状態が一致することを確認',
+    'VAL-TITLE-001': 'タイトルの長さと本文への約束が公開基準に適合することを確認',
+    'VAL-META-001': 'メタの長さと内容が本文の根拠範囲に適合することを確認',
+    'VAL-FAQ-001': 'FAQが重複ではなく残存疑問へ正確に回答することを確認',
+    'VAL-SAMPLE-001': 'データ量に応じて確信度と変更範囲を抑制したことを確認',
+    'VAL-MAINQUERY-001': 'メインクエリの入力・推定根拠・採用状態を確認',
+    'VAL-LANG-001': '利用者向け出力が日本語中心で不要な英語説明がないことを確認',
  }
 
 def _validation_message(code: str, status: str, existing: Any=None) -> str:
@@ -57,6 +58,21 @@ def _confidence(value: Any, default: str="low") -> str:
     if "medium" in text: return "medium"
     if "low" in text: return "low"
     return default
+
+def _compact_trace_item(item: dict[str, Any], fallback_cycle: int) -> dict[str, Any]:
+    cycle=int(item.get("cycle") or fallback_cycle)
+    checked=item.get("checked") or item.get("focus") or []
+    if isinstance(checked,str):
+        checked=[x.strip() for x in re.split(r"[、,/・]+", checked) if x.strip()]
+    findings=item.get("findings") or ([item.get("finding")] if item.get("finding") else [])
+    actions=item.get("actions") or ([item.get("action")] if item.get("action") else [])
+    if isinstance(findings,str): findings=[findings]
+    if isinstance(actions,str): actions=[actions]
+    out={"cycle":cycle,"checked":checked or ["publication_qa"]}
+    if findings: out["findings"]=findings
+    if actions: out["actions"]=actions
+    out["result"]=item.get("result") or "recorded"
+    return out
 
 def normalize_feedback(payload: dict[str,Any]) -> dict[str,Any]:
     p=_clean(deepcopy(payload))
@@ -153,15 +169,20 @@ def normalize_feedback(payload: dict[str,Any]) -> dict[str,Any]:
         qa["auto_fixes"]=fixes
         trace=qa.get("review_trace")
         if isinstance(trace,str):
-            trace=[{"cycle":1,"finding":"review_completed","action":trace,"result":qa.get("final_verdict") or "UNKNOWN"}]
+            trace=[{"cycle":1,"checked":["publication_qa"],"actions":[trace],"result":qa.get("final_verdict") or "UNKNOWN"}]
         elif isinstance(trace,list):
             converted=[]
             for idx,item in enumerate(trace,1):
-                if isinstance(item,dict): converted.append(item)
-                else: converted.append({"cycle":idx,"finding":str(item),"action":"recorded","result":"recorded"})
+                if isinstance(item,dict): converted.append(_compact_trace_item(item,idx))
+                else: converted.append({"cycle":idx,"checked":["publication_qa"],"actions":[str(item)],"result":"recorded"})
             trace=converted
         else: trace=[]
         qa["review_trace"]=trace
+        if trace:
+            qa["review_cycles_used"]=max(int(x.get("cycle") or 0) for x in trace)
+        for fix in qa.get("auto_fixes") or []:
+            if isinstance(fix,dict) and "target" in fix and "component" not in fix:
+                fix["component"]=fix.pop("target")
         unresolved=qa.get("unresolved_findings") or []
         structured=[]
         for item in unresolved:

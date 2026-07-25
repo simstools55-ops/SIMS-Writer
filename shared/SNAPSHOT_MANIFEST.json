@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "1.3.9",
-  "integrated_version": "1.3.9",
+  "source_version": "1.4.0",
+  "integrated_version": "1.4.0",
   "target_product": "writer",
   "files": [
     {
@@ -42,15 +42,15 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "1a1ffcb4be0c7da947f4a606c7cf771ae889d5664f0530eb02d27d0e8b4f61df"
+      "sha256": "a2a25d1f6ec546441185ee8d0ef65c145fe912703cbbd2829785c6f1abcd20f7"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "c594a94d825256573c9d41de61756c2644c0e0295274d7db54dbfaf8ddc11ebc"
+      "sha256": "a1b0f75e894e5f67b43402e34ff29278d0b8cd07cb8989ef446ca2415e693ca0"
     },
     {
       "path": "VERSION",
-      "sha256": "7635ad71ecd62fea77470b67ae8572b410e628331551abb2c3f745473722637b"
+      "sha256": "78b591400c56b7b67b8cb3b2b8a8e65e9093897f02ce0878e6b5405c68620fa7"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -199,6 +199,10 @@
     {
       "path": "validation/shared-knowledge-validation.md",
       "sha256": "d76ef622d4f4b39ccc1413d0ce20139e970f66911044b6ce4e26e8641946881d"
+    },
+    {
+      "path": "validation/validation-auditability.md",
+      "sha256": "b7092000193af8ee6ae340961b06e1f6d8f1d8b063e27f5d2e2d4217c5ebc8d3"
     },
     {
       "path": "validation/validation-message-integrity.md",
