@@ -1,6 +1,7 @@
 .gitignore
 CHANGELOG.md
 CONTRIBUTING.md
+FILE_MANIFEST.txt
 LICENSE
 MIGRATION_GUIDE_v0.2.0.md
 MIGRATION_GUIDE_v0.2.0_FINAL.md
@@ -44,6 +45,8 @@ RELEASE_NOTES_v2.0.0_DEV5_PROGRESSIVE_EDITING.md
 RELEASE_NOTES_v2.0.0_DEV6_KNOWLEDGE_CONFIDENCE.md
 RELEASE_NOTES_v2.0.0_RC1.md
 RELEASE_NOTES_v2.0.0_RC2.md
+RELEASE_NOTES_v2.0.0_RC_FINAL.md
+SHA256SUMS.txt
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/domain/editorial-qa-boundary-v1.0.md
@@ -86,6 +89,7 @@ claude/RELEASE_NOTES_v2.0.0_DEV5_PROGRESSIVE_EDITING.md
 claude/RELEASE_NOTES_v2.0.0_DEV6_KNOWLEDGE_CONFIDENCE.md
 claude/RELEASE_NOTES_v2.0.0_RC1.md
 claude/RELEASE_NOTES_v2.0.0_RC2.md
+claude/RELEASE_NOTES_v2.0.0_RC_FINAL.md
 claude/SELF_QA_RUNTIME_INSTRUCTIONS.md
 claude/SETUP_GUIDE.md
 claude/SHA256SUMS.txt
@@ -405,6 +409,7 @@ learning/schemas/SWLS_USER_FEEDBACK.schema.json
 learning/templates/LEARNING_RECORD_TEMPLATE.json
 learning/templates/MEASUREMENT_TEMPLATE.json
 learning/templates/USER_FEEDBACK_TEMPLATE.json
+manifest.json
 migrations/sims-core/asset-mapping.md
 migrations/sims-core/migration-framework-v1.0.md
 migrations/sims-core/migration-inventory.yaml
@@ -869,6 +874,7 @@ tests/test_v2_0_0_dev5_progressive_editing.py
 tests/test_v2_0_0_dev6_knowledge_confidence.py
 tests/test_v2_0_0_rc1_editorial_strategy.py
 tests/test_v2_0_0_rc2_integration_stabilization.py
+tests/test_v2_0_0_rc_final_user_ux.py
 tests/validation-hotfix-v0.2.3/README.md
 tests/validation-hotfix-v0.2.3/test_validation_hotfix.py
 tests/vertical-slices/test_ctr_vertical_slice.py

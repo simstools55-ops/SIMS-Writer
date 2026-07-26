@@ -4,7 +4,7 @@ from runtime.sims_writer_runtime.editorial_decision import build_publication_res
 ROOT=Path(__file__).resolve().parents[1]
 
 def test_version_and_contract4():
- assert (ROOT/'VERSION').read_text().strip()=='2.0.0-rc.2'
+ assert (ROOT/'VERSION').read_text().strip()=='2.0.0-rc.3'
  import json
  s=json.loads((ROOT/'schemas/SIMS_FEEDBACK_V2.schema.json').read_text())
  assert s['properties']['contract_version']['const']=='4.0'

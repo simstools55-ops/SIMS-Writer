@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0-rc.2",
-  "integrated_version": "2.0.0-rc.2",
+  "source_version": "2.0.0-rc.3",
+  "integrated_version": "2.0.0-rc.3",
   "scope": "writer",
   "files": [
     {
@@ -42,15 +42,15 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "b91f63beb5e9986256bcd2b4986cbc6c4a360d7b1c82e34aa0785ddd9ff371e4"
+      "sha256": "56de72e35a739b8f35ad1ff8cd951f9ff02bb65a5e47682a23a2cfc4c1055fc0"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "0bb63e8d41e02ab032fbc10ccd70e148e9bfada8b508f1b41c4b7600c4b31d62"
+      "sha256": "591c2b234e03199c5e3909ae486e2e7e14e6ae2482d3206a9acc3555619a66be"
     },
     {
       "path": "VERSION",
-      "sha256": "a6a2b799e16c0200482e30cfe3454c7681371a80fc4e667e2e71dee09fa445b0"
+      "sha256": "d42c40a8757e6d1b5b647693a0f91aaaf9506a15fc53064ca26633f822cc1c59"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -264,5 +264,6 @@
       "path": "validation/validation-message-integrity.md",
       "sha256": "f8d62aa7a5c286439575c4b0a3177585c26bf4f662ab5f5b7d3f76c8c3a15dac"
     }
-  ]
+  ],
+  "integrated_for": "SIMS Writer 2.0.0-rc.3"
 }

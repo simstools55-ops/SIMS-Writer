@@ -1,14 +1,27 @@
 # User Output Compactness v2.0
 
 Normal user output contains only:
-1. `公開OK` with copy-ready Before/After;
-2. `利用者判断` only when a real human decision exists;
-3. one brief limitation note when required.
+1. one publication-status sentence;
+2. `公開OK` with copy-ready Before/After;
+3. `利用者判断` only when a real human decision exists;
+4. one internal-link result sentence when needed;
+5. one Contract 4.0 JSON block at the end.
 
-Do not display improvement codes, query coverage, SERP entities, QA verdicts, full internal-link rejection tables, or detailed competitor evidence. Change reasons are optional and, when shown, must be one plain-Japanese sentence focused on what becomes clearer or safer for the reader.
+## Publication-status sentence
 
-When no internal link is adopted, write only: `今回は追加する内部リンクはありません。` Candidate-level reasons remain internal.
+Always begin with exactly one of the following meanings in plain Japanese:
 
+- No user decision: `今回の修正は、そのまま公開できます。`
+- User decision exists: `公開OKの修正はそのまま反映できます。利用者判断の項目だけ確認してください。`
 
-## One-line strategy
-When useful, begin with one plain-language sentence explaining the editing strategy. Do not expose diagnostic codes or evidence scores. Example: 「今回は順位が深いため、タイトルだけでなく検索意図との差分を補う方針で編集しました。」
+Do not begin with improvement codes, diagnosis, rankings, SERP details, or analysis summaries.
+
+## Change explanation
+
+Change reasons are optional. When shown, use one plain-Japanese sentence focused on what becomes clearer, more accurate, or safer for the reader. Do not mention internal SEO terminology, evidence levels, character-count rules, validation, or query-processing details.
+
+## Internal links
+
+When no internal link is adopted, write exactly: `今回は追加できる内部リンクはありません。` Do not append candidate counts, rejection reasons, parentheses, or tables. Candidate-level reasons remain internal.
+
+Do not display improvement codes, query coverage, SERP entities, QA verdicts, detailed competitor evidence, or internal audit information.

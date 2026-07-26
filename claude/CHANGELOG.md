@@ -1,3 +1,10 @@
+## 2.0.0-rc.3
+
+- 公開可否の冒頭一文を必須化。
+- 公開OK理由を平易な一文以内へ短文化。
+- 内部リンク全件不採用時の表示を一文へ固定。
+- UX Filterを最終出力ゲートへ追加。
+
 # 2.0.0-rc.1
 
 - Editorial Strategy Engine
@@ -114,5 +121,5 @@
 ## 1.3.5
 - Added QA-reviewed final output integration rules.
 
-## 2.0.0-rc.2
+## 2.0.0-rc.3
 - Stabilized final output integration and removed active legacy contract conflicts.

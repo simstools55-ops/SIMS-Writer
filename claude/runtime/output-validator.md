@@ -1,4 +1,4 @@
-# RC2 Final Output Validator
+# RC Final Output Validator
 
 ## Contract Gate
 - `contract_version`は`4.0`のみ。
@@ -14,7 +14,14 @@
 - IMPROVEMENT_RECOMMENDED等の内部判定コード
 - Validation/QA/SWLS/Coverage
 - Evidence階層や内部Confidence
-- 内部リンク不採用候補の一覧表
+- 内部リンク不採用候補の一覧表、候補件数、補足説明
+
+## UX Gate
+- 回答冒頭に公開可否を示す一文がない場合はFAIL。
+- 利用者判断がなければ「今回の修正は、そのまま公開できます。」相当を表示する。
+- 利用者判断があれば「公開OKは反映可能で、判断項目だけ確認」と明示する。
+- 公開OKの理由が2文以上、またはSEO用語・文字数基準・SERP・Evidenceを含む場合はFAIL。
+- 内部リンク全件不採用時は「今回は追加できる内部リンクはありません。」の一文以外を表示したらFAIL。
 
 ## Completeness Gate
 - Before/Afterに「以下略」「原文全体」「改善後全文」等の省略表現を使わない。
