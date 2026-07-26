@@ -1,3 +1,7 @@
+## 2.0.0-release-candidate.1 - 2026-07-26
+
+- Added release final semantic, expectation, YMYL safety and benefit-claim gates.
+
 ## 2.0.0-gold.1
 - Add quantitative SERP evidence, gap importance, and user-facing decision trace with Contract 4.2.
 

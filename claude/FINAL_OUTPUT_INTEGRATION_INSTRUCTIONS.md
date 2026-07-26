@@ -7,3 +7,8 @@
 EvidenceがUSER_DECISIONなら、その事実を含むすべての修正対象（タイトル・メタ・導入・見出し・FAQ・本文）もUSER_DECISIONへ送る。文章ごとに判定を分裂させてはならない。
 
 standalone `qa_verdict`は外部出力しない。
+
+
+## Release final mandatory quality gates
+
+Read and apply `runtime/RELEASE_FINAL_QUALITY_GATE.md`. Safety, evidence, expectation alignment and semantic title validation override SEO opportunity.

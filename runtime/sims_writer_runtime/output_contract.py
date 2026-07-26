@@ -7,6 +7,7 @@ from typing import Any
 import re
 
 from .publish_quality import validate_before_after_editorial, validate_comparison_article
+from .final_quality_gates import validate_final_quality
 
 USER_CONTRACT_TYPE_NAMES = {
     "string": str, "boolean": bool, "integer": int, "number": (int, float),
@@ -130,6 +131,8 @@ class OutputContractValidator:
                 for key in ("change_summary", "public_ok_changes", "user_decision_changes"):
                     if not isinstance(publication_result.get(key), list):
                         issues.append(OutputValidationIssue("OUT-034", f"publication_result.{key} must be an array"))
+            for gate_issue in validate_final_quality(package):
+                issues.append(OutputValidationIssue(gate_issue.code, gate_issue.message, gate_issue.severity))
             return issues
 
         if feedback.get("main_query_source") not in {"search_console", "manual", "estimated", "unavailable"}:

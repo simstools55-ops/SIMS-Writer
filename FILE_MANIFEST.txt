@@ -47,6 +47,7 @@ RELEASE_NOTES_v2.0.0_RC1.md
 RELEASE_NOTES_v2.0.0_RC2.md
 RELEASE_NOTES_v2.0.0_RC_FINAL.md
 RELEASE_NOTES_v2.0.0_RC_FINAL_2.md
+RELEASE_NOTES_v2.0.0_RELEASE_CANDIDATE_1.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/domain/editorial-qa-boundary-v1.0.md
@@ -106,6 +107,7 @@ claude/product/quality/QUALITY_FRAMEWORK.md
 claude/product/roadmap/WRITER_v1.1.2_IMPROVEMENT_PLAN.md
 claude/quality/REVIEWER_PRECISION_RULES_v1.3.7.md
 claude/quality/USER_FACING_TERMINOLOGY_JA.md
+claude/runtime/RELEASE_FINAL_QUALITY_GATE.md
 claude/runtime/editorial-planner-v2.0.md
 claude/runtime/evidence-contamination-qa-v2.0.md
 claude/runtime/evidence-layer-v2.0.md
@@ -166,6 +168,7 @@ claude/shared/knowledge/publication-pipeline-integrity.md
 claude/shared/knowledge/publication-qa-evaluation-standard.md
 claude/shared/knowledge/publication-qa-principles.md
 claude/shared/knowledge/query-data-analysis.md
+claude/shared/knowledge/semantic-expectation-ymyl-safety.md
 claude/shared/knowledge/serp-entity-preservation.md
 claude/shared/knowledge/serp-first-editorial-planning.md
 claude/shared/knowledge/source-scope-qualification.md
@@ -185,6 +188,7 @@ claude/shared/validation/publication-pipeline-integrity-validation.md
 claude/shared/validation/publication-qa-regression-validation.md
 claude/shared/validation/publication-qa-validation.md
 claude/shared/validation/rc2-final-integration-validation.md
+claude/shared/validation/release-final-quality-gates.md
 claude/shared/validation/shared-knowledge-validation.md
 claude/shared/validation/validation-message-integrity.md
 claude/templates/IMPROVEMENT_REQUEST_TEMPLATE.json
@@ -644,6 +648,7 @@ runtime/quality-gate.md
 runtime/quality-report.md
 runtime/refinement/targeted-refinement-v1.0.md
 runtime/regression-test-procedure.md
+runtime/release-final-quality-gates-v2.0.md
 runtime/rewrite-level-and-scope.md
 runtime/risk-assessment.md
 runtime/runtime-health.md
@@ -673,6 +678,7 @@ runtime/sims_writer_runtime/editorial_decision.py
 runtime/sims_writer_runtime/editorial_signals.py
 runtime/sims_writer_runtime/editorial_strategy.py
 runtime/sims_writer_runtime/evidence_layer.py
+runtime/sims_writer_runtime/final_quality_gates.py
 runtime/sims_writer_runtime/hotfix_validation.py
 runtime/sims_writer_runtime/knowledge_confidence.py
 runtime/sims_writer_runtime/localization.py
@@ -877,6 +883,7 @@ tests/test_v2_0_0_rc1_editorial_strategy.py
 tests/test_v2_0_0_rc2_integration_stabilization.py
 tests/test_v2_0_0_rc_final2_serp_gap_report.py
 tests/test_v2_0_0_rc_final_user_ux.py
+tests/test_v2_0_0_release_final_quality_gates.py
 tests/validation-hotfix-v0.2.3/README.md
 tests/validation-hotfix-v0.2.3/test_validation_hotfix.py
 tests/vertical-slices/test_ctr_vertical_slice.py
@@ -901,6 +908,7 @@ tools/validators/validate_quality_runtime.py
 tools/validators/validate_runtime.py
 validation/QUALITY_GATE.md
 validation/RC_HOTFIX_VALIDATION_v2.2.md
+validation/RELEASE_FINAL_QUALITY_GATES.md
 validation/VALIDATION_HOTFIX_v0.2.3.md
 validation/VALIDATION_LAYER.md
 validation/VALIDATION_RULES.md

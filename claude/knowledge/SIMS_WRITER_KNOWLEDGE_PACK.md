@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack v0.2.0
 
-Version: 2.0.0-gold.1
+Version: 2.0.0-release-candidate.1
 
 
 # SIMS Writer Quality Specification v0.2.0

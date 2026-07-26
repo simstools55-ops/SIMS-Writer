@@ -15,3 +15,8 @@
 公開停止条件が残る場合、完成版として提示してはならない。
 
 7. `validation.checks[]`を全件走査し、`message`の欠落・空文字・空白のみ・汎用プレースホルダーを`VAL-CONTRACT-006`として修正する。PASSでも具体的な確認内容を必ず記録する。
+
+
+## Release final mandatory quality gates
+
+Read and apply `runtime/RELEASE_FINAL_QUALITY_GATE.md`. Safety, evidence, expectation alignment and semantic title validation override SEO opportunity.

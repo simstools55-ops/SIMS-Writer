@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0-gold.1",
-  "integrated_version": "2.0.0-gold.1",
+  "source_version": "2.0.0-release-candidate.1",
+  "integrated_version": "2.0.0-release-candidate.1",
   "scope": "writer",
   "files": [
     {
@@ -50,7 +50,7 @@
     },
     {
       "path": "VERSION",
-      "sha256": "cbbb12290f02a3c82a4880f286967c9b3cf2c4ec804cbf38ad815c9d6192af7f"
+      "sha256": "d761a3122e89486793fd6839acb568221ef24a7035fc43777dacab9813652419"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -189,6 +189,10 @@
       "sha256": "b982977740424a6ddf2950ba586d0f8d66816dac5a61616da43b92d12a46561b"
     },
     {
+      "path": "knowledge/semantic-expectation-ymyl-safety.md",
+      "sha256": "6cd4e52641c06655884ee881f69c9381651a3636080250b52479ff5a00e2754b"
+    },
+    {
       "path": "knowledge/serp-entity-preservation.md",
       "sha256": "1d3987667305271f984c16eaa3a31b469335ce3b93bb8357af5a634653ebb85d"
     },
@@ -263,6 +267,10 @@
     {
       "path": "validation/rc2-final-integration-validation.md",
       "sha256": "d6be3ccf83a3ffce040cfa2672269a27b2198645c05502e054b6149bd288f7a1"
+    },
+    {
+      "path": "validation/release-final-quality-gates.md",
+      "sha256": "d1d34f168d1bc93253b2edc1f1cfec1410fecc064c815e3a25510f29ef2ff2f4"
     },
     {
       "path": "validation/shared-knowledge-validation.md",
