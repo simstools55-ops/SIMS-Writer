@@ -14,3 +14,6 @@ These gates override SERP importance, Editorial Strategy and CTR opportunity. A 
 8. `VAL-INTERNAL-LINK-OVERLAP`: apply role-separation and cannibalization review to every accepted internal link, not only later candidates.
 
 These gates override SERP demand and CTR optimization.
+
+9. `VAL-NATURAL-JAPANESE`: after semantic correctness, verify natural Japanese particles and readability. Reject keyword-compressed noun chains such as `LINEアルバム上限`; use `LINEアルバムの上限`.
+10. `VAL-SIMILARITY-WORDING`: when a related-page candidate is detected, write `類似記事候補を検出しました` and separately state that integration/differentiation is USER_DECISION. Do not present a candidate as confirmed cannibalization.

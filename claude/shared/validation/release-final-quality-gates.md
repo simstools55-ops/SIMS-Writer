@@ -1,6 +1,6 @@
 # Release Final Quality Gates
 
-Version: 2.0.0 Release Candidate 2
+Version: 2.0.0
 
 The final publication gate runs after Strategy, Evidence, Progressive Editing and UX filtering.
 
@@ -28,3 +28,6 @@ A blocking finding cannot be promoted by Editorial Strategy, SERP importance or 
 
 
 A blocking scope, device-path, or overlap finding cannot be promoted by SERP demand or CTR opportunity.
+
+- `VAL-NATURAL-JAPANESE-001`: reject unnatural keyword-compressed Japanese such as `LINEアルバム上限`; prefer natural particles such as `LINEアルバムの上限`.
+- `VAL-SIMILARITY-WORDING-001`: state `類似記事候補を検出しました` as the detection fact and leave integration/differentiation as a separate USER_DECISION.

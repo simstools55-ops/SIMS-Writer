@@ -1,6 +1,6 @@
 # Scope, Device Path and Internal-Link Release Safety
 
-Version: 2.0.0 Release Candidate 2
+Version: 2.0.0
 
 ## Scope alignment
 A title or meta description must not broaden the promise into an adjacent intent that the article explicitly excludes. Terms such as `画面が黒い` must be narrowed when the article only covers background/theme color and does not cover crashes, blank screens or rendering failures.

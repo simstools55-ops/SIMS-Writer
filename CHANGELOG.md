@@ -1,3 +1,9 @@
+## 2.0.0 - 2026-07-26
+
+- Released the user-centered SEO editorial system.
+- Added final Natural Japanese and similarity-candidate reporting gates.
+- Kept Contract 4.2 and all RC2 safety/integration gates unchanged.
+
 ## 2.0.0-release-candidate.2 - 2026-07-26
 
 - Added final scope-alignment, device-path variability, and internal-link overlap release gates.

@@ -1,3 +1,8 @@
+## 2.0.0 - 2026-07-26
+
+- Added final Natural Japanese and similarity-candidate reporting gates.
+- Stable release aligned with Contract 4.2.
+
 ## 2.0.0-rc.3
 
 - 公開可否の冒頭一文を必須化。

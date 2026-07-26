@@ -36,6 +36,7 @@ RELEASE_NOTES_v1.3.7_CONTRACT_CLEANUP.md
 RELEASE_NOTES_v1.3.8_REGRESSION_HOTFIX.md
 RELEASE_NOTES_v1.3.9_VALIDATION_MESSAGE_INTEGRITY.md
 RELEASE_NOTES_v1.4.0_VALIDATION_AUDITABILITY.md
+RELEASE_NOTES_v2.0.0.md
 RELEASE_NOTES_v2.0.0_DEV1_EDITORIAL_SYSTEM.md
 RELEASE_NOTES_v2.0.0_DEV2_SERP_FIRST.md
 RELEASE_NOTES_v2.0.0_DEV3_SERP_EVIDENCE_GATE.md
@@ -65,7 +66,6 @@ changes/index.yaml
 claude/CHANGELOG.md
 claude/CLAUDE_PROJECT_INSTRUCTIONS.md
 claude/EDITORIAL_OUTPUT_V2.md
-claude/FILE_MANIFEST.txt
 claude/FINAL_OUTPUT_INTEGRATION_INSTRUCTIONS.md
 claude/PROJECT_INSTRUCTIONS_TO_PASTE.md
 claude/PROJECT_RESET_CHECKLIST.md
@@ -83,6 +83,7 @@ claude/RELEASE_NOTES_v1.3.7_CONTRACT_CLEANUP.md
 claude/RELEASE_NOTES_v1.3.8_REGRESSION_HOTFIX.md
 claude/RELEASE_NOTES_v1.3.9_VALIDATION_MESSAGE_INTEGRITY.md
 claude/RELEASE_NOTES_v1.4.0_VALIDATION_AUDITABILITY.md
+claude/RELEASE_NOTES_v2.0.0.md
 claude/RELEASE_NOTES_v2.0.0_DEV1_EDITORIAL_SYSTEM.md
 claude/RELEASE_NOTES_v2.0.0_DEV2_SERP_FIRST.md
 claude/RELEASE_NOTES_v2.0.0_DEV3_SERP_EVIDENCE_GATE.md
@@ -94,7 +95,6 @@ claude/RELEASE_NOTES_v2.0.0_RC2.md
 claude/RELEASE_NOTES_v2.0.0_RC_FINAL.md
 claude/SELF_QA_RUNTIME_INSTRUCTIONS.md
 claude/SETUP_GUIDE.md
-claude/SHA256SUMS.txt
 claude/TEST_CHECKLIST.md
 claude/VALIDATION_AUDITABILITY.md
 claude/VALIDATION_MESSAGE_INTEGRITY.md
@@ -102,7 +102,6 @@ claude/VERSION
 claude/contracts/output-contract.md
 claude/examples/EXAMPLE_REQUEST.json
 claude/knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md
-claude/manifest.json
 claude/product/platform/SIMS_PLATFORM_GUIDE.md
 claude/product/quality/AUTO_FIX_RULES.md
 claude/product/quality/PUBLIC_RELEASE_GATE.md
@@ -166,6 +165,7 @@ claude/shared/knowledge/intent-analysis.md
 claude/shared/knowledge/internal-link-integrity.md
 claude/shared/knowledge/internal-link-semantics.md
 claude/shared/knowledge/logical-consistency.md
+claude/shared/knowledge/natural-japanese-and-similarity-reporting.md
 claude/shared/knowledge/numeric-consistency.md
 claude/shared/knowledge/progressive-editing.md
 claude/shared/knowledge/publication-pipeline-integrity.md
@@ -189,6 +189,7 @@ claude/shared/validation/common-editorial-validation.md
 claude/shared/validation/editorial-strategy-validation.md
 claude/shared/validation/evidence-contamination-validation.md
 claude/shared/validation/knowledge-confidence-validation.md
+claude/shared/validation/natural-japanese-and-similarity-validation.md
 claude/shared/validation/publication-pipeline-integrity-validation.md
 claude/shared/validation/publication-qa-regression-validation.md
 claude/shared/validation/publication-qa-validation.md
@@ -720,6 +721,7 @@ shared/Intent-Analysis.md
 shared/Internal-Link-Semantics.md
 shared/LICENSE
 shared/README.md
+shared/RELEASE_NOTES_v2.0.0.md
 shared/SERP-Entity-Preservation.md
 shared/SNAPSHOT_MANIFEST.json
 shared/SNAPSHOT_SCOPE.json
@@ -753,6 +755,7 @@ shared/knowledge/intent-analysis.md
 shared/knowledge/internal-link-integrity.md
 shared/knowledge/internal-link-semantics.md
 shared/knowledge/logical-consistency.md
+shared/knowledge/natural-japanese-and-similarity-reporting.md
 shared/knowledge/numeric-consistency.md
 shared/knowledge/progressive-editing.md
 shared/knowledge/publication-pipeline-integrity.md
@@ -776,6 +779,7 @@ shared/validation/common-editorial-validation.md
 shared/validation/editorial-strategy-validation.md
 shared/validation/evidence-contamination-validation.md
 shared/validation/knowledge-confidence-validation.md
+shared/validation/natural-japanese-and-similarity-validation.md
 shared/validation/publication-pipeline-integrity-validation.md
 shared/validation/publication-qa-regression-validation.md
 shared/validation/publication-qa-validation.md
@@ -820,7 +824,6 @@ tests/golden/cases/gc-new-001-new-how-to.json
 tests/golden/cases/gc-rec-012-placeholder-recovery.json
 tests/golden/cases/gc-trb-005-troubleshooting-safe.json
 tests/golden/cases/gc-upd-004-outdated-content.json
-tests/golden/manifest.json
 tests/golden/reports/latest-report.json
 tests/golden/test_golden_uat.py
 tests/golden/uat-strategy-v1.0.md
@@ -866,7 +869,6 @@ tests/regression/official-v1/cases/REG-004/expected_qa.json
 tests/regression/official-v1/cases/REG-005/README.md
 tests/regression/official-v1/cases/REG-005/case.json
 tests/regression/official-v1/cases/REG-005/expected_qa.json
-tests/regression/official-v1/manifest.json
 tests/regression-acceptance-criteria.md
 tests/release/test_claude_package_consistency.py
 tests/release-a/README.md
@@ -888,6 +890,7 @@ tests/test_v2_0_0_dev3_serp_evidence_gate.py
 tests/test_v2_0_0_dev4_evidence_layer.py
 tests/test_v2_0_0_dev5_progressive_editing.py
 tests/test_v2_0_0_dev6_knowledge_confidence.py
+tests/test_v2_0_0_final_natural_japanese_similarity.py
 tests/test_v2_0_0_gold1_explainability.py
 tests/test_v2_0_0_rc1_editorial_strategy.py
 tests/test_v2_0_0_rc2_integration_stabilization.py

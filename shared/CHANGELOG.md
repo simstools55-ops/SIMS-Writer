@@ -1,3 +1,8 @@
+## 2.0.0 - 2026-07-26
+
+- Added final Natural Japanese and similarity-candidate reporting gates.
+- Stable release aligned with Contract 4.2.
+
 ## 2.0.0-release-candidate.2 - 2026-07-26
 
 - Added final scope-alignment, device-path variability, and internal-link overlap release gates.

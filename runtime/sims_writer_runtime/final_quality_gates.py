@@ -137,6 +137,44 @@ def validate_internal_link_overlap(links: list[dict[str, Any]] | None) -> list[F
     return issues
 
 
+
+def validate_natural_japanese(*, title: str = "", meta: str = "") -> list[FinalQualityIssue]:
+    """Reject conspicuously compressed Japanese noun chains in user-facing copy.
+
+    The gate is intentionally narrow: it catches known unnatural SEO-style
+    compounds while avoiding broad rewriting of brand and product names.
+    """
+    issues: list[FinalQualityIssue] = []
+    text = f"{title}\n{meta}"
+    unnatural_patterns = (
+        r"LINEアルバム上限(?:は|を|が|で|｜|\s|$)",
+        r"インスタ背景(?:が|を|は|で|｜|\s|$)",
+        r"ダークモード解除方法(?:は|を|が|で|｜|\s|$)",
+    )
+    if any(re.search(pattern, text) for pattern in unnatural_patterns):
+        issues.append(FinalQualityIssue(
+            "VAL-NATURAL-JAPANESE-001",
+            "User-facing title/meta contains an unnatural compressed noun chain; restore natural particles and readability.",
+        ))
+    return issues
+
+
+def validate_similarity_candidate_wording(*, detected: bool = False, user_message: str = "") -> list[FinalQualityIssue]:
+    """Keep detection facts separate from the user's final consolidation decision."""
+    issues: list[FinalQualityIssue] = []
+    if not detected:
+        return issues
+    text = str(user_message or "")
+    required_detection = "類似記事候補を検出"
+    user_boundary = bool(re.search(r"統合|差別化|最終判断|利用者判断|確認", text))
+    vague_only = bool(re.search(r"存在する可能性|あるかもしれ", text)) and required_detection not in text
+    if required_detection not in text or not user_boundary or vague_only:
+        issues.append(FinalQualityIssue(
+            "VAL-SIMILARITY-WORDING-001",
+            "Similarity output must state that a candidate was detected and separately leave consolidation/differentiation to user decision.",
+        ))
+    return issues
+
 def validate_final_quality(package: dict[str, Any]) -> list[FinalQualityIssue]:
     feedback = package.get("feedback") or {}
     publication = feedback.get("publication_result") or {}
@@ -170,6 +208,7 @@ def validate_final_quality(package: dict[str, Any]) -> list[FinalQualityIssue]:
     issues.extend(validate_scope_alignment(
         title=title, meta=meta, in_scope=scope.get("in_scope"), out_of_scope=scope.get("out_of_scope")
     ))
+    issues.extend(validate_natural_japanese(title=title, meta=meta))
     device = package.get("device_context") or {}
     issues.extend(validate_device_paths(
         public_text=public_text, variable_platforms=device.get("variable_platforms"), qualified=bool(device.get("qualified"))
@@ -178,4 +217,9 @@ def validate_final_quality(package: dict[str, Any]) -> list[FinalQualityIssue]:
     if isinstance(links, dict):
         links = links.get("proposals") or links.get("items") or []
     issues.extend(validate_internal_link_overlap(links))
+    similarity = package.get("similarity_context") or {}
+    issues.extend(validate_similarity_candidate_wording(
+        detected=bool(similarity.get("detected")),
+        user_message=str(similarity.get("user_message") or ""),
+    ))
     return issues

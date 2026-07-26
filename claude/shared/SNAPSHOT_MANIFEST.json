@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0-release-candidate.2",
-  "integrated_version": "2.0.0-release-candidate.2",
+  "source_version": "2.0.0",
+  "integrated_version": "2.0.0",
   "target_product": "writer",
   "files": [
     {
@@ -42,15 +42,15 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "1955ce8cfc6a2df3c7706e173c689583fdf8125ad5fc00bd6268bb9b0779e056"
+      "sha256": "8e7fc32c30b410ca84810e7ebc1a82e5fe303264c1beae0aa8487dcc3a1cac56"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "8b24fe69f9f9ba9cd21ef5e04798665a841ca13387b1907419ad0b1510b47115"
+      "sha256": "aefb8b9f0892105771791c6c43b53a452511f1b7535bb3baeb4f4700ca3ef02d"
     },
     {
       "path": "VERSION",
-      "sha256": "6d32ef66f0b61799df54decc5c3661ca6264a5a37f0ab13ff312748a0deed1a0"
+      "sha256": "c28fcca53637bc88e124af1725df13cb98c69dedefd62fb3cdbe1cdb6b760624"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -165,6 +165,10 @@
       "sha256": "3c10a40572a6d5b683af1e9708395e7a8ed9f1b61a85373024c04abaacdd8f85"
     },
     {
+      "path": "knowledge/natural-japanese-and-similarity-reporting.md",
+      "sha256": "a9379c2c324dea1489bb18e4901a4f6bb9dc7bd5438054db01190df232677c0c"
+    },
+    {
       "path": "knowledge/numeric-consistency.md",
       "sha256": "3fae1a438249420205598a748f9feaf95f237e855f8f4cd9329c65983fb32850"
     },
@@ -190,7 +194,7 @@
     },
     {
       "path": "knowledge/scope-device-link-release-safety.md",
-      "sha256": "fdd91d9317662122158777fbf20fca5392116686eaf4fdc5985fddaecfb51cb2"
+      "sha256": "06fb91639ac64a7123753a70ee869e056d9416901f50635f7eed28b25c862781"
     },
     {
       "path": "knowledge/semantic-expectation-ymyl-safety.md",
@@ -257,6 +261,10 @@
       "sha256": "c9e888d187b02f8a20bb9a275f4675daed1f84b238bcd5ade4f33cec4454bcc0"
     },
     {
+      "path": "validation/natural-japanese-and-similarity-validation.md",
+      "sha256": "43402651dc852848fb1f39300ebe82b320f4c95fd524869f77c3535b3770c8d2"
+    },
+    {
       "path": "validation/publication-pipeline-integrity-validation.md",
       "sha256": "5b065c2a37f4709deba84f015525bc14fbc5bed8a5c8765f6738a793fc145bc6"
     },
@@ -274,7 +282,7 @@
     },
     {
       "path": "validation/release-final-quality-gates.md",
-      "sha256": "f36667490480217f20a5814ce8e9430dbb04d626563940402d18ff55b2aaba67"
+      "sha256": "6f038e7bc2046410e5f73c91deb72f4bc9cf4bbd8d999ff043dc3df6ce7d1c39"
     },
     {
       "path": "validation/shared-knowledge-validation.md",
