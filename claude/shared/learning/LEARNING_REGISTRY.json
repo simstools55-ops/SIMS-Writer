@@ -1,0 +1,36 @@
+{
+  "registry_version": "1.0",
+  "shared_version": "2.2.0",
+  "record_id_format": "LR-YYYY-NNNN",
+  "allowed_classifications": [
+    "ARTICLE_SPECIFIC",
+    "PATTERN_CANDIDATE",
+    "MAPPING_DEFECT",
+    "VALIDATION_DEFECT",
+    "PREFERENCE_ONLY"
+  ],
+  "allowed_statuses": [
+    "NEW",
+    "TRIAGED",
+    "ACCEPTED",
+    "REJECTED",
+    "DUPLICATE",
+    "IMPLEMENTED",
+    "VERIFIED",
+    "CLOSED"
+  ],
+  "required_fields": [
+    "id",
+    "observed_at",
+    "article_id",
+    "observation",
+    "classification",
+    "status",
+    "decision",
+    "owner",
+    "product_scope",
+    "canonical_rule",
+    "regression_fixture"
+  ],
+  "records": []
+}

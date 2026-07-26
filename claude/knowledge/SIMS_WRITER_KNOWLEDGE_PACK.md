@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack v0.2.0
 
-Version: 2.1.0
+Version: 2.2.0
 
 
 # SIMS Writer Quality Specification v0.2.0
@@ -304,3 +304,7 @@ SIMS_FEEDBACK_V2はContract 2.1のCanonical構造だけを出力する。Query C
 
 ## Progressive Editing Engine
 Apply SERP verification and evidence per component. Continue safe edits while holding unsupported components.
+
+
+## v2.1.0 Quality Pattern Library
+Use the Shared pattern registry as the canonical operational-learning source. Do not create duplicate ad hoc rules.

@@ -1,3 +1,7 @@
+# v2.2.0
+
+Operational Learning Registryを追加。実記事試験の知見を分類・追跡し、10記事単位でLearning Sprintを実施します。
+
 # 2.1.0 - Quality Pattern Library
 
 - Operational-test findings are now classified before promotion.

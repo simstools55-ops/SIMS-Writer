@@ -1,12 +1,12 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0",
-  "integrated_version": "2.0.0",
+  "source_version": "2.2.0",
+  "integrated_version": "2.2.0",
   "target_product": "writer",
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "cd47caf3369ca74438c993109a9fe24e2dc312c298a572b85081539998936722"
+      "sha256": "1ecfad873442235d841a026829461a43d03277ba80f1b332c6718eec4c94d354"
     },
     {
       "path": "Decision-Support.md",
@@ -34,7 +34,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "9183a9f314008e24bbfeed41e2e0bd0259dee74f3bdb7bc5b8411da06c9d904b"
+      "sha256": "0e23dbea8e8900b72187785c904665a99b1155b4a393d243786b23307fc8f2cf"
     },
     {
       "path": "SERP-Entity-Preservation.md",
@@ -42,19 +42,19 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "8e7fc32c30b410ca84810e7ebc1a82e5fe303264c1beae0aa8487dcc3a1cac56"
+      "sha256": "4b90a32e48dcf6b6977968b3b37185fc0a6747c8423c5a396e843d78cc6f7e5c"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "aefb8b9f0892105771791c6c43b53a452511f1b7535bb3baeb4f4700ca3ef02d"
+      "sha256": "e677366f5e9ece6bbd3241f9cf752f4f49c944df372113a6c0175b3877a43ec5"
     },
     {
       "path": "VERSION",
-      "sha256": "c28fcca53637bc88e124af1725df13cb98c69dedefd62fb3cdbe1cdb6b760624"
+      "sha256": "c4a2383a03bdb6739d16a0e24058e4b9c7da4e63d203e0be2f448868cc03c530"
     },
     {
       "path": "Writer-Application-Mapping.md",
-      "sha256": "5551cd122f95fa62edcf167887dfb50e8762b5e9ba012eff4b53be3a492725a9"
+      "sha256": "91ae02945e071db2864678c9e94e0d2c693cc9dc67ecd6aaf1098ee5c94191dd"
     },
     {
       "path": "docs/integration-policy.md",
@@ -169,6 +169,10 @@
       "sha256": "a9379c2c324dea1489bb18e4901a4f6bb9dc7bd5438054db01190df232677c0c"
     },
     {
+      "path": "knowledge/natural-japanese-publication-flags-terminology.md",
+      "sha256": "55e42a134679af0a5ac5333acd44e23b259dfa37da908b5636e929a28dc84d54"
+    },
+    {
       "path": "knowledge/numeric-consistency.md",
       "sha256": "3fae1a438249420205598a748f9feaf95f237e855f8f4cd9329c65983fb32850"
     },
@@ -217,20 +221,128 @@
       "sha256": "b7092000193af8ee6ae340961b06e1f6d8f1d8b063e27f5d2e2d4217c5ebc8d3"
     },
     {
+      "path": "learning/DECISION_LOG.md",
+      "sha256": "86fa4cdc6d13852e028e51ca903d2b28ba4db365ecc9de0a31afebd09756c02f"
+    },
+    {
+      "path": "learning/LEARNING_INTAKE_TEMPLATE.md",
+      "sha256": "e0618dad14ad0a839711942cca4e5b29a426c958a8b7b97f7f43dafc7c366acd"
+    },
+    {
+      "path": "learning/LEARNING_REGISTRY.json",
+      "sha256": "ffbfe6d81072128e2fd384e61bfe34c560ff606cb51925b60dc7852c4c0d250c"
+    },
+    {
+      "path": "learning/LEARNING_SPRINT_PLAYBOOK.md",
+      "sha256": "9b1d0d01184341b0d7aaf8bf90ef2a988f10f03cabe55c2fa0539f9c517c03cc"
+    },
+    {
+      "path": "learning/README.md",
+      "sha256": "715f003105f919fd6d026194641e0fbb71324e1f6d47f170503ab6ef75e3378c"
+    },
+    {
       "path": "mappings/writer/application-mapping.md",
-      "sha256": "5551cd122f95fa62edcf167887dfb50e8762b5e9ba012eff4b53be3a492725a9"
+      "sha256": "91ae02945e071db2864678c9e94e0d2c693cc9dc67ecd6aaf1098ee5c94191dd"
     },
     {
       "path": "patterns/answer-first-pattern.md",
       "sha256": "5228ecd93daf06f9181cb4c8274b8db51b8dfad2ce787addd9e1281445c47533"
     },
     {
+      "path": "patterns/evidence-publication-boundary-pattern.md",
+      "sha256": "27902191ac44319d1e2761d8b4f75e4d97109f33a7ee3643060156b27fae6715"
+    },
+    {
+      "path": "patterns/expectation-alignment-pattern.md",
+      "sha256": "e93b01185c63c9483062e76c0b9b9127b8b11ab26ae686fcedcafb4fdcbef438"
+    },
+    {
+      "path": "patterns/freshness-qualification-pattern.md",
+      "sha256": "361a9dcac32f60c6054ea7bfd72927a2394c68b8d46be070e7e562aab89a4e14"
+    },
+    {
       "path": "patterns/gap-completion-pattern.md",
       "sha256": "a7f05e3ff8c8393c0b0bc34d87736a8964dc3f765b084500f24b21db8096d487"
     },
     {
+      "path": "patterns/internal-link-role-separation-pattern.md",
+      "sha256": "d211c403691d39736a1f5c25da168e55c4d7195a787c23f77a79d7e1de9fac70"
+    },
+    {
+      "path": "patterns/natural-japanese-pattern.md",
+      "sha256": "e4bed0e3a16c428404b7e9ee199f7da04897274b5719636d12d6d34f6c5ff81f"
+    },
+    {
+      "path": "patterns/scope-alignment-pattern.md",
+      "sha256": "e2f4c1181a3c12e385f94adf5413a5163ed967ed7f8a2cc0271cb10247dce1f4"
+    },
+    {
       "path": "patterns/serp-gap-report-pattern.md",
       "sha256": "046022cb1a085edf2557bddfbda862182c8807a45b143ec876c0cd3e4bf00d7f"
+    },
+    {
+      "path": "patterns/terminology-unit-consistency-pattern.md",
+      "sha256": "7ea0ac5549bd99fcdba932e525eb60b054d7e9fd654d62dfe145b995e429a4e2"
+    },
+    {
+      "path": "patterns/title-semantic-alignment-pattern.md",
+      "sha256": "ccc538ec99aa3d6a76e493224cdf6f833420ba33b2cb7289d8f3249be38239bd"
+    },
+    {
+      "path": "patterns/ymyl-safety-pattern.md",
+      "sha256": "1944596d0a6cfd6898fbfcf276fd18c9189fdcdf41fb5dd30303581d85bbc2da"
+    },
+    {
+      "path": "quality/COPY_READY_OUTPUT_STANDARD_V2.md",
+      "sha256": "a4ce74b595817f547470363916ccf13cd6b8e35fe342a93d4dcf318b243f5bd5"
+    },
+    {
+      "path": "quality/EDITORIAL_QA_CONTRACT_V1.md",
+      "sha256": "19b875e619af3c5f97aec46eb84cf19612e6c8f3d87d9cf1f511049ffd078253"
+    },
+    {
+      "path": "quality/EVIDENCE_DECISION_POLICY_V2.md",
+      "sha256": "14f3c8e43a51dd68d2bef2111080cb52244b2c07df72c592310dd9e55677fb22"
+    },
+    {
+      "path": "quality/FOUR_LAYER_ARCHITECTURE_V2.md",
+      "sha256": "0085eb151616157b37af8295d12e740afac7145d08d2a33bc9be48631dd2a254"
+    },
+    {
+      "path": "quality/KNOWLEDGE_CONFIDENCE_FRESHNESS_V2.md",
+      "sha256": "f17d5173976007c31109622347c4ea51ddd073b1f88b9892d847ba9b714df973"
+    },
+    {
+      "path": "quality/LEARNING_REGISTRY_POLICY.md",
+      "sha256": "05a6440f8ad84a5dc79ef8096224176df08c8bd26b09fdcf12be4f92064deba3"
+    },
+    {
+      "path": "quality/OPERATIONAL_LEARNING_PROMOTION_POLICY.md",
+      "sha256": "6f87756468bf1134b83c6e512a05c0fa2a224aabccc74f27255f6272379774ea"
+    },
+    {
+      "path": "quality/PUBLICATION_QA_CANONICAL_OUTPUT_v1.3.8.md",
+      "sha256": "69826b31f0eabfea5accd3a9bdeb42475b937111d355ce272a3d850cc17c2ce3"
+    },
+    {
+      "path": "quality/PUBLICATION_VISIBILITY_POLICY_V2.md",
+      "sha256": "36daf2ec9c8550ad85db4b5f16ef145c0a372ff755f730643317ae7a6187c21d"
+    },
+    {
+      "path": "quality/QUALITY_PATTERN_LIBRARY.md",
+      "sha256": "56f9cb672a2a0d52ac3257943e51b5a957813354eb916596030fd711144b2a6a"
+    },
+    {
+      "path": "quality/REVIEWER_PRECISION_RULES_v1.3.7.md",
+      "sha256": "5e1f78ff8603e466f001f714bf1676fd1197607d2d917d662eae3e26f1ddc0b0"
+    },
+    {
+      "path": "quality/USER_FACING_TERMINOLOGY_JA.md",
+      "sha256": "440482a43b3eae8eb39a110daf2c1277999c4afddf4a425b63e9ec2257fef8ff"
+    },
+    {
+      "path": "quality/final-publication-output-principles.md",
+      "sha256": "594d4017941f4cd78542ed30568d4dd742a119d7a405b4d4bebc06ce8efecfef"
     },
     {
       "path": "strategy/editorial-strategy-selection.md",
@@ -261,6 +373,10 @@
       "sha256": "c9e888d187b02f8a20bb9a275f4675daed1f84b238bcd5ade4f33cec4454bcc0"
     },
     {
+      "path": "validation/learning-registry-validation.md",
+      "sha256": "8ed6991ae18179d86800872619a4cc0d9fa766bac78e0cce4672dec2553a88ab"
+    },
+    {
       "path": "validation/natural-japanese-and-similarity-validation.md",
       "sha256": "43402651dc852848fb1f39300ebe82b320f4c95fd524869f77c3535b3770c8d2"
     },
@@ -275,6 +391,10 @@
     {
       "path": "validation/publication-qa-validation.md",
       "sha256": "01a40461a69feeeac2c8a2509801508c003bbe32cc8f3aed253d33d0851c99d2"
+    },
+    {
+      "path": "validation/quality-pattern-library-validation.md",
+      "sha256": "51cf42f82ce357c5125980519ba1e5a0910a75aa93e563afaaa6d373e4e8cd18"
     },
     {
       "path": "validation/rc2-final-integration-validation.md",

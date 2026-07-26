@@ -1,3 +1,14 @@
+# v2.2.0
+
+- Added Operational Learning Registry runtime.
+- Added learning area to scoped Shared snapshot.
+
+# 2.1.0 - Quality Pattern Library Integration
+
+- Integrated Shared Quality Pattern Library v1.0.
+- Added operational-learning classification and no-loop handling.
+- Repeated defects now route to Mapping or Validation fixes instead of ad hoc prompt growth.
+
 ## 2.0.0 - 2026-07-26
 
 - Added final Natural Japanese and similarity-candidate reporting gates.

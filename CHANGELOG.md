@@ -1,3 +1,9 @@
+# v2.2.0
+
+- Added Learning Registry runtime and ten-article Learning Sprint.
+- Added scoped snapshot delivery for `learning/`.
+- Added no-release-noise rule.
+
 # 2.1.0 - Quality Pattern Library Integration
 
 - Integrated Shared Quality Pattern Library v1.0.

@@ -1,12 +1,12 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.1.0",
-  "integrated_version": "2.1.0",
+  "source_version": "2.2.0",
+  "integrated_version": "2.2.0",
   "target_product": "writer",
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "b1b6e4246718c36e6429774f544db5e1df20770e1234c809188162f5406e9b0d"
+      "sha256": "1ecfad873442235d841a026829461a43d03277ba80f1b332c6718eec4c94d354"
     },
     {
       "path": "Decision-Support.md",
@@ -42,19 +42,19 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "e8f9615851c408ed1c16316fad8cbafa71fc568bdd88c1a87343310b8402c5b3"
+      "sha256": "4b90a32e48dcf6b6977968b3b37185fc0a6747c8423c5a396e843d78cc6f7e5c"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "3c09d57c4980be44705ab5562796dd19ed606941d054640227e99cfab86fb090"
+      "sha256": "e677366f5e9ece6bbd3241f9cf752f4f49c944df372113a6c0175b3877a43ec5"
     },
     {
       "path": "VERSION",
-      "sha256": "c89b87c262e9d5ffd20e73aac74a1772adcc9f5a21682cc33adcf5086e5fef5c"
+      "sha256": "c4a2383a03bdb6739d16a0e24058e4b9c7da4e63d203e0be2f448868cc03c530"
     },
     {
       "path": "Writer-Application-Mapping.md",
-      "sha256": "502d52b3ad35badbbc14a27e7608a1600136258861540358fa380a99698d2a8f"
+      "sha256": "91ae02945e071db2864678c9e94e0d2c693cc9dc67ecd6aaf1098ee5c94191dd"
     },
     {
       "path": "docs/integration-policy.md",
@@ -221,8 +221,28 @@
       "sha256": "b7092000193af8ee6ae340961b06e1f6d8f1d8b063e27f5d2e2d4217c5ebc8d3"
     },
     {
+      "path": "learning/DECISION_LOG.md",
+      "sha256": "86fa4cdc6d13852e028e51ca903d2b28ba4db365ecc9de0a31afebd09756c02f"
+    },
+    {
+      "path": "learning/LEARNING_INTAKE_TEMPLATE.md",
+      "sha256": "e0618dad14ad0a839711942cca4e5b29a426c958a8b7b97f7f43dafc7c366acd"
+    },
+    {
+      "path": "learning/LEARNING_REGISTRY.json",
+      "sha256": "ffbfe6d81072128e2fd384e61bfe34c560ff606cb51925b60dc7852c4c0d250c"
+    },
+    {
+      "path": "learning/LEARNING_SPRINT_PLAYBOOK.md",
+      "sha256": "9b1d0d01184341b0d7aaf8bf90ef2a988f10f03cabe55c2fa0539f9c517c03cc"
+    },
+    {
+      "path": "learning/README.md",
+      "sha256": "715f003105f919fd6d026194641e0fbb71324e1f6d47f170503ab6ef75e3378c"
+    },
+    {
       "path": "mappings/writer/application-mapping.md",
-      "sha256": "502d52b3ad35badbbc14a27e7608a1600136258861540358fa380a99698d2a8f"
+      "sha256": "91ae02945e071db2864678c9e94e0d2c693cc9dc67ecd6aaf1098ee5c94191dd"
     },
     {
       "path": "patterns/answer-first-pattern.md",
@@ -293,6 +313,10 @@
       "sha256": "f17d5173976007c31109622347c4ea51ddd073b1f88b9892d847ba9b714df973"
     },
     {
+      "path": "quality/LEARNING_REGISTRY_POLICY.md",
+      "sha256": "05a6440f8ad84a5dc79ef8096224176df08c8bd26b09fdcf12be4f92064deba3"
+    },
+    {
       "path": "quality/OPERATIONAL_LEARNING_PROMOTION_POLICY.md",
       "sha256": "6f87756468bf1134b83c6e512a05c0fa2a224aabccc74f27255f6272379774ea"
     },
@@ -306,7 +330,7 @@
     },
     {
       "path": "quality/QUALITY_PATTERN_LIBRARY.md",
-      "sha256": "cb78c146fd53151878afcd56ac282da2844389da9344a00462854bb64a25762f"
+      "sha256": "56f9cb672a2a0d52ac3257943e51b5a957813354eb916596030fd711144b2a6a"
     },
     {
       "path": "quality/REVIEWER_PRECISION_RULES_v1.3.7.md",
@@ -347,6 +371,10 @@
     {
       "path": "validation/knowledge-confidence-validation.md",
       "sha256": "c9e888d187b02f8a20bb9a275f4675daed1f84b238bcd5ade4f33cec4454bcc0"
+    },
+    {
+      "path": "validation/learning-registry-validation.md",
+      "sha256": "8ed6991ae18179d86800872619a4cc0d9fa766bac78e0cce4672dec2553a88ab"
     },
     {
       "path": "validation/natural-japanese-and-similarity-validation.md",
