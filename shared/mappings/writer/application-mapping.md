@@ -44,3 +44,7 @@ Preservation Score、Rewrite Level、Rewrite Scope、Change Budgetを上書き�
 ## v2.0 Editorial application
 
 `editorial-decision-and-visibility.md`、`COPY_READY_OUTPUT_STANDARD_V2.md`、`PUBLICATION_VISIBILITY_POLICY_V2.md`をWriterのEditorial Decision Layerと利用者向け出力生成に適用する。
+
+
+## v2.0.0 RC1 Four-Layer Architecture
+Knowledge / Strategy / Evidence / Patternを分離し、修正前にEditorial Strategyを確定します。

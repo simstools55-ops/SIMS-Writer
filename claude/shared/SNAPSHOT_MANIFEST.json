@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0-dev.6",
-  "integrated_version": "2.0.0-dev.6",
+  "source_version": "2.0.0-rc.1",
+  "integrated_version": "2.0.0-rc.1",
   "target_product": "writer",
   "files": [
     {

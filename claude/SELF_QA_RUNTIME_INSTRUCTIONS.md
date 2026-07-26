@@ -13,7 +13,7 @@
 QA Contractは`SIMS_EDITORIAL_QA_V1`。Writer固有の出力Contractとは分離して扱う。
 
 
-## Knowledge Confidence / Freshness v2.0.0-dev.6
+## Knowledge Confidence / Freshness v2.0.0-rc.1
 - 出典を OFFICIAL / PRIMARY / MULTIPLE_THIRD_PARTY / SINGLE_THIRD_PARTY / COMMUNITY / UNKNOWN に分類する。
 - 製品仕様・上限・料金・提供条件など変動する事実は、公式または一次情報で現在性を確認できた場合だけ公開OK候補とする。
 - 独立した複数の第三者記事で一致しても、公式未確認なら原則「利用者判断」。

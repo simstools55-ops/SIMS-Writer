@@ -39,3 +39,7 @@ SIMS Writerは、独立製品`SIMS-Shared-Editorial-Knowledge`を正本として
 - `product/quality/QUALITY_FRAMEWORK.md`：既存Quality資産の統合運用フレームワーク
 - `product/roadmap/WRITER_v1.1.3_IMPROVEMENT_PLAN.md`：承認済みSprint実装計画
 - Shared Knowledgeの正本性、Writer固有責務、Claude Project同期を明文化
+
+
+## v2.0.0 RC1 Four-Layer Architecture
+Knowledge / Strategy / Evidence / Patternを分離し、修正前にEditorial Strategyを確定します。

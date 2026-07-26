@@ -1,4 +1,4 @@
-# v2.0.0-dev.6 — Integrated Evidence Layer
+# v2.0.0-rc.1 — Integrated Evidence Layer
 
 - Search Console・verified SERP・一次/二次情報を統合するEvidence Layerを追加。
 - HIGH/MEDIUM/LOW/NONEの内部Evidence判定をEditorial Decisionへ接続。

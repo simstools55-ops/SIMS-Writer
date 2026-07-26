@@ -1,4 +1,4 @@
-# SIMS Writer v2.0.0-dev.6 Knowledge Confidence / Freshness
+# SIMS Writer v2.0.0-rc.1 Knowledge Confidence / Freshness
 
 - Evidence source hierarchyを追加
 - Knowledge Confidence (0-100) とFreshnessを内部判定へ追加

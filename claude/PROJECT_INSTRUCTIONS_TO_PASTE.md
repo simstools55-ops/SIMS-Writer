@@ -148,7 +148,7 @@ Validation、SWLS、Coverage、診断コード、QA verdict、Preservation Score
 - Never say that a SERP-dependent change was made while also stating that current top pages were not inspected. This combination is a publication-blocking contradiction.
 
 
-## Knowledge Confidence / Freshness v2.0.0-dev.6
+## Knowledge Confidence / Freshness v2.0.0-rc.1
 - 出典を OFFICIAL / PRIMARY / MULTIPLE_THIRD_PARTY / SINGLE_THIRD_PARTY / COMMUNITY / UNKNOWN に分類する。
 - 製品仕様・上限・料金・提供条件など変動する事実は、公式または一次情報で現在性を確認できた場合だけ公開OK候補とする。
 - 独立した複数の第三者記事で一致しても、公式未確認なら原則「利用者判断」。

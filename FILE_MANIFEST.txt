@@ -42,6 +42,7 @@ RELEASE_NOTES_v2.0.0_DEV3_SERP_EVIDENCE_GATE.md
 RELEASE_NOTES_v2.0.0_DEV4_EVIDENCE_LAYER.md
 RELEASE_NOTES_v2.0.0_DEV5_PROGRESSIVE_EDITING.md
 RELEASE_NOTES_v2.0.0_DEV6_KNOWLEDGE_CONFIDENCE.md
+RELEASE_NOTES_v2.0.0_RC1.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/domain/editorial-qa-boundary-v1.0.md
@@ -84,6 +85,7 @@ claude/VALIDATION_MESSAGE_INTEGRITY.md
 claude/VERSION
 claude/examples/EXAMPLE_REQUEST.json
 claude/knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md
+claude/manifest.json
 claude/product/platform/SIMS_PLATFORM_GUIDE.md
 claude/product/quality/AUTO_FIX_RULES.md
 claude/product/quality/PUBLIC_RELEASE_GATE.md
@@ -376,6 +378,7 @@ learning/schemas/SWLS_USER_FEEDBACK.schema.json
 learning/templates/LEARNING_RECORD_TEMPLATE.json
 learning/templates/MEASUREMENT_TEMPLATE.json
 learning/templates/USER_FEEDBACK_TEMPLATE.json
+manifest.json
 migrations/sims-core/asset-mapping.md
 migrations/sims-core/migration-framework-v1.0.md
 migrations/sims-core/migration-inventory.yaml
@@ -478,10 +481,12 @@ product/quality/QA_EVALUATION_STANDARD.md
 product/quality/QUALITY_FRAMEWORK.md
 product/roadmap/WRITER_v1.1.2_IMPROVEMENT_PLAN.md
 product/roadmap/product-roadmap.md
+product/specifications/contract-v4.0.md
 product/specifications/output-specification-v2.0.md
 product/specifications/product-specification-v1.0.md
 product/specifications/product-specification-v2.0.md
 product/specifications/quality-specification-v0.2.0.md
+product/specifications/shared-four-layer-architecture-v2.0.md
 pytest.ini
 quality/REVIEWER_PRECISION_RULES_v1.3.7.md
 quality/USER_FACING_TERMINOLOGY_JA.md
@@ -568,6 +573,7 @@ runtime/diagnosis-decision-table.md
 runtime/diagnosis-to-improvement-map.md
 runtime/editorial-decision-layer-v2.0.md
 runtime/editorial-planner-v2.0.md
+runtime/editorial-strategy-engine-v2.0.md
 runtime/evidence-audit.md
 runtime/evidence-contamination-qa-v2.0.md
 runtime/evidence-layer-v2.0.md
@@ -635,6 +641,7 @@ runtime/sims_writer_runtime/asset_loader.py
 runtime/sims_writer_runtime/cli.py
 runtime/sims_writer_runtime/editorial_decision.py
 runtime/sims_writer_runtime/editorial_signals.py
+runtime/sims_writer_runtime/editorial_strategy.py
 runtime/sims_writer_runtime/evidence_layer.py
 runtime/sims_writer_runtime/hotfix_validation.py
 runtime/sims_writer_runtime/knowledge_confidence.py
@@ -671,10 +678,8 @@ shared/Hidden-Anxiety.md
 shared/Intent-Analysis.md
 shared/Internal-Link-Semantics.md
 shared/LICENSE
-shared/Progressive-Editing.md
 shared/README.md
 shared/SERP-Entity-Preservation.md
-shared/SERP-First-Editorial-Planning.md
 shared/SNAPSHOT_MANIFEST.json
 shared/SNAPSHOT_SCOPE.json
 shared/SOURCE.md
@@ -683,6 +688,8 @@ shared/Writer-Application-Mapping.md
 shared/docs/integration-policy.md
 shared/docs/product-scoped-snapshot-policy.md
 shared/docs/scope.md
+shared/evidence/publication-boundary.md
+shared/evidence/source-confidence-freshness.md
 shared/knowledge/buyer-trust-and-freshness.md
 shared/knowledge/causal-expression-safety.md
 shared/knowledge/central-claim-evidence-priority.md
@@ -706,17 +713,24 @@ shared/knowledge/internal-link-integrity.md
 shared/knowledge/internal-link-semantics.md
 shared/knowledge/logical-consistency.md
 shared/knowledge/numeric-consistency.md
+shared/knowledge/progressive-editing.md
 shared/knowledge/publication-pipeline-integrity.md
 shared/knowledge/publication-qa-evaluation-standard.md
 shared/knowledge/publication-qa-principles.md
 shared/knowledge/query-data-analysis.md
 shared/knowledge/serp-entity-preservation.md
+shared/knowledge/serp-first-editorial-planning.md
 shared/knowledge/source-scope-qualification.md
 shared/knowledge/validation-auditability.md
 shared/mappings/writer/application-mapping.md
-shared/quality/EVIDENCE_DECISION_POLICY_V2.md
+shared/patterns/answer-first-pattern.md
+shared/patterns/gap-completion-pattern.md
+shared/strategy/editorial-strategy-selection.md
+shared/strategy/problem-cause-strategy-map.md
 shared/validation/common-editorial-validation.md
+shared/validation/editorial-strategy-validation.md
 shared/validation/evidence-contamination-validation.md
+shared/validation/knowledge-confidence-validation.md
 shared/validation/publication-pipeline-integrity-validation.md
 shared/validation/publication-qa-regression-validation.md
 shared/validation/publication-qa-validation.md
@@ -758,6 +772,7 @@ tests/golden/cases/gc-new-001-new-how-to.json
 tests/golden/cases/gc-rec-012-placeholder-recovery.json
 tests/golden/cases/gc-trb-005-troubleshooting-safe.json
 tests/golden/cases/gc-upd-004-outdated-content.json
+tests/golden/manifest.json
 tests/golden/reports/latest-report.json
 tests/golden/test_golden_uat.py
 tests/golden/uat-strategy-v1.0.md
@@ -803,6 +818,7 @@ tests/regression/official-v1/cases/REG-004/expected_qa.json
 tests/regression/official-v1/cases/REG-005/README.md
 tests/regression/official-v1/cases/REG-005/case.json
 tests/regression/official-v1/cases/REG-005/expected_qa.json
+tests/regression/official-v1/manifest.json
 tests/regression-acceptance-criteria.md
 tests/release/test_claude_package_consistency.py
 tests/release-a/README.md
@@ -824,6 +840,7 @@ tests/test_v2_0_0_dev3_serp_evidence_gate.py
 tests/test_v2_0_0_dev4_evidence_layer.py
 tests/test_v2_0_0_dev5_progressive_editing.py
 tests/test_v2_0_0_dev6_knowledge_confidence.py
+tests/test_v2_0_0_rc1_editorial_strategy.py
 tests/validation-hotfix-v0.2.3/README.md
 tests/validation-hotfix-v0.2.3/test_validation_hotfix.py
 tests/vertical-slices/test_ctr_vertical_slice.py

@@ -77,7 +77,7 @@ def build_publication_view(initial_draft: dict[str, Any], qa_result: dict[str, A
 
 
 def apply_qa_to_feedback(feedback: dict[str, Any] | None, publication_view: dict[str, Any]) -> dict[str, Any]:
-    """Build the Contract 3.0 public/SBM payload.
+    """Build the Contract 4.0 minimal public/SBM payload.
 
     Validation, QA, diagnosis and audit details remain in internal_audit_record
     and are deliberately excluded from the user-facing feedback object.
@@ -85,7 +85,7 @@ def apply_qa_to_feedback(feedback: dict[str, Any] | None, publication_view: dict
     source = deepcopy(feedback or {})
     result = {
         "format": "SIMS_FEEDBACK_V2",
-        "contract_version": "3.0",
+        "contract_version": "4.0",
         "site_id": source.get("site_id"),
         "site_name": source.get("site_name"),
         "site_url": source.get("site_url"),
@@ -96,7 +96,7 @@ def apply_qa_to_feedback(feedback: dict[str, Any] | None, publication_view: dict
             "change_summary": [], "public_ok_changes": [], "user_decision_changes": []
         }),
         "recommended_review_days": source.get("recommended_review_days"),
-        "information": deepcopy(source.get("information") or []),
+        "next_action": source.get("next_action"),
     }
     return result
 

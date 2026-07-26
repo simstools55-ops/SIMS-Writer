@@ -5,6 +5,7 @@ from typing import Any
 
 from .evidence_layer import evidence_level, enforce_evidence_boundaries, LOW, NONE
 from .progressive_editing import apply_progressive_editing
+from .editorial_strategy import attach_strategy
 
 PUBLIC_OK = "PUBLIC_OK"
 USER_DECISION = "USER_DECISION"
@@ -45,11 +46,13 @@ def classify_change(change: dict[str, Any]) -> str:
     return PUBLIC_OK
 
 
-def build_publication_result(changes: list[dict[str, Any]], *, serp_status: str | None = None) -> dict[str, Any]:
+def build_publication_result(changes: list[dict[str, Any]], *, serp_status: str | None = None, strategy: dict[str, Any] | None = None) -> dict[str, Any]:
     public_ok: list[dict[str, Any]] = []
     user_decision: list[dict[str, Any]] = []
     rejected: list[dict[str, Any]] = []
 
+    if strategy:
+        changes = attach_strategy(changes, strategy)
     changes, evidence_findings = enforce_evidence_boundaries(changes)
     progressive_trace: list[dict[str, Any]] = []
     if serp_status is not None:
@@ -74,6 +77,7 @@ def build_publication_result(changes: list[dict[str, Any]], *, serp_status: str 
         "_internal_rejected_changes": rejected,
         "_internal_evidence_findings": evidence_findings,
         "_internal_progressive_trace": progressive_trace,
+        "_internal_editorial_strategy": deepcopy(strategy or {}),
     }
 
 
@@ -91,6 +95,7 @@ def build_internal_audit_record(*, publication_result: dict[str, Any], qa_result
             "internal_rejected_changes": deepcopy(publication_result.get("_internal_rejected_changes") or []),
             "evidence_findings": deepcopy(publication_result.get("_internal_evidence_findings") or []),
             "progressive_trace": deepcopy(publication_result.get("_internal_progressive_trace") or []),
+            "editorial_strategy": deepcopy(publication_result.get("_internal_editorial_strategy") or {}),
         },
     }
 
