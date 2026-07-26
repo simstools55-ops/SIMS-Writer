@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0-dev.5",
-  "integrated_version": "2.0.0-dev.5",
+  "source_version": "2.0.0-dev.6",
+  "integrated_version": "2.0.0-dev.6",
   "target_product": "writer",
   "files": [
     {
@@ -46,15 +46,15 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "3f878676d4c019873416454b277295d612f54e060d2c24002e60145a9ea17571"
+      "sha256": "629e3921766b5d34554fa8648dfe441b1def1fe9d4c250b5ece1e64c7e29f9e0"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "79d684ce23505e7cd10e9da6f8f39da510d58b7038f8af9a605584b870ff4dc6"
+      "sha256": "649ffb6135c313fafed8ca889a74c2c164cd0b5b3336d7ba7759d5b5c0c840c8"
     },
     {
       "path": "VERSION",
-      "sha256": "702a3cd5191419fbe4c1e2b1262b2faed1b17f89bb20c55946b9bef5e3cae3ff"
+      "sha256": "31627f80e0e2edae18e1916a2f5065db0786aca62b3f506ff766a419a4907b54"
     },
     {
       "path": "Writer-Application-Mapping.md",

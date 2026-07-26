@@ -41,6 +41,7 @@ RELEASE_NOTES_v2.0.0_DEV2_SERP_FIRST.md
 RELEASE_NOTES_v2.0.0_DEV3_SERP_EVIDENCE_GATE.md
 RELEASE_NOTES_v2.0.0_DEV4_EVIDENCE_LAYER.md
 RELEASE_NOTES_v2.0.0_DEV5_PROGRESSIVE_EDITING.md
+RELEASE_NOTES_v2.0.0_DEV6_KNOWLEDGE_CONFIDENCE.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/domain/editorial-qa-boundary-v1.0.md
@@ -577,6 +578,8 @@ runtime/gate-decision-matrix.md
 runtime/gate-rules.md
 runtime/improvement-strategy-engine.md
 runtime/integrated-gap-analysis-v2.0.md
+runtime/knowledge-confidence-freshness-v2.0.md
+runtime/knowledge-confidence-qa-v2.0.md
 runtime/manifests/runtime-manifest.example.json
 runtime/orchestration/orchestrator-specification.md
 runtime/orchestration/stage-state-model.json
@@ -634,6 +637,7 @@ runtime/sims_writer_runtime/editorial_decision.py
 runtime/sims_writer_runtime/editorial_signals.py
 runtime/sims_writer_runtime/evidence_layer.py
 runtime/sims_writer_runtime/hotfix_validation.py
+runtime/sims_writer_runtime/knowledge_confidence.py
 runtime/sims_writer_runtime/localization.py
 runtime/sims_writer_runtime/models.py
 runtime/sims_writer_runtime/orchestrator.py
@@ -819,6 +823,7 @@ tests/test_v2_0_0_dev2_serp_first.py
 tests/test_v2_0_0_dev3_serp_evidence_gate.py
 tests/test_v2_0_0_dev4_evidence_layer.py
 tests/test_v2_0_0_dev5_progressive_editing.py
+tests/test_v2_0_0_dev6_knowledge_confidence.py
 tests/validation-hotfix-v0.2.3/README.md
 tests/validation-hotfix-v0.2.3/test_validation_hotfix.py
 tests/vertical-slices/test_ctr_vertical_slice.py

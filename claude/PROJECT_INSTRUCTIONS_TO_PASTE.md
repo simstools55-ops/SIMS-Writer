@@ -146,3 +146,11 @@ Validation、SWLS、Coverage、診断コード、QA verdict、Preservation Score
 - If the gate is not open, classify SERP-dependent proposals as `INTERNAL_REJECT`; do not output them under 公開OK or 利用者判断.
 - In the user-visible response, do not show diagnosis codes or the full gate trace. Briefly state that current top-result comparison could not be completed and that dependent edits were withheld. If no whitelist correction exists, return no change instead of speculative edits.
 - Never say that a SERP-dependent change was made while also stating that current top pages were not inspected. This combination is a publication-blocking contradiction.
+
+
+## Knowledge Confidence / Freshness v2.0.0-dev.6
+- 出典を OFFICIAL / PRIMARY / MULTIPLE_THIRD_PARTY / SINGLE_THIRD_PARTY / COMMUNITY / UNKNOWN に分類する。
+- 製品仕様・上限・料金・提供条件など変動する事実は、公式または一次情報で現在性を確認できた場合だけ公開OK候補とする。
+- 独立した複数の第三者記事で一致しても、公式未確認なら原則「利用者判断」。
+- 最終確認日が不明、古い、情報源間で矛盾する場合は公開OKへ入れない。
+- ConfidenceやFreshnessの内部スコアは通常利用者へ表示しない。確認が必要な資料だけ平易に示す。

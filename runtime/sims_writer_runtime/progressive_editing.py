@@ -3,6 +3,8 @@ from __future__ import annotations
 from copy import deepcopy
 from typing import Any
 
+from .knowledge_confidence import publication_ceiling
+
 PUBLIC_OK = "PUBLIC_OK"
 USER_DECISION = "USER_DECISION"
 INTERNAL_REJECT = "INTERNAL_REJECT"
@@ -24,6 +26,12 @@ def progressive_decision(change: dict[str, Any], *, serp_status: str) -> str:
     basis = str(item.get("change_basis") or "").strip()
     evidence = str(item.get("evidence_level") or "MEDIUM").upper()
     current = str(item.get("editorial_decision") or "").upper()
+
+    ceiling = publication_ceiling(item) if any(k in item for k in ("source_level","evidence_source_level","verified_at","last_verified_at","knowledge_confidence")) else None
+    if ceiling == INTERNAL_REJECT:
+        return INTERNAL_REJECT
+    if ceiling == USER_DECISION and current != INTERNAL_REJECT:
+        return USER_DECISION
 
     if current == INTERNAL_REJECT or item.get("internal_reject"):
         return INTERNAL_REJECT

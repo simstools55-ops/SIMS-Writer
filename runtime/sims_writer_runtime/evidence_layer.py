@@ -3,6 +3,8 @@ from __future__ import annotations
 from copy import deepcopy
 from typing import Any
 
+from .knowledge_confidence import publication_ceiling, knowledge_confidence, freshness_status, source_level
+
 HIGH = "HIGH"
 MEDIUM = "MEDIUM"
 LOW = "LOW"
@@ -78,3 +80,21 @@ def enforce_evidence_boundaries(changes: list[dict[str, Any]]) -> tuple[list[dic
             "final_decision": item.get("editorial_decision"),
         })
     return items, findings
+
+
+def apply_knowledge_confidence(change: dict[str, Any]) -> dict[str, Any]:
+    """Attach source, confidence, freshness and a conservative publication ceiling."""
+    item=deepcopy(change)
+    item["knowledge_evidence"]={
+        "source_level": source_level(item),
+        "confidence": knowledge_confidence(item),
+        "freshness": freshness_status(item),
+        "publication_ceiling": publication_ceiling(item),
+    }
+    ceiling=item["knowledge_evidence"]["publication_ceiling"]
+    current=str(item.get("editorial_decision") or "PUBLIC_OK").upper()
+    if ceiling=="INTERNAL_REJECT": item["editorial_decision"]="INTERNAL_REJECT"
+    elif ceiling=="USER_DECISION" and current=="PUBLIC_OK":
+        item["editorial_decision"]="USER_DECISION"; item["requires_user_confirmation"]=True
+        item.setdefault("confirmation_point","公式情報または一次情報で最新仕様を確認してください。")
+    return item

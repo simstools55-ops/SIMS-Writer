@@ -32,9 +32,9 @@ Every proposed change must contain an internal `change_basis`:
 No change may be proposed merely because it appears in a competitor article.
 
 
-## Evidence Layer lock (v2.0.0-dev.5)
+## Evidence Layer lock (v2.0.0-dev.6)
 Before planning any content addition, combine Search Console signals, verified SERP findings, and claim-level evidence. `SUPPORTED_GAP` may enter normal planning; `DECISION_GAP` may produce only USER_DECISION; `UNSUPPORTED_GAP` must become INTERNAL_REJECT. A low-evidence claim cannot be inserted into another PUBLIC_OK component.
 
 
-## Progressive Editing lock (v2.0.0-dev.5)
+## Progressive Editing lock (v2.0.0-dev.6)
 A blocked component must not block unrelated safe edits. Apply SERP status, evidence level and change basis per component, then send only completed PUBLIC_OK and actionable USER_DECISION items to output.
