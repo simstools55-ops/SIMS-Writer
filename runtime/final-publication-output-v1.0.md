@@ -1,13 +1,9 @@
-# Final Publication Output v1.0
+# RC2 Final Output Integration Instructions
 
-The Runtime must generate user-visible output only from the final QA-reviewed draft.
+利用者向けMarkdownを組み立てた後、内部監査情報を除去し、Contract 4.0 JSONだけを付ける。
 
-## Rules
-1. `PASS`, `PASS_WITH_WARNING`, and `PASS_WITH_MINOR_FIX` may expose publication content.
-2. `PASS_WITH_REQUIRED_FIX` and `FAIL` must set publication content to null and retain the draft only as `held_draft`.
-3. QA Before/After details belong to `publication_view`; the machine publication package exposes only changed component names so rejected text cannot leak into release content.
-4. Existing SIMS_FEEDBACK fields remain unchanged. QA metadata is appended under `publication_qa`.
+禁止：旧Contract 2.1/3.0 JSON、Validation、publication_qa、SWLS、内部リンク不採用一覧、Evidenceコード、診断コード。
 
+EvidenceがUSER_DECISIONなら、その事実を含むすべての修正対象（タイトル・メタ・導入・見出し・FAQ・本文）もUSER_DECISIONへ送る。文章ごとに判定を分裂させてはならない。
 
-## Evidence visibility
-Do not show internal evidence scores. For USER_DECISION, show only the missing confirmation and the source type needed (for example, LINE official help). Never leave the same unverified claim inside a PUBLIC_OK title, meta, introduction, heading, FAQ, or body edit.
+standalone `qa_verdict`は外部出力しない。

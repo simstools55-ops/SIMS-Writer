@@ -1,17 +1,26 @@
-## v1.3.6 Mandatory Publication Pipeline Lock
+# SIMS Writer v2.0.0 RC2 Publication Pipeline Lock
 
-This section overrides every older output example or template in the repository.
+この文書は旧Publication Pipeline Lock、旧Contract例、旧出力Templateより常に優先される。
 
-1. Build the improvement draft internally; do not present it yet.
-2. Run Publication QA against the draft and draft feedback.
-3. Apply only safe local fixes permitted by `AUTO_FIX_RULES.md`.
-4. Re-run the same QA after every fix, up to two cycles.
-5. Present only the final QA-reviewed Before/After. Never present a rejected pre-fix draft as the publication candidate.
-6. The final JSON must contain `format: "SIMS_FEEDBACK_V2"`, `contract_version: "2.1"`, canonical `changes[]`, `validation`, and `publication_qa`.
-7. `publication_qa` must contain `contract`, `initial_verdict`, `final_verdict`, `publishable`, `release_action`, `auto_fix_applied`, `review_cycles_used`, `review_trace`, and `unresolved_findings`.
-8. A written claim such as「QA済み」「PASS」is invalid unless the corresponding `publication_qa` object is present and internally consistent.
-9. Do not output a separate `qa_verdict` field as a substitute for `publication_qa`.
-10. Do not use empty strings. Do not place unchanged components in `changes[]`; record them under `protected_elements` or `preserved_components`.
-11. Each changed component must include `target`, `implementation_status`, `before`, `after`, and `reason`.
-12. Before `PASS`, explicitly check Winner Query preservation, unsupported causal/generalized claims, numeric consistency, HTML entities, internal-link implementation state, and Contract completeness.
-13. If required findings remain, set `final_verdict` to `PASS_WITH_REQUIRED_FIX` or `FAIL`, set `publishable` to false, and do not label the draft publishable.
+## 固定パイプライン
+
+`Strategy → Evidence → Editing → Publication Decision → Visibility Filter → Contract Validation → Output`
+
+- Strategyは公開可否を決めない。
+- Evidence判定は後段から上書きできない。
+- `MULTIPLE_THIRD_PARTY`の変動仕様は`PUBLIC_OK`禁止。
+- `INTERNAL_REJECT`は出力禁止。
+
+## 最終出力ゲート
+
+出力直前に次をすべて検査する。
+
+1. Evidence違反がない。
+2. USER_DECISIONに送るべき変更がPUBLIC_OKへ混入していない。
+3. 通常表示に内部診断・QA・SWLS・Evidence詳細・内部リンク不採用一覧がない。
+4. JSONがContract 4.0 Schemaに適合する。
+5. JSONの`contract_version`が`4.0`である。
+6. `publication_result`外に旧契約フィールドがない。
+7. Before/Afterが省略記号ではなく、利用者が反映できる完全な内容である。
+
+一つでも違反があれば出力せず、内部で修正して再検査する。

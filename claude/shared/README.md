@@ -40,3 +40,7 @@ docs/                      運用・統合ドキュメント
 ## v1.1.3 Product-scoped snapshots
 
 完全なShared Repositoryには両製品のmappingを保持しますが、各Claude Projectへ同梱するsnapshotには対象製品のmappingだけを含めます。詳細は `docs/product-scoped-snapshot-policy.md` を参照してください。
+
+
+## v2.0.0 RC1 Four-Layer Architecture
+Knowledge / Strategy / Evidence / Patternを分離し、修正前にEditorial Strategyを確定します。

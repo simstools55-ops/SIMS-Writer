@@ -1,12 +1,12 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0-rc.1",
-  "integrated_version": "2.0.0-rc.1",
-  "target_product": "writer",
+  "source_version": "2.0.0-rc.2",
+  "integrated_version": "2.0.0-rc.2",
+  "scope": "writer",
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "c3689effff235f5d3142ead91a81bdc9995ae1f52f58bb6f8da1019487dfd792"
+      "sha256": "e8eacaccec819f1daae922bc6789423bf2596953268b2d4751efbfe94c963e4c"
     },
     {
       "path": "Decision-Support.md",
@@ -34,31 +34,27 @@
     },
     {
       "path": "README.md",
-      "sha256": "a6ab0cd469eee6245a7505f14ca4c144745987f25610ea5665091e4790b91878"
+      "sha256": "9183a9f314008e24bbfeed41e2e0bd0259dee74f3bdb7bc5b8411da06c9d904b"
     },
     {
       "path": "SERP-Entity-Preservation.md",
       "sha256": "1d3987667305271f984c16eaa3a31b469335ce3b93bb8357af5a634653ebb85d"
     },
     {
-      "path": "SERP-First-Editorial-Planning.md",
-      "sha256": "34258afbce7f7bd2478554b87c2e23559786b15764f3d9a12753172579f6c021"
-    },
-    {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "3f878676d4c019873416454b277295d612f54e060d2c24002e60145a9ea17571"
+      "sha256": "b91f63beb5e9986256bcd2b4986cbc6c4a360d7b1c82e34aa0785ddd9ff371e4"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "79d684ce23505e7cd10e9da6f8f39da510d58b7038f8af9a605584b870ff4dc6"
+      "sha256": "0bb63e8d41e02ab032fbc10ccd70e148e9bfada8b508f1b41c4b7600c4b31d62"
     },
     {
       "path": "VERSION",
-      "sha256": "702a3cd5191419fbe4c1e2b1262b2faed1b17f89bb20c55946b9bef5e3cae3ff"
+      "sha256": "a6a2b799e16c0200482e30cfe3454c7681371a80fc4e667e2e71dee09fa445b0"
     },
     {
       "path": "Writer-Application-Mapping.md",
-      "sha256": "36582cc262ab9af57597fcfdfbd77cc85b69ceb141078f67e17c991af60809d9"
+      "sha256": "5551cd122f95fa62edcf167887dfb50e8762b5e9ba012eff4b53be3a492725a9"
     },
     {
       "path": "docs/integration-policy.md",
@@ -71,6 +67,14 @@
     {
       "path": "docs/scope.md",
       "sha256": "5a6182675e3694675e500208c8f35994d5d7cb3d53d4b4fcb8049f7bc62db8ad"
+    },
+    {
+      "path": "evidence/publication-boundary.md",
+      "sha256": "24f66237355d6099e04dfc0f8e84db276f3408f34875da01aa3cd9c2567b3537"
+    },
+    {
+      "path": "evidence/source-confidence-freshness.md",
+      "sha256": "f17d5173976007c31109622347c4ea51ddd073b1f88b9892d847ba9b714df973"
     },
     {
       "path": "knowledge/buyer-trust-and-freshness.md",
@@ -165,6 +169,10 @@
       "sha256": "3fae1a438249420205598a748f9feaf95f237e855f8f4cd9329c65983fb32850"
     },
     {
+      "path": "knowledge/progressive-editing.md",
+      "sha256": "d814743c0976b7f77994dc1bc70f6c87eca3dbbd3e7ce045a4f02537a256bfd8"
+    },
+    {
       "path": "knowledge/publication-pipeline-integrity.md",
       "sha256": "65ca0f183b12bd53e0cd38ac11c869d35669f63613f0a623c2d5beaff43988dd"
     },
@@ -185,6 +193,10 @@
       "sha256": "1d3987667305271f984c16eaa3a31b469335ce3b93bb8357af5a634653ebb85d"
     },
     {
+      "path": "knowledge/serp-first-editorial-planning.md",
+      "sha256": "34258afbce7f7bd2478554b87c2e23559786b15764f3d9a12753172579f6c021"
+    },
+    {
       "path": "knowledge/source-scope-qualification.md",
       "sha256": "89d78dc42924fa4cb55a699e2d3002cca98b5b4e54b41a907d10e94f24a95647"
     },
@@ -194,19 +206,39 @@
     },
     {
       "path": "mappings/writer/application-mapping.md",
-      "sha256": "36582cc262ab9af57597fcfdfbd77cc85b69ceb141078f67e17c991af60809d9"
+      "sha256": "5551cd122f95fa62edcf167887dfb50e8762b5e9ba012eff4b53be3a492725a9"
     },
     {
-      "path": "quality/EVIDENCE_DECISION_POLICY_V2.md",
-      "sha256": "14f3c8e43a51dd68d2bef2111080cb52244b2c07df72c592310dd9e55677fb22"
+      "path": "patterns/answer-first-pattern.md",
+      "sha256": "5228ecd93daf06f9181cb4c8274b8db51b8dfad2ce787addd9e1281445c47533"
+    },
+    {
+      "path": "patterns/gap-completion-pattern.md",
+      "sha256": "a7f05e3ff8c8393c0b0bc34d87736a8964dc3f765b084500f24b21db8096d487"
+    },
+    {
+      "path": "strategy/editorial-strategy-selection.md",
+      "sha256": "2170f15cae4cbbdab73d9e6ddaba250b30f0418db6d876fc9abde77d30ca7fba"
+    },
+    {
+      "path": "strategy/problem-cause-strategy-map.md",
+      "sha256": "9b1d34e751936b901e8416fc8b49a5a2ee9210fe23f8d4665e6e1aa11097070d"
     },
     {
       "path": "validation/common-editorial-validation.md",
       "sha256": "16a3d7a600cea9b92bca0617e7364c0b59f407ada65469d1a2f3e0e64d62f9cf"
     },
     {
+      "path": "validation/editorial-strategy-validation.md",
+      "sha256": "e9aa85cf57354edd7ee3cde7ee954445b9d56e8ee195a71e724bab6d89dd86fe"
+    },
+    {
       "path": "validation/evidence-contamination-validation.md",
       "sha256": "19824144d95df93e383eaa63f7246a52e478689da34bb50b765ad48adf88f3bd"
+    },
+    {
+      "path": "validation/knowledge-confidence-validation.md",
+      "sha256": "c9e888d187b02f8a20bb9a275f4675daed1f84b238bcd5ade4f33cec4454bcc0"
     },
     {
       "path": "validation/publication-pipeline-integrity-validation.md",
@@ -221,20 +253,16 @@
       "sha256": "01a40461a69feeeac2c8a2509801508c003bbe32cc8f3aed253d33d0851c99d2"
     },
     {
+      "path": "validation/rc2-final-integration-validation.md",
+      "sha256": "d6be3ccf83a3ffce040cfa2672269a27b2198645c05502e054b6149bd288f7a1"
+    },
+    {
       "path": "validation/shared-knowledge-validation.md",
       "sha256": "d76ef622d4f4b39ccc1413d0ce20139e970f66911044b6ce4e26e8641946881d"
     },
     {
       "path": "validation/validation-message-integrity.md",
       "sha256": "f8d62aa7a5c286439575c4b0a3177585c26bf4f662ab5f5b7d3f76c8c3a15dac"
-    },
-    {
-      "path": "Progressive-Editing.md",
-      "sha256": "d814743c0976b7f77994dc1bc70f6c87eca3dbbd3e7ce045a4f02537a256bfd8"
-    },
-    {
-      "path": "Progressive-Editing.md",
-      "sha256": "d814743c0976b7f77994dc1bc70f6c87eca3dbbd3e7ce045a4f02537a256bfd8"
     }
   ]
 }

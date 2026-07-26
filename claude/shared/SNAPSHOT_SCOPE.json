@@ -1,7 +1,7 @@
 {
-  "target_product": "writer",
-  "source_version": "2.0.0-rc.1",
-  "integrated_version": "2.0.0-rc.1",
-  "included_mapping": "writer",
-  "excluded_mapping": "article-creator"
+  "product": "SIMS-Writer",
+  "source_repository": "SIMS-Shared-Editorial-Knowledge",
+  "source_version": "2.0.0-rc.2",
+  "integrated_version": "2.0.0-rc.2",
+  "scope": "writer"
 }

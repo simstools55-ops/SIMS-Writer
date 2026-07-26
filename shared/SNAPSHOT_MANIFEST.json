@@ -1,8 +1,8 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0-rc.1",
-  "integrated_version": "2.0.0-rc.1",
-  "target_product": "writer",
+  "source_version": "2.0.0-rc.2",
+  "integrated_version": "2.0.0-rc.2",
+  "scope": "writer",
   "files": [
     {
       "path": "CHANGELOG.md",
@@ -42,15 +42,15 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "d67ef45d4fe551dcab5dc23a865010bc915ddd8ead994873f3aff091e49fad9d"
+      "sha256": "b91f63beb5e9986256bcd2b4986cbc6c4a360d7b1c82e34aa0785ddd9ff371e4"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "7a2b98219dfe0fd7b067818bf43f13adba1a62fe32c150fcfb84cdad72a59b81"
+      "sha256": "0bb63e8d41e02ab032fbc10ccd70e148e9bfada8b508f1b41c4b7600c4b31d62"
     },
     {
       "path": "VERSION",
-      "sha256": "cc77be1db99dd04e4023dc951e3acd376304368689712d9bdceca2d5b4b53a1d"
+      "sha256": "a6a2b799e16c0200482e30cfe3454c7681371a80fc4e667e2e71dee09fa445b0"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -251,6 +251,10 @@
     {
       "path": "validation/publication-qa-validation.md",
       "sha256": "01a40461a69feeeac2c8a2509801508c003bbe32cc8f3aed253d33d0851c99d2"
+    },
+    {
+      "path": "validation/rc2-final-integration-validation.md",
+      "sha256": "d6be3ccf83a3ffce040cfa2672269a27b2198645c05502e054b6149bd288f7a1"
     },
     {
       "path": "validation/shared-knowledge-validation.md",

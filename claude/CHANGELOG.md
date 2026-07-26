@@ -1,4 +1,49 @@
+# 2.0.0-rc.1
+
+- Editorial Strategy Engine
+- Four-layer Shared architecture
+- Contract 4.0 minimal delivery
+
+# 2.0.0-rc.1
+
+- Added Knowledge Confidence and Freshness gates.
+
+## 2.0.0-rc.1
+
+# v2.0.0-rc.1 — Progressive Editing Engine
+
+- Added component-scoped SERP and Evidence decisions.
+- Partial SERP inspection now permits safe title, meta and introduction work while uncertain content expansion is held or sent to user decision.
+- Preserved Evidence contamination QA and silent internal rejection.
+- Simplified internal-link user output.
+
+## 2.0.0-rc.1
+
+# v2.0.0-rc.1 — Integrated Evidence Layer
+
+- Search Console・verified SERP・一次/二次情報を統合するEvidence Layerを追加。
+- HIGH/MEDIUM/LOW/NONEの内部Evidence判定をEditorial Decisionへ接続。
+- LOWはUSER_DECISION、NONEはINTERNAL_REJECTへ固定。
+- 未確認事実がPUBLIC_OKの別コンポーネントへ混入する矛盾をEVIDENCE-CONTAMINATION-001で遮断。
+- GapをSUPPORTED_GAP / DECISION_GAP / UNSUPPORTED_GAP / NO_GAP / SEPARATE_INTENTへ分類。
+- 利用者向けには内部スコアを出さず、必要な確認資料だけを提示。
+- 冒頭に一行の平易な改善戦略を表示可能にした。
+
+## 2.0.0-dev.3
+
+- SERP未確認を警告ではなく編集停止条件へ変更。
+- 順位3位以下では、見出し・FAQ・本文・構成・タイトル訴求変更にverified SERPを必須化。
+- Search Consoleクエリだけを根拠とした内容追加を禁止。
+- SERP未確認時の許可修正を機械的・独立検証済み修正へ限定。
+- SERP未確認とSERP依存編集の同時出力をPublication QAで拒否。
+- 内部リンク不採用一覧などの利用者表示を簡略化。
+
 # Changelog
+
+## 2.0.0-dev.2
+- Added mandatory SERP-first intent and gap analysis for main-query positions below the top three.
+- Added non-fabrication and unavailable-SERP safeguards.
+
 
 ## 2.0.0-dev.1
 
@@ -68,3 +113,6 @@
 
 ## 1.3.5
 - Added QA-reviewed final output integration rules.
+
+## 2.0.0-rc.2
+- Stabilized final output integration and removed active legacy contract conflicts.

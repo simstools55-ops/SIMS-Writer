@@ -48,3 +48,7 @@
 
 - [ ] 依頼文に旧v1.1サンプルが含まれていても、固定指定がなければv1.2へ移行する
 - [ ] Knowledge PackのVersionがProject Instructionsと一致している
+
+- [ ] Position >3 triggers inspected top-10 SERP and gap analysis before edit scope.
+- [ ] LOW_SAMPLE does not suppress deep-rank analysis.
+- [ ] Unavailable SERP is never fabricated and competitor-gap edits are not PUBLIC_OK.

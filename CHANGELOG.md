@@ -441,3 +441,6 @@
 - Added canonical final publication view and QA metadata extension.
 - Added release-content suppression for held drafts.
 - Added publication output regression tests.
+
+## 2.0.0-rc.2
+- Stabilized final output integration and removed active legacy contract conflicts.
