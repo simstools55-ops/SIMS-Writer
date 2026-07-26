@@ -1,3 +1,24 @@
+## 2.0.0-release-candidate.2 - 2026-07-26
+
+- Added final scope-alignment, device-path variability, and internal-link overlap release gates.
+- Prevented title/meta expansion into adjacent intents not covered by the article.
+- Required device-specific setting paths to account for OS/version/vendor differences.
+- Applied the same cannibalization and role-overlap review to every proposed internal link.
+
+## 2.0.0-release-candidate.1 - 2026-07-26
+
+- Added release final semantic, expectation, YMYL safety and benefit-claim gates.
+
+## 2.0.0-gold.1
+- Add quantitative SERP evidence, gap importance, and user-facing decision trace with Contract 4.2.
+
+## 2.0.0-gold.1
+
+- 公開可否の冒頭一文を必須化。
+- 公開OK理由を平易な一文以内へ短文化。
+- 内部リンク全件不採用時の表示を一文へ固定。
+- UX Filterを最終出力ゲートへ追加。
+
 # 2.0.0-rc.1
 
 - Editorial Strategy Engine
@@ -128,3 +149,9 @@ Canonical Publication QA output, unresolved-finding verdict alignment, claim-pre
 
 ## 1.3.5
 - Added final publication output principles and held-draft suppression rule.
+
+## 2.0.0-gold.1
+- Added final integration precedence and visibility validation.
+
+## 2.0.0-gold.1
+- Add shared SERP gap explainability pattern.

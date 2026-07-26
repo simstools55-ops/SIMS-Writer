@@ -1,3 +1,10 @@
+## 2.0.0-release-candidate.2 - 2026-07-26
+
+- Added final scope-alignment, device-path variability, and internal-link overlap release gates.
+- Prevented title/meta expansion into adjacent intents not covered by the article.
+- Required device-specific setting paths to account for OS/version/vendor differences.
+- Applied the same cannibalization and role-overlap review to every proposed internal link.
+
 ## 2.0.0-release-candidate.1 - 2026-07-26
 
 - Added release final semantic, expectation, YMYL safety and benefit-claim gates.

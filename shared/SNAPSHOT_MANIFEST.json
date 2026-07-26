@@ -1,12 +1,12 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0-release-candidate.1",
-  "integrated_version": "2.0.0-release-candidate.1",
-  "scope": "writer",
+  "source_version": "2.0.0-release-candidate.2",
+  "integrated_version": "2.0.0-release-candidate.2",
+  "target_product": "writer",
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "e8eacaccec819f1daae922bc6789423bf2596953268b2d4751efbfe94c963e4c"
+      "sha256": "cd47caf3369ca74438c993109a9fe24e2dc312c298a572b85081539998936722"
     },
     {
       "path": "Decision-Support.md",
@@ -42,15 +42,15 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "983d0918dffa767af59fa90a74b00e2e6e0e7207bb221f4972e64e6eb2058249"
+      "sha256": "1955ce8cfc6a2df3c7706e173c689583fdf8125ad5fc00bd6268bb9b0779e056"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "81ea7a67c3dd8ea75f44509b8ea501d5ca05cdc33320ae31234eb85d8bf62d5f"
+      "sha256": "8b24fe69f9f9ba9cd21ef5e04798665a841ca13387b1907419ad0b1510b47115"
     },
     {
       "path": "VERSION",
-      "sha256": "d761a3122e89486793fd6839acb568221ef24a7035fc43777dacab9813652419"
+      "sha256": "6d32ef66f0b61799df54decc5c3661ca6264a5a37f0ab13ff312748a0deed1a0"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -189,6 +189,14 @@
       "sha256": "b982977740424a6ddf2950ba586d0f8d66816dac5a61616da43b92d12a46561b"
     },
     {
+      "path": "knowledge/scope-device-link-release-safety.md",
+      "sha256": "fdd91d9317662122158777fbf20fca5392116686eaf4fdc5985fddaecfb51cb2"
+    },
+    {
+      "path": "knowledge/semantic-expectation-ymyl-safety.md",
+      "sha256": "6cd4e52641c06655884ee881f69c9381651a3636080250b52479ff5a00e2754b"
+    },
+    {
       "path": "knowledge/serp-entity-preservation.md",
       "sha256": "1d3987667305271f984c16eaa3a31b469335ce3b93bb8357af5a634653ebb85d"
     },
@@ -234,7 +242,7 @@
     },
     {
       "path": "validation/common-editorial-validation.md",
-      "sha256": "16a3d7a600cea9b92bca0617e7364c0b59f407ada65469d1a2f3e0e64d62f9cf"
+      "sha256": "1357093861acd84fafbdb97165ff715f5d54b04e0c65b02e08e9d17e75a1ae32"
     },
     {
       "path": "validation/editorial-strategy-validation.md",
@@ -262,7 +270,11 @@
     },
     {
       "path": "validation/rc2-final-integration-validation.md",
-      "sha256": "d6be3ccf83a3ffce040cfa2672269a27b2198645c05502e054b6149bd288f7a1"
+      "sha256": "27f3b5407a55474df6d2f10547306d01de9bd25b390f23ab53d56635913db360"
+    },
+    {
+      "path": "validation/release-final-quality-gates.md",
+      "sha256": "f36667490480217f20a5814ce8e9430dbb04d626563940402d18ff55b2aaba67"
     },
     {
       "path": "validation/shared-knowledge-validation.md",

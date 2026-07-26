@@ -92,6 +92,51 @@ def validate_ymyl_safety(*, domain: str | None, public_text: str, safety_notes: 
     return issues
 
 
+
+def validate_scope_alignment(*, title: str = "", meta: str = "", in_scope: list[str] | None = None, out_of_scope: list[str] | None = None) -> list[FinalQualityIssue]:
+    issues: list[FinalQualityIssue] = []
+    public = f"{title}\n{meta}"
+    excluded = [str(x).strip() for x in (out_of_scope or []) if str(x).strip()]
+    overreach = [x for x in excluded if x and x in public]
+    if overreach:
+        issues.append(FinalQualityIssue(
+            "VAL-SCOPE-ALIGNMENT-001",
+            "Title/meta expands into an explicitly excluded answer scope: " + ", ".join(overreach),
+        ))
+    return issues
+
+
+def validate_device_paths(*, public_text: str, variable_platforms: list[str] | None = None, qualified: bool = False) -> list[FinalQualityIssue]:
+    issues: list[FinalQualityIssue] = []
+    text = str(public_text or "")
+    platforms = {str(x).lower() for x in (variable_platforms or [])}
+    # Android/vendor paths are unstable unless model/version scope or variability is stated.
+    exact_path = bool(re.search(r"Android.{0,80}(?:設定|Settings).{0,20}(?:＞|>|→).{0,80}(?:色反転|ユーザー補助|テキストと表示)", text, re.S | re.I))
+    variability_note = bool(re.search(r"機種|メーカー|OS|バージョン|項目名.{0,8}異な|設定.{0,8}検索", text))
+    if exact_path and ("android" in platforms or not platforms) and not (qualified or variability_note):
+        issues.append(FinalQualityIssue(
+            "VAL-DEVICE-PATH-001",
+            "An Android/vendor-dependent settings path is presented as universal without a device/version qualification.",
+        ))
+    return issues
+
+
+def validate_internal_link_overlap(links: list[dict[str, Any]] | None) -> list[FinalQualityIssue]:
+    issues: list[FinalQualityIssue] = []
+    for link in links or []:
+        if str(link.get("decision") or link.get("implementation_status") or "").lower() not in {"public_ok", "implemented", "accepted"}:
+            continue
+        role = str(link.get("role_separation") or "").lower()
+        overlap = str(link.get("query_overlap") or "").lower()
+        reviewed = bool(link.get("overlap_reviewed"))
+        if not reviewed or role not in {"clear", "distinct"} or overlap in {"high", "same", "unknown", ""}:
+            issues.append(FinalQualityIssue(
+                "VAL-INTERNAL-LINK-OVERLAP-001",
+                "A PUBLIC_OK internal link lacks clear role separation or a completed cannibalization review.",
+            ))
+    return issues
+
+
 def validate_final_quality(package: dict[str, Any]) -> list[FinalQualityIssue]:
     feedback = package.get("feedback") or {}
     publication = feedback.get("publication_result") or {}
@@ -120,4 +165,17 @@ def validate_final_quality(package: dict[str, Any]) -> list[FinalQualityIssue]:
         safety_notes=safety.get("notes"),
         evidence_level=safety.get("evidence_level"),
     ))
+    scope = package.get("scope_context") or {}
+    meta = next((str(c.get("after") or "") for c in changes if str(c.get("component") or "") == "meta_description"), "")
+    issues.extend(validate_scope_alignment(
+        title=title, meta=meta, in_scope=scope.get("in_scope"), out_of_scope=scope.get("out_of_scope")
+    ))
+    device = package.get("device_context") or {}
+    issues.extend(validate_device_paths(
+        public_text=public_text, variable_platforms=device.get("variable_platforms"), qualified=bool(device.get("qualified"))
+    ))
+    links = (package.get("internal_link_context") or {}).get("proposals") or publication.get("internal_links") or []
+    if isinstance(links, dict):
+        links = links.get("proposals") or links.get("items") or []
+    issues.extend(validate_internal_link_overlap(links))
     return issues

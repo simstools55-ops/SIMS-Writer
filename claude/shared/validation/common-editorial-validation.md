@@ -10,3 +10,9 @@
 | VAL-LINK-001 | Link | URL、タイトル、アンカー、プレースホルダーに欠陥がある |
 
 公開判断に影響する違反だけをwarningまたはfailureとして出す。修正済みの指摘や単なる保留事項はinformationとして扱う。
+
+
+## Release-scope checks
+- VAL-SCOPE-ALIGNMENT-001
+- VAL-DEVICE-PATH-001
+- VAL-INTERNAL-LINK-OVERLAP-001

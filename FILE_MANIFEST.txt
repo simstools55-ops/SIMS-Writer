@@ -48,6 +48,7 @@ RELEASE_NOTES_v2.0.0_RC2.md
 RELEASE_NOTES_v2.0.0_RC_FINAL.md
 RELEASE_NOTES_v2.0.0_RC_FINAL_2.md
 RELEASE_NOTES_v2.0.0_RELEASE_CANDIDATE_1.md
+RELEASE_NOTES_v2.0.0_RELEASE_CANDIDATE_2.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/domain/editorial-qa-boundary-v1.0.md
@@ -64,6 +65,7 @@ changes/index.yaml
 claude/CHANGELOG.md
 claude/CLAUDE_PROJECT_INSTRUCTIONS.md
 claude/EDITORIAL_OUTPUT_V2.md
+claude/FILE_MANIFEST.txt
 claude/FINAL_OUTPUT_INTEGRATION_INSTRUCTIONS.md
 claude/PROJECT_INSTRUCTIONS_TO_PASTE.md
 claude/PROJECT_RESET_CHECKLIST.md
@@ -92,6 +94,7 @@ claude/RELEASE_NOTES_v2.0.0_RC2.md
 claude/RELEASE_NOTES_v2.0.0_RC_FINAL.md
 claude/SELF_QA_RUNTIME_INSTRUCTIONS.md
 claude/SETUP_GUIDE.md
+claude/SHA256SUMS.txt
 claude/TEST_CHECKLIST.md
 claude/VALIDATION_AUDITABILITY.md
 claude/VALIDATION_MESSAGE_INTEGRITY.md
@@ -99,6 +102,7 @@ claude/VERSION
 claude/contracts/output-contract.md
 claude/examples/EXAMPLE_REQUEST.json
 claude/knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md
+claude/manifest.json
 claude/product/platform/SIMS_PLATFORM_GUIDE.md
 claude/product/quality/AUTO_FIX_RULES.md
 claude/product/quality/PUBLIC_RELEASE_GATE.md
@@ -168,6 +172,7 @@ claude/shared/knowledge/publication-pipeline-integrity.md
 claude/shared/knowledge/publication-qa-evaluation-standard.md
 claude/shared/knowledge/publication-qa-principles.md
 claude/shared/knowledge/query-data-analysis.md
+claude/shared/knowledge/scope-device-link-release-safety.md
 claude/shared/knowledge/semantic-expectation-ymyl-safety.md
 claude/shared/knowledge/serp-entity-preservation.md
 claude/shared/knowledge/serp-first-editorial-planning.md
@@ -754,6 +759,8 @@ shared/knowledge/publication-pipeline-integrity.md
 shared/knowledge/publication-qa-evaluation-standard.md
 shared/knowledge/publication-qa-principles.md
 shared/knowledge/query-data-analysis.md
+shared/knowledge/scope-device-link-release-safety.md
+shared/knowledge/semantic-expectation-ymyl-safety.md
 shared/knowledge/serp-entity-preservation.md
 shared/knowledge/serp-first-editorial-planning.md
 shared/knowledge/source-scope-qualification.md
@@ -773,6 +780,7 @@ shared/validation/publication-pipeline-integrity-validation.md
 shared/validation/publication-qa-regression-validation.md
 shared/validation/publication-qa-validation.md
 shared/validation/rc2-final-integration-validation.md
+shared/validation/release-final-quality-gates.md
 shared/validation/shared-knowledge-validation.md
 shared/validation/validation-message-integrity.md
 templates/adr-template.md
@@ -812,6 +820,7 @@ tests/golden/cases/gc-new-001-new-how-to.json
 tests/golden/cases/gc-rec-012-placeholder-recovery.json
 tests/golden/cases/gc-trb-005-troubleshooting-safe.json
 tests/golden/cases/gc-upd-004-outdated-content.json
+tests/golden/manifest.json
 tests/golden/reports/latest-report.json
 tests/golden/test_golden_uat.py
 tests/golden/uat-strategy-v1.0.md
@@ -857,6 +866,7 @@ tests/regression/official-v1/cases/REG-004/expected_qa.json
 tests/regression/official-v1/cases/REG-005/README.md
 tests/regression/official-v1/cases/REG-005/case.json
 tests/regression/official-v1/cases/REG-005/expected_qa.json
+tests/regression/official-v1/manifest.json
 tests/regression-acceptance-criteria.md
 tests/release/test_claude_package_consistency.py
 tests/release-a/README.md
@@ -883,6 +893,7 @@ tests/test_v2_0_0_rc1_editorial_strategy.py
 tests/test_v2_0_0_rc2_integration_stabilization.py
 tests/test_v2_0_0_rc_final2_serp_gap_report.py
 tests/test_v2_0_0_rc_final_user_ux.py
+tests/test_v2_0_0_release_candidate_2_scope_device_links.py
 tests/test_v2_0_0_release_final_quality_gates.py
 tests/validation-hotfix-v0.2.3/README.md
 tests/validation-hotfix-v0.2.3/test_validation_hotfix.py

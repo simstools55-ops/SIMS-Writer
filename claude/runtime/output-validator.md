@@ -1,7 +1,7 @@
 # RC Final Output Validator
 
 ## Contract Gate
-- `contract_version`は`4.0`のみ。
+- `contract_version`は`4.2`のみ。
 - `publication_result`配下に2種類の変更配列を置く。
 - Schemaで禁止された旧フィールドがあればFAIL。
 
@@ -41,3 +41,9 @@
 - SERP Gap Reportには3〜5行の利用者向けDecision Traceを付ける。
 - USER_DECISIONには2〜5行のDecision Traceを付け、なぜ公開OKにしなかったかを平易に示す。
 - 生の思考過程、内部スコア、競合URL一覧は表示しない。
+
+
+## Scope / Device / Link Gate
+- タイトル・メタが本文の対象外症状まで約束したらFAIL。
+- Android等の設定経路を機種・OS差の注記なしで一律断定したらFAIL。
+- PUBLIC_OK内部リンクは全件、役割分担・クエリ重複・カニバリ確認が必須。

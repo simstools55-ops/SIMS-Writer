@@ -9,3 +9,8 @@ Before producing `公開OK`, run these checks in order:
 5. `VAL-CONTENT-ALIGNMENT`: title, meta, introduction and body must share the same answer scope.
 
 These gates override SERP importance, Editorial Strategy and CTR opportunity. A blocking item must be corrected, moved to 利用者判断, or hidden as an internal reject.
+6. `VAL-SCOPE-ALIGNMENT`: reject title/meta wording that expands into adjacent symptoms or intents the article does not cover.
+7. `VAL-DEVICE-PATH`: exact Android/vendor setting paths require verified OS/device scope; otherwise use feature-name search guidance and note that paths vary.
+8. `VAL-INTERNAL-LINK-OVERLAP`: apply role-separation and cannibalization review to every accepted internal link, not only later candidates.
+
+These gates override SERP demand and CTR optimization.
