@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0-dev.4",
-  "integrated_version": "2.0.0-dev.4",
+  "source_version": "2.0.0-dev.5",
+  "integrated_version": "2.0.0-dev.5",
   "target_product": "writer",
   "files": [
     {
@@ -46,15 +46,15 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "5f79df6b423d05406842d5b8f49d4523f11db258a9f02ae41ea228381b9aa7bd"
+      "sha256": "3f878676d4c019873416454b277295d612f54e060d2c24002e60145a9ea17571"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "02a146830a4e8520ced32024de72be3a52f62da8c7232e35630d9544487a33da"
+      "sha256": "79d684ce23505e7cd10e9da6f8f39da510d58b7038f8af9a605584b870ff4dc6"
     },
     {
       "path": "VERSION",
-      "sha256": "4d7fa49e1551fd8f7e65d371ed0a17c62ddbc52a1e9b27e23ffadcd05a8bfa65"
+      "sha256": "702a3cd5191419fbe4c1e2b1262b2faed1b17f89bb20c55946b9bef5e3cae3ff"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -227,6 +227,14 @@
     {
       "path": "validation/validation-message-integrity.md",
       "sha256": "f8d62aa7a5c286439575c4b0a3177585c26bf4f662ab5f5b7d3f76c8c3a15dac"
+    },
+    {
+      "path": "Progressive-Editing.md",
+      "sha256": "d814743c0976b7f77994dc1bc70f6c87eca3dbbd3e7ce045a4f02537a256bfd8"
+    },
+    {
+      "path": "Progressive-Editing.md",
+      "sha256": "d814743c0976b7f77994dc1bc70f6c87eca3dbbd3e7ce045a4f02537a256bfd8"
     }
   ]
 }

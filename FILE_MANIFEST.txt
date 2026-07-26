@@ -40,6 +40,7 @@ RELEASE_NOTES_v2.0.0_DEV1_EDITORIAL_SYSTEM.md
 RELEASE_NOTES_v2.0.0_DEV2_SERP_FIRST.md
 RELEASE_NOTES_v2.0.0_DEV3_SERP_EVIDENCE_GATE.md
 RELEASE_NOTES_v2.0.0_DEV4_EVIDENCE_LAYER.md
+RELEASE_NOTES_v2.0.0_DEV5_PROGRESSIVE_EDITING.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/domain/editorial-qa-boundary-v1.0.md
@@ -82,7 +83,6 @@ claude/VALIDATION_MESSAGE_INTEGRITY.md
 claude/VERSION
 claude/examples/EXAMPLE_REQUEST.json
 claude/knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md
-claude/manifest.json
 claude/product/platform/SIMS_PLATFORM_GUIDE.md
 claude/product/quality/AUTO_FIX_RULES.md
 claude/product/quality/PUBLIC_RELEASE_GATE.md
@@ -91,9 +91,12 @@ claude/product/quality/QUALITY_FRAMEWORK.md
 claude/product/roadmap/WRITER_v1.1.2_IMPROVEMENT_PLAN.md
 claude/quality/REVIEWER_PRECISION_RULES_v1.3.7.md
 claude/quality/USER_FACING_TERMINOLOGY_JA.md
+claude/runtime/editorial-planner-v2.0.md
 claude/runtime/evidence-contamination-qa-v2.0.md
 claude/runtime/evidence-layer-v2.0.md
 claude/runtime/integrated-gap-analysis-v2.0.md
+claude/runtime/progressive-editing-engine-v2.0.md
+claude/runtime/serp-evidence-gate-v2.0.md
 claude/shared/CHANGELOG.md
 claude/shared/Decision-Support.md
 claude/shared/Evidence-Transparency.md
@@ -101,6 +104,7 @@ claude/shared/Hidden-Anxiety.md
 claude/shared/Intent-Analysis.md
 claude/shared/Internal-Link-Semantics.md
 claude/shared/LICENSE
+claude/shared/Progressive-Editing.md
 claude/shared/README.md
 claude/shared/SERP-Entity-Preservation.md
 claude/shared/SERP-First-Editorial-Planning.md
@@ -371,7 +375,6 @@ learning/schemas/SWLS_USER_FEEDBACK.schema.json
 learning/templates/LEARNING_RECORD_TEMPLATE.json
 learning/templates/MEASUREMENT_TEMPLATE.json
 learning/templates/USER_FEEDBACK_TEMPLATE.json
-manifest.json
 migrations/sims-core/asset-mapping.md
 migrations/sims-core/migration-framework-v1.0.md
 migrations/sims-core/migration-inventory.yaml
@@ -596,6 +599,7 @@ runtime/policies/manual-review-policy.md
 runtime/policies/retry-policy.md
 runtime/presentation-v2.2.md
 runtime/preservation-score.md
+runtime/progressive-editing-engine-v2.0.md
 runtime/publication-pipeline-lock-v1.3.6.md
 runtime/qa-engine-self-review-v1.1.md
 runtime/quality-gate.md
@@ -634,6 +638,7 @@ runtime/sims_writer_runtime/localization.py
 runtime/sims_writer_runtime/models.py
 runtime/sims_writer_runtime/orchestrator.py
 runtime/sims_writer_runtime/output_contract.py
+runtime/sims_writer_runtime/progressive_editing.py
 runtime/sims_writer_runtime/publish_quality.py
 runtime/sims_writer_runtime/qa/__init__.py
 runtime/sims_writer_runtime/qa/contracts.py
@@ -662,6 +667,7 @@ shared/Hidden-Anxiety.md
 shared/Intent-Analysis.md
 shared/Internal-Link-Semantics.md
 shared/LICENSE
+shared/Progressive-Editing.md
 shared/README.md
 shared/SERP-Entity-Preservation.md
 shared/SERP-First-Editorial-Planning.md
@@ -748,7 +754,6 @@ tests/golden/cases/gc-new-001-new-how-to.json
 tests/golden/cases/gc-rec-012-placeholder-recovery.json
 tests/golden/cases/gc-trb-005-troubleshooting-safe.json
 tests/golden/cases/gc-upd-004-outdated-content.json
-tests/golden/manifest.json
 tests/golden/reports/latest-report.json
 tests/golden/test_golden_uat.py
 tests/golden/uat-strategy-v1.0.md
@@ -794,7 +799,6 @@ tests/regression/official-v1/cases/REG-004/expected_qa.json
 tests/regression/official-v1/cases/REG-005/README.md
 tests/regression/official-v1/cases/REG-005/case.json
 tests/regression/official-v1/cases/REG-005/expected_qa.json
-tests/regression/official-v1/manifest.json
 tests/regression-acceptance-criteria.md
 tests/release/test_claude_package_consistency.py
 tests/release-a/README.md
@@ -814,6 +818,7 @@ tests/test_v1_2_0_query_data.py
 tests/test_v2_0_0_dev2_serp_first.py
 tests/test_v2_0_0_dev3_serp_evidence_gate.py
 tests/test_v2_0_0_dev4_evidence_layer.py
+tests/test_v2_0_0_dev5_progressive_editing.py
 tests/validation-hotfix-v0.2.3/README.md
 tests/validation-hotfix-v0.2.3/test_validation_hotfix.py
 tests/vertical-slices/test_ctr_vertical_slice.py

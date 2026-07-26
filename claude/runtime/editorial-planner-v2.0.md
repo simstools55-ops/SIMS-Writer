@@ -12,8 +12,6 @@ When average position is greater than 3.0:
 
 In partial mode, title, meta and introduction may progress when they accurately summarize supported existing content and do not add an unverified search promise. Headings, FAQ, body and structure require component-level gap support and normally become USER_DECISION until coverage is verified.
 
-Search Console query rows may identify investigation candidates, but they cannot alone authorize content expansion.
-
 ## Planning order after gate opens
 1. Preserve article-unique value and proven winner entities.
 2. Correct factual, promise or consistency defects.

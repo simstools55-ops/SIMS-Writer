@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack v0.2.0
 
-Version: 2.0.0-dev.4
+Version: 2.0.0-dev.5
 
 
 # SIMS Writer Quality Specification v0.2.0
@@ -300,3 +300,7 @@ SIMS_FEEDBACK_V2はContract 2.1のCanonical構造だけを出力する。Query C
 ## Contract 2.1 Hotfix（必須）
 
 最終JSONは`contract_version: "2.1"`を使用し、`version`、`diagnosis_code`、`change_flags`を出力しない。変更は`changes[]`と各要素の`implementation_status`で表す。Query Coverageの信頼度は`coverage_confidence`（high/medium/low）とする。空文字を出力せず、任意値は省略またはSchemaで許可されたnullとする。
+
+
+## Progressive Editing Engine
+Apply SERP verification and evidence per component. Continue safe edits while holding unsupported components.

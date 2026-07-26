@@ -24,6 +24,6 @@ def test_shared_mapping_keeps_product_boundary():
     assert "not promoted to Shared Knowledge" in text
 
 def test_release_versions_are_synchronized():
-    assert (ROOT / "VERSION").read_text().strip() == "2.0.0-dev.4"
-    assert (ROOT / "claude/VERSION").read_text().strip() == "2.0.0-dev.4"
-    assert (ROOT / "shared/VERSION").read_text().strip() == "2.0.0-dev.4"
+    assert (ROOT / "VERSION").read_text().strip() == "2.0.0-dev.5"
+    assert (ROOT / "claude/VERSION").read_text().strip() == "2.0.0-dev.5"
+    assert (ROOT / "shared/VERSION").read_text().strip() == "2.0.0-dev.5"
