@@ -48,3 +48,9 @@ Preservation Score、Rewrite Level、Rewrite Scope、Change Budgetを上書き�
 
 ## v2.0.0 RC1 Four-Layer Architecture
 Knowledge / Strategy / Evidence / Patternを分離し、修正前にEditorial Strategyを確定します。
+
+
+## v2.1.0 Quality Pattern Library
+
+Writerは `quality/QUALITY_PATTERN_LIBRARY.md` を運用試験Learningの正本として必須参照する。
+新しい指摘は ARTICLE_SPECIFIC / PATTERN_CANDIDATE / MAPPING_DEFECT / VALIDATION_DEFECT / PREFERENCE_ONLY に分類し、同一問題の再発時は個別文言修正ではなくMappingまたはValidationを修正する。

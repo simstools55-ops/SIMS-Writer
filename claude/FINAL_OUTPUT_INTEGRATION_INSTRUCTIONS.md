@@ -12,3 +12,7 @@ standalone `qa_verdict`は外部出力しない。
 ## Release final mandatory quality gates
 
 Read and apply `runtime/RELEASE_FINAL_QUALITY_GATE.md`. Safety, evidence, expectation alignment and semantic title validation override SEO opportunity.
+
+
+## v2.1.0 Quality Pattern Library
+Before adding or improvising a new quality rule, read `shared/quality/QUALITY_PATTERN_LIBRARY.md` and `shared/quality/OPERATIONAL_LEARNING_PROMOTION_POLICY.md`. Repeated defects must be treated as Mapping or Validation defects, not solved by article-specific prompt growth.

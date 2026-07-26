@@ -1,4 +1,4 @@
-# SIMS Writer v2.0.1 Hotfix
+# SIMS Writer v2.1.0 Hotfix
 
 - Strengthened Natural Japanese validation for compressed noun chains.
 - Added semantic blocking when titles imply a limit/capacity can be increased although the body only supports workarounds.

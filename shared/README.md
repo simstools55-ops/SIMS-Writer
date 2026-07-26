@@ -1,4 +1,4 @@
-# SIMS Shared Editorial Knowledge v1.3.0
+# SIMS Shared Editorial Knowledge v2.1.0
 
 # SIMS Shared Editorial Knowledge
 
@@ -14,6 +14,10 @@ SIMS WriterとSIMS Article Creatorが共有する編集品質基準の正本（S
 
 ```text
 knowledge/                 共通知識の正本
+strategy/                  編集戦略
+evidence/                  出典・公開境界
+patterns/                  再利用可能な編集パターン
+quality/                   Quality Pattern Libraryと品質契約
 mappings/writer/           Writer固有の適用ルール
 mappings/article-creator/  Article Creator固有の適用ルール
 validation/                共通知識の品質検証基準
@@ -44,3 +48,7 @@ docs/                      運用・統合ドキュメント
 
 ## v2.0.0 RC1 Four-Layer Architecture
 Knowledge / Strategy / Evidence / Patternを分離し、修正前にEditorial Strategyを確定します。
+
+
+## v2.1.0 Quality Pattern Library
+運用試験で発見した再発防止ルールをRegistry化し、記事固有修正・Mapping不具合・Validation不具合を区別します。

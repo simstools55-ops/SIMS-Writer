@@ -1,7 +1,18 @@
+# 2.1.0 - Quality Pattern Library
+
+- Operational-test findings are now classified before promotion.
+- Added canonical pattern registry and no-loop governance.
+- Added mapping and validation requirements for recurring defects.
+
+## 2.0.1 - 2026-07-26
+
+- Hotfix: natural Japanese, publication flag separation, title semantic alignment, terminology consistency.
+
 ## 2.0.0 - 2026-07-26
 
+- Released the user-centered SEO editorial system.
 - Added final Natural Japanese and similarity-candidate reporting gates.
-- Stable release aligned with Contract 4.2.
+- Kept Contract 4.2 and all RC2 safety/integration gates unchanged.
 
 ## 2.0.0-release-candidate.2 - 2026-07-26
 
