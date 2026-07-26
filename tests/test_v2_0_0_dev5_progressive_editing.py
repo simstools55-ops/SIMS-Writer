@@ -7,7 +7,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def test_assets_and_version():
     assert (ROOT/'runtime/progressive-editing-engine-v2.0.md').exists()
-    assert (ROOT/'VERSION').read_text().strip()=='2.0.0'
+    assert (ROOT/'VERSION').read_text().strip()=='2.0.1'
 
 def test_partial_allows_supported_meta():
     c={'component':'meta_description','change_basis':'usability','evidence_level':'HIGH','after':'完成メタ','before':'途中...'}

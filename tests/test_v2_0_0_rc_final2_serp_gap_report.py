@@ -3,7 +3,7 @@ import json
 ROOT=Path(__file__).resolve().parents[1]
 def read(p): return (ROOT/p).read_text(encoding="utf-8")
 def test_version_and_contract():
- assert read("VERSION").strip()=="2.0.0"
+ assert read("VERSION").strip()=="2.0.1"
  s=json.loads(read("schemas/SIMS_FEEDBACK_V2.schema.json"))
  assert s["properties"]["contract_version"]["const"]=="4.2"
  assert "serp_gap_report" in s["properties"]["publication_result"]["properties"]

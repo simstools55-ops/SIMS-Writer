@@ -50,6 +50,7 @@ RELEASE_NOTES_v2.0.0_RC_FINAL.md
 RELEASE_NOTES_v2.0.0_RC_FINAL_2.md
 RELEASE_NOTES_v2.0.0_RELEASE_CANDIDATE_1.md
 RELEASE_NOTES_v2.0.0_RELEASE_CANDIDATE_2.md
+RELEASE_NOTES_v2.0.1.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/domain/editorial-qa-boundary-v1.0.md
@@ -93,6 +94,7 @@ claude/RELEASE_NOTES_v2.0.0_DEV6_KNOWLEDGE_CONFIDENCE.md
 claude/RELEASE_NOTES_v2.0.0_RC1.md
 claude/RELEASE_NOTES_v2.0.0_RC2.md
 claude/RELEASE_NOTES_v2.0.0_RC_FINAL.md
+claude/RELEASE_NOTES_v2.0.1.md
 claude/SELF_QA_RUNTIME_INSTRUCTIONS.md
 claude/SETUP_GUIDE.md
 claude/TEST_CHECKLIST.md
@@ -722,6 +724,7 @@ shared/Internal-Link-Semantics.md
 shared/LICENSE
 shared/README.md
 shared/RELEASE_NOTES_v2.0.0.md
+shared/RELEASE_NOTES_v2.0.1.md
 shared/SERP-Entity-Preservation.md
 shared/SNAPSHOT_MANIFEST.json
 shared/SNAPSHOT_SCOPE.json
@@ -756,6 +759,7 @@ shared/knowledge/internal-link-integrity.md
 shared/knowledge/internal-link-semantics.md
 shared/knowledge/logical-consistency.md
 shared/knowledge/natural-japanese-and-similarity-reporting.md
+shared/knowledge/natural-japanese-publication-flags-terminology.md
 shared/knowledge/numeric-consistency.md
 shared/knowledge/progressive-editing.md
 shared/knowledge/publication-pipeline-integrity.md
@@ -842,10 +846,10 @@ tests/publication-qa/test_regression_hotfix_v1_3_8.py
 tests/publication-qa/test_self_review_runtime.py
 tests/publication-qa/test_validation_auditability_v1_4_0.py
 tests/publication-qa/test_validation_message_integrity_v1_3_9.py
+tests/quality-freeze-v0.2.0/test_quality_freeze_final.py
 tests/quality-freeze/examples/invalid-budget-v2.json
 tests/quality-freeze/examples/valid-v2.json
 tests/quality-freeze/test_quality_freeze.py
-tests/quality-freeze-v0.2.0/test_quality_freeze_final.py
 tests/quality-gate-regression-manifest.md
 tests/quality-rules/README.md
 tests/quality-rules/test_quality_assets.py
@@ -853,6 +857,7 @@ tests/rc-hotfix-v0.2.2/README.md
 tests/rc-hotfix-v0.2.2/real-article-regression-manifest.json
 tests/rc-hotfix-v0.2.2/test_rc_hotfix.py
 tests/refinement/test_targeted_refinement.py
+tests/regression-acceptance-criteria.md
 tests/regression/official-v1/README.md
 tests/regression/official-v1/cases/REG-001/README.md
 tests/regression/official-v1/cases/REG-001/case.json
@@ -869,9 +874,8 @@ tests/regression/official-v1/cases/REG-004/expected_qa.json
 tests/regression/official-v1/cases/REG-005/README.md
 tests/regression/official-v1/cases/REG-005/case.json
 tests/regression/official-v1/cases/REG-005/expected_qa.json
-tests/regression-acceptance-criteria.md
-tests/release/test_claude_package_consistency.py
 tests/release-a/README.md
+tests/release/test_claude_package_consistency.py
 tests/runtime/test_quality_foundation.py
 tests/runtime/test_quality_runtime.py
 tests/runtime/test_runtime_core.py
@@ -898,6 +902,7 @@ tests/test_v2_0_0_rc_final2_serp_gap_report.py
 tests/test_v2_0_0_rc_final_user_ux.py
 tests/test_v2_0_0_release_candidate_2_scope_device_links.py
 tests/test_v2_0_0_release_final_quality_gates.py
+tests/test_v2_0_1_hotfix_quality.py
 tests/validation-hotfix-v0.2.3/README.md
 tests/validation-hotfix-v0.2.3/test_validation_hotfix.py
 tests/vertical-slices/test_ctr_vertical_slice.py

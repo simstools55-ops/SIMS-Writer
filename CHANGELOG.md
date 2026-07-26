@@ -1,3 +1,7 @@
+## 2.0.1 - 2026-07-26
+
+- Hotfix: natural Japanese, publication flag separation, title semantic alignment, terminology consistency.
+
 ## 2.0.0 - 2026-07-26
 
 - Released the user-centered SEO editorial system.

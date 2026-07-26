@@ -102,10 +102,14 @@ def build_internal_audit_record(*, publication_result: dict[str, Any], qa_result
 
 def user_visible_publication_result(publication_result: dict[str, Any]) -> dict[str, Any]:
     """Remove every internal-only field before user/SBM serialization."""
+    public_ok = deepcopy(publication_result.get("public_ok_changes") or [])
+    user_decision = deepcopy(publication_result.get("user_decision_changes") or [])
     return {
+        "publishable_public_ok_changes": bool(public_ok),
+        "has_user_decision_changes": bool(user_decision),
         "change_summary": deepcopy(publication_result.get("change_summary") or []),
-        "public_ok_changes": deepcopy(publication_result.get("public_ok_changes") or []),
-        "user_decision_changes": deepcopy(publication_result.get("user_decision_changes") or []),
+        "public_ok_changes": public_ok,
+        "user_decision_changes": user_decision,
     }
 
 
@@ -129,4 +133,8 @@ def _decision_item(item: dict[str, Any]) -> dict[str, Any]:
         "benefit_if_adopted": item.get("benefit_if_adopted") or "確認後に採用することで、改善意図を安全に反映できます。",
         "impact_if_not_adopted": item.get("impact_if_not_adopted") or "採用しなくても現在の内容は維持されます。",
         "confirmation_point": item.get("confirmation_point") or "修正内容が実際の事実・体験・運営方針に合うか確認してください。",
+        "decision_trace": deepcopy(item.get("decision_trace") or [
+            "公開に必要な確認事項を検出",
+            "確認完了まで利用者判断として保留",
+        ]),
     }

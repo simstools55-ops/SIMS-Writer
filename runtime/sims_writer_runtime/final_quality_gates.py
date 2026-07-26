@@ -32,6 +32,16 @@ def validate_title_semantics(title: str, *, body_text: str = "") -> list[FinalQu
             "VAL-TITLE-SEMANTIC-001",
             "A limit/count is incorrectly used as the object of 'increase'; separate the limit fact from the workaround claim.",
         ))
+    # A title must not imply that a system limit or capacity itself can be
+    # changed when the article explicitly says only workarounds are possible.
+    workaround_only = bool(re.search(r"上限(?:そのもの|自体).{0,16}(?:解除|撤廃|変更|増加|増やす).{0,12}(?:できない|不可)", body_text))
+    misleading_capacity = bool(re.search(r"(?:上限|容量)を(?:実質的に)?増やす", normalized))
+    if workaround_only and misleading_capacity:
+        issues.append(FinalQualityIssue(
+            "VAL-TITLE-SEMANTIC-003",
+            "Title implies the limit/capacity itself can be increased although the article only supports organization, distribution or alternative storage workarounds.",
+        ))
+
     # Claims framed as a numbered list must be supported by the article.
     m = re.search(r"(?:術|方法|対処法|コツ)(\d+)選|([0-9]+)つの(?:術|方法|対処法|コツ)", normalized)
     if m and body_text:
@@ -150,12 +160,38 @@ def validate_natural_japanese(*, title: str = "", meta: str = "") -> list[FinalQ
         r"LINEアルバム上限(?:は|を|が|で|｜|\s|$)",
         r"インスタ背景(?:が|を|は|で|｜|\s|$)",
         r"ダークモード解除方法(?:は|を|が|で|｜|\s|$)",
+        r"Windows\s*11設定(?:は|を|が|で|｜|\s|$)",
+        r"(?:iPhone|Android|Instagram|インスタ|LINE)設定方法(?:は|を|が|で|｜|\s|$)",
     )
     if any(re.search(pattern, text) for pattern in unnatural_patterns):
         issues.append(FinalQualityIssue(
             "VAL-NATURAL-JAPANESE-001",
             "User-facing title/meta contains an unnatural compressed noun chain; restore natural particles and readability.",
         ))
+    return issues
+
+
+def validate_terminology_consistency(*, public_text: str = "", concepts: list[dict[str, Any]] | None = None) -> list[FinalQualityIssue]:
+    """Detect conflicting units or labels for the same concept in public copy."""
+    issues: list[FinalQualityIssue] = []
+    text = str(public_text or "")
+
+    # Built-in guard: mixed photo/video capacity must not be expressed only in 枚.
+    if re.search(r"写真.{0,8}動画.{0,12}(?:合わせて|合計).{0,12}(?:最大)?[0-9０-９,，]+枚", text):
+        issues.append(FinalQualityIssue(
+            "VAL-TERMINOLOGY-CONSISTENCY-001",
+            "Mixed photo/video capacity is expressed with the photo-only unit 枚; use a neutral canonical unit such as コンテンツ/個 and explain photo/video limits separately.",
+        ))
+
+    for concept in concepts or []:
+        canonical = str(concept.get("canonical") or "").strip()
+        variants = [str(x).strip() for x in (concept.get("variants") or []) if str(x).strip()]
+        present = [x for x in variants if x in text]
+        if len(set(present)) > 1 and not bool(concept.get("allow_mixed")):
+            issues.append(FinalQualityIssue(
+                "VAL-TERMINOLOGY-CONSISTENCY-002",
+                f"Multiple labels/units are used for the same concept; normalize to {canonical or 'the canonical term'}: " + ", ".join(present),
+            ))
     return issues
 
 
@@ -209,6 +245,10 @@ def validate_final_quality(package: dict[str, Any]) -> list[FinalQualityIssue]:
         title=title, meta=meta, in_scope=scope.get("in_scope"), out_of_scope=scope.get("out_of_scope")
     ))
     issues.extend(validate_natural_japanese(title=title, meta=meta))
+    terminology = package.get("terminology_context") or {}
+    issues.extend(validate_terminology_consistency(
+        public_text=public_text, concepts=terminology.get("concepts")
+    ))
     device = package.get("device_context") or {}
     issues.extend(validate_device_paths(
         public_text=public_text, variable_platforms=device.get("variable_platforms"), qualified=bool(device.get("qualified"))

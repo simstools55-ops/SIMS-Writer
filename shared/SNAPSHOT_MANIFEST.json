@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0",
-  "integrated_version": "2.0.0",
+  "source_version": "2.0.1",
+  "integrated_version": "2.0.1",
   "target_product": "writer",
   "files": [
     {
@@ -50,11 +50,11 @@
     },
     {
       "path": "SOURCE.md",
-      "sha256": "aefb8b9f0892105771791c6c43b53a452511f1b7535bb3baeb4f4700ca3ef02d"
+      "sha256": "ed14345910ce53287b84f90733b161e6c51b644adf218b32d48d74345a403639"
     },
     {
       "path": "VERSION",
-      "sha256": "c28fcca53637bc88e124af1725df13cb98c69dedefd62fb3cdbe1cdb6b760624"
+      "sha256": "fe840f52fb5578d3f77eb497115eb02c6036601c3a53e60df7995c7276baa77a"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -295,6 +295,10 @@
     {
       "path": "validation/validation-message-integrity.md",
       "sha256": "f8d62aa7a5c286439575c4b0a3177585c26bf4f662ab5f5b7d3f76c8c3a15dac"
+    },
+    {
+      "path": "knowledge/natural-japanese-publication-flags-terminology.md",
+      "sha256": "55e42a134679af0a5ac5333acd44e23b259dfa37da908b5636e929a28dc84d54"
     }
   ]
 }
