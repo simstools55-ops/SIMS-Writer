@@ -26,3 +26,11 @@
 ## Completeness Gate
 - Before/Afterに「以下略」「原文全体」「改善後全文」等の省略表現を使わない。
 - PUBLIC_OKはそのまま反映できる完成文にする。
+
+
+## SERP Gap Report Gate
+- SERPが修正判断に使われた場合、短い比較結果を公開OKの前に置く。
+- 強み・不足・適用・非適用を、利用者向け平易表現で示す。
+- 競合にあるだけの項目をGap扱いしない。
+- 未確認の件数・掲載率・上位10件比較を捏造しない。
+- Contract 4.1の`publication_result.serp_gap_report`と表示内容を一致させる。

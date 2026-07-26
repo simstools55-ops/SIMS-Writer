@@ -1,7 +1,7 @@
 # RC2 Final Output Validator
 
 ## Contract Gate
-- `contract_version`は`4.0`のみ。
+- `contract_version`は`4.1`のみ。
 - `publication_result`配下に2種類の変更配列を置く。
 - Schemaで禁止された旧フィールドがあればFAIL。
 

@@ -85,7 +85,7 @@ def apply_qa_to_feedback(feedback: dict[str, Any] | None, publication_view: dict
     source = deepcopy(feedback or {})
     result = {
         "format": "SIMS_FEEDBACK_V2",
-        "contract_version": "4.0",
+        "contract_version": "4.1",
         "site_id": source.get("site_id"),
         "site_name": source.get("site_name"),
         "site_url": source.get("site_url"),

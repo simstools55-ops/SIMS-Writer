@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0-rc.3",
-  "integrated_version": "2.0.0-rc.3",
+  "source_version": "2.0.0-rc.4",
+  "integrated_version": "2.0.0-rc.4",
   "scope": "writer",
   "files": [
     {
@@ -42,15 +42,15 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "56de72e35a739b8f35ad1ff8cd951f9ff02bb65a5e47682a23a2cfc4c1055fc0"
+      "sha256": "28a0496d860b7235e324a244c722a03d4af1107c386e7fc284f92aa749b1d018"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "591c2b234e03199c5e3909ae486e2e7e14e6ae2482d3206a9acc3555619a66be"
+      "sha256": "58a0bb5128d1b0a292955f547cba5fd99e9cea6fde91bd8fa1a4c10552ede4e9"
     },
     {
       "path": "VERSION",
-      "sha256": "d42c40a8757e6d1b5b647693a0f91aaaf9506a15fc53064ca26633f822cc1c59"
+      "sha256": "eeed79eb7b5cf6c71ca4a986df92a34be6c9d5e3bfa454869540e0323b417dc5"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -217,6 +217,10 @@
       "sha256": "a7f05e3ff8c8393c0b0bc34d87736a8964dc3f765b084500f24b21db8096d487"
     },
     {
+      "path": "patterns/serp-gap-report-pattern.md",
+      "sha256": "5c0d92b065db7b0a6966f757f514678452935f5252b58ef224224ea8e0b8d07a"
+    },
+    {
       "path": "strategy/editorial-strategy-selection.md",
       "sha256": "2170f15cae4cbbdab73d9e6ddaba250b30f0418db6d876fc9abde77d30ca7fba"
     },
@@ -264,6 +268,5 @@
       "path": "validation/validation-message-integrity.md",
       "sha256": "f8d62aa7a5c286439575c4b0a3177585c26bf4f662ab5f5b7d3f76c8c3a15dac"
     }
-  ],
-  "integrated_for": "SIMS Writer 2.0.0-rc.3"
+  ]
 }

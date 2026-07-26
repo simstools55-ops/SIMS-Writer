@@ -451,3 +451,6 @@
 
 ## 2.0.0-rc.2
 - Stabilized final output integration and removed active legacy contract conflicts.
+
+## 2.0.0-rc.4
+- Add compact SERP Gap Report and Contract 4.1 explainability output.

@@ -107,7 +107,7 @@ class OutputContractValidator:
         if feedback.get("format") != "SIMS_FEEDBACK_V2":
             issues.append(OutputValidationIssue("OUT-003", "feedback.format must be SIMS_FEEDBACK_V2"))
         effective_contract_version = feedback.get("contract_version") or feedback.get("version")
-        if effective_contract_version not in {"2.0", "2.1", "3.0", "4.0"}:
+        if effective_contract_version not in {"2.0", "2.1", "3.0", "4.1"}:
             issues.append(OutputValidationIssue("OUT-030", "feedback contract version must be 2.0, 2.1, or 3.0"))
         # A strict user-provided contract remains authoritative for backward compatibility.
         # Full current V2 extension fields are mandatory only under the default contract.
@@ -122,7 +122,7 @@ class OutputContractValidator:
                 if not legacy_shape:
                     issues.append(OutputValidationIssue("OUT-031", f"V2 fields missing: {', '.join(missing_v2)}"))
 
-        if effective_contract_version in {"3.0", "4.0"}:
+        if effective_contract_version in {"3.0", "4.1"}:
             publication_result = feedback.get("publication_result")
             if not isinstance(publication_result, dict):
                 issues.append(OutputValidationIssue("OUT-033", "publication_result must be an object"))

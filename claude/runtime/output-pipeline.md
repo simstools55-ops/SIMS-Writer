@@ -11,3 +11,11 @@
 9. 利用者向け本文と最後のJSONを出力する。
 
 EvidenceとPublication DecisionをStrategyが上書きしてはいけない。UX Filterは編集内容や公開判定を変更せず、表示だけを簡潔にする。
+
+
+## SERP Gap Report Gate
+- SERPが修正判断に使われた場合、短い比較結果を公開OKの前に置く。
+- 強み・不足・適用・非適用を、利用者向け平易表現で示す。
+- 競合にあるだけの項目をGap扱いしない。
+- 未確認の件数・掲載率・上位10件比較を捏造しない。
+- Contract 4.1の`publication_result.serp_gap_report`と表示内容を一致させる。

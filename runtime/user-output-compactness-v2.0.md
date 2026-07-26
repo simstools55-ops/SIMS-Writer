@@ -5,7 +5,7 @@ Normal user output contains only:
 2. `公開OK` with copy-ready Before/After;
 3. `利用者判断` only when a real human decision exists;
 4. one internal-link result sentence when needed;
-5. one Contract 4.0 JSON block at the end.
+5. one Contract 4.1 JSON block at the end.
 
 ## Publication-status sentence
 
@@ -25,3 +25,8 @@ Change reasons are optional. When shown, use one plain-Japanese sentence focused
 When no internal link is adopted, write exactly: `今回は追加できる内部リンクはありません。` Do not append candidate counts, rejection reasons, parentheses, or tables. Candidate-level reasons remain internal.
 
 Do not display improvement codes, query coverage, SERP entities, QA verdicts, detailed competitor evidence, or internal audit information.
+
+
+## SERP Gap Report
+
+When SERP comparison materially determined the edits, show one compact `SERP比較結果` section before `公開OK`. It may show strengths, confirmed gaps, applied topics, and important topics not adopted. Do not show competitor URLs, raw counts unless actually verified, internal scores, evidence labels, or audit traces. Never claim a topic is a gap merely because competitors mention it; require alignment across query demand, SERP intent, and the article.
