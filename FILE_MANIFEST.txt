@@ -1,9 +1,4 @@
 .gitignore
-.pytest_cache/.gitignore
-.pytest_cache/CACHEDIR.TAG
-.pytest_cache/README.md
-.pytest_cache/v/cache/lastfailed
-.pytest_cache/v/cache/nodeids
 CHANGELOG.md
 CONTRIBUTING.md
 LICENSE
@@ -44,6 +39,7 @@ RELEASE_NOTES_v1.4.0_VALIDATION_AUDITABILITY.md
 RELEASE_NOTES_v2.0.0_DEV1_EDITORIAL_SYSTEM.md
 RELEASE_NOTES_v2.0.0_DEV2_SERP_FIRST.md
 RELEASE_NOTES_v2.0.0_DEV3_SERP_EVIDENCE_GATE.md
+RELEASE_NOTES_v2.0.0_DEV4_EVIDENCE_LAYER.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/domain/editorial-qa-boundary-v1.0.md
@@ -95,6 +91,9 @@ claude/product/quality/QUALITY_FRAMEWORK.md
 claude/product/roadmap/WRITER_v1.1.2_IMPROVEMENT_PLAN.md
 claude/quality/REVIEWER_PRECISION_RULES_v1.3.7.md
 claude/quality/USER_FACING_TERMINOLOGY_JA.md
+claude/runtime/evidence-contamination-qa-v2.0.md
+claude/runtime/evidence-layer-v2.0.md
+claude/runtime/integrated-gap-analysis-v2.0.md
 claude/shared/CHANGELOG.md
 claude/shared/Decision-Support.md
 claude/shared/Evidence-Transparency.md
@@ -130,6 +129,7 @@ claude/shared/knowledge/freshness-safety.md
 claude/shared/knowledge/graceful-degradation.md
 claude/shared/knowledge/hidden-anxiety.md
 claude/shared/knowledge/html-entity-integrity.md
+claude/shared/knowledge/integrated-serp-query-evidence.md
 claude/shared/knowledge/intent-analysis.md
 claude/shared/knowledge/internal-link-integrity.md
 claude/shared/knowledge/internal-link-semantics.md
@@ -143,7 +143,9 @@ claude/shared/knowledge/serp-entity-preservation.md
 claude/shared/knowledge/source-scope-qualification.md
 claude/shared/knowledge/validation-auditability.md
 claude/shared/mappings/writer/application-mapping.md
+claude/shared/quality/EVIDENCE_DECISION_POLICY_V2.md
 claude/shared/validation/common-editorial-validation.md
+claude/shared/validation/evidence-contamination-validation.md
 claude/shared/validation/publication-pipeline-integrity-validation.md
 claude/shared/validation/publication-qa-regression-validation.md
 claude/shared/validation/publication-qa-validation.md
@@ -563,12 +565,15 @@ runtime/diagnosis-to-improvement-map.md
 runtime/editorial-decision-layer-v2.0.md
 runtime/editorial-planner-v2.0.md
 runtime/evidence-audit.md
+runtime/evidence-contamination-qa-v2.0.md
+runtime/evidence-layer-v2.0.md
 runtime/feedback-loop.md
 runtime/final-publication-output-v1.0.md
 runtime/gap-analysis-engine-v2.0.md
 runtime/gate-decision-matrix.md
 runtime/gate-rules.md
 runtime/improvement-strategy-engine.md
+runtime/integrated-gap-analysis-v2.0.md
 runtime/manifests/runtime-manifest.example.json
 runtime/orchestration/orchestrator-specification.md
 runtime/orchestration/stage-state-model.json
@@ -623,6 +628,7 @@ runtime/sims_writer_runtime/asset_loader.py
 runtime/sims_writer_runtime/cli.py
 runtime/sims_writer_runtime/editorial_decision.py
 runtime/sims_writer_runtime/editorial_signals.py
+runtime/sims_writer_runtime/evidence_layer.py
 runtime/sims_writer_runtime/hotfix_validation.py
 runtime/sims_writer_runtime/localization.py
 runtime/sims_writer_runtime/models.py
@@ -684,6 +690,7 @@ shared/knowledge/freshness-safety.md
 shared/knowledge/graceful-degradation.md
 shared/knowledge/hidden-anxiety.md
 shared/knowledge/html-entity-integrity.md
+shared/knowledge/integrated-serp-query-evidence.md
 shared/knowledge/intent-analysis.md
 shared/knowledge/internal-link-integrity.md
 shared/knowledge/internal-link-semantics.md
@@ -697,7 +704,9 @@ shared/knowledge/serp-entity-preservation.md
 shared/knowledge/source-scope-qualification.md
 shared/knowledge/validation-auditability.md
 shared/mappings/writer/application-mapping.md
+shared/quality/EVIDENCE_DECISION_POLICY_V2.md
 shared/validation/common-editorial-validation.md
+shared/validation/evidence-contamination-validation.md
 shared/validation/publication-pipeline-integrity-validation.md
 shared/validation/publication-qa-regression-validation.md
 shared/validation/publication-qa-validation.md
@@ -804,6 +813,7 @@ tests/test_v1_1_4_writer_identity.py
 tests/test_v1_2_0_query_data.py
 tests/test_v2_0_0_dev2_serp_first.py
 tests/test_v2_0_0_dev3_serp_evidence_gate.py
+tests/test_v2_0_0_dev4_evidence_layer.py
 tests/validation-hotfix-v0.2.3/README.md
 tests/validation-hotfix-v0.2.3/test_validation_hotfix.py
 tests/vertical-slices/test_ctr_vertical_slice.py

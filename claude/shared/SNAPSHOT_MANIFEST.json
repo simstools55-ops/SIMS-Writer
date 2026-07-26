@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0-dev.3",
-  "integrated_version": "2.0.0-dev.3",
+  "source_version": "2.0.0-dev.4",
+  "integrated_version": "2.0.0-dev.4",
   "target_product": "writer",
   "files": [
     {
@@ -42,19 +42,19 @@
     },
     {
       "path": "SERP-First-Editorial-Planning.md",
-      "sha256": "dac849c046662ce9b30ed52a985b7bf9ff4a691c6d3c4c7dc71c2b1dda3ce3b4"
+      "sha256": "34258afbce7f7bd2478554b87c2e23559786b15764f3d9a12753172579f6c021"
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "26a7f9bdb207a9726c987611dc0e436efe26644f958f987cd1bcd42b054dba79"
+      "sha256": "5f79df6b423d05406842d5b8f49d4523f11db258a9f02ae41ea228381b9aa7bd"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "0794a6c5e0aefcc28968165af46446d29057d64796383f9ee417f198725b4db1"
+      "sha256": "02a146830a4e8520ced32024de72be3a52f62da8c7232e35630d9544487a33da"
     },
     {
       "path": "VERSION",
-      "sha256": "d0828b6aef0f969bb9f8a5b40f5e22e9fe7bd552d862799929a9330ffea975f4"
+      "sha256": "4d7fa49e1551fd8f7e65d371ed0a17c62ddbc52a1e9b27e23ffadcd05a8bfa65"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -141,6 +141,10 @@
       "sha256": "b15da27cf5524551c716d19fe7524e3597c1154a5dd1e6ed510189f97a5d1972"
     },
     {
+      "path": "knowledge/integrated-serp-query-evidence.md",
+      "sha256": "18b1d51da63616315b1a34fa2d9bfefccacd42c9a2583fd3ffcda6fadde80c89"
+    },
+    {
       "path": "knowledge/intent-analysis.md",
       "sha256": "283d2e7f436e32f7b3b9c9bbfb044dc6325cfe102f611eaa53a72cdfac525cb7"
     },
@@ -193,8 +197,16 @@
       "sha256": "36582cc262ab9af57597fcfdfbd77cc85b69ceb141078f67e17c991af60809d9"
     },
     {
+      "path": "quality/EVIDENCE_DECISION_POLICY_V2.md",
+      "sha256": "14f3c8e43a51dd68d2bef2111080cb52244b2c07df72c592310dd9e55677fb22"
+    },
+    {
       "path": "validation/common-editorial-validation.md",
       "sha256": "16a3d7a600cea9b92bca0617e7364c0b59f407ada65469d1a2f3e0e64d62f9cf"
+    },
+    {
+      "path": "validation/evidence-contamination-validation.md",
+      "sha256": "19824144d95df93e383eaa63f7246a52e478689da34bb50b765ad48adf88f3bd"
     },
     {
       "path": "validation/publication-pipeline-integrity-validation.md",

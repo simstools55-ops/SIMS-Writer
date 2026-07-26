@@ -97,6 +97,24 @@
           }
         }
       }
+    },
+    "evidence_layer": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "evidence_matrix": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "contamination_findings": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
     }
   }
 }

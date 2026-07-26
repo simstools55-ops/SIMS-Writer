@@ -53,3 +53,7 @@ The following are prohibited from `PUBLIC_OK` until status is `verified`:
 - Record the blocked plan internally.
 - In the user view, do not expose diagnosis codes or detailed QA. State only that current top-result comparison could not be completed and that SERP-dependent edits were therefore withheld.
 - If no whitelist correction exists, return no publication change rather than a speculative edit.
+
+
+## Evidence handoff
+SERP prevalence is an intent signal, not proof of factual correctness. Every extracted gap must be passed to Evidence Layer before Editorial Planner.

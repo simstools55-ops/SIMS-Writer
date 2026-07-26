@@ -3,6 +3,8 @@ from __future__ import annotations
 from copy import deepcopy
 from typing import Any
 
+from .evidence_layer import evidence_level, enforce_evidence_boundaries, LOW, NONE
+
 PUBLIC_OK = "PUBLIC_OK"
 USER_DECISION = "USER_DECISION"
 INTERNAL_REJECT = "INTERNAL_REJECT"
@@ -32,8 +34,11 @@ def classify_change(change: dict[str, Any]) -> str:
     signals = set(change.get("decision_signals") or [])
     if change.get("requires_user_confirmation") or signals & _USER_DECISION_SIGNALS:
         return USER_DECISION
-    if change.get("evidence_sufficient") is False:
+    level = evidence_level(change)
+    if level == NONE or change.get("evidence_sufficient") is False:
         return INTERNAL_REJECT
+    if level == LOW:
+        return USER_DECISION
     if change.get("copy_ready") is False:
         return INTERNAL_REJECT
     return PUBLIC_OK
@@ -43,6 +48,8 @@ def build_publication_result(changes: list[dict[str, Any]]) -> dict[str, Any]:
     public_ok: list[dict[str, Any]] = []
     user_decision: list[dict[str, Any]] = []
     rejected: list[dict[str, Any]] = []
+
+    changes, evidence_findings = enforce_evidence_boundaries(changes)
 
     for raw in changes:
         item = deepcopy(raw)
@@ -61,6 +68,7 @@ def build_publication_result(changes: list[dict[str, Any]]) -> dict[str, Any]:
         "public_ok_changes": public_ok,
         "user_decision_changes": user_decision,
         "_internal_rejected_changes": rejected,
+        "_internal_evidence_findings": evidence_findings,
     }
 
 
@@ -76,6 +84,7 @@ def build_internal_audit_record(*, publication_result: dict[str, Any], qa_result
             "user_decision_count": len(publication_result.get("user_decision_changes") or []),
             "internal_reject_count": len(publication_result.get("_internal_rejected_changes") or []),
             "internal_rejected_changes": deepcopy(publication_result.get("_internal_rejected_changes") or []),
+            "evidence_findings": deepcopy(publication_result.get("_internal_evidence_findings") or []),
         },
     }
 
