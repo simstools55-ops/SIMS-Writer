@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0-rc.4",
-  "integrated_version": "2.0.0-rc.4",
+  "source_version": "2.0.0-gold.1",
+  "integrated_version": "2.0.0-gold.1",
   "scope": "writer",
   "files": [
     {
@@ -42,15 +42,15 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "28a0496d860b7235e324a244c722a03d4af1107c386e7fc284f92aa749b1d018"
+      "sha256": "5cca481e115c8ca66300ce51ed1b2573c39d64bf51f05e688a623ab19a54093d"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "58a0bb5128d1b0a292955f547cba5fd99e9cea6fde91bd8fa1a4c10552ede4e9"
+      "sha256": "f8ba795947ebaf841d11f74f660964362efee4ba05b2c9cd1ff0acbaa3662a05"
     },
     {
       "path": "VERSION",
-      "sha256": "eeed79eb7b5cf6c71ca4a986df92a34be6c9d5e3bfa454869540e0323b417dc5"
+      "sha256": "cbbb12290f02a3c82a4880f286967c9b3cf2c4ec804cbf38ad815c9d6192af7f"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -218,7 +218,7 @@
     },
     {
       "path": "patterns/serp-gap-report-pattern.md",
-      "sha256": "5c0d92b065db7b0a6966f757f514678452935f5252b58ef224224ea8e0b8d07a"
+      "sha256": "046022cb1a085edf2557bddfbda862182c8807a45b143ec876c0cd3e4bf00d7f"
     },
     {
       "path": "strategy/editorial-strategy-selection.md",
@@ -227,6 +227,10 @@
     {
       "path": "strategy/problem-cause-strategy-map.md",
       "sha256": "9b1d34e751936b901e8416fc8b49a5a2ee9210fe23f8d4665e6e1aa11097070d"
+    },
+    {
+      "path": "strategy/serp-gap-importance-policy.md",
+      "sha256": "8f5832b6670c184e85fe00631ebd77dd5e60f46f45fabe948649c982ce66caab"
     },
     {
       "path": "validation/common-editorial-validation.md",

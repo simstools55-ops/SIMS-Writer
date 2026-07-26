@@ -25,7 +25,7 @@ def test_active_contract_is_only_4_0():
 
 def test_schema_is_contract_4_0_minimal():
     schema=json.loads((ROOT/'schemas/SIMS_FEEDBACK_V2.schema.json').read_text(encoding='utf-8'))
-    assert schema['properties']['contract_version']['const']=='4.1'
+    assert schema['properties']['contract_version']['const']=='4.2'
     banned={'validation','publication_qa','swls','protected_elements','internal_link_evaluation','coverage_confidence','warnings','changes','new_values'}
     assert not (banned & set(schema['properties']))
 

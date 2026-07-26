@@ -23,3 +23,10 @@
 - `user_decision_changes`: 利用者確認が必要な変更
 
 旧`changes`、`validation`、`publication_qa`、`swls`、`protected_elements`、`internal_link_evaluation`などは内部監査記録へ保存し、Contract 4.0 JSONへ出力しない。
+
+## Gold Explainability Gate
+- SERP比較件数・掲載数は実測値だけを表示する。未計測なら省略する。
+- 各Gapに重要度1〜5と星表記を付ける。重要度は需要、SERP共通性、自記事不足、Evidenceで決める。
+- SERP Gap Reportには3〜5行の利用者向けDecision Traceを付ける。
+- USER_DECISIONには2〜5行のDecision Traceを付け、なぜ公開OKにしなかったかを平易に示す。
+- 生の思考過程、内部スコア、競合URL一覧は表示しない。

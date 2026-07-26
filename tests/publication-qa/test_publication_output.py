@@ -38,5 +38,5 @@ def test_feedback_extension_is_backward_compatible():
     view = build_publication_view({"seo_title": "元"}, qa_result())
     merged = apply_qa_to_feedback(original, view)
     assert merged["format"] == "SIMS_FEEDBACK_V2"
-    assert merged["contract_version"] == "4.1"
+    assert merged["contract_version"] == "4.2"
     assert merged["publication_result"]["public_ok_changes"]

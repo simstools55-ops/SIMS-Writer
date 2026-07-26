@@ -42,6 +42,7 @@ RELEASE_NOTES_v2.0.0_DEV3_SERP_EVIDENCE_GATE.md
 RELEASE_NOTES_v2.0.0_DEV4_EVIDENCE_LAYER.md
 RELEASE_NOTES_v2.0.0_DEV5_PROGRESSIVE_EDITING.md
 RELEASE_NOTES_v2.0.0_DEV6_KNOWLEDGE_CONFIDENCE.md
+RELEASE_NOTES_v2.0.0_GOLD1.md
 RELEASE_NOTES_v2.0.0_RC1.md
 RELEASE_NOTES_v2.0.0_RC2.md
 RELEASE_NOTES_v2.0.0_RC_FINAL.md
@@ -172,8 +173,10 @@ claude/shared/knowledge/validation-auditability.md
 claude/shared/mappings/writer/application-mapping.md
 claude/shared/patterns/answer-first-pattern.md
 claude/shared/patterns/gap-completion-pattern.md
+claude/shared/patterns/serp-gap-report-pattern.md
 claude/shared/strategy/editorial-strategy-selection.md
 claude/shared/strategy/problem-cause-strategy-map.md
+claude/shared/strategy/serp-gap-importance-policy.md
 claude/shared/validation/common-editorial-validation.md
 claude/shared/validation/editorial-strategy-validation.md
 claude/shared/validation/evidence-contamination-validation.md
@@ -755,6 +758,7 @@ shared/patterns/gap-completion-pattern.md
 shared/patterns/serp-gap-report-pattern.md
 shared/strategy/editorial-strategy-selection.md
 shared/strategy/problem-cause-strategy-map.md
+shared/strategy/serp-gap-importance-policy.md
 shared/validation/common-editorial-validation.md
 shared/validation/editorial-strategy-validation.md
 shared/validation/evidence-contamination-validation.md
@@ -868,6 +872,7 @@ tests/test_v2_0_0_dev3_serp_evidence_gate.py
 tests/test_v2_0_0_dev4_evidence_layer.py
 tests/test_v2_0_0_dev5_progressive_editing.py
 tests/test_v2_0_0_dev6_knowledge_confidence.py
+tests/test_v2_0_0_gold1_explainability.py
 tests/test_v2_0_0_rc1_editorial_strategy.py
 tests/test_v2_0_0_rc2_integration_stabilization.py
 tests/test_v2_0_0_rc_final2_serp_gap_report.py

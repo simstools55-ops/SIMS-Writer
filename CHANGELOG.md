@@ -1,3 +1,6 @@
+## 2.0.0-gold.1
+- Add quantitative SERP evidence, gap importance, and user-facing decision trace with Contract 4.2.
+
 ## 2.0.0-rc.3
 
 - 公開可否の冒頭一文を必須化。
@@ -452,5 +455,5 @@
 ## 2.0.0-rc.2
 - Stabilized final output integration and removed active legacy contract conflicts.
 
-## 2.0.0-rc.4
-- Add compact SERP Gap Report and Contract 4.1 explainability output.
+## 2.0.0-gold.1
+- Add compact SERP Gap Report and Contract 4.2 explainability output.

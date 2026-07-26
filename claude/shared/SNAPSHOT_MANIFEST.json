@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.0.0-rc.3",
-  "integrated_version": "2.0.0-rc.3",
+  "source_version": "2.0.0-gold.1",
+  "integrated_version": "2.0.0-gold.1",
   "scope": "writer",
   "files": [
     {
@@ -42,15 +42,15 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "b91f63beb5e9986256bcd2b4986cbc6c4a360d7b1c82e34aa0785ddd9ff371e4"
+      "sha256": "56de72e35a739b8f35ad1ff8cd951f9ff02bb65a5e47682a23a2cfc4c1055fc0"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "0bb63e8d41e02ab032fbc10ccd70e148e9bfada8b508f1b41c4b7600c4b31d62"
+      "sha256": "591c2b234e03199c5e3909ae486e2e7e14e6ae2482d3206a9acc3555619a66be"
     },
     {
       "path": "VERSION",
-      "sha256": "a6a2b799e16c0200482e30cfe3454c7681371a80fc4e667e2e71dee09fa445b0"
+      "sha256": "cbbb12290f02a3c82a4880f286967c9b3cf2c4ec804cbf38ad815c9d6192af7f"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -217,12 +217,20 @@
       "sha256": "a7f05e3ff8c8393c0b0bc34d87736a8964dc3f765b084500f24b21db8096d487"
     },
     {
+      "path": "patterns/serp-gap-report-pattern.md",
+      "sha256": "046022cb1a085edf2557bddfbda862182c8807a45b143ec876c0cd3e4bf00d7f"
+    },
+    {
       "path": "strategy/editorial-strategy-selection.md",
       "sha256": "2170f15cae4cbbdab73d9e6ddaba250b30f0418db6d876fc9abde77d30ca7fba"
     },
     {
       "path": "strategy/problem-cause-strategy-map.md",
       "sha256": "9b1d34e751936b901e8416fc8b49a5a2ee9210fe23f8d4665e6e1aa11097070d"
+    },
+    {
+      "path": "strategy/serp-gap-importance-policy.md",
+      "sha256": "8f5832b6670c184e85fe00631ebd77dd5e60f46f45fabe948649c982ce66caab"
     },
     {
       "path": "validation/common-editorial-validation.md",
