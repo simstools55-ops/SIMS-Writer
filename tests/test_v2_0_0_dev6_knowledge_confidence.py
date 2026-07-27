@@ -6,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def test_assets_and_version():
     assert (ROOT/'runtime/knowledge-confidence-freshness-v2.0.md').exists()
-    assert (ROOT/'VERSION').read_text().strip()=='2.2.0'
+    assert (ROOT/'VERSION').read_text().strip()=='2.3.0'
 
 def test_official_current_can_be_public_ok():
     r={'source_level':'OFFICIAL','verified_at':'2026-07-20','max_age_days':90}

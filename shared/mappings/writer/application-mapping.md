@@ -61,3 +61,14 @@ Writerは `quality/QUALITY_PATTERN_LIBRARY.md` を運用試験Learningの正本�
 Writerは `learning/LEARNING_REGISTRY.json` と `learning/LEARNING_SPRINT_PLAYBOOK.md` を実記事試験Learningの追跡正本として参照する。
 Writer回答の評価では修正提案より先に5分類を確定し、ARTICLE_SPECIFICとPREFERENCE_ONLYだけでは製品版を更新しない。
 MAPPING_DEFECTとVALIDATION_DEFECTには回帰fixtureを必須とする。
+
+## Publication Integrity v2.3
+
+Writerは以下をRuntimeの最終公開ゲートへ適用する。
+
+- `knowledge/publication-integrity-and-dynamic-information.md`
+- `knowledge/affiliate-cta-boundary.md`
+- `knowledge/faq-publication-consistency.md`
+- `quality/PUBLICATION_INTEGRITY_STANDARD_V2_3.md`
+- `validation/publication-integrity-validation.md`
+- `patterns/dynamic-claim-safe-rewrite-pattern.md`

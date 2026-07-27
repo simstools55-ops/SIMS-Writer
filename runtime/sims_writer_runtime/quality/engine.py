@@ -126,6 +126,18 @@ class QualityValidationEngine:
             return self._r(r,'fail' if dangerous and not warning else 'pass','article','データ損失警告検査',[f'dangerous={dangerous}',f'warning={warning}'])
         if rid=='QF-SAF-001':
             return self._r(r,'unable_to_verify' if any(x in t for x in DANGER) else 'pass','article','危険手順の文脈検査',[])
+        if rid=='QF-FAC-005':
+            audit=c.get('publication_integrity_audit') or {}; bad=audit.get('unverified_dynamic_claims') or []
+            return self._r(r,'fail' if bad else 'pass','article','変動情報の現在性検査',[str(x) for x in bad], '現在の公式・一次情報で確認するか主張を限定する' if bad else None)
+        if rid=='QF-PUB-005':
+            audit=c.get('publication_integrity_audit') or {}; bad=audit.get('json_mismatches') or []
+            return self._r(r,'fail' if bad else 'pass','publication_json','公開文とJSONの同期検査',[str(x) for x in bad], '最終公開文から完全JSONを再生成する' if bad else None)
+        if rid=='QF-PUB-006':
+            audit=c.get('publication_integrity_audit') or {}; bad=audit.get('unsupported_cta_claims') or []
+            return self._r(r,'fail' if bad else 'pass','cta','アフィリエイトCTA検査',[str(x) for x in bad], 'リンクを維持して未検証CTAを修正する' if bad else None)
+        if rid=='QF-COM-004':
+            audit=c.get('publication_integrity_audit') or {}; bad=audit.get('stale_cross_component_claims') or []
+            return self._r(r,'fail' if bad else 'pass','article','横断主張同期検査',[str(x) for x in bad], '全コンポーネントを横断修正する' if bad else None)
         if rid=='QF-ORG-003':
             fabricated=bool(re.search(r'私が(?:実際に|使って|試して)',t)) and not c.get('experience_verified'); return self._r(r,'fail' if fabricated else 'pass','article','体験主張の真正性検査',[])
         if rid=='QF-EEA-003':

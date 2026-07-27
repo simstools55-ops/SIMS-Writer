@@ -139,3 +139,10 @@
 
 ## 2.0.0-rc.3
 - Stabilized final output integration and removed active legacy contract conflicts.
+
+## 2.3.0
+
+- Synchronized Shared Publication Integrity Standard v2.3.
+- Added dynamic information, marketing claim, CTA and FAQ validation.
+- Added cross-component claim sweep and final JSON synchronization.
+- Added local Correction Request Mode.

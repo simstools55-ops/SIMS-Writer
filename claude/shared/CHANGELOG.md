@@ -175,3 +175,11 @@ Canonical Publication QA output, unresolved-finding verdict alignment, claim-pre
 
 ## 2.0.0-gold.1
 - Add shared SERP gap explainability pattern.
+
+## 2.3.0
+
+- Added publication integrity and dynamic information standard.
+- Added affiliate CTA editable/protected boundary.
+- Added FAQ and cross-component consistency validation.
+- Added final publication/JSON synchronization requirements.
+- Added safe rewrite pattern for unverified dynamic claims.

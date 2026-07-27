@@ -1,12 +1,12 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.2.0",
-  "integrated_version": "2.2.0",
+  "source_version": "2.3.0",
+  "integrated_version": "2.3.0",
   "target_product": "writer",
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "1ecfad873442235d841a026829461a43d03277ba80f1b332c6718eec4c94d354"
+      "sha256": "e84d4a748a206e6797b15702395c16cac2ed953a9e4b61043f9b19dd5a21af5e"
     },
     {
       "path": "Decision-Support.md",
@@ -34,7 +34,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "0e23dbea8e8900b72187785c904665a99b1155b4a393d243786b23307fc8f2cf"
+      "sha256": "8ba68e528d160187b16a0b1f86d0cc0502f71585a9cd0170be0eb34c836a44e5"
     },
     {
       "path": "SERP-Entity-Preservation.md",
@@ -42,19 +42,19 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "4b90a32e48dcf6b6977968b3b37185fc0a6747c8423c5a396e843d78cc6f7e5c"
+      "sha256": "fc4ddb345a6e2309d53e2b7582f7d9b6241ad37286a734a4080b7a1ff5747e76"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "e677366f5e9ece6bbd3241f9cf752f4f49c944df372113a6c0175b3877a43ec5"
+      "sha256": "1a724e997939b5a8d65078c60735ab2700035435c6e1d7d30706e7af32d73e82"
     },
     {
       "path": "VERSION",
-      "sha256": "c4a2383a03bdb6739d16a0e24058e4b9c7da4e63d203e0be2f448868cc03c530"
+      "sha256": "a42caf4a54bbbe27aa45b6efbc6356c5e299b19763e728b6cdb7201b02ebbe36"
     },
     {
       "path": "Writer-Application-Mapping.md",
-      "sha256": "91ae02945e071db2864678c9e94e0d2c693cc9dc67ecd6aaf1098ee5c94191dd"
+      "sha256": "815b01436ac21fabaedf3dbeccb849aff5f85c7c9ff3c7e279751bba858570cc"
     },
     {
       "path": "docs/integration-policy.md",
@@ -75,6 +75,10 @@
     {
       "path": "evidence/source-confidence-freshness.md",
       "sha256": "f17d5173976007c31109622347c4ea51ddd073b1f88b9892d847ba9b714df973"
+    },
+    {
+      "path": "knowledge/affiliate-cta-boundary.md",
+      "sha256": "9ce5804cffd01639c8aa3263969dc810532f556eff8b1b650edd659bbd3bad18"
     },
     {
       "path": "knowledge/buyer-trust-and-freshness.md",
@@ -123,6 +127,10 @@
     {
       "path": "knowledge/faq-evolution.md",
       "sha256": "47512904314a6b2fadc40491b2b078c3c9783dacbf555acd0ac6ebbe1524dfb9"
+    },
+    {
+      "path": "knowledge/faq-publication-consistency.md",
+      "sha256": "4a046988fdd3c440ac26522da58c3dadb008f57d1bc3b6101eda39f1a10ed952"
     },
     {
       "path": "knowledge/faq-reconstruction.md",
@@ -179,6 +187,10 @@
     {
       "path": "knowledge/progressive-editing.md",
       "sha256": "d814743c0976b7f77994dc1bc70f6c87eca3dbbd3e7ce045a4f02537a256bfd8"
+    },
+    {
+      "path": "knowledge/publication-integrity-and-dynamic-information.md",
+      "sha256": "c01e287aa14f96120deacf439b317d854b0cfb1ce55b64d987395e7617f918dc"
     },
     {
       "path": "knowledge/publication-pipeline-integrity.md",
@@ -242,11 +254,15 @@
     },
     {
       "path": "mappings/writer/application-mapping.md",
-      "sha256": "91ae02945e071db2864678c9e94e0d2c693cc9dc67ecd6aaf1098ee5c94191dd"
+      "sha256": "815b01436ac21fabaedf3dbeccb849aff5f85c7c9ff3c7e279751bba858570cc"
     },
     {
       "path": "patterns/answer-first-pattern.md",
       "sha256": "5228ecd93daf06f9181cb4c8274b8db51b8dfad2ce787addd9e1281445c47533"
+    },
+    {
+      "path": "patterns/dynamic-claim-safe-rewrite-pattern.md",
+      "sha256": "255f864614e665dd78e697e17379ec09751f6104e41c38bf9601d42cda03ef57"
     },
     {
       "path": "patterns/evidence-publication-boundary-pattern.md",
@@ -321,6 +337,10 @@
       "sha256": "6f87756468bf1134b83c6e512a05c0fa2a224aabccc74f27255f6272379774ea"
     },
     {
+      "path": "quality/PUBLICATION_INTEGRITY_STANDARD_V2_3.md",
+      "sha256": "2137edd2ddbeea77a1734fdce50771c3ecffd8eca6bbeff0a9ffb6cd2e7ce0da"
+    },
+    {
       "path": "quality/PUBLICATION_QA_CANONICAL_OUTPUT_v1.3.8.md",
       "sha256": "69826b31f0eabfea5accd3a9bdeb42475b937111d355ce272a3d850cc17c2ce3"
     },
@@ -379,6 +399,10 @@
     {
       "path": "validation/natural-japanese-and-similarity-validation.md",
       "sha256": "43402651dc852848fb1f39300ebe82b320f4c95fd524869f77c3535b3770c8d2"
+    },
+    {
+      "path": "validation/publication-integrity-validation.md",
+      "sha256": "4633fb44d3c72182ecec8a8d665f7568a4699db9fb3b4112025fff3a82953517"
     },
     {
       "path": "validation/publication-pipeline-integrity-validation.md",

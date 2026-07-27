@@ -490,3 +490,11 @@
 
 ## 2.0.0-gold.1
 - Add compact SERP Gap Report and Contract 4.2 explainability output.
+
+## 2.3.0
+
+- Added Dynamic Information and Official Source validation.
+- Added Marketing Claim and Affiliate CTA validation.
+- Added FAQ and cross-component claim consistency gates.
+- Added publication text/Contract 4.2 JSON synchronization.
+- Added Correction Request Mode for local repair and full JSON regeneration.

@@ -54,7 +54,7 @@
   },
   "expected": {
     "publish_decision": "publish_ready_with_advisory",
-    "rules_evaluated": 42,
+    "rules_evaluated": 46,
     "gates_evaluated": 7,
     "must_include": [
       "速度",

@@ -1,15 +1,15 @@
 {
-  "version": "2.1.0",
+  "version": "2.3.0",
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "d20c2b673364ec996573e813d0cba2de8ae0fc36b64bee5b8c9f0a2c0c945a20",
-      "size": 5023
+      "sha256": "07b7c52fb328cb900a2eff9e39d5d7f638cab7d30118f4d9df9d3476843e6c1c",
+      "size": 5377
     },
     {
       "path": "CLAUDE_PROJECT_INSTRUCTIONS.md",
-      "sha256": "36fc7dfbbfaf7a67f3126033704d50d76957bc10d375f3f18eae4252c7681ff0",
-      "size": 8715
+      "sha256": "5b248d8e15968518d67575a4c47168a3bb78753ce3c6aaee47937ece464cd689",
+      "size": 10177
     },
     {
       "path": "EDITORIAL_OUTPUT_V2.md",
@@ -23,8 +23,8 @@
     },
     {
       "path": "PROJECT_INSTRUCTIONS_TO_PASTE.md",
-      "sha256": "5a19a263b18a264b9ecbd2d6f0fea3c632a3b9500e83659e85a6bf9509978694",
-      "size": 8406
+      "sha256": "12030af20a213e8bf34b3c3cc212da067d7150f647325475a6c24e2a5c8cfc0a",
+      "size": 9129
     },
     {
       "path": "PROJECT_RESET_CHECKLIST.md",
@@ -38,8 +38,8 @@
     },
     {
       "path": "QA_FINAL_REVIEW_CHECKLIST.md",
-      "sha256": "bf3f600af575cd7fdc45729a10c85d3fc57425677138b2ee403fe1bfa196ac8b",
-      "size": 1329
+      "sha256": "a9142232436bb2731d1f98828b412d0862e0c5e68baa69f627da543a20b368ca",
+      "size": 1754
     },
     {
       "path": "README.md",
@@ -162,6 +162,16 @@
       "size": 134
     },
     {
+      "path": "RELEASE_NOTES_v2.2.0.md",
+      "sha256": "063e3449e5981767110717bec849f557dd79c6af7c913f4728efc0c61505317b",
+      "size": 214
+    },
+    {
+      "path": "RELEASE_NOTES_v2.3.0.md",
+      "sha256": "1209c0d8ec145262319d97b2a8d3af74988ffb446ae8298ec2f5f1559457c03a",
+      "size": 309
+    },
+    {
       "path": "SELF_QA_RUNTIME_INSTRUCTIONS.md",
       "sha256": "501d4d5d8f9ae03139838e91b7472668abd289bc02985b25bc7bbb438aa3ab16",
       "size": 1392
@@ -188,7 +198,7 @@
     },
     {
       "path": "VERSION",
-      "sha256": "c89b87c262e9d5ffd20e73aac74a1772adcc9f5a21682cc33adcf5086e5fef5c",
+      "sha256": "a42caf4a54bbbe27aa45b6efbc6356c5e299b19763e728b6cdb7201b02ebbe36",
       "size": 6
     },
     {
@@ -203,7 +213,7 @@
     },
     {
       "path": "knowledge/SIMS_WRITER_KNOWLEDGE_PACK.md",
-      "sha256": "fa63853225617e66fe68c9ef57e081823e7af857256e4608f7e63ed5de39d909",
+      "sha256": "a2e7bf933ad78592a09620fa861dc38cc6e4cdbf66a61327035a6d6eaf10ff18",
       "size": 14728
     },
     {
@@ -247,9 +257,19 @@
       "size": 1002
     },
     {
+      "path": "runtime/LEARNING_REGISTRY_RUNTIME.md",
+      "sha256": "498911f82f30f68d5808171a3dd76499d2c4125e3ee1c348af74b30c5e0ce487",
+      "size": 438
+    },
+    {
       "path": "runtime/RELEASE_FINAL_QUALITY_GATE.md",
       "sha256": "633b70e55fa46624735ca56e5a7622b11f872caa56ceca2d554b532af64565df",
       "size": 1762
+    },
+    {
+      "path": "runtime/correction-request-mode-v2.3.md",
+      "sha256": "4f5a35b4dffd1e002f24cce346f7cf2eff2b832ca884fe136436cef036aa9108",
+      "size": 989
     },
     {
       "path": "runtime/editorial-planner-v2.0.md",
@@ -283,13 +303,18 @@
     },
     {
       "path": "runtime/output-validator.md",
-      "sha256": "06cec6190b79e7389b0c320332d463fdf48aa1a657e8f92c75687716f69cc349",
-      "size": 2708
+      "sha256": "88066325d2d69a4dffecd92c134346a029fd4d77ec92092775a7112d74381ba4",
+      "size": 3301
     },
     {
       "path": "runtime/progressive-editing-engine-v2.0.md",
       "sha256": "5f2e7d38590594005b55f765295237a46089442e2f6e32dbc4f48980d81259b6",
       "size": 1719
+    },
+    {
+      "path": "runtime/publication-integrity-hardening-v2.3.md",
+      "sha256": "82ef0b11f031b60ea4a5802cac4e79dbc1c71dae75161875bce2367ce9e4212f",
+      "size": 1318
     },
     {
       "path": "runtime/quality-pattern-library-application-v2.1.md",
@@ -323,8 +348,8 @@
     },
     {
       "path": "shared/CHANGELOG.md",
-      "sha256": "b1b6e4246718c36e6429774f544db5e1df20770e1234c809188162f5406e9b0d",
-      "size": 6576
+      "sha256": "e84d4a748a206e6797b15702395c16cac2ed953a9e4b61043f9b19dd5a21af5e",
+      "size": 7033
     },
     {
       "path": "shared/Decision-Support.md",
@@ -358,8 +383,8 @@
     },
     {
       "path": "shared/README.md",
-      "sha256": "0e23dbea8e8900b72187785c904665a99b1155b4a393d243786b23307fc8f2cf",
-      "size": 2201
+      "sha256": "8ba68e528d160187b16a0b1f86d0cc0502f71585a9cd0170be0eb34c836a44e5",
+      "size": 2488
     },
     {
       "path": "shared/SERP-Entity-Preservation.md",
@@ -368,28 +393,28 @@
     },
     {
       "path": "shared/SNAPSHOT_MANIFEST.json",
-      "sha256": "8873a8c25315f7c2a41f47a79e7a741b71ea780f506f2afbb0cf46eb405f09fc",
-      "size": 14451
+      "sha256": "3a07d72834b407a639cb91a80f41bc97aec52ac68989ca8a0e0f0611f7bfb5b4",
+      "size": 16426
     },
     {
       "path": "shared/SNAPSHOT_SCOPE.json",
-      "sha256": "e8f9615851c408ed1c16316fad8cbafa71fc568bdd88c1a87343310b8402c5b3",
+      "sha256": "fc4ddb345a6e2309d53e2b7582f7d9b6241ad37286a734a4080b7a1ff5747e76",
       "size": 168
     },
     {
       "path": "shared/SOURCE.md",
-      "sha256": "3c09d57c4980be44705ab5562796dd19ed606941d054640227e99cfab86fb090",
+      "sha256": "1a724e997939b5a8d65078c60735ab2700035435c6e1d7d30706e7af32d73e82",
       "size": 93
     },
     {
       "path": "shared/VERSION",
-      "sha256": "c89b87c262e9d5ffd20e73aac74a1772adcc9f5a21682cc33adcf5086e5fef5c",
+      "sha256": "a42caf4a54bbbe27aa45b6efbc6356c5e299b19763e728b6cdb7201b02ebbe36",
       "size": 6
     },
     {
       "path": "shared/Writer-Application-Mapping.md",
-      "sha256": "502d52b3ad35badbbc14a27e7608a1600136258861540358fa380a99698d2a8f",
-      "size": 2896
+      "sha256": "815b01436ac21fabaedf3dbeccb849aff5f85c7c9ff3c7e279751bba858570cc",
+      "size": 3707
     },
     {
       "path": "shared/docs/integration-policy.md",
@@ -415,6 +440,11 @@
       "path": "shared/evidence/source-confidence-freshness.md",
       "sha256": "f17d5173976007c31109622347c4ea51ddd073b1f88b9892d847ba9b714df973",
       "size": 1034
+    },
+    {
+      "path": "shared/knowledge/affiliate-cta-boundary.md",
+      "sha256": "9ce5804cffd01639c8aa3263969dc810532f556eff8b1b650edd659bbd3bad18",
+      "size": 1077
     },
     {
       "path": "shared/knowledge/buyer-trust-and-freshness.md",
@@ -475,6 +505,11 @@
       "path": "shared/knowledge/faq-evolution.md",
       "sha256": "47512904314a6b2fadc40491b2b078c3c9783dacbf555acd0ac6ebbe1524dfb9",
       "size": 1308
+    },
+    {
+      "path": "shared/knowledge/faq-publication-consistency.md",
+      "sha256": "4a046988fdd3c440ac26522da58c3dadb008f57d1bc3b6101eda39f1a10ed952",
+      "size": 813
     },
     {
       "path": "shared/knowledge/faq-reconstruction.md",
@@ -547,6 +582,11 @@
       "size": 828
     },
     {
+      "path": "shared/knowledge/publication-integrity-and-dynamic-information.md",
+      "sha256": "c01e287aa14f96120deacf439b317d854b0cfb1ce55b64d987395e7617f918dc",
+      "size": 1697
+    },
+    {
       "path": "shared/knowledge/publication-pipeline-integrity.md",
       "sha256": "65ca0f183b12bd53e0cd38ac11c869d35669f63613f0a623c2d5beaff43988dd",
       "size": 544
@@ -597,14 +637,44 @@
       "size": 510
     },
     {
+      "path": "shared/learning/DECISION_LOG.md",
+      "sha256": "86fa4cdc6d13852e028e51ca903d2b28ba4db365ecc9de0a31afebd09756c02f",
+      "size": 490
+    },
+    {
+      "path": "shared/learning/LEARNING_INTAKE_TEMPLATE.md",
+      "sha256": "e0618dad14ad0a839711942cca4e5b29a426c958a8b7b97f7f43dafc7c366acd",
+      "size": 954
+    },
+    {
+      "path": "shared/learning/LEARNING_REGISTRY.json",
+      "sha256": "ffbfe6d81072128e2fd384e61bfe34c560ff606cb51925b60dc7852c4c0d250c",
+      "size": 649
+    },
+    {
+      "path": "shared/learning/LEARNING_SPRINT_PLAYBOOK.md",
+      "sha256": "9b1d0d01184341b0d7aaf8bf90ef2a988f10f03cabe55c2fa0539f9c517c03cc",
+      "size": 1296
+    },
+    {
+      "path": "shared/learning/README.md",
+      "sha256": "715f003105f919fd6d026194641e0fbb71324e1f6d47f170503ab6ef75e3378c",
+      "size": 670
+    },
+    {
       "path": "shared/mappings/writer/application-mapping.md",
-      "sha256": "502d52b3ad35badbbc14a27e7608a1600136258861540358fa380a99698d2a8f",
-      "size": 2896
+      "sha256": "815b01436ac21fabaedf3dbeccb849aff5f85c7c9ff3c7e279751bba858570cc",
+      "size": 3707
     },
     {
       "path": "shared/patterns/answer-first-pattern.md",
       "sha256": "5228ecd93daf06f9181cb4c8274b8db51b8dfad2ce787addd9e1281445c47533",
       "size": 205
+    },
+    {
+      "path": "shared/patterns/dynamic-claim-safe-rewrite-pattern.md",
+      "sha256": "255f864614e665dd78e697e17379ec09751f6104e41c38bf9601d42cda03ef57",
+      "size": 705
     },
     {
       "path": "shared/patterns/evidence-publication-boundary-pattern.md",
@@ -687,9 +757,19 @@
       "size": 1034
     },
     {
+      "path": "shared/quality/LEARNING_REGISTRY_POLICY.md",
+      "sha256": "05a6440f8ad84a5dc79ef8096224176df08c8bd26b09fdcf12be4f92064deba3",
+      "size": 1398
+    },
+    {
       "path": "shared/quality/OPERATIONAL_LEARNING_PROMOTION_POLICY.md",
       "sha256": "6f87756468bf1134b83c6e512a05c0fa2a224aabccc74f27255f6272379774ea",
       "size": 1353
+    },
+    {
+      "path": "shared/quality/PUBLICATION_INTEGRITY_STANDARD_V2_3.md",
+      "sha256": "2137edd2ddbeea77a1734fdce50771c3ecffd8eca6bbeff0a9ffb6cd2e7ce0da",
+      "size": 894
     },
     {
       "path": "shared/quality/PUBLICATION_QA_CANONICAL_OUTPUT_v1.3.8.md",
@@ -703,8 +783,8 @@
     },
     {
       "path": "shared/quality/QUALITY_PATTERN_LIBRARY.md",
-      "sha256": "cb78c146fd53151878afcd56ac282da2844389da9344a00462854bb64a25762f",
-      "size": 4149
+      "sha256": "56f9cb672a2a0d52ac3257943e51b5a957813354eb916596030fd711144b2a6a",
+      "size": 4449
     },
     {
       "path": "shared/quality/REVIEWER_PRECISION_RULES_v1.3.7.md",
@@ -757,9 +837,19 @@
       "size": 382
     },
     {
+      "path": "shared/validation/learning-registry-validation.md",
+      "sha256": "8ed6991ae18179d86800872619a4cc0d9fa766bac78e0cce4672dec2553a88ab",
+      "size": 820
+    },
+    {
       "path": "shared/validation/natural-japanese-and-similarity-validation.md",
       "sha256": "43402651dc852848fb1f39300ebe82b320f4c95fd524869f77c3535b3770c8d2",
       "size": 550
+    },
+    {
+      "path": "shared/validation/publication-integrity-validation.md",
+      "sha256": "4633fb44d3c72182ecec8a8d665f7568a4699db9fb3b4112025fff3a82953517",
+      "size": 675
     },
     {
       "path": "shared/validation/publication-pipeline-integrity-validation.md",

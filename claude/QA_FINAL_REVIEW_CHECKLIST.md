@@ -20,3 +20,11 @@
 ## Release final mandatory quality gates
 
 Read and apply `runtime/RELEASE_FINAL_QUALITY_GATE.md`. Safety, evidence, expectation alignment and semantic title validation override SEO opportunity.
+
+## v2.3 Publication Integrity
+- [ ] 変動情報は現在の公式/一次情報で確認した
+- [ ] 最安値・送料無料・限定・割引・保証を横断確認した
+- [ ] リンク/広告コードを保護し、CTA文言を検証した
+- [ ] FAQの質問と回答、本文、端末差が一致する
+- [ ] 修正した主張が他箇所に残っていない
+- [ ] 公開文とContract 4.2 JSONが完全一致する

@@ -1,4 +1,4 @@
 # Snapshot Source
 
 Source: SIMS-Shared-Editorial-Knowledge
-Integrated for: SIMS Writer 2.2.0
+Integrated for: SIMS Writer 2.3.0

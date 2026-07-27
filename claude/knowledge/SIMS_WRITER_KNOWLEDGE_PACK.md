@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack v0.2.0
 
-Version: 2.2.0
+Version: 2.3.0
 
 
 # SIMS Writer Quality Specification v0.2.0
@@ -308,3 +308,7 @@ Apply SERP verification and evidence per component. Continue safe edits while ho
 
 ## v2.1.0 Quality Pattern Library
 Use the Shared pattern registry as the canonical operational-learning source. Do not create duplicate ad hoc rules.
+
+
+## Publication Integrity v2.3
+変動情報、マーケティング主張、アフィリエイトCTA、FAQ、横断整合、公開文とContract 4.2 JSONの同期を最終公開条件とする。CORRECTION_REQUESTでは指定箇所だけを局所修正し、完全JSONを再生成する。

@@ -52,3 +52,7 @@ Knowledge / Strategy / Evidence / Patternを分離し、修正前にEditorial St
 
 ## v2.1.0 Quality Pattern Library
 運用試験で発見した再発防止ルールをRegistry化し、記事固有修正・Mapping不具合・Validation不具合を区別します。
+
+## v2.3 Publication Integrity
+
+Shared Editorial KnowledgeはSEO知識集に限定せず、SIMS製品共通の編集品質基準を提供します。v2.3では変動情報、マーケティング主張、アフィリエイトCTA、FAQ、本文とJSONの同期を正本化しました。

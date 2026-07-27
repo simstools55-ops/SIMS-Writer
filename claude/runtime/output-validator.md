@@ -47,3 +47,14 @@
 - タイトル・メタが本文の対象外症状まで約束したらFAIL。
 - Android等の設定経路を機種・OS差の注記なしで一律断定したらFAIL。
 - PUBLIC_OK内部リンクは全件、役割分担・クエリ重複・カニバリ確認が必須。
+
+## Publication Integrity Gate v2.3
+- Mutable price, campaign, app/OS/UI, period, frequency and non-existence claims require current OFFICIAL/PRIMARY evidence for PUBLIC_OK.
+- Existing article text is not freshness evidence.
+- Preserve affiliate URL/code; validate surrounding CTA wording.
+- Unsupported lowest-price, free-shipping, limited-offer and guarantee claims block publication.
+- FAQ question/answer, body and platform behavior must agree.
+- Sweep title, meta, introduction, body, FAQ, CTA and JSON after any claim correction.
+- Final displayed text and Contract 4.2 JSON must match.
+
+- 「最安値」「送料無料」「期間限定」等の未検証マーケティング主張がCTAに残る場合はFAIL。
