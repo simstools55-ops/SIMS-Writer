@@ -183,3 +183,11 @@ Canonical Publication QA output, unresolved-finding verdict alignment, claim-pre
 - Added FAQ and cross-component consistency validation.
 - Added final publication/JSON synchronization requirements.
 - Added safe rewrite pattern for unverified dynamic claims.
+
+## 2.4.0 - 2026-07-28
+
+- Added strict real-article Before source integrity and paste-ready After validation.
+- Separated Search Console demand from factual evidence.
+- Added whole-article supernatural/health and conditional food-safety guards.
+- Added LOW_SAMPLE title control, Winner Query protection, title promise alignment and internal-link destination validation.
+- Registered eight real-article regression learnings and fixtures.

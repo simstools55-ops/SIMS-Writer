@@ -28,3 +28,12 @@ Read and apply `runtime/RELEASE_FINAL_QUALITY_GATE.md`. Safety, evidence, expect
 - [ ] FAQの質問と回答、本文、端末差が一致する
 - [ ] 修正した主張が他箇所に残っていない
 - [ ] 公開文とContract 4.2 JSONが完全一致する
+
+## v2.4 Real-article final review
+
+- Beforeは実記事の変更前全文か
+- 省略記号・前回提案After・推測補完が混入していないか
+- Afterは貼り付け可能な完成文全文か
+- Search Console需要を事実根拠にしていないか
+- タイトル・メタ・導入だけでなく本文・FAQ・CTAまで安全性が一致しているか
+- JSONとnew_valuesが最終表示文に同期しているか

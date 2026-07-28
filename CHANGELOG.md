@@ -498,3 +498,9 @@
 - Added FAQ and cross-component claim consistency gates.
 - Added publication text/Contract 4.2 JSON synchronization.
 - Added Correction Request Mode for local repair and full JSON regeneration.
+
+## 2.4.0 - 2026-07-28
+
+- Integrated Shared v2.4.0 real-article validation snapshot.
+- Added strict Before source, paste-ready After, cross-output synchronization and whole-article safety final gate.
+- Added eight real-article regression learnings.

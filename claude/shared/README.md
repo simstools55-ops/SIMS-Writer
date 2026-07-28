@@ -1,4 +1,4 @@
-# SIMS Shared Editorial Knowledge v2.1.0
+# SIMS Shared Editorial Knowledge v2.4.0
 
 # SIMS Shared Editorial Knowledge
 
@@ -34,7 +34,7 @@ docs/                      運用・統合ドキュメント
 
 ## Version
 
-`1.0.0`
+`2.4.0`
 
 
 ## v1.1.1 Operational Learning
@@ -56,3 +56,8 @@ Knowledge / Strategy / Evidence / Patternを分離し、修正前にEditorial St
 ## v2.3 Publication Integrity
 
 Shared Editorial KnowledgeはSEO知識集に限定せず、SIMS製品共通の編集品質基準を提供します。v2.3では変動情報、マーケティング主張、アフィリエイトCTA、FAQ、本文とJSONの同期を正本化しました。
+
+
+## v2.4 Real-article Validation
+
+実記事Beforeの厳格照合、事実根拠境界、YMYL全体整合、8事例の回帰fixtureを追加しました。

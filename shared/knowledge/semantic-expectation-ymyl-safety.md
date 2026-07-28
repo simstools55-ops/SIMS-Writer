@@ -18,3 +18,7 @@ Safety information is not selected by search demand. When omission could increas
 
 ## Benefit claim rule
 Words such as `十分`, `改善`, `効果`, and named health outcomes must identify scope and evidence. Unsupported benefit claims must be softened, moved to user decision, or rejected internally.
+
+## Whole-article safety alignment
+
+タイトル・メタ・導入だけを安全化しても、本文、見出し、FAQ、チェックリストに危険な因果関係や保証表現が残る場合は不合格とする。局所免責は記事全体の意味構造を上書きしない。

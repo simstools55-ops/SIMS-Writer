@@ -18,3 +18,8 @@ Required audit order:
 4. FAQ
 5. cross-component search
 6. final JSON synchronization
+
+## v2.4 Real-article integrity extension
+
+`validation/real-article-publication-validation.md` を最終ゲートとして追加する。
+特に、実記事由来ではないBefore、要約After、前回提案文の混入、表示文とJSONの非同期はFAILとする。

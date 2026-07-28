@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[1]
 def read(path): return (ROOT/path).read_text(encoding="utf-8")
 
 def test_version():
-    assert read("VERSION").strip()=="2.3.0"
+    assert read("VERSION").strip()=="2.4.0"
 
 def test_status_sentence_and_short_reason():
     text=read("presentation/FEEDBACK_TEMPLATE.md")

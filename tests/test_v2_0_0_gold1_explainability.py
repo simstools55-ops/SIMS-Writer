@@ -3,7 +3,7 @@ import json
 ROOT=Path(__file__).resolve().parents[1]
 def read(p): return (ROOT/p).read_text(encoding="utf-8")
 def test_version_contract42():
- assert read("VERSION").strip()=="2.3.0"
+ assert read("VERSION").strip()=="2.4.0"
  s=json.loads(read("schemas/SIMS_FEEDBACK_V2.schema.json"))
  assert s["properties"]["contract_version"]["const"]=="4.2"
  assert "decision_trace" in s["$defs"]["userDecisionChange"]["required"]

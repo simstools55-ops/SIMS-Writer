@@ -72,3 +72,7 @@ Writerは以下をRuntimeの最終公開ゲートへ適用する。
 - `quality/PUBLICATION_INTEGRITY_STANDARD_V2_3.md`
 - `validation/publication-integrity-validation.md`
 - `patterns/dynamic-claim-safe-rewrite-pattern.md`
+
+## v2.4 Real-article validation mapping
+
+Writerは最終出力前に `validation/real-article-publication-validation.md` を必須適用する。Search Console需要と事実根拠を分離し、LOW_SAMPLE、Winner Query、YMYL、内部リンク、タイトル約束を新規v2.4正本へ接続する。実記事8事例はLearning Registryと回帰fixtureで追跡する。

@@ -75,3 +75,17 @@ Sharedルールの追加・変更は、次を満たすまで製品リリース�
 
 すべての実記事Learningは `learning/LEARNING_REGISTRY.json` で追跡し、Pattern Libraryへの昇格前に既存ルール照合を行います。
 採用・却下・重複・実装・検証の履歴は `learning/DECISION_LOG.md` に残します。
+
+## v2.4 Real-article Validation Patterns
+
+| ID | Pattern | Canonical source |
+|---|---|---|
+| QP-013 | Before Source Integrity | `validation/real-article-publication-validation.md` |
+| QP-014 | Paste-ready After and JSON Synchronization | `validation/real-article-publication-validation.md` |
+| QP-015 | Search Demand Is Not Factual Evidence | `evidence/search-demand-evidence-boundary.md` |
+| QP-016 | Low Sample Title Control | `patterns/low-sample-title-control-pattern.md` |
+| QP-017 | Winner Query Protection | `patterns/winner-query-protection-pattern.md` |
+| QP-018 | Supernatural Health Causation Guard | `knowledge/supernatural-health-causation-safety.md` |
+| QP-019 | Conditional Food Safety Claims | `knowledge/food-safety-conditional-claims.md` |
+| QP-020 | Internal Link Destination Validation | `knowledge/internal-link-destination-validation.md` |
+| QP-021 | Title Promise Alignment | `knowledge/title-promise-alignment.md` |

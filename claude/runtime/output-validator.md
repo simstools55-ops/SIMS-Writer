@@ -58,3 +58,7 @@
 - Final displayed text and Contract 4.2 JSON must match.
 
 - 「最安値」「送料無料」「期間限定」等の未検証マーケティング主張がCTAに残る場合はFAIL。
+
+## Real Article Final Gate v2.4
+
+`runtime/real-article-final-gate-v2.4.md` をPublication Integrity Gateの直後に実行する。実記事由来でないBefore、要約After、Search Console需要だけの事実断定、局所安全化後に本文へ残る危険主張をFAILとする。

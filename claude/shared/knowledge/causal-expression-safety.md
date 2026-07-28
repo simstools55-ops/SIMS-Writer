@@ -16,3 +16,7 @@ WriterとArticle Creatorに共通する編集品質を安定させる。
 ## 製品境界
 
 この規則はQuery Coverage、QUERY_MIX、Winner Query Preservation、SIMS_FEEDBACK_V2を定義しない。
+
+## v2.4 Health and supernatural causation
+
+身体症状と生霊・先祖・エネルギー等を原因、警告、見分けられるサインとして結びつけない。詳細は `knowledge/supernatural-health-causation-safety.md` を参照する。

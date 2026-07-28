@@ -1,12 +1,12 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "2.3.0",
-  "integrated_version": "2.3.0",
+  "source_version": "2.4.0",
+  "integrated_version": "2.4.0",
   "target_product": "writer",
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "e84d4a748a206e6797b15702395c16cac2ed953a9e4b61043f9b19dd5a21af5e"
+      "sha256": "f65ebbfef133d8de31cdcf98c7f2ce8467d9eeb0b748ee72f4be62b0f5e337ce"
     },
     {
       "path": "Decision-Support.md",
@@ -34,7 +34,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "8ba68e528d160187b16a0b1f86d0cc0502f71585a9cd0170be0eb34c836a44e5"
+      "sha256": "2ea386799ff91cbf9748fae499b4d8765d5d99d7e7dd226e20182ca9a624f21f"
     },
     {
       "path": "SERP-Entity-Preservation.md",
@@ -42,19 +42,19 @@
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "fc4ddb345a6e2309d53e2b7582f7d9b6241ad37286a734a4080b7a1ff5747e76"
+      "sha256": "1086faacc1246cf20a4f5108e2d5f9605d7dbb43d0a61fff10dc21b051b88a1e"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "1a724e997939b5a8d65078c60735ab2700035435c6e1d7d30706e7af32d73e82"
+      "sha256": "06912541a01d1b86bd293810ddf48c01cfd85168ad1997f09fcae8148953382c"
     },
     {
       "path": "VERSION",
-      "sha256": "a42caf4a54bbbe27aa45b6efbc6356c5e299b19763e728b6cdb7201b02ebbe36"
+      "sha256": "2ad7b0c3f0ede58c3165b7a8a5479e890a758d39bfe8683eaef50ce6afad7232"
     },
     {
       "path": "Writer-Application-Mapping.md",
-      "sha256": "815b01436ac21fabaedf3dbeccb849aff5f85c7c9ff3c7e279751bba858570cc"
+      "sha256": "c3264959c44d1ed0c5d15bce1dd0e2f222a989ac8c2355a7702ed585908f2eda"
     },
     {
       "path": "docs/integration-policy.md",
@@ -73,6 +73,10 @@
       "sha256": "24f66237355d6099e04dfc0f8e84db276f3408f34875da01aa3cd9c2567b3537"
     },
     {
+      "path": "evidence/search-demand-evidence-boundary.md",
+      "sha256": "44eb70da429c2daa12a942e1a709431bc14c08d12f8e2dd776e5061635469d63"
+    },
+    {
       "path": "evidence/source-confidence-freshness.md",
       "sha256": "f17d5173976007c31109622347c4ea51ddd073b1f88b9892d847ba9b714df973"
     },
@@ -86,7 +90,7 @@
     },
     {
       "path": "knowledge/causal-expression-safety.md",
-      "sha256": "aa7d1d1cce59b196f8c3c62b350f51cb9fb835c778a9b6d0cc607ec45a7b2bbe"
+      "sha256": "25f3885234a2647a554259d37c6e37f2fb50d32ce8ae83e033a9ab223965f078"
     },
     {
       "path": "knowledge/central-claim-evidence-priority.md",
@@ -137,6 +141,10 @@
       "sha256": "52d1c48d61708109c16a3f14b1fc21ac3becf3585f71b8e3f70e0c2b318ffcd5"
     },
     {
+      "path": "knowledge/food-safety-conditional-claims.md",
+      "sha256": "c36319907e9152ae7b2725a999bc108965020616ce2e92da836f1f2e692a5117"
+    },
+    {
       "path": "knowledge/freshness-safety.md",
       "sha256": "7a0c522a67e459d3bbea737f0a33b427f8570332e36cd91a0de0a04567f8815b"
     },
@@ -150,7 +158,7 @@
     },
     {
       "path": "knowledge/html-entity-integrity.md",
-      "sha256": "b15da27cf5524551c716d19fe7524e3597c1154a5dd1e6ed510189f97a5d1972"
+      "sha256": "f6e85cb0589e4ec01fa18a55a10433b951dc3192a45c21bc44a9f3a2197728e8"
     },
     {
       "path": "knowledge/integrated-serp-query-evidence.md",
@@ -159,6 +167,10 @@
     {
       "path": "knowledge/intent-analysis.md",
       "sha256": "283d2e7f436e32f7b3b9c9bbfb044dc6325cfe102f611eaa53a72cdfac525cb7"
+    },
+    {
+      "path": "knowledge/internal-link-destination-validation.md",
+      "sha256": "fb84364f9056455cdbb8bfc8f4b9092be30b0d230714a74c24d32bf25c139631"
     },
     {
       "path": "knowledge/internal-link-integrity.md",
@@ -214,7 +226,7 @@
     },
     {
       "path": "knowledge/semantic-expectation-ymyl-safety.md",
-      "sha256": "6cd4e52641c06655884ee881f69c9381651a3636080250b52479ff5a00e2754b"
+      "sha256": "1a4bc1643f24a2f5406f87fc05b524c7cf67280c2e8ed0c357d8aa9c802bac7a"
     },
     {
       "path": "knowledge/serp-entity-preservation.md",
@@ -229,12 +241,20 @@
       "sha256": "89d78dc42924fa4cb55a699e2d3002cca98b5b4e54b41a907d10e94f24a95647"
     },
     {
+      "path": "knowledge/supernatural-health-causation-safety.md",
+      "sha256": "1f79e748050e308b4d9cac769376ce4669f387bc3b38fba7e377180b0980eda3"
+    },
+    {
+      "path": "knowledge/title-promise-alignment.md",
+      "sha256": "b2973e6144b9948c4a5be07014ed77e9f0b0bd728ac8593ee9e62e1d40db4f8e"
+    },
+    {
       "path": "knowledge/validation-auditability.md",
       "sha256": "b7092000193af8ee6ae340961b06e1f6d8f1d8b063e27f5d2e2d4217c5ebc8d3"
     },
     {
       "path": "learning/DECISION_LOG.md",
-      "sha256": "86fa4cdc6d13852e028e51ca903d2b28ba4db365ecc9de0a31afebd09756c02f"
+      "sha256": "1c0df1c090a44dfb63d967ade55b5c177733201fd5a7356e5ddc342f272c71d4"
     },
     {
       "path": "learning/LEARNING_INTAKE_TEMPLATE.md",
@@ -242,7 +262,7 @@
     },
     {
       "path": "learning/LEARNING_REGISTRY.json",
-      "sha256": "ffbfe6d81072128e2fd384e61bfe34c560ff606cb51925b60dc7852c4c0d250c"
+      "sha256": "693db84ad0d7bce3fe50107b87ad6d3ebde0d8996220d4ba2d0a965ff035f642"
     },
     {
       "path": "learning/LEARNING_SPRINT_PLAYBOOK.md",
@@ -254,11 +274,11 @@
     },
     {
       "path": "mappings/writer/application-mapping.md",
-      "sha256": "815b01436ac21fabaedf3dbeccb849aff5f85c7c9ff3c7e279751bba858570cc"
+      "sha256": "c3264959c44d1ed0c5d15bce1dd0e2f222a989ac8c2355a7702ed585908f2eda"
     },
     {
       "path": "patterns/answer-first-pattern.md",
-      "sha256": "5228ecd93daf06f9181cb4c8274b8db51b8dfad2ce787addd9e1281445c47533"
+      "sha256": "98e876e504fa0f2c49c0a136bf136bb6c3b10e37d5122344be31dbdff8a2e961"
     },
     {
       "path": "patterns/dynamic-claim-safe-rewrite-pattern.md",
@@ -285,6 +305,10 @@
       "sha256": "d211c403691d39736a1f5c25da168e55c4d7195a787c23f77a79d7e1de9fac70"
     },
     {
+      "path": "patterns/low-sample-title-control-pattern.md",
+      "sha256": "a8861d649f24fe4796f30188e8d993b1dd57dd57f572e810418f624c9d177ad9"
+    },
+    {
       "path": "patterns/natural-japanese-pattern.md",
       "sha256": "e4bed0e3a16c428404b7e9ee199f7da04897274b5719636d12d6d34f6c5ff81f"
     },
@@ -305,8 +329,12 @@
       "sha256": "ccc538ec99aa3d6a76e493224cdf6f833420ba33b2cb7289d8f3249be38239bd"
     },
     {
+      "path": "patterns/winner-query-protection-pattern.md",
+      "sha256": "e8a7206b2221ffd2ff60be08f262c4cbd5e553607e803989458ea8d3e48fb198"
+    },
+    {
       "path": "patterns/ymyl-safety-pattern.md",
-      "sha256": "1944596d0a6cfd6898fbfcf276fd18c9189fdcdf41fb5dd30303581d85bbc2da"
+      "sha256": "2b307ebf2ea201f33db2249e059bb3893c6836110a447e6970a7d36e42502f46"
     },
     {
       "path": "quality/COPY_READY_OUTPUT_STANDARD_V2.md",
@@ -350,7 +378,7 @@
     },
     {
       "path": "quality/QUALITY_PATTERN_LIBRARY.md",
-      "sha256": "56f9cb672a2a0d52ac3257943e51b5a957813354eb916596030fd711144b2a6a"
+      "sha256": "6fbc075c1a5d8ec15ae9c75896b015da136cdc50f46036b8e6b5cd2e76138af3"
     },
     {
       "path": "quality/REVIEWER_PRECISION_RULES_v1.3.7.md",
@@ -402,7 +430,7 @@
     },
     {
       "path": "validation/publication-integrity-validation.md",
-      "sha256": "4633fb44d3c72182ecec8a8d665f7568a4699db9fb3b4112025fff3a82953517"
+      "sha256": "8c24184527e519da25eda8bd23c07710c7893a4acbb2e274d1c264661b03b5d7"
     },
     {
       "path": "validation/publication-pipeline-integrity-validation.md",
@@ -423,6 +451,10 @@
     {
       "path": "validation/rc2-final-integration-validation.md",
       "sha256": "27f3b5407a55474df6d2f10547306d01de9bd25b390f23ab53d56635913db360"
+    },
+    {
+      "path": "validation/real-article-publication-validation.md",
+      "sha256": "1b8620a3021146e0df2d2d04a9d2d073b6bcdf67291b059c9c0d6689908b40ad"
     },
     {
       "path": "validation/release-final-quality-gates.md",
