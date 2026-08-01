@@ -73,7 +73,7 @@ class PublicationQAEngine:
         issue_classes = split_issues(quality.get("issues") or [])
         publication_state = "PUBLIC_OK" if publishable else "PUBLIC_BLOCKED"
         return {
-            "qa_engine_version": "1.2.0",
+            "qa_engine_version": "1.3.0",
             "publication_state": publication_state,
             "issue_classes": issue_classes,
             "qa_contract": "SIMS_EDITORIAL_QA_V1",

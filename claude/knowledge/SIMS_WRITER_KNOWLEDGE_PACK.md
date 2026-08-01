@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack v0.2.0
 
-Version: 3.0.2
+Version: 3.1.0
 # SIMS Writer Quality Specification v0.2.0
 
 Status: Quality Freeze  

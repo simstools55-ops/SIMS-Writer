@@ -1,9 +1,4 @@
 .gitignore
-.pytest_cache/.gitignore
-.pytest_cache/CACHEDIR.TAG
-.pytest_cache/README.md
-.pytest_cache/v/cache/lastfailed
-.pytest_cache/v/cache/nodeids
 CHANGELOG.md
 CONTRIBUTING.md
 LICENSE
@@ -63,6 +58,7 @@ RELEASE_NOTES_v2.3.0.md
 RELEASE_NOTES_v2.4.0.md
 RELEASE_NOTES_v3.0.0.md
 RELEASE_NOTES_v3.0.2.md
+RELEASE_NOTES_v3.1.0.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/domain/editorial-qa-boundary-v1.0.md
@@ -157,6 +153,7 @@ claude/shared/Intent-Analysis.md
 claude/shared/Internal-Link-Semantics.md
 claude/shared/LICENSE
 claude/shared/README.md
+claude/shared/RELEASE_NOTES_v3.1.0.md
 claude/shared/SERP-Entity-Preservation.md
 claude/shared/SNAPSHOT_MANIFEST.json
 claude/shared/SNAPSHOT_SCOPE.json
@@ -230,6 +227,7 @@ claude/shared/patterns/evidence-publication-boundary-pattern.md
 claude/shared/patterns/expectation-alignment-pattern.md
 claude/shared/patterns/freshness-qualification-pattern.md
 claude/shared/patterns/gap-completion-pattern.md
+claude/shared/patterns/intent-drift-cross-link-pattern.md
 claude/shared/patterns/internal-link-role-separation-pattern.md
 claude/shared/patterns/low-sample-title-control-pattern.md
 claude/shared/patterns/natural-japanese-pattern.md
@@ -240,6 +238,7 @@ claude/shared/patterns/terminology-unit-consistency-pattern.md
 claude/shared/patterns/title-semantic-alignment-pattern.md
 claude/shared/patterns/winner-query-protection-pattern.md
 claude/shared/patterns/ymyl-safety-pattern.md
+claude/shared/product/revenue-first-validation-principle.md
 claude/shared/quality/COPY_READY_OUTPUT_STANDARD_V2.md
 claude/shared/quality/EDITORIAL_QA_CONTRACT_V1.md
 claude/shared/quality/EVIDENCE_DECISION_POLICY_V2.md
@@ -273,6 +272,7 @@ claude/shared/validation/quality-pattern-library-validation.md
 claude/shared/validation/rc2-final-integration-validation.md
 claude/shared/validation/real-article-publication-validation.md
 claude/shared/validation/release-final-quality-gates.md
+claude/shared/validation/revenue-first-validation.md
 claude/shared/validation/seo-critical-auto-repair-validation.md
 claude/shared/validation/shared-knowledge-validation.md
 claude/shared/validation/temporal-lifecycle-validation.md
@@ -505,6 +505,7 @@ learning/templates/USER_FEEDBACK_TEMPLATE.json
 migrations/sims-core/asset-mapping.md
 migrations/sims-core/migration-framework-v1.0.md
 migrations/sims-core/migration-inventory.yaml
+patterns/definitions/W-INTENT-DRIFT-001.md
 patterns/definitions/anti_pattern/PT-ANT-001-keyword-stuffing.yaml
 patterns/definitions/anti_pattern/PT-ANT-002-competitor-heading-copy.yaml
 patterns/definitions/anti_pattern/PT-ANT-003-faq-inflation.yaml
@@ -597,6 +598,7 @@ presentation/FEEDBACK_TEMPLATE.md
 presentation/PRESENTATION_TEMPLATE.md
 product/philosophy/product-philosophy-v1.0.md
 product/platform/SIMS_PLATFORM_GUIDE.md
+product/principles/REVENUE_FIRST_VALIDATION.md
 product/principles/core-principles-v1.0.md
 product/quality/AUTO_FIX_RULES.md
 product/quality/PUBLIC_RELEASE_GATE.md
@@ -757,6 +759,7 @@ runtime/real-article-final-gate-v2.4.md
 runtime/refinement/targeted-refinement-v1.0.md
 runtime/regression-test-procedure.md
 runtime/release-final-quality-gates-v2.0.md
+runtime/revenue-first-validation-v3.1.0.md
 runtime/rewrite-level-and-scope.md
 runtime/risk-assessment.md
 runtime/runtime-health.md
@@ -825,6 +828,7 @@ shared/Intent-Analysis.md
 shared/Internal-Link-Semantics.md
 shared/LICENSE
 shared/README.md
+shared/RELEASE_NOTES_v3.1.0.md
 shared/SERP-Entity-Preservation.md
 shared/SNAPSHOT_MANIFEST.json
 shared/SNAPSHOT_SCOPE.json
@@ -898,6 +902,7 @@ shared/patterns/evidence-publication-boundary-pattern.md
 shared/patterns/expectation-alignment-pattern.md
 shared/patterns/freshness-qualification-pattern.md
 shared/patterns/gap-completion-pattern.md
+shared/patterns/intent-drift-cross-link-pattern.md
 shared/patterns/internal-link-role-separation-pattern.md
 shared/patterns/low-sample-title-control-pattern.md
 shared/patterns/natural-japanese-pattern.md
@@ -908,6 +913,7 @@ shared/patterns/terminology-unit-consistency-pattern.md
 shared/patterns/title-semantic-alignment-pattern.md
 shared/patterns/winner-query-protection-pattern.md
 shared/patterns/ymyl-safety-pattern.md
+shared/product/revenue-first-validation-principle.md
 shared/quality/COPY_READY_OUTPUT_STANDARD_V2.md
 shared/quality/EDITORIAL_QA_CONTRACT_V1.md
 shared/quality/EVIDENCE_DECISION_POLICY_V2.md
@@ -941,6 +947,7 @@ shared/validation/quality-pattern-library-validation.md
 shared/validation/rc2-final-integration-validation.md
 shared/validation/real-article-publication-validation.md
 shared/validation/release-final-quality-gates.md
+shared/validation/revenue-first-validation.md
 shared/validation/seo-critical-auto-repair-validation.md
 shared/validation/shared-knowledge-validation.md
 shared/validation/temporal-lifecycle-validation.md
@@ -969,6 +976,7 @@ tests/contracts/README.md
 tests/contracts/test_contract_examples.py
 tests/decisions/test_decision_assets.py
 tests/decisions/test_decision_contracts.py
+tests/fixtures/v3_1_0/intent-drift-cross-link.md
 tests/golden/README.md
 tests/golden/cases/gc-amb-008-ambiguous-intent.json
 tests/golden/cases/gc-cmp-006-comparison.json
@@ -1033,6 +1041,7 @@ tests/release/test_v3_0_0_architecture.py
 tests/release-a/README.md
 tests/runtime/test_quality_foundation.py
 tests/runtime/test_quality_runtime.py
+tests/runtime/test_revenue_first_v3_1_0.py
 tests/runtime/test_runtime_core.py
 tests/runtime/test_shared_editorial_application.py
 tests/search-diagnosis-regression-manifest.md

@@ -23,7 +23,7 @@ def classify_change(change: dict[str, Any]) -> str:
     """Classify one proposed edit after internal QA.
 
     The classifier is intentionally conservative. A change is PUBLIC_OK only
-    when it is complete, supported and free from unresolved human decisions.
+    when it is complete, supported and free from unresolved human decisions. Low-evidence drafts are repaired or rejected internally; they are not delegated to the user unless a genuine owner signal is present.
     """
     if change.get("rejected") or change.get("internal_reject"):
         return INTERNAL_REJECT
@@ -40,7 +40,7 @@ def classify_change(change: dict[str, Any]) -> str:
     if level == NONE or change.get("evidence_sufficient") is False:
         return INTERNAL_REJECT
     if level == LOW:
-        return USER_DECISION
+        return INTERNAL_REJECT
     if change.get("copy_ready") is False:
         return INTERNAL_REJECT
     return PUBLIC_OK

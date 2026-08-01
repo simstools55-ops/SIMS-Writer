@@ -1,6 +1,6 @@
 {
-  "registry_version": "1.1",
-  "shared_version": "3.0.1",
+  "registry_version": "1.2",
+  "shared_version": "3.1.0",
   "record_id_format": "LR-YYYY-NNNN",
   "allowed_classifications": [
     "ARTICLE_SPECIFIC",
@@ -136,6 +136,19 @@
       "product_scope": "Writer",
       "canonical_rule": "knowledge/supernatural-health-causation-safety.md",
       "regression_fixture": "tests/fixtures/v2_4_0/supernatural-health-causation.md"
+    },
+    {
+      "id": "LR-2026-0011",
+      "observed_at": "2026-08-02",
+      "article_id": "A000081",
+      "observation": "最大表示クエリの検索意図が記事本来のテーマと異なり、別記事への意図分岐が有効だった",
+      "classification": "PATTERN_CANDIDATE",
+      "status": "ACCEPTED",
+      "decision": "intent drift detection and cross-link routing",
+      "owner": "SIMS Editorial Platform",
+      "product_scope": "Writer",
+      "canonical_rule": "patterns/intent-drift-cross-link-pattern.md",
+      "regression_fixture": "tests/fixtures/v3_1_0/intent-drift-cross-link.md"
     }
   ]
 }

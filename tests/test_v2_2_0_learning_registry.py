@@ -3,7 +3,7 @@ import json
 ROOT=Path(__file__).parents[1]
 
 def test_learning_registry_reaches_writer_snapshot():
-    assert (ROOT/'VERSION').read_text().strip()=='3.0.2'
+    assert (ROOT/'VERSION').read_text().strip()=='3.1.0'
     assert (ROOT/'shared/learning/LEARNING_REGISTRY.json').is_file()
     reg=json.loads((ROOT/'shared/learning/LEARNING_REGISTRY.json').read_text())
     assert 'PREFERENCE_ONLY' in reg['allowed_classifications']

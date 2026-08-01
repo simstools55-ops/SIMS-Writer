@@ -1,3 +1,7 @@
+
+## v3.1.0 Revenue First Validation
+
+Publication blocking now follows material SEO, revenue, safety and factual impact. Minor editorial preferences do not block output or become user decisions.
 ## 3.0.1 - 2026-08-01
 
 - Separated SEO-critical validation from non-blocking quality recommendations.

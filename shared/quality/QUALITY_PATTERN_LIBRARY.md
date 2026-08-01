@@ -89,3 +89,6 @@ Sharedルールの追加・変更は、次を満たすまで製品リリース�
 | QP-019 | Conditional Food Safety Claims | `knowledge/food-safety-conditional-claims.md` |
 | QP-020 | Internal Link Destination Validation | `knowledge/internal-link-destination-validation.md` |
 | QP-021 | Title Promise Alignment | `knowledge/title-promise-alignment.md` |
+
+| QP-022 | Revenue First Validation | `product/revenue-first-validation-principle.md` |
+| QP-023 | Intent Drift Cross-Link Routing | `patterns/intent-drift-cross-link-pattern.md` |

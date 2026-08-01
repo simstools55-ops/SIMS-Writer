@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "3.0.2",
-  "integrated_version": "3.0.2",
+  "source_version": "3.1.0",
+  "integrated_version": "3.1.0",
   "target_product": "writer",
   "files": [
     {
@@ -37,20 +37,24 @@
       "sha256": "27caa225ae8d422d86ee5f3a30503d474eb541b029aeb82f2253ce9f2a7b4f5c"
     },
     {
+      "path": "RELEASE_NOTES_v3.1.0.md",
+      "sha256": "0a0a70b63d075891f44fc246c1ad260f42e9cdc85e42d1dda9fa186d7ce4a1e8"
+    },
+    {
       "path": "SERP-Entity-Preservation.md",
       "sha256": "1d3987667305271f984c16eaa3a31b469335ce3b93bb8357af5a634653ebb85d"
     },
     {
       "path": "SNAPSHOT_SCOPE.json",
-      "sha256": "78b8c2cae5442214b47d0dcc37a85cfe136d12bc8873f28855a90dfbc433410e"
+      "sha256": "3ede003f3a0a05cf6f78e0a8da5d5e7a4d626c271bf380e4f904d0d500edf12f"
     },
     {
       "path": "SOURCE.md",
-      "sha256": "14adbf8cf197a1d616023878821779200945f729bd7a1ca4cadd313ff4d5fb58"
+      "sha256": "87c2f2170a7981a97c328cc30cb31e05e2e7875dde68b2e3f9625655b783e032"
     },
     {
       "path": "VERSION",
-      "sha256": "3fc0bf8d7ddbfe77eb4074c0b03d6567d7874a25ea4144aadea6686fcd5f6feb"
+      "sha256": "b2f44d3b6e29f8b1b73ea4735f006affc4d198e1fd9c7d50e736159b1ef636c6"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -286,7 +290,7 @@
     },
     {
       "path": "learning/LEARNING_REGISTRY.json",
-      "sha256": "65487a3bd8869ae2b57f0b1b4155cb7335c6b21bf74be964d9bf7cb74ba46be8"
+      "sha256": "aab36e6cee2e2d1ffe2dcad2be91a85bc758a1c2838e13866e4bf447e63306f9"
     },
     {
       "path": "learning/LEARNING_SPRINT_PLAYBOOK.md",
@@ -298,7 +302,7 @@
     },
     {
       "path": "mappings/writer/application-mapping.md",
-      "sha256": "2b553ca736b083e3942e9b827e4c262e028e3e45a8bfd672521b89b5bb928b76"
+      "sha256": "c71bac4cdc698c7989b1678443ae4e646fab88ad45a6832eeaaee0e883f2698e"
     },
     {
       "path": "patterns/answer-first-pattern.md",
@@ -323,6 +327,10 @@
     {
       "path": "patterns/gap-completion-pattern.md",
       "sha256": "a7f05e3ff8c8393c0b0bc34d87736a8964dc3f765b084500f24b21db8096d487"
+    },
+    {
+      "path": "patterns/intent-drift-cross-link-pattern.md",
+      "sha256": "ef037c0ace6598a568f4f34362870863599d2d535cb074322d1b5a9a2941b6d7"
     },
     {
       "path": "patterns/internal-link-role-separation-pattern.md",
@@ -363,6 +371,10 @@
     {
       "path": "patterns/ymyl-safety-pattern.md",
       "sha256": "2b307ebf2ea201f33db2249e059bb3893c6836110a447e6970a7d36e42502f46"
+    },
+    {
+      "path": "product/revenue-first-validation-principle.md",
+      "sha256": "1ce8214acca7f7bd8453f9438bebc733414da72ef31fb72fd93e04a2cb49ba21"
     },
     {
       "path": "quality/COPY_READY_OUTPUT_STANDARD_V2.md",
@@ -406,7 +418,7 @@
     },
     {
       "path": "quality/QUALITY_PATTERN_LIBRARY.md",
-      "sha256": "6fbc075c1a5d8ec15ae9c75896b015da136cdc50f46036b8e6b5cd2e76138af3"
+      "sha256": "8e0de0cdfdf0806a813dfc547dc677672c90e3a74400eb5a053914dddc954739"
     },
     {
       "path": "quality/REVIEWER_PRECISION_RULES_v1.3.7.md",
@@ -497,6 +509,10 @@
       "sha256": "6f038e7bc2046410e5f73c91deb72f4bc9cf4bbd8d999ff043dc3df6ce7d1c39"
     },
     {
+      "path": "validation/revenue-first-validation.md",
+      "sha256": "dbf0d8211321c2490ff2ec404a12b46819198eba3a0945d0c24ee329f9e8d2df"
+    },
+    {
       "path": "validation/seo-critical-auto-repair-validation.md",
       "sha256": "4a589947594c870a0df69195e75ee8cb72ab76d9e33a045bfce7527f004ebe0c"
     },
@@ -512,5 +528,7 @@
       "path": "validation/validation-message-integrity.md",
       "sha256": "f8d62aa7a5c286439575c4b0a3177585c26bf4f662ab5f5b7d3f76c8c3a15dac"
     }
-  ]
+  ],
+  "version": "3.1.0",
+  "shared_version": "3.1.0"
 }

@@ -1,3 +1,7 @@
+
+## v3.1.0 Revenue First Validation
+
+Publication blocking now follows material SEO, revenue, safety and factual impact. Minor editorial preferences do not block output or become user decisions.
 # SIMS Writer v1.3.1
 
 # SIMS Writer v1.1.3
