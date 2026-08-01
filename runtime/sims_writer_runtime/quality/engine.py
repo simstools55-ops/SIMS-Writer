@@ -2,6 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Any
+from ..qa.severity import split_issues
 import json, re
 try:
     import yaml
@@ -70,10 +71,10 @@ class QualityValidationEngine:
         blockers=[i for i in issues if i['result']=='fail' and i['severity']=='blocker']
         critical=[i for i in issues if i['result']=='fail' and i['severity']=='critical']
         unver_major=[i for i in issues if i['result']=='unable_to_verify' and i['severity'] in ('blocker','critical')]
-        failures=[i for i in issues if i['result']=='fail']
-        if blockers or critical or unver_major: decision='revision_required'
-        elif failures: decision='revision_required'
-        elif any(i['result'] in ('warning','unable_to_verify') for i in issues): decision='publish_ready_with_advisory'
+        classes=split_issues(issues)
+        unresolved_critical=[i for i in classes['seo_critical'] if i.get('result') in ('fail','unable_to_verify')]
+        if blockers or critical or unver_major or unresolved_critical: decision='revision_required'
+        elif issues: decision='publish_ready_with_advisory'
         else: decision='publish_ready'
         dim={}
         for c in checks:
@@ -82,7 +83,7 @@ class QualityValidationEngine:
         return {'framework_version':'1.0.0','rules_evaluated':len(checks),'checks':[c.to_dict() for c in checks],
                 'issues':issues,'gate_results':gate_results,'dimension_scores':scores,
                 'summary':{'pass':sum(c.result=='pass' for c in checks),'fail':sum(c.result=='fail' for c in checks),'warning':sum(c.result=='warning' for c in checks),'unable_to_verify':sum(c.result=='unable_to_verify' for c in checks)},
-                'blockers':blockers,'critical_issues':critical,'publish_recommendation':decision}
+                'blockers':blockers,'critical_issues':critical,'issue_classes':classes,'publish_recommendation':decision}
 
     def _r(self,r,result,component,desc,evidence=None,action=None):
         return CheckResult(r['id'],r['dimension'],r['severity'],result,component,desc,evidence or [],action,bool(r.get('auto_fix_eligible')))

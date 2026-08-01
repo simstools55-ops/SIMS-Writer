@@ -1,7 +1,7 @@
 {
   "source_repository": "SIMS-Shared-Editorial-Knowledge",
-  "source_version": "3.0.0",
-  "integrated_version": "3.0.0",
+  "source_version": "3.0.1",
+  "integrated_version": "3.0.1",
   "target_product": "writer",
   "files": [
     {
@@ -10,7 +10,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "4425777d7dc025a60e9b7fb7cd0cbaef069155b1bbcd4582118ff14eb46f27b0"
+      "sha256": "1cccb71676920252f846768df490c0c83a9ccea14da4b8310775d074fa92f23d"
     },
     {
       "path": "Decision-Support.md",
@@ -19,6 +19,10 @@
     {
       "path": "Evidence-Transparency.md",
       "sha256": "f047a073ee9a87c770fd5c148f40378538d8b3ef13b746d069768e360246c3b9"
+    },
+    {
+      "path": "FILE_MANIFEST.txt",
+      "sha256": "1d9db22f77c0db70a258786484c67a91924d5deb9348f96e024aaa027ff92243"
     },
     {
       "path": "Hidden-Anxiety.md",
@@ -38,7 +42,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "2ea386799ff91cbf9748fae499b4d8765d5d99d7e7dd226e20182ca9a624f21f"
+      "sha256": "27caa225ae8d422d86ee5f3a30503d474eb541b029aeb82f2253ce9f2a7b4f5c"
     },
     {
       "path": "RELEASE_NOTES_v1.3.4_EDITORIAL_QA_CONTRACT.md",
@@ -149,6 +153,10 @@
       "sha256": "9c0a2d59160488b5631be0567995413915c0857eb4d126f728526f916a38688e"
     },
     {
+      "path": "RELEASE_NOTES_v3.0.1.md",
+      "sha256": "791ff9b563a4cc0cea6e8c4c78ae7a7dcbd1aecca39fe997737498542e91da08"
+    },
+    {
       "path": "SERP-Entity-Preservation.md",
       "sha256": "1d3987667305271f984c16eaa3a31b469335ce3b93bb8357af5a634653ebb85d"
     },
@@ -158,11 +166,11 @@
     },
     {
       "path": "SOURCE.md",
-      "sha256": "54949e9edcfbdc9223c517e57d9b7182af50cc7172d8b9d9027bd267ecab92ce"
+      "sha256": "0c78ac761966364bc5e97529e364e2d6af295107f3b1f0667ea44ed3dc9b67ea"
     },
     {
       "path": "VERSION",
-      "sha256": "2985be8b28d3ade858e8d8fb4bc22f565b1bf6020dff982dce141f7721b9999c"
+      "sha256": "06e3fe4a7a1884d20d81cc7065ca8cfd4c394ec602c4d180ddc39bbd4f7da521"
     },
     {
       "path": "Writer-Application-Mapping.md",
@@ -394,7 +402,7 @@
     },
     {
       "path": "learning/LEARNING_REGISTRY.json",
-      "sha256": "5a1acfa21c99d96cfb011b38c4ae54a44fdd9c85d07488c10485f0d36ff43eba"
+      "sha256": "65487a3bd8869ae2b57f0b1b4155cb7335c6b21bf74be964d9bf7cb74ba46be8"
     },
     {
       "path": "learning/LEARNING_SPRINT_PLAYBOOK.md",
@@ -537,6 +545,10 @@
       "sha256": "5e1f78ff8603e466f001f714bf1676fd1197607d2d917d662eae3e26f1ddc0b0"
     },
     {
+      "path": "quality/SEO_CRITICAL_VALIDATION_AND_AUTO_REPAIR_V3_0_1.md",
+      "sha256": "11fc9549f6d706ac7c915489e258d0c96861ef17c9b0cb4b6e8875dd8800f603"
+    },
+    {
       "path": "quality/USER_FACING_TERMINOLOGY_JA.md",
       "sha256": "440482a43b3eae8eb39a110daf2c1277999c4afddf4a425b63e9ec2257fef8ff"
     },
@@ -546,11 +558,11 @@
     },
     {
       "path": "registries/knowledge-set-registry.yaml",
-      "sha256": "70843ea1b2df515d9c6ce701ba1483c0cd7d14eceba7bfb67a4b514b657c565d"
+      "sha256": "cb4f91654a4d44a607f9d46040113da2eb6773ffe42a938d5a386660cc3379ee"
     },
     {
       "path": "registries/platform-registry.json",
-      "sha256": "5263c9273d01d5c975702ae0b69e935d30f6b48c7139400a09ea3e24ad18822c"
+      "sha256": "d03a11c8385835e28b7810ab5e5168009b57f1bd2026fcd9ce74b4397805cce5"
     },
     {
       "path": "strategy/editorial-strategy-selection.md",
@@ -563,122 +575,6 @@
     {
       "path": "strategy/serp-gap-importance-policy.md",
       "sha256": "8f5832b6670c184e85fe00631ebd77dd5e60f46f45fabe948649c982ce66caab"
-    },
-    {
-      "path": "tests/fixtures/v2_4_0/affiliate-price-freshness.md",
-      "sha256": "4fe209139ee13312e97408c3ab1bbc29a4880d23525f1a8c4585da7046a4d647"
-    },
-    {
-      "path": "tests/fixtures/v2_4_0/device-font-variability.md",
-      "sha256": "181cb47da4f6832ddf4e991546f6056f7618b9490fc80e62e5fd3727572cbfa7"
-    },
-    {
-      "path": "tests/fixtures/v2_4_0/discord-apple-intelligence.md",
-      "sha256": "9c79bc4593c3ab0600d31ee325f882a214fafb09f3956b1a5b45dce9e51168d0"
-    },
-    {
-      "path": "tests/fixtures/v2_4_0/education-fee-currentness.md",
-      "sha256": "7249ae0e2c6dad7226fe45c77e50d454ff31a65ae500eedb30cfea59dad0c5ea"
-    },
-    {
-      "path": "tests/fixtures/v2_4_0/game-mode-focus-mode.md",
-      "sha256": "afd4586f8d0ca94e5f6dfcfe0ef762b0443d24b00733eb6c067cef7da09b24fc"
-    },
-    {
-      "path": "tests/fixtures/v2_4_0/rail-link-mismatch.md",
-      "sha256": "06f4fcdfbdc25b3aab1bfc18a649153ef75adf83ff43bbfa14da19e4fb8ea05a"
-    },
-    {
-      "path": "tests/fixtures/v2_4_0/rice-food-safety.md",
-      "sha256": "79db2c43a2cb3002efbb5a35a4c0b69df6738cd3484ec674bb43362a60aa9161"
-    },
-    {
-      "path": "tests/fixtures/v2_4_0/supernatural-health-causation.md",
-      "sha256": "62858d4611af815e7af4bc86f4b34c330ec802ff486165de4815898d43e16ae0"
-    },
-    {
-      "path": "tests/test_repository.py",
-      "sha256": "c05e0f1dc089cd61b3b136dee9f7bfd9ce78b3c2fbd13e0d16087341327db490"
-    },
-    {
-      "path": "tests/test_v1_1_0_knowledge.py",
-      "sha256": "55b856ad4300cad968c981b2a9f9e1bfb6e6e956f9bf5b8b7a4b8497e1ec54b1"
-    },
-    {
-      "path": "tests/test_v1_1_1_operational_learning.py",
-      "sha256": "fb62ff0a793595847390604dfca671246779d3b1da0dfa7a636db42b120a2423"
-    },
-    {
-      "path": "tests/test_v1_1_2_writer_mapping.py",
-      "sha256": "5f8a44bc15c7ed74ae5289144a52d569b8fb2bc8077bda1dbb52dc4f1fcffef6"
-    },
-    {
-      "path": "tests/test_v1_1_3_snapshot_scope.py",
-      "sha256": "03b8aa892ab463d8ca90f5c723c96e963cde38da22dc46bfed1738649b191632"
-    },
-    {
-      "path": "tests/test_v1_3_0_common_validation.py",
-      "sha256": "13860ab5f8e5e38f718cf44fae994e1a26ebd3a18130a8cad701c33a2bd0e4a5"
-    },
-    {
-      "path": "tests/test_v1_3_1_entity_integrity.py",
-      "sha256": "4c02b1fde1d69861a7bc0276b2b32c13c6248471251bc80ccf535a809d220f50"
-    },
-    {
-      "path": "tests/test_v2_0_0_dev2_serp_first.py",
-      "sha256": "88278640271993f346914182b500ef67bbf49196044e358131bcddfbbd2034e6"
-    },
-    {
-      "path": "tests/test_v2_0_0_dev3_serp_evidence_gate.py",
-      "sha256": "0fc5b68cc0d1c3274c915098fab233db57195203dc204c24a95cbbe328d66c58"
-    },
-    {
-      "path": "tests/test_v2_0_0_dev4_evidence_layer.py",
-      "sha256": "4b2c945854a067c2c1b8c5a893aebd87fa96241374fbe9779fb40f0672a3e444"
-    },
-    {
-      "path": "tests/test_v2_0_0_dev5_progressive_editing.py",
-      "sha256": "115980e261ffbabc7221a0c3dc9004e8df2fe7371036b880a01a90d8ff858ad5"
-    },
-    {
-      "path": "tests/test_v2_0_0_dev6_knowledge_confidence.py",
-      "sha256": "8bba995f4312b0d8e1184ecf42f75ffc587aca4f519c8d96e2bfcbe0c159beb8"
-    },
-    {
-      "path": "tests/test_v2_0_0_rc1_four_layers.py",
-      "sha256": "f23f2b2ea19e0c72f73cd75daf70f14e9bb9f129e7ca210fed2c871fa6b08166"
-    },
-    {
-      "path": "tests/test_v2_0_0_release_candidate_2.py",
-      "sha256": "5b5946f94f0fb6c4ac20d43580b342dfc9d909b3bc1e1adce17667b77b6ee8a3"
-    },
-    {
-      "path": "tests/test_v2_0_0_release_final_quality_gates.py",
-      "sha256": "71088ae062128e1f7b71023c73cef93ea1e1ddd39360ed09d6185c7210158e94"
-    },
-    {
-      "path": "tests/test_v2_0_1_hotfix.py",
-      "sha256": "f7418476fdf80871f12c6a9b3c37a850c902b161da541afdcd11a7f2d04deb82"
-    },
-    {
-      "path": "tests/test_v2_1_0_quality_pattern_library.py",
-      "sha256": "3fc0b287f080fa3e6a9f771a848a65476048b424eeff06ad8503d915ec749cff"
-    },
-    {
-      "path": "tests/test_v2_2_0_learning_registry.py",
-      "sha256": "e080225a02e9418fdeffd686da7faa413d1b29759171fb5146ff939eac38b60e"
-    },
-    {
-      "path": "tests/test_v2_3_0_publication_integrity.py",
-      "sha256": "1f5a39224f1686829011e297166d3aff88308cc5cfbe1358dc6b22ea7dfe0d29"
-    },
-    {
-      "path": "tests/test_v2_4_0_real_article_validation.py",
-      "sha256": "a61cbe6243956b6834eab97ece44eeea4b7f03f9d3e8e136ecd7bf58f50dd89c"
-    },
-    {
-      "path": "tests/test_v3_0_0_temporal_architecture.py",
-      "sha256": "7e83fce4424bf7387a58637a5f4b9d78c4206581d3501df27c9a0c150c55314a"
     },
     {
       "path": "tools/build_scoped_snapshot.py",
@@ -739,6 +635,10 @@
     {
       "path": "validation/release-final-quality-gates.md",
       "sha256": "6f038e7bc2046410e5f73c91deb72f4bc9cf4bbd8d999ff043dc3df6ce7d1c39"
+    },
+    {
+      "path": "validation/seo-critical-auto-repair-validation.md",
+      "sha256": "4a589947594c870a0df69195e75ee8cb72ab76d9e33a045bfce7527f004ebe0c"
     },
     {
       "path": "validation/shared-knowledge-validation.md",

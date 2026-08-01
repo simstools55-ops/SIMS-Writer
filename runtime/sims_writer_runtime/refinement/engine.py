@@ -32,7 +32,7 @@ class TargetedRefinementEngine:
                 break
             before = deepcopy(current)
             for route in auto_routes:
-                current = self._apply(current, route.recovery_type)
+                current = self._apply(current, route.recovery_type, context or {})
             if current == before:
                 break
             revisions.append({"round": round_no, "type": "auto_fix", "routes": [asdict(r) for r in auto_routes]})
@@ -49,8 +49,9 @@ class TargetedRefinementEngine:
             "status": self._status(report, action_plan),
         }
 
-    def _apply(self, draft: dict[str, Any], recovery_type: str) -> dict[str, Any]:
+    def _apply(self, draft: dict[str, Any], recovery_type: str, context: dict[str, Any] | None = None) -> dict[str, Any]:
         d = deepcopy(draft)
+        context = context or {}
         fields = ("seo_title", "meta_description", "h1", "introduction", "article_content", "conclusion")
         if recovery_type == "placeholder_elimination":
             for key in fields:
@@ -76,6 +77,38 @@ class TargetedRefinementEngine:
                 s=deepcopy(section); level=int(s.get("level",2)); level=min(level, previous+1); level=max(2, level)
                 s["level"]=level; previous=level; repaired.append(s)
             d["sections"]=repaired
+        elif recovery_type == "unsupported_claim_softening":
+            replacements = (context.get("auto_repair") or {}).get("claim_replacements") or []
+            for key in fields:
+                value = d.get(key)
+                if isinstance(value, str):
+                    for item in replacements:
+                        old, new = str(item.get("before") or ""), str(item.get("after") or "")
+                        if old: value = value.replace(old, new)
+                    d[key] = value
+        elif recovery_type == "unverified_value_redaction":
+            values = (context.get("auto_repair") or {}).get("unverified_values") or []
+            replacement_text = (context.get("auto_repair") or {}).get("verification_text", "公式情報を確認してください")
+            for key in fields:
+                value = d.get(key)
+                if isinstance(value, str):
+                    for raw in values:
+                        if str(raw): value = value.replace(str(raw), replacement_text)
+                    d[key] = value
+        elif recovery_type == "title_promise_softening":
+            for key in ("seo_title", "h1", "meta_description", "introduction"):
+                value = d.get(key)
+                if isinstance(value, str):
+                    value = value.replace("徹底比較", "比較").replace("徹底的に比較", "比較").replace("完全ガイド", "ガイド")
+                    d[key] = value
+        elif recovery_type == "json_publication_sync":
+            feedback = d.get("feedback")
+            if isinstance(feedback, dict):
+                publication = feedback.get("publication_result") or {}
+                for item in publication.get("public_ok_changes") or []:
+                    target = item.get("target") or item.get("component")
+                    if target in d and item.get("after") is not None:
+                        d[target] = item.get("after")
         return d
 
     @staticmethod

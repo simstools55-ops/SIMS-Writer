@@ -61,3 +61,7 @@ Shared Editorial KnowledgeはSEO知識集に限定せず、SIMS製品共通の�
 ## v2.4 Real-article Validation
 
 実記事Beforeの厳格照合、事実根拠境界、YMYL全体整合、8事例の回帰fixtureを追加しました。
+
+
+## v3.0.1
+SEO Critical Validation, internal auto-repair, revalidation, and publication finalization were added. Minor quality recommendations no longer block publication.

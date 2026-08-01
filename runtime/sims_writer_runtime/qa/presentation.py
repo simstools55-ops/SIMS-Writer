@@ -131,9 +131,9 @@ def _advisory_messages(qa_result: dict[str, Any]) -> list[str]:
 def _public_message(verdict: str) -> str:
     return {
         "PASS": "公開できます。",
-        "PASS_WITH_WARNING": "公開できます。注意事項を確認してください。",
+        "PASS_WITH_WARNING": "公開できます。SEO上の公開阻害要因はありません。任意の品質提案があります。",
         "PASS_WITH_MINOR_FIX": "軽微な修正を反映済みです。修正後の内容を公開できます。",
-        "PASS_WITH_REQUIRED_FIX": "公開前の修正が必要です。現在の内容は公開しないでください。",
+        "PASS_WITH_REQUIRED_FIX": "SEO上の重大問題が残っているため、現在の候補は公開しないでください。内部修正後の候補を再検証します。",
         "FAIL": "公開できません。手動レビューが必要です。",
     }.get(verdict, "公開判定を確認できません。")
 

@@ -1,3 +1,10 @@
+## 3.0.1 - 2026-08-01
+
+- Separated SEO-critical validation from non-blocking quality recommendations.
+- Added internal repair and revalidation loop with a three-cycle cap.
+- Added publication finalization states and non-blocking follow-up separation.
+- Preserved Contract 4.2 compatibility.
+
 # v2.2.0
 
 Operational Learning Registryを追加。実記事試験の知見を分類・追跡し、10記事単位でLearning Sprintを実施します。

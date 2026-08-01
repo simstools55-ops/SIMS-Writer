@@ -12,7 +12,7 @@ MIGRATION_GUIDE_v0.2.0_FINAL.md
 MIGRATION_GUIDE_v0.2.2.md
 MIGRATION_GUIDE_v0.2.3.md
 MIGRATION_GUIDE_v1.0.0.md
-MIGRATION_GUIDE_v2.4.0_to_v3.0.0.md
+MIGRATION_GUIDE_v2.4.0_to_v3.0.1.md
 QUALITY_FREEZE_REPORT_v0.2.0.md
 README.md
 RELEASE_ACCEPTANCE_v0.15.3-alpha.1.md
@@ -61,7 +61,7 @@ RELEASE_NOTES_v2.1.0.md
 RELEASE_NOTES_v2.2.0.md
 RELEASE_NOTES_v2.3.0.md
 RELEASE_NOTES_v2.4.0.md
-RELEASE_NOTES_v3.0.0.md
+RELEASE_NOTES_v3.0.1.md
 VERSION
 architecture/domain/domain-model-v1.0.md
 architecture/domain/editorial-qa-boundary-v1.0.md
@@ -874,7 +874,7 @@ shared/RELEASE_NOTES_v2.1.0.md
 shared/RELEASE_NOTES_v2.2.0.md
 shared/RELEASE_NOTES_v2.3.0.md
 shared/RELEASE_NOTES_v2.4.0.md
-shared/RELEASE_NOTES_v3.0.0.md
+shared/RELEASE_NOTES_v3.0.1.md
 shared/SERP-Entity-Preservation.md
 shared/SNAPSHOT_MANIFEST.json
 shared/SNAPSHOT_SCOPE.json

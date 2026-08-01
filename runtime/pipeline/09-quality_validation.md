@@ -8,3 +8,7 @@ Quality RuleとGateでDraftを評価する。
 
 ## 原則
 入力と出力はContractで検証し、失敗を正常完了として扱いません。
+
+
+## v3.0.1
+Classify findings into SEO Critical and Quality Recommendation. Only unresolved SEO Critical findings enter the repair loop or block publication.
