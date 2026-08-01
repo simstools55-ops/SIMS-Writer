@@ -1,6 +1,6 @@
 {
   "registry_version": "1.1",
-  "shared_version": "2.4.0",
+  "shared_version": "3.0.0",
   "record_id_format": "LR-YYYY-NNNN",
   "allowed_classifications": [
     "ARTICLE_SPECIFIC",

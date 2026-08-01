@@ -43,3 +43,7 @@ SIMS Writerは、独立製品`SIMS-Shared-Editorial-Knowledge`を正本として
 
 ## v2.0.0 RC1 Four-Layer Architecture
 Knowledge / Strategy / Evidence / Patternを分離し、修正前にEditorial Strategyを確定します。
+
+## v3.0.0 Architecture Refresh
+
+Writer now applies Shared v3 registries, Temporal Lifecycle Analysis, contradiction resolution, preservation audits, and a staged operational-learning promotion flow while retaining the existing publication contract.

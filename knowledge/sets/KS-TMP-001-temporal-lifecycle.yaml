@@ -1,0 +1,19 @@
+id: KS-TMP-001
+name: Temporal Lifecycle Review
+version: 3.0.0
+triggers:
+  - date_sensitive
+  - deadline
+  - event_or_campaign
+  - future_tense_placeholder
+  - active_completed_expired_transition
+includes:
+  - KN-SEO-007
+  - KN-FAC-001
+  - KN-FAC-005
+  - KN-OPS-003
+shared_assets:
+  - shared/knowledge/temporal-search-intent.md
+  - shared/knowledge/content-lifecycle.md
+  - shared/knowledge/evidence-confidence-and-contradiction.md
+  - shared/patterns/temporal-lifecycle-recovery-pattern.md

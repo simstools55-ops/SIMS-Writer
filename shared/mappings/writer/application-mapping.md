@@ -76,3 +76,7 @@ Writerは以下をRuntimeの最終公開ゲートへ適用する。
 ## v2.4 Real-article validation mapping
 
 Writerは最終出力前に `validation/real-article-publication-validation.md` を必須適用する。Search Console需要と事実根拠を分離し、LOW_SAMPLE、Winner Query、YMYL、内部リンク、タイトル約束を新規v2.4正本へ接続する。実記事8事例はLearning Registryと回帰fixtureで追跡する。
+
+## v3.0 Temporal and architecture mapping
+
+Writer must load `KS-SHARED-TEMPORAL` when date-sensitive, event-based, deadline, planned, active, completed, or expired claims are present. It applies Lifecycle Detection before editing-plan generation, uses contradiction and preservation audits, and exposes only supported optional machine fields. `CONTENT_STALE`, `TEMPORAL_SHIFT`, `LIFECYCLE_CHANGE`, `CONTENT_EXPIRED`, and `CONTRADICTION_DETECTED` are validation/diagnostic signals, not automatic full-rewrite orders.

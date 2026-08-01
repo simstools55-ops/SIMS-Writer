@@ -1,0 +1,35 @@
+{
+  "version": "3.0.0",
+  "registries": [
+    {
+      "id": "REG-KNOWLEDGE",
+      "path": "knowledge/",
+      "purpose": "Product-neutral editorial knowledge"
+    },
+    {
+      "id": "REG-POLICY",
+      "path": "policies/",
+      "purpose": "Shared editorial policies"
+    },
+    {
+      "id": "REG-PATTERN",
+      "path": "patterns/",
+      "purpose": "Reusable editorial patterns"
+    },
+    {
+      "id": "REG-VALIDATION",
+      "path": "validation/",
+      "purpose": "Cross-product validation rules"
+    },
+    {
+      "id": "REG-LEARNING",
+      "path": "learning/LEARNING_REGISTRY.json",
+      "purpose": "Operational learning source of truth"
+    },
+    {
+      "id": "REG-PRESERVATION",
+      "path": "knowledge/preservation-signals.md",
+      "purpose": "Protected-value signals"
+    }
+  ]
+}

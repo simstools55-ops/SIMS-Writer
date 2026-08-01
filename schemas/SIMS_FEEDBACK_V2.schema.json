@@ -100,6 +100,56 @@
         "string",
         "null"
       ]
+    },
+    "analysis_extensions": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "temporal_analysis": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "lifecycle": {
+          "type": "string",
+          "enum": [
+            "ANNOUNCED",
+            "SCHEDULED",
+            "ACTIVE",
+            "COMPLETED",
+            "EXPIRING",
+            "EXPIRED",
+            "ARCHIVED",
+            "UNKNOWN"
+          ]
+        },
+        "knowledge_used": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "patterns_used": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "review_summary": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "serp_findings": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "coverage_summary": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
     }
   },
   "$defs": {

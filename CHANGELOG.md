@@ -504,3 +504,8 @@
 - Integrated Shared v2.4.0 real-article validation snapshot.
 - Added strict Before source, paste-ready After, cross-output synchronization and whole-article safety final gate.
 - Added eight real-article regression learnings.
+
+## 3.0.0 - 2026-08-01
+- Refreshed architecture around Shared registries and knowledge sets.
+- Added temporal lifecycle, contradiction, preservation, and learning-promotion capabilities.
+- Added optional backward-compatible machine analysis extensions.
