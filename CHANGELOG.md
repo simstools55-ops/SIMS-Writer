@@ -516,3 +516,6 @@
 - Refreshed architecture around Shared registries and knowledge sets.
 - Added temporal lifecycle, contradiction, preservation, and learning-promotion capabilities.
 - Added optional backward-compatible machine analysis extensions.
+
+## 3.0.2 - 2026-08-01
+- Added ambiguous fee claim detection and automatic cross-component repair.

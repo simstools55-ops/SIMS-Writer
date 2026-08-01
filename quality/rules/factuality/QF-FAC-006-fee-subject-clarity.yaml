@@ -1,0 +1,19 @@
+id: QF-FAC-006
+name: Fee Subject and Recipient Clarity
+dimension: factuality
+severity: critical
+version: 3.0.2
+status: active
+requirement: 無料・手数料なし・手数料はいくら等の料金主張は、支払主体、受取主体、料金種別、予約先側の追加費用を区別して説明する。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: 誰が誰へ何の費用を支払うかが明確で、利用サービス側と遷移先・提携先の費用が混同されていない。
+fail_condition: 手数料の主体や受取先が不明なまま無料・手数料なし等を断定し、読者が総額や収益構造を誤解する。
+warning_condition: 周辺情報が不足する場合は表現を限定し、確認先を案内する。
+auto_fix_eligible: true
+manual_review_required: false
+related_knowledge:
+- KN-FAC-002
+- KN-FAC-003
+related_patterns: []
+reviewed_at: '2026-08-01'
+next_review_at: '2027-02-01'

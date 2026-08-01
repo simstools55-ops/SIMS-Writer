@@ -203,3 +203,6 @@ Canonical Publication QA output, unresolved-finding verdict alignment, claim-pre
 - Added temporal intent and content lifecycle knowledge.
 - Added confidence, contradiction, preservation, and learning promotion architecture.
 - Added shared registries, policies, recovery pattern, and validation.
+
+## 3.0.2 - 2026-08-01
+- Added Fee Subject Clarity and cross-component auto-repair validation.

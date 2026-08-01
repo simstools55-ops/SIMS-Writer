@@ -23,6 +23,7 @@ class TargetedRefinementEngine:
 
     def refine(self, draft: dict[str, Any], quality_report: dict[str, Any], context: dict[str, Any] | None = None) -> dict[str, Any]:
         current = deepcopy(draft)
+        current_context = deepcopy(context or {})
         revisions: list[dict[str, Any]] = []
         report = quality_report
         for round_no in range(1, self.max_auto_rounds + 1):
@@ -32,11 +33,16 @@ class TargetedRefinementEngine:
                 break
             before = deepcopy(current)
             for route in auto_routes:
-                current = self._apply(current, route.recovery_type, context or {})
+                current = self._apply(current, route.recovery_type, current_context)
             if current == before:
                 break
+            applied_recoveries = {r.recovery_type for r in auto_routes}
+            if "fee_subject_disambiguation" in applied_recoveries:
+                audit = deepcopy(current_context.get("publication_integrity_audit") or {})
+                audit["ambiguous_fee_claims"] = []
+                current_context["publication_integrity_audit"] = audit
             revisions.append({"round": round_no, "type": "auto_fix", "routes": [asdict(r) for r in auto_routes]})
-            report = self.quality_engine.evaluate(current, context or {})
+            report = self.quality_engine.evaluate(current, current_context)
 
         remaining_routes = [self.router.route(i) for i in report.get("issues", [])]
         action_plan = self._build_action_plan(remaining_routes)
@@ -95,6 +101,37 @@ class TargetedRefinementEngine:
                     for raw in values:
                         if str(raw): value = value.replace(str(raw), replacement_text)
                     d[key] = value
+        elif recovery_type == "fee_subject_disambiguation":
+            repairs = (context.get("auto_repair") or {}).get("fee_claim_repairs") or []
+            component_aliases = {
+                "article_title": "h1", "description": "meta_description", "meta": "meta_description",
+                "seo_title": "seo_title", "h1": "h1", "introduction": "introduction",
+                "article_content": "article_content", "conclusion": "conclusion",
+            }
+            for item in repairs:
+                component = str(item.get("component") or item.get("target") or "article_content")
+                key = component_aliases.get(component, component)
+                before, after = str(item.get("before") or ""), str(item.get("after") or "")
+                if key == "sections":
+                    for section in d.get("sections") or []:
+                        if isinstance(section, dict):
+                            for field in ("heading", "content"):
+                                value = section.get(field)
+                                if isinstance(value, str) and before:
+                                    section[field] = value.replace(before, after)
+                elif isinstance(d.get(key), str) and before:
+                    d[key] = d[key].replace(before, after)
+                else:
+                    for field in fields:
+                        value = d.get(field)
+                        if isinstance(value, str) and before:
+                            d[field] = value.replace(before, after)
+                    for section in d.get("sections") or []:
+                        if isinstance(section, dict):
+                            for field in ("heading", "content"):
+                                value = section.get(field)
+                                if isinstance(value, str) and before:
+                                    section[field] = value.replace(before, after)
         elif recovery_type == "title_promise_softening":
             for key in ("seo_title", "h1", "meta_description", "introduction"):
                 value = d.get(key)

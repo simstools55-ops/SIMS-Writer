@@ -1,6 +1,6 @@
 # SIMS Writer Knowledge Pack v0.2.0
 
-Version: 3.0.1
+Version: 3.0.2
 # SIMS Writer Quality Specification v0.2.0
 
 Status: Quality Freeze  
@@ -310,3 +310,6 @@ Use the Shared pattern registry as the canonical operational-learning source. Do
 
 ## Publication Integrity v2.3
 変動情報、マーケティング主張、アフィリエイトCTA、FAQ、横断整合、公開文とContract 4.2 JSONの同期を最終公開条件とする。CORRECTION_REQUESTでは指定箇所だけを局所修正し、完全JSONを再生成する。
+
+## v3.0.2 Fee Subject Auto Repair
+料金・手数料の主体を分解し、関連箇所を横断修正して再Validationする。

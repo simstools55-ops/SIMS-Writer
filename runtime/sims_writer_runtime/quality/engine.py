@@ -130,6 +130,9 @@ class QualityValidationEngine:
         if rid=='QF-FAC-005':
             audit=c.get('publication_integrity_audit') or {}; bad=audit.get('unverified_dynamic_claims') or []
             return self._r(r,'fail' if bad else 'pass','article','変動情報の現在性検査',[str(x) for x in bad], '現在の公式・一次情報で確認するか主張を限定する' if bad else None)
+        if rid=='QF-FAC-006':
+            audit=c.get('publication_integrity_audit') or {}; bad=audit.get('ambiguous_fee_claims') or []
+            return self._r(r,'fail' if bad else 'pass','article','手数料の支払主体・受取主体・料金種別の明確性検査',[str(x) for x in bad], '料金主体を分解し関連コンポーネントを横断修正する' if bad else None)
         if rid=='QF-PUB-005':
             audit=c.get('publication_integrity_audit') or {}; bad=audit.get('json_mismatches') or []
             return self._r(r,'fail' if bad else 'pass','publication_json','公開文とJSONの同期検査',[str(x) for x in bad], '最終公開文から完全JSONを再生成する' if bad else None)

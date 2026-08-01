@@ -27,3 +27,7 @@
 ## v1.1.2 Sprint 1 product guides
 
 Claude Projectは`product/quality/QUALITY_FRAMEWORK.md`、`product/platform/SIMS_PLATFORM_GUIDE.md`、`product/roadmap/WRITER_v1.1.2_IMPROVEMENT_PLAN.md`をWriter本体と同一内容で参照します。
+
+## v3.0.2 Fee Subject Auto Repair
+
+曖昧な料金・手数料表現は、支払主体・受取主体・料金種別・外部遷移先費用を分離し、関連コンポーネントを横断修正してから公開判定する。

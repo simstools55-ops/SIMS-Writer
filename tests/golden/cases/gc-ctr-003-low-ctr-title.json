@@ -56,7 +56,7 @@
   },
   "expected": {
     "publish_decision": "publish_ready_with_advisory",
-    "rules_evaluated": 46,
+    "rules_evaluated": 47,
     "gates_evaluated": 7,
     "must_include": [
       "翻訳"

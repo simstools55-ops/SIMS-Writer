@@ -2,7 +2,7 @@ from pathlib import Path
 ROOT=Path(__file__).parents[1]
 
 def test_v23_runtime_and_rules():
-    assert (ROOT/'VERSION').read_text().strip()=='3.0.1'
+    assert (ROOT/'VERSION').read_text().strip()=='3.0.2'
     required=[
       'runtime/publication-integrity-hardening-v2.3.md',
       'runtime/correction-request-mode-v2.3.md',

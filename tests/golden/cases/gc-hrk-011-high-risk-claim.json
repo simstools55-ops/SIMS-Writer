@@ -52,7 +52,7 @@
   },
   "expected": {
     "publish_decision": "revision_required",
-    "rules_evaluated": 46,
+    "rules_evaluated": 47,
     "gates_evaluated": 7,
     "must_include": [],
     "must_not_include": [
