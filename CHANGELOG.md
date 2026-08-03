@@ -523,3 +523,6 @@ Publication blocking now follows material SEO, revenue, safety and factual impac
 
 ## 3.0.2 - 2026-08-01
 - Added ambiguous fee claim detection and automatic cross-component repair.
+
+## 3.1.1
+- Added Doctor request adapter without changing existing Writer behavior.
