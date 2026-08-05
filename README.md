@@ -1,61 +1,406 @@
+# SIMS Doctor v1.0
 
-## v3.1.0 Revenue First Validation
+SIMS Doctor is the independent diagnosis product in the SIMS Editorial Platform.
+It receives a case request from SIMS Blog Manager, maintains the medical record as the diagnostic SSOT, and later produces diagnosis and referral contracts. It does not rewrite articles.
 
-Publication blocking now follows material SEO, revenue, safety and factual impact. Minor editorial preferences do not block output or become user decisions.
-# SIMS Writer v1.3.1
+## Current release
 
-# SIMS Writer v1.1.3
+`1.0.0-RC12`
 
-Google Search Console等の実データをもとに、既存記事を壊さず局所改善するための品質・契約・Knowledge・Pattern中心のリライトシステムです。
+Sprint2-2 implements the reception foundation:
 
-## v1.1.1の位置付け
+1. Receive `SIMS_DOCTOR_SINGLE_CASE_REQUEST_V1`
+2. Validate and normalize the request
+3. Generate Request ID
+4. Create or reuse an active Case
+5. Create or update `SIMS_DOCTOR_MEDICAL_RECORD_V1`
+6. Return `SIMS_DOCTOR_SINGLE_CASE_RESULT_V1`
 
-- 実記事で有効性を確認した7つのEditorial Capabilityを正式実装
-- Preservation、Change Budget、Rewrite Level/Scope、JSON Contractを維持
-- Shared Editorial Knowledge v1.1.1を唯一の正本としてスナップショット連携
-- Product 5.3.1識別情報と旧入力形式の後方互換を維持
-
-## 主な構成
-
-- `claude/`：Claude Project用資産
-- `contracts/`：入出力契約
-- `knowledge/`：診断・品質・保護ルール
-- `runtime/`：評価・Validationパイプライン
-- `patterns/`：改善パターン
-
-- `shared/`：`SIMS-Shared-Editorial-Knowledge v1.1.1`の検証済み・編集禁止スナップショット
-- `learning/`：運用データ、利用者コメント、効果測定、10記事レポート
-- `tests/`：回帰テストとベースライン
-
-SWLSの使い方は[`learning/README.md`](learning/README.md)を参照してください。
-
-## Shared Knowledge dependency
-
-SIMS Writerは、独立製品`SIMS-Shared-Editorial-Knowledge`を正本として利用します。実行時の外部取得は行わず、リリースで検証済みスナップショットを`shared/`へ同梱します。Writer側の`shared/`は直接編集しません。
+365-day data collection, SERP comparison, diagnosis, and referral generation remain outside this release.
 
 
-## v1.1.1
-運用試験で確認したEvidence、LOW_SAMPLE、Canonical JSON、内部リンク保留ルールを反映。
+## RC12 SBM orchestration
 
-## v1.1.3 Sprint 1
+RC12 accepts SBM Evidence Package V2 requests, preserves SBM-issued CaseID, and returns `SIMS_DOCTOR_CASE_RESULT_V2` to SBM. Treatment execution is orchestrated by SBM; direct Doctor-to-Writer/Creator/Merge invocation is deprecated.
 
-- `product/platform/SIMS_PLATFORM_GUIDE.md`：公開先形式とSite Fitの適用ガイド
-- `product/quality/QUALITY_FRAMEWORK.md`：既存Quality資産の統合運用フレームワーク
-- `product/roadmap/WRITER_v1.1.3_IMPROVEMENT_PLAN.md`：承認済みSprint実装計画
-- Shared Knowledgeの正本性、Writer固有責務、Claude Project同期を明文化
+## Repository structure
+
+```text
+contracts/   JSON interface contracts and registries
+docs/        architecture and compatibility documentation
+integration/ SBM safety boundary documents
+knowledge/   Doctor-specific diagnostic knowledge
+product/     product definition and sprint specifications
+runtime/     existing runtime assets and validators
+src/doctor/  Sprint2-2 implementation
+tests/       unit, contract and integration tests
+```
+
+## Run tests
+
+```bash
+python -m pip install pytest jsonschema
+pytest -q
+python tests/contract/validate_fixtures.py
+```
+
+## Compatibility warning
+
+The single-case schemas remain provisional until compared with one real JSON copied from the current SBM Doctor dialog. Do not change SBM output silently to fit the schema. Contract incompatibility requires an explicit contract revision.
+
+## Architectural principles
+
+- SBM contains no Doctor diagnosis logic.
+- JSON contracts are the only system-to-system interface.
+- SBM owns the platform Case lifecycle; the Medical Record remains Doctor's diagnostic record.
+- User-facing messages and system-facing contracts are separated.
+- Diagnosis and referral are separate artifacts.
+- Observation and diagnosis do not read the raw SBM request directly.
 
 
-## v2.0.0 RC1 Four-Layer Architecture
-Knowledge / Strategy / Evidence / Patternを分離し、修正前にEditorial Strategyを確定します。
+## Sprint3.1 Clinical Knowledge Base
 
-## v3.0.1 Architecture Refresh
+Doctor now includes a declarative Clinical Knowledge Base for:
 
-Writer now applies Shared v3 registries, Temporal Lifecycle Analysis, contradiction resolution, preservation audits, and a staged operational-learning promotion flow while retaining the existing publication contract.
+- Observation types
+- Evidence codes
+- Vital Signs and normal ranges
+- Findings and severity
+- Medical-record event types
+
+Runtime loading is implemented in `src/doctor/knowledge/`.
+Scoring, diagnosis, and referral decisions remain intentionally unimplemented.
 
 
-## v3.0.1
-SEO Critical Validation, internal auto-repair, revalidation, and publication finalization were added. Minor quality recommendations no longer block publication.
+## Sprint3.2 Observation Event Log
 
-## v3.0.2
+- Append-only Medical Record event log
+- Event sequencing and payload-integrity verification
+- Idempotent Observation replay
+- 28/90/365-day Search Console input contract
+- Search Console Observation recording into the medical record
 
-曖昧な料金・手数料表現を主体別に分解し、関連箇所を横断修正して再ValidationするHotfixです。
+Live Search Console retrieval remains outside this release.
+
+
+## Sprint3.3 Evidence Engine
+
+Doctor can now extract and store traceable Evidence from Observation data.
+
+Initial Evidence codes:
+
+- CTR_BELOW_POSITION_EXPECTATION
+- POSITION_DECLINE_OBSERVED
+- VISIBILITY_DECLINE_OBSERVED
+- LONG_TIME_SINCE_UPDATE
+
+Thresholds remain versioned in the Clinical Knowledge Base.
+LOW_SAMPLE Evidence is retained and flagged.
+
+
+## Sprint3.4 Vital Signs and Vital Profile
+
+Doctor now creates a seven-sign Vital Profile.
+
+Available now:
+
+- Visibility
+- Traffic
+- CTR Health
+- Ranking Stability
+- Freshness
+
+Unavailable until later Observation layers:
+
+- Competition Resilience
+- Content Integrity
+
+
+## Sprint4.1 Findings Engine
+
+Doctor now creates severity-bearing Findings from Evidence and the latest Vital Profile.
+
+Initial Findings:
+
+- CTR_UNDERPERFORMING
+- POSITION_DECLINING
+- LOW_VISIBILITY
+- CONTENT_OUTDATED
+- HIGH_VISIBILITY_LOW_CLICK
+- INSUFFICIENT_EVIDENCE
+
+Findings remain distinct from Diagnosis.
+
+
+## Sprint4.2 Differential Diagnosis
+
+Doctor now produces ranked diagnostic hypotheses with confidence, support, contradiction,
+and full traceability.
+
+Initial candidates:
+
+- LOW_CTR_WITH_STRONG_POSITION
+- LONG_TERM_DECLINE
+- CONTENT_STALE
+- UPDATE_FAILURE
+- INSUFFICIENT_DATA
+
+These candidates are not yet Final Diagnoses.
+
+
+## Sprint4.3 Final Diagnosis
+
+Doctor now records CONFIRMED or DEFERRED final diagnosis outcomes.
+
+
+## Sprint5.1 Treatment Recommendation and Referral
+
+Doctor now converts the latest Final Diagnosis into a separate treatment direction and referral.
+
+Active routing:
+
+- confirmed CTR, decline, stale-content, and update-failure diagnoses → Writer
+- deferred diagnoses → Observation / follow-up
+
+Creator, Merge, noindex, and delete routing remain reserved for later diagnosis expansion.
+
+
+## Sprint6.1 Search Console 365-Day Acquisition
+
+Doctor now contains a provider-neutral acquisition service and Google API adapter for:
+
+- 28-day aggregate metrics
+- 90-day aggregate metrics
+- 365-day aggregate metrics
+- paged query-level metrics
+- retry and partial-failure reporting
+- conversion into the existing Search Console Observation contract
+
+Credentials and OAuth UI are intentionally excluded.
+
+
+## Sprint6.2 SERP Observation
+
+Doctor now supports provider-neutral SERP acquisition and Medical Record snapshots.
+
+Recorded data includes:
+
+- top results
+- search intent
+- SERP features
+- competition strength
+- changes from the previous SERP snapshot
+
+SERP data now enables the Competition Resilience Vital Sign.
+
+
+## Sprint6.3 Article Snapshot Observation
+
+Doctor now records article structure and content metadata as an immutable snapshot.
+
+This enables the final previously unavailable Vital Sign:
+
+- Content Integrity
+
+All seven Vital Signs can now be represented when the required observations exist.
+
+
+## Sprint6.4 Clinical Pipeline
+
+Doctor now includes an end-to-end orchestrator that coordinates:
+
+Observation → Evidence → Vital Signs → Findings → Differential Diagnosis →
+Final Diagnosis → Treatment Recommendation → Referral.
+
+Each component remains independent and idempotent.
+
+
+## Sprint6.5 Diagnosis Report and Output
+
+Doctor now produces:
+
+- a plain-language user diagnosis report
+- `SIMS_DOCTOR_SINGLE_CASE_RESULT_V1`
+- `SIMS_DOCTOR_WRITER_REQUEST_V1` for confirmed Writer referrals
+
+The Medical Record, diagnosis report, and referral request remain separate artifacts.
+
+
+## Sprint7.1 Cross-Article Diagnosis
+
+Doctor can now compare articles within the same site and diagnose:
+
+- Cannibalization
+- Article Merge Required
+- New Article Needed
+
+This activates Creator and Merge as real referral targets.
+
+
+## Sprint7.2 Long-Term Decline Diagnosis
+
+Doctor now analyzes repeated 28-day windows over 365 days and distinguishes:
+
+- Long-Term Decay
+- Seasonal Decline
+- Recovery in Progress
+
+Confirmed long-term decay routes to Writer.
+Seasonal and recovery cases route to Observation.
+
+
+## Sprint7.3 Improvement History Comparison
+
+Doctor now compares pre-treatment metrics with 7, 14, and 28-day checkpoints and distinguishes:
+
+- Treatment Success
+- Improvement Failure
+- Post-Improvement Worsening
+- Mixed Treatment Response
+- Follow-Up Required
+
+Worsening and ineffective treatment route to Writer. Doctor never rolls back an article automatically.
+
+
+## Sprint7.4 Longitudinal Medical Record
+
+Doctor now analyzes repeated diagnoses and treatment responses for the same article.
+
+It can identify recurrent or chronic problems, treatment responsiveness or resistance,
+recovery patterns, and follow-up priority.
+
+
+## Sprint8.1 Batch Doctor Foundation
+
+Doctor can now accept many articles in one request, prioritize them, execute each article
+as an isolated Case, continue after individual failures, and resume a previous batch.
+
+Persistent scheduling and worker infrastructure are not included yet.
+
+
+## Sprint8.2 Persistent Batch Queue
+
+Doctor now contains a storage-neutral persistent queue and nightly worker foundation.
+
+It supports durable checkpoints, lease locks, retries, pause/resume, incomplete-batch discovery,
+and completion events. Production database and scheduler adapters remain deployment tasks.
+
+
+## Sprint8.3 Production Queue and Scheduler
+
+Doctor now includes a durable SQLite queue adapter and an automation-friendly scheduler CLI.
+A paused batch can survive process restart and resume from its saved checkpoint.
+
+
+## Sprint8.4 SBM Batch Integration
+
+Doctor now defines the complete JSON-contract flow for SBM batch submission, acceptance,
+progress polling, terminal result export, and idempotent result import acknowledgement.
+
+The integration does not expose Doctor Medical Records or internal diagnosis rules.
+
+
+## Sprint8.5 SBM–Doctor Transport API
+
+Doctor now provides an authenticated transport layer for SBM batch submission, status polling,
+and result retrieval.
+
+Requests use HMAC-SHA256 signatures, timestamps, nonces, per-client rate limits, and
+idempotency keys. A WSGI adapter is included for deployment integration.
+
+
+## Sprint8.6 Production Security Persistence
+
+Doctor now persists nonce replay protection, API idempotency responses, and audit logs in SQLite.
+
+A production application factory loads secrets from environment variables and exposes liveness
+and readiness endpoints. Real secrets are never stored in the repository.
+
+
+## Sprint9.1 Diagnostic Rule Engine
+
+Doctor now supports declarative, explainable diagnostic rules.
+
+Rules can evaluate Evidence, Findings, Vital Signs, Observations, Longitudinal Profiles,
+Treatment History, and case context, then produce prioritized diagnosis candidates without
+directly creating treatment or referral instructions.
+
+
+## Sprint9.2 Vital Score Engine
+
+Doctor now calculates a 0–100 article health score from the seven Vital Signs.
+
+The score supports missing-sign reweighting, LOW_SAMPLE and serious-Finding adjustments,
+health bands, and explainable positive and negative factors.
+
+
+## Sprint9.3 Improvement Failure Diagnosis
+
+Doctor now integrates treatment history, Vital Score changes, metric deterioration,
+recurrence, and LOW_SAMPLE safeguards to distinguish no effect, worsening, possible
+wrong treatment direction, recurrent failure, and insufficient follow-up.
+
+
+## Sprint9.4 Long-Term Degradation Diagnosis
+
+Doctor now integrates 365-day trend data, Vital Score changes, recurrence, seasonality,
+recovery, and LOW_SAMPLE safeguards to distinguish chronic degradation, sharp degradation,
+CTR degradation, position degradation, seasonal variation, and recovery.
+
+
+## Sprint9.5 CTR Opportunity Diagnosis
+
+順位別期待CTR、Winner Query保護、直近タイトル変更、LOW_SAMPLEを統合しました。
+
+
+## Sprint9.6 Position Opportunity Diagnosis
+
+Doctor now identifies articles with meaningful impressions that remain near page one,
+including high opportunity, query-focused opportunity, Winner Query protection,
+and low-visibility or intent-misalignment cases.
+
+
+## Sprint9.7 Intent Drift Diagnosis
+
+Doctor now compares current query demand with article identity through query clusters,
+intent shares, entropy, title overlap, emerging-intent growth, and Winner Query protection.
+
+
+## Sprint9.8 Freshness Decay Diagnosis
+
+Doctor now distinguishes local factual decay from severe article-wide freshness decay,
+while protecting Winner Queries and recently updated articles.
+
+
+## Sprint9.9 Cannibalization Diagnosis
+
+記事間の共通クエリ、SERP、検索意図、流入差から統合候補と役割分担を診断します。
+
+
+## Sprint10.0 Composite Diagnosis
+
+Doctor now integrates all specialist assessments into one final diagnosis.
+
+Safety rules for LOW_SAMPLE, recent changes, Winner Queries, Merge candidates, and role
+separation take precedence over weighted scoring.
+
+
+## Sprint10.1 Treatment Recommendation
+
+Doctor now converts Composite Diagnosis into target-specific referrals for Writer, Creator,
+Merge, observation, or follow-up while preserving treatment safety boundaries.
+
+
+## Sprint10.2 Doctor Report Generator
+
+利用者向け診断書とシステム向け構造化レポートを分離しました。
+
+
+## Sprint10.3 Explainable Diagnosis
+
+Doctor now records a user-facing decision path and a separate system audit trail.
+
+
+## v1.0.0-RC1
+
+The complete Doctor workflow is frozen as a release candidate for end-to-end acceptance testing.
