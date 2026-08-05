@@ -1,3 +1,0 @@
-# Remove Review
-
-評価結果が `remove` のSIMS-Core資産を記録する領域です。
