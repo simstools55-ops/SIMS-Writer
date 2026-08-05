@@ -1,0 +1,30 @@
+{
+  "contract": {
+    "id": "CT-INT-002",
+    "version": "1.0.0"
+  },
+  "ArticleID": "A000301",
+  "URL": "https://example.com/article",
+  "ArticleTitle": "記事タイトル",
+  "SEOTitle": "SEOタイトル",
+  "MetaDescription": null,
+  "MainQuery": "wi-fi 電気代",
+  "SupportingQueries": [
+    "ルーター 電気代 月"
+  ],
+  "Clicks": 5,
+  "Impressions": 2773,
+  "CTR": 0.002,
+  "AveragePosition": 10.0,
+  "ImprovementGoal": [
+    "ctr_improvement"
+  ],
+  "PriorityComponents": [
+    "seo_title"
+  ],
+  "RequestedOutput": [
+    "full_article"
+  ],
+  "ExistingContent": null,
+  "ReceivedAt": "2026-07-16T20:00:00+09:00"
+}

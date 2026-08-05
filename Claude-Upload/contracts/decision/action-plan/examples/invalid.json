@@ -1,0 +1,22 @@
+{
+  "contract": {
+    "id": "CT-DEC-003",
+    "version": "1.0.0"
+  },
+  "request_id": "REQ-2026-000001",
+  "decision_records": [
+    "DREC-2026-000001"
+  ],
+  "actions": [
+    {
+      "order": 1,
+      "component": "seo_title",
+      "action": "revise",
+      "reason": "CTR改善余地",
+      "pattern_category": "seo"
+    }
+  ],
+  "decision_gate_status": "pass",
+  "unresolved_conflicts": [],
+  "created_at": "2026-07-17T04:02:00+09:00"
+}
