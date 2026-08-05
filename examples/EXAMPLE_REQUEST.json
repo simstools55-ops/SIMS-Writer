@@ -1,0 +1,20 @@
+{
+  "article_id": "A000008",
+  "url": "https://example.com/sample",
+  "article_title": "サンプル記事",
+  "seo_title": "サンプル記事の現在タイトル",
+  "meta_description": "現在の説明文",
+  "main_query": "サンプル クエリ",
+  "metrics": {
+    "clicks": 12,
+    "impressions": 850,
+    "ctr": 1.4,
+    "position": 8.7
+  },
+  "output_mode": "partial",
+  "improvement_goal": "検索意図との一致を高める",
+  "existing_content": "ここに記事本文を入力します。",
+  "supporting_queries": [],
+  "internal_link_candidates": [],
+  "constraints": ["未確認の事実とURLを追加しない"]
+}

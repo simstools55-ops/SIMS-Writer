@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims-writer.local/contracts/ct-int-001.schema.json",
+  "title": "Generic JSON Input Contract",
+  "type": "object",
+  "required": [
+    "contract",
+    "payload",
+    "received_at"
+  ],
+  "properties": {
+    "contract": {
+      "$ref": "../../../../schemas/common/common.schema.json#/$defs/contractRef"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "source_name": {
+      "type": "string"
+    },
+    "received_at": {
+      "$ref": "../../../../schemas/common/common.schema.json#/$defs/isoDateTime"
+    }
+  },
+  "additionalProperties": false
+}

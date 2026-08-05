@@ -1,6 +1,6 @@
 {
   "target_product": "writer",
-  "source_version": "3.3.0",
+  "source_version": "3.3.1",
   "included_paths": [
     "contracts/common",
     "contracts/writer",

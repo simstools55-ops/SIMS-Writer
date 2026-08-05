@@ -1,0 +1,21 @@
+{
+  "contract": {
+    "id": "CT-OPS-001",
+    "version": "1.0.0"
+  },
+  "execution_id": "EXE-2026-000001",
+  "request_id": "REQ-2026-000001",
+  "runtime_version": "0.2.0-alpha.1",
+  "status": "completed",
+  "started_at": "2026-07-16T20:00:00+09:00",
+  "completed_at": "2026-07-16T20:10:00+09:00",
+  "stages": [
+    {
+      "name": "normalization",
+      "status": "passed",
+      "contract_version": "1.0.0"
+    }
+  ],
+  "retries": 0,
+  "publication_package_id": "PKG-2026-000001"
+}

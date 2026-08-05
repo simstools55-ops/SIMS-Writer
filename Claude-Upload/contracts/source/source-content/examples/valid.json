@@ -1,0 +1,30 @@
+{
+  "contract": {
+    "id": "CT-SRC-001",
+    "version": "1.0.0"
+  },
+  "snapshot_id": "SNP-2026-000001",
+  "request_id": "REQ-2026-000001",
+  "source_url": "https://example.com/article",
+  "retrieved_at": "2026-07-16T20:31:00+09:00",
+  "retrieval_method": "direct_fetch",
+  "retrieval_status": "retrieved",
+  "content_hash": "0123456789abcdef",
+  "title": "記事タイトル",
+  "seo_title": "SEOタイトル",
+  "meta_description": null,
+  "h1": "記事タイトル",
+  "introduction": "導入文",
+  "sections": [
+    {
+      "heading": "結論",
+      "level": 2,
+      "body": "本文"
+    }
+  ],
+  "faq": [],
+  "internal_links": [],
+  "external_links": [],
+  "raw_content": "本文",
+  "extraction_warnings": []
+}

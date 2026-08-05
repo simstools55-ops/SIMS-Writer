@@ -1,4 +1,5 @@
-# Snapshot Source
+# Shared Knowledge Source
 
-Source: SIMS-Shared-Editorial-Knowledge
-Integrated for: SIMS Writer 3.1.0
+Source repository: SIMS-Shared-Editorial-Knowledge
+Integrated into SIMS Writer 3.2.0.
+The snapshot is read-only inside Writer.
