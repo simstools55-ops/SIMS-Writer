@@ -1,6 +1,6 @@
 id: KS-TMP-001
 name: Temporal Lifecycle Review
-version: 3.0.1
+version: 3.0.0
 triggers:
   - date_sensitive
   - deadline

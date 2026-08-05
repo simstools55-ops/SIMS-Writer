@@ -1,0 +1,15 @@
+id: KS-FAC-001
+name: Fact Verification
+version: 1.0.0
+status: active
+required_items:
+- KN-PRD-002
+- KN-FAC-001
+- KN-FAC-002
+- KN-FAC-003
+- KN-FAC-004
+optional_items: []
+selection_rules: []
+exclusion_rules: []
+reviewed_at: '2026-07-17'
+next_review_at: '2027-01-17'

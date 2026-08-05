@@ -1,5 +1,11 @@
-# SIMS Writer Claude v2.3.0
+# SIMS Writer v2.3.0 Quality Hardening
 
-Claude Project synchronization for SIMS Writer v2.3.0 Quality Hardening.
+Implements RC learning from real-article validation without changing Contract 4.2.
 
-Includes Publication Integrity runtime, affiliate CTA boundary, dynamic information validation, FAQ consistency, cross-component claim sweep, final Contract 4.2 synchronization and Correction Request Mode.
+- Publication Integrity Runtime
+- Dynamic information freshness and official-source priority
+- Affiliate link/code protection with editable CTA validation
+- FAQ and platform-behavior consistency
+- Cross-component stale-claim sweep
+- Final text/JSON synchronization
+- Correction Request Mode

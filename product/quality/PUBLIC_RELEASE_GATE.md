@@ -18,3 +18,6 @@
 - 未確認内部リンクを実装済みと表示
 - Winner Queryを根拠なく破壊
 - Validationが既知の重大不整合をPASSとしている
+
+## Publication Integrity v2.3
+Release must fail when mutable claims lack current official evidence, unsupported marketing claims remain in CTA/FAQ, a corrected claim remains elsewhere, or final publication text and Contract 4.2 JSON differ.

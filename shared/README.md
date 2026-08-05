@@ -1,8 +1,4 @@
-
-## v3.1.0 Revenue First Validation
-
-Revenue impact, search intent, winner-query preservation and publication integrity now determine blocking priority. Editorial polish with negligible SEO impact remains non-blocking.
-# SIMS Shared Editorial Knowledge v3.2.0
+# SIMS Shared Editorial Knowledge v2.4.0
 
 # SIMS Shared Editorial Knowledge
 
@@ -38,7 +34,7 @@ docs/                      運用・統合ドキュメント
 
 ## Version
 
-`3.2.0`
+`2.4.0`
 
 
 ## v1.1.1 Operational Learning
@@ -69,12 +65,3 @@ Shared Editorial KnowledgeはSEO知識集に限定せず、SIMS製品共通の�
 
 ## v3.0.1
 SEO Critical Validation, internal auto-repair, revalidation, and publication finalization were added. Minor quality recommendations no longer block publication.
-
-## v3.0.2
-
-曖昧な料金・手数料表現を主体別に分解し、関連箇所を横断修正して再ValidationするHotfixです。
-
-
-## v3.2.0 SBM-centered Platform Contracts
-
-SBMをSIMS Editorial Platformの運営・記録・状態管理の正本として確定しました。CaseIDはSBMが発行し、Doctorは診断・Treatment Plan・ReferralをSBMへ返却します。Writerなどの専門製品への依頼と治療結果の受領もSBMを経由します。旧Doctor直結契約は互換用として残しますが、新規実装では使用しません。

@@ -1,17 +1,3 @@
-# Changelog
-
-## 3.2.0 - 2026-08-05
-
-- Established SBM as the platform orchestrator and Case lifecycle source of truth.
-- Changed CaseID ownership from Doctor to SBM.
-- Added `SIMS_DOCTOR_CASE_RESULT_V2`, `SIMS_WRITER_TREATMENT_REQUEST_V1`, and `SIMS_WRITER_TREATMENT_RESULT_V1` to the canonical registry.
-- Added the minimum Case lifecycle and Workflow Lock routing rules.
-- Deprecated direct Doctor-to-Writer dispatch and Writer-to-Doctor result routing while retaining compatibility documentation.
-
-
-## v3.1.0 Revenue First Validation
-
-Revenue impact, search intent, winner-query preservation and publication integrity now determine blocking priority. Editorial polish with negligible SEO impact remains non-blocking.
 ## 3.0.1 - 2026-08-01
 
 - Separated SEO-critical validation from non-blocking quality recommendations.
@@ -220,6 +206,3 @@ Canonical Publication QA output, unresolved-finding verdict alignment, claim-pre
 
 ## 3.0.2 - 2026-08-01
 - Added Fee Subject Clarity and cross-component auto-repair validation.
-
-## 3.1.1
-- Added Doctor interface and safety-boundary knowledge.

@@ -80,7 +80,3 @@ Writerは最終出力前に `validation/real-article-publication-validation.md` 
 ## v3.0 Temporal and architecture mapping
 
 Writer must load `KS-SHARED-TEMPORAL` when date-sensitive, event-based, deadline, planned, active, completed, or expired claims are present. It applies Lifecycle Detection before editing-plan generation, uses contradiction and preservation audits, and exposes only supported optional machine fields. `CONTENT_STALE`, `TEMPORAL_SHIFT`, `LIFECYCLE_CHANGE`, `CONTENT_EXPIRED`, and `CONTRADICTION_DETECTED` are validation/diagnostic signals, not automatic full-rewrite orders.
-
-## Revenue First Validation v3.1.0
-
-Writer must load `product/revenue-first-validation-principle.md` and `validation/revenue-first-validation.md` before final publication classification. `patterns/intent-drift-cross-link-pattern.md` remains a PATTERN_CANDIDATE until a second independent real-article confirmation.
