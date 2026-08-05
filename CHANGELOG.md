@@ -1,3 +1,12 @@
+## [3.3.0] - 2026-08-05
+
+- Restored SIMS Writer repository identity after Doctor files overwrote root metadata.
+- Removed embedded Doctor implementation and the legacy bundled Claude package from the Product repository boundary.
+- Added SIMS Editorial Platform 1.x identity and Shared 3.3.0 tracking.
+- Added Writer Treatment Request/Result and Publication Result platform contracts.
+- Preserved legacy `SIMS_FEEDBACK_V2` 2.1/3.0/4.2 compatibility.
+- Added platform identity, contract, and repository-boundary regression tests.
+
 ## 1.0.0-RC1 — 2026-08-04
 
 - Finalized SIMS Doctor v1.0.0 release candidate

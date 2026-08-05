@@ -1,0 +1,10 @@
+{
+  "product_code": "WRITER",
+  "product_name": "SIMS Writer",
+  "repository_name": "SIMS-Writer",
+  "repository_type": "PRODUCT",
+  "platform": "SIMS Editorial Platform",
+  "platform_compatibility": "1.x",
+  "current_version": "3.3.0",
+  "shared_version": "3.3.0"
+}
