@@ -1,0 +1,3 @@
+# Freshness Qualification Pattern
+
+変動仕様は確認日を持ち、古い既存本文をそのまま最新情報として扱わない。現在確認できない場合は日付を明示して限定表現にするか、USER_DECISIONへ送る。

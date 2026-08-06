@@ -4,6 +4,7 @@ from copy import deepcopy
 from typing import Any
 
 from .contracts import QAReviewCycle, QAReviewPolicy
+from .severity import split_issues
 
 
 class PublicationQAEngine:
@@ -69,8 +70,12 @@ class PublicationQAEngine:
         if any_fix and final_verdict == self.VERDICT_PASS:
             final_verdict = self.VERDICT_MINOR_FIX
         publishable = final_verdict in {self.VERDICT_PASS, self.VERDICT_WARNING, self.VERDICT_MINOR_FIX}
+        issue_classes = split_issues(quality.get("issues") or [])
+        publication_state = "PUBLIC_OK" if publishable else "PUBLIC_BLOCKED"
         return {
-            "qa_engine_version": "1.1.0",
+            "qa_engine_version": "1.3.0",
+            "publication_state": publication_state,
+            "issue_classes": issue_classes,
             "qa_contract": "SIMS_EDITORIAL_QA_V1",
             "policy": policy.to_dict(),
             "initial_verdict": initial_verdict,

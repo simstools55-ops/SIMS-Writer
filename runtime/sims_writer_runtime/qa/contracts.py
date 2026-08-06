@@ -8,7 +8,7 @@ from typing import Any
 class QAReviewPolicy:
     """Writer/Creatorから独立して再利用できる公開前QA実行契約。"""
 
-    max_review_cycles: int = 2
+    max_review_cycles: int = 3
     allow_auto_fix: bool = True
     protected_fields: tuple[str, ...] = ()
     allowed_auto_fix_classes: tuple[str, ...] = (
@@ -16,13 +16,17 @@ class QAReviewPolicy:
         "ai_phrase_reduction",
         "redundancy_reduction",
         "heading_hierarchy_repair",
+        "unsupported_claim_softening",
+        "unverified_value_redaction",
+        "title_promise_softening",
+        "json_publication_sync",
     )
 
     @classmethod
     def from_context(cls, context: dict[str, Any] | None) -> "QAReviewPolicy":
         data = (context or {}).get("qa_policy") or {}
         return cls(
-            max_review_cycles=max(1, min(int(data.get("max_review_cycles", 2)), 3)),
+            max_review_cycles=max(1, min(int(data.get("max_review_cycles", 3)), 3)),
             allow_auto_fix=bool(data.get("allow_auto_fix", True)),
             protected_fields=tuple(data.get("protected_fields") or ()),
             allowed_auto_fix_classes=tuple(data.get("allowed_auto_fix_classes") or cls().allowed_auto_fix_classes),

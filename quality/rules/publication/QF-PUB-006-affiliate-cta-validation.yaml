@@ -1,0 +1,17 @@
+id: QF-PUB-006
+name: Affiliate CTA Validation
+dimension: publication
+severity: blocker
+version: 2.3.0
+status: active
+requirement: アフィリエイトURL・広告コード・計測タグを保護しつつ、周辺CTAのマーケティング主張を検証・修正する。
+evaluation_method: deterministic_or_model_assisted
+pass_condition: リンク/コードは不変で、CTAの価格・最安値・送料無料・限定・保証等が確認済みまたは安全な確認案内へ修正されている。
+fail_condition: リンク保護を理由に未検証CTAを残す、またはリンク/コードを無断変更する。
+warning_condition: CTAとリンクの境界を特定できない場合は利用者判断へ送る。
+auto_fix_eligible: false
+manual_review_required: false
+related_knowledge: []
+related_patterns: []
+reviewed_at: '2026-07-27'
+next_review_at: '2027-01-27'

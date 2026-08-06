@@ -50,3 +50,9 @@ knowledge_sets:
   version: 1.0.0
   status: active
   path: knowledge/sets/KS-JPN-001-japanese-quality.yaml
+
+- id: KS-TMP-001
+  title: Temporal Lifecycle Review
+  version: 3.0.1
+  status: active
+  path: knowledge/sets/KS-TMP-001-temporal-lifecycle.yaml

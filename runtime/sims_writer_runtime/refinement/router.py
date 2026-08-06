@@ -18,6 +18,10 @@ class IssueRouter:
         "QF-JPN-003": ("article", "ai_phrase_reduction"),
         "QF-REA-003": ("article", "redundancy_reduction"),
         "QF-STR-001": ("sections", "heading_hierarchy_repair"),
+        "QF-FAC-005": ("article", "unverified_value_redaction"),
+        "QF-FAC-006": ("article", "fee_subject_disambiguation"),
+        "QF-COM-004": ("article", "unsupported_claim_softening"),
+        "QF-PUB-005": ("feedback", "json_publication_sync"),
     }
     STAGE_BY_RULE = {
         "QF-INT-001": "content_planning", "QF-INT-002": "content_planning",

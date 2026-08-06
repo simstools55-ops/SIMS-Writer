@@ -21,5 +21,5 @@ assert openai.build_payload(__import__('sims_writer_runtime.adapters.model_proto
 result=RuntimeOrchestrator(ROOT,adapter=adapter).execute(req)
 assert result.artifacts['content_draft']['article_content']
 assert result.status=='revision_required'
-assert result.artifacts['quality_report']['rules_evaluated']==42
+assert result.artifacts['quality_report']['rules_evaluated']==47
 print('model adapter tests: PASS')

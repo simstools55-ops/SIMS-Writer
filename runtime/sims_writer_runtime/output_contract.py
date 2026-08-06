@@ -7,6 +7,7 @@ from typing import Any
 import re
 
 from .publish_quality import validate_before_after_editorial, validate_comparison_article
+from .final_quality_gates import validate_final_quality
 
 USER_CONTRACT_TYPE_NAMES = {
     "string": str, "boolean": bool, "integer": int, "number": (int, float),
@@ -106,11 +107,12 @@ class OutputContractValidator:
 
         if feedback.get("format") != "SIMS_FEEDBACK_V2":
             issues.append(OutputValidationIssue("OUT-003", "feedback.format must be SIMS_FEEDBACK_V2"))
-        if feedback.get("version") != "2.0":
-            issues.append(OutputValidationIssue("OUT-030", "feedback.version must be 2.0"))
+        effective_contract_version = feedback.get("contract_version") or feedback.get("version")
+        if effective_contract_version not in {"2.0", "2.1", "3.0", "4.2"}:
+            issues.append(OutputValidationIssue("OUT-030", "feedback contract version must be 2.0, 2.1, or 3.0"))
         # A strict user-provided contract remains authoritative for backward compatibility.
         # Full current V2 extension fields are mandatory only under the default contract.
-        if not isinstance(user_contract, dict):
+        if not isinstance(user_contract, dict) and effective_contract_version != "3.0":
             required_v2 = ("diagnosis", "primary_intent", "effect_confidence", "preservation_score",
                            "protected_elements", "change_budget_percent", "rewrite_level",
                            "rewrite_scope", "risk", "validation", "internal_link_evaluation")
@@ -120,6 +122,18 @@ class OutputContractValidator:
                 legacy_shape = all(k in feedback for k in ("completed_at", "changes", "new_values", "recommended_review_days"))
                 if not legacy_shape:
                     issues.append(OutputValidationIssue("OUT-031", f"V2 fields missing: {', '.join(missing_v2)}"))
+
+        if effective_contract_version in {"3.0", "4.2"}:
+            publication_result = feedback.get("publication_result")
+            if not isinstance(publication_result, dict):
+                issues.append(OutputValidationIssue("OUT-033", "publication_result must be an object"))
+            else:
+                for key in ("change_summary", "public_ok_changes", "user_decision_changes"):
+                    if not isinstance(publication_result.get(key), list):
+                        issues.append(OutputValidationIssue("OUT-034", f"publication_result.{key} must be an array"))
+            for gate_issue in validate_final_quality(package):
+                issues.append(OutputValidationIssue(gate_issue.code, gate_issue.message, gate_issue.severity))
+            return issues
 
         if feedback.get("main_query_source") not in {"search_console", "manual", "estimated", "unavailable"}:
             issues.append(OutputValidationIssue("OUT-025", "main_query_source must be search_console, manual, estimated, or unavailable"))

@@ -13,6 +13,6 @@ def test_ctr_vertical_slice():
     assert draft['introduction']
     assert len(draft['faq'])==2
     report=QualityValidationEngine(ROOT).evaluate(draft,{'main_query':req['main_query'],'model_assisted_checks':draft['model_assisted_checks']})
-    assert report['rules_evaluated']==42
+    assert report['rules_evaluated']==47
     assert len(report['gate_results'])==7
     assert report['publish_recommendation'] in ('publish_ready','publish_ready_with_advisory')

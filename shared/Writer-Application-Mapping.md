@@ -39,3 +39,44 @@ Preservation Score、Rewrite Level、Rewrite Scope、Change Budgetを上書き�
 - VAL-CONSISTENCY-001 論理整合性
 - VAL-ENTITY-001 HTML Entity整合性
 - VAL-LINK-001 内部リンク整合性
+
+
+## v2.0 Editorial application
+
+`editorial-decision-and-visibility.md`、`COPY_READY_OUTPUT_STANDARD_V2.md`、`PUBLICATION_VISIBILITY_POLICY_V2.md`をWriterのEditorial Decision Layerと利用者向け出力生成に適用する。
+
+
+## v2.0.0 RC1 Four-Layer Architecture
+Knowledge / Strategy / Evidence / Patternを分離し、修正前にEditorial Strategyを確定します。
+
+
+## v2.1.0 Quality Pattern Library
+
+Writerは `quality/QUALITY_PATTERN_LIBRARY.md` を運用試験Learningの正本として必須参照する。
+新しい指摘は ARTICLE_SPECIFIC / PATTERN_CANDIDATE / MAPPING_DEFECT / VALIDATION_DEFECT / PREFERENCE_ONLY に分類し、同一問題の再発時は個別文言修正ではなくMappingまたはValidationを修正する。
+
+
+## v2.2.0 Learning Registry
+
+Writerは `learning/LEARNING_REGISTRY.json` と `learning/LEARNING_SPRINT_PLAYBOOK.md` を実記事試験Learningの追跡正本として参照する。
+Writer回答の評価では修正提案より先に5分類を確定し、ARTICLE_SPECIFICとPREFERENCE_ONLYだけでは製品版を更新しない。
+MAPPING_DEFECTとVALIDATION_DEFECTには回帰fixtureを必須とする。
+
+## Publication Integrity v2.3
+
+Writerは以下をRuntimeの最終公開ゲートへ適用する。
+
+- `knowledge/publication-integrity-and-dynamic-information.md`
+- `knowledge/affiliate-cta-boundary.md`
+- `knowledge/faq-publication-consistency.md`
+- `quality/PUBLICATION_INTEGRITY_STANDARD_V2_3.md`
+- `validation/publication-integrity-validation.md`
+- `patterns/dynamic-claim-safe-rewrite-pattern.md`
+
+## v2.4 Real-article validation mapping
+
+Writerは最終出力前に `validation/real-article-publication-validation.md` を必須適用する。Search Console需要と事実根拠を分離し、LOW_SAMPLE、Winner Query、YMYL、内部リンク、タイトル約束を新規v2.4正本へ接続する。実記事8事例はLearning Registryと回帰fixtureで追跡する。
+
+## v3.0 Temporal and architecture mapping
+
+Writer must load `KS-SHARED-TEMPORAL` when date-sensitive, event-based, deadline, planned, active, completed, or expired claims are present. It applies Lifecycle Detection before editing-plan generation, uses contradiction and preservation audits, and exposes only supported optional machine fields. `CONTENT_STALE`, `TEMPORAL_SHIFT`, `LIFECYCLE_CHANGE`, `CONTENT_EXPIRED`, and `CONTRADICTION_DETECTED` are validation/diagnostic signals, not automatic full-rewrite orders.

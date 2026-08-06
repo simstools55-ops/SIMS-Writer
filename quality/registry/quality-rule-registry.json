@@ -1,6 +1,6 @@
 {
   "framework_version": "1.0.0",
-  "rule_count": 42,
+  "rule_count": 46,
   "rules": [
     {
       "id": "QF-SAF-001",
@@ -420,6 +420,46 @@
       "version": "1.0.0",
       "status": "active",
       "path": "quality/rules/publication/QF-PUB-004-additional-editing-not-required.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-FAC-005",
+      "name": "Dynamic Information Freshness",
+      "dimension": "factuality",
+      "severity": "blocker",
+      "version": "2.3.0",
+      "status": "active",
+      "path": "quality/rules/factuality/QF-FAC-005-dynamic-information-freshness.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-COM-004",
+      "name": "Cross-Component Claim Sweep",
+      "dimension": "completeness",
+      "severity": "blocker",
+      "version": "2.3.0",
+      "status": "active",
+      "path": "quality/rules/completeness/QF-COM-004-cross-component-claim-sweep.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-PUB-005",
+      "name": "Publication and JSON Synchronization",
+      "dimension": "publication",
+      "severity": "blocker",
+      "version": "2.3.0",
+      "status": "active",
+      "path": "quality/rules/publication/QF-PUB-005-publication-json-synchronization.yaml",
+      "auto_fix_eligible": false
+    },
+    {
+      "id": "QF-PUB-006",
+      "name": "Affiliate CTA Validation",
+      "dimension": "publication",
+      "severity": "blocker",
+      "version": "2.3.0",
+      "status": "active",
+      "path": "quality/rules/publication/QF-PUB-006-affiliate-cta-validation.yaml",
       "auto_fix_eligible": false
     }
   ]

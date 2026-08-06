@@ -1,15 +1,21 @@
-# SIMS Writer Contract Validation 2.1
+# RC2 Final Output Validator
 
-最終出力は`SIMS_FEEDBACK_V2` / `contract_version: 2.1`に固定する。
+## Contract Gate
+- `contract_version`は`4.1`のみ。
+- `publication_result`配下に2種類の変更配列を置く。
+- Schemaで禁止された旧フィールドがあればFAIL。
 
-## Blocking rules
+## Evidence Gate
+- 変動仕様のMULTIPLE_THIRD_PARTYはUSER_DECISION以下。
+- 未確認事実がタイトル、メタ、導入、見出し、FAQ、本文のPUBLIC_OKへ一箇所でも混入したらFAIL。
 
-- VAL-CONTRACT-001: Canonical Schemaに適合しない。
-- VAL-CONTRACT-002: `version`、`diagnosis_code`、`change_flags`などLegacy fieldが最終出力に残る。
-- VAL-CONTRACT-003: 空文字または不正なnullが残る。
-- VAL-CONTRACT-004: `changes[]`または全体の`implementation_status`が欠落・不正。
-- VAL-CONTRACT-005: Query Coverageが`coverage_confidence`と4分類を持たない。
+## Visibility Gate
+通常利用者向け本文に次があればFAIL：
+- IMPROVEMENT_RECOMMENDED等の内部判定コード
+- Validation/QA/SWLS/Coverage
+- Evidence階層や内部Confidence
+- 内部リンク不採用候補の一覧表
 
-Normalizerは旧形式を入力互換として受け入れるが、最終出力を修復できない場合はFAILとする。
-
-- VAL-CONTRACT-006: `validation.checks[]` の `message` が欠落、空文字、空白のみ、または汎用プレースホルダーのまま残る。最終出力を停止し、ルール別の具体的確認結果へ補完する。
+## Completeness Gate
+- Before/Afterに「以下略」「原文全体」「改善後全文」等の省略表現を使わない。
+- PUBLIC_OKはそのまま反映できる完成文にする。

@@ -23,6 +23,7 @@ class TargetedRefinementEngine:
 
     def refine(self, draft: dict[str, Any], quality_report: dict[str, Any], context: dict[str, Any] | None = None) -> dict[str, Any]:
         current = deepcopy(draft)
+        current_context = deepcopy(context or {})
         revisions: list[dict[str, Any]] = []
         report = quality_report
         for round_no in range(1, self.max_auto_rounds + 1):
@@ -32,11 +33,16 @@ class TargetedRefinementEngine:
                 break
             before = deepcopy(current)
             for route in auto_routes:
-                current = self._apply(current, route.recovery_type)
+                current = self._apply(current, route.recovery_type, current_context)
             if current == before:
                 break
+            applied_recoveries = {r.recovery_type for r in auto_routes}
+            if "fee_subject_disambiguation" in applied_recoveries:
+                audit = deepcopy(current_context.get("publication_integrity_audit") or {})
+                audit["ambiguous_fee_claims"] = []
+                current_context["publication_integrity_audit"] = audit
             revisions.append({"round": round_no, "type": "auto_fix", "routes": [asdict(r) for r in auto_routes]})
-            report = self.quality_engine.evaluate(current, context or {})
+            report = self.quality_engine.evaluate(current, current_context)
 
         remaining_routes = [self.router.route(i) for i in report.get("issues", [])]
         action_plan = self._build_action_plan(remaining_routes)
@@ -49,8 +55,9 @@ class TargetedRefinementEngine:
             "status": self._status(report, action_plan),
         }
 
-    def _apply(self, draft: dict[str, Any], recovery_type: str) -> dict[str, Any]:
+    def _apply(self, draft: dict[str, Any], recovery_type: str, context: dict[str, Any] | None = None) -> dict[str, Any]:
         d = deepcopy(draft)
+        context = context or {}
         fields = ("seo_title", "meta_description", "h1", "introduction", "article_content", "conclusion")
         if recovery_type == "placeholder_elimination":
             for key in fields:
@@ -76,6 +83,69 @@ class TargetedRefinementEngine:
                 s=deepcopy(section); level=int(s.get("level",2)); level=min(level, previous+1); level=max(2, level)
                 s["level"]=level; previous=level; repaired.append(s)
             d["sections"]=repaired
+        elif recovery_type == "unsupported_claim_softening":
+            replacements = (context.get("auto_repair") or {}).get("claim_replacements") or []
+            for key in fields:
+                value = d.get(key)
+                if isinstance(value, str):
+                    for item in replacements:
+                        old, new = str(item.get("before") or ""), str(item.get("after") or "")
+                        if old: value = value.replace(old, new)
+                    d[key] = value
+        elif recovery_type == "unverified_value_redaction":
+            values = (context.get("auto_repair") or {}).get("unverified_values") or []
+            replacement_text = (context.get("auto_repair") or {}).get("verification_text", "公式情報を確認してください")
+            for key in fields:
+                value = d.get(key)
+                if isinstance(value, str):
+                    for raw in values:
+                        if str(raw): value = value.replace(str(raw), replacement_text)
+                    d[key] = value
+        elif recovery_type == "fee_subject_disambiguation":
+            repairs = (context.get("auto_repair") or {}).get("fee_claim_repairs") or []
+            component_aliases = {
+                "article_title": "h1", "description": "meta_description", "meta": "meta_description",
+                "seo_title": "seo_title", "h1": "h1", "introduction": "introduction",
+                "article_content": "article_content", "conclusion": "conclusion",
+            }
+            for item in repairs:
+                component = str(item.get("component") or item.get("target") or "article_content")
+                key = component_aliases.get(component, component)
+                before, after = str(item.get("before") or ""), str(item.get("after") or "")
+                if key == "sections":
+                    for section in d.get("sections") or []:
+                        if isinstance(section, dict):
+                            for field in ("heading", "content"):
+                                value = section.get(field)
+                                if isinstance(value, str) and before:
+                                    section[field] = value.replace(before, after)
+                elif isinstance(d.get(key), str) and before:
+                    d[key] = d[key].replace(before, after)
+                else:
+                    for field in fields:
+                        value = d.get(field)
+                        if isinstance(value, str) and before:
+                            d[field] = value.replace(before, after)
+                    for section in d.get("sections") or []:
+                        if isinstance(section, dict):
+                            for field in ("heading", "content"):
+                                value = section.get(field)
+                                if isinstance(value, str) and before:
+                                    section[field] = value.replace(before, after)
+        elif recovery_type == "title_promise_softening":
+            for key in ("seo_title", "h1", "meta_description", "introduction"):
+                value = d.get(key)
+                if isinstance(value, str):
+                    value = value.replace("徹底比較", "比較").replace("徹底的に比較", "比較").replace("完全ガイド", "ガイド")
+                    d[key] = value
+        elif recovery_type == "json_publication_sync":
+            feedback = d.get("feedback")
+            if isinstance(feedback, dict):
+                publication = feedback.get("publication_result") or {}
+                for item in publication.get("public_ok_changes") or []:
+                    target = item.get("target") or item.get("component")
+                    if target in d and item.get("after") is not None:
+                        d[target] = item.get("after")
         return d
 
     @staticmethod

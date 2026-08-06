@@ -1,7 +1,14 @@
 {
   "target_product": "writer",
-  "source_version": "1.4.0",
-  "integrated_version": "1.4.0",
-  "included_mapping": "writer",
-  "excluded_mapping": "article-creator"
+  "source_version": "3.3.0",
+  "included_paths": [
+    "contracts/common",
+    "contracts/writer",
+    "contracts/platform",
+    "knowledge",
+    "validation",
+    "patterns",
+    "quality"
+  ],
+  "status": "SCOPE_DEFINED"
 }

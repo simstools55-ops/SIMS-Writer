@@ -8,3 +8,7 @@ Issueに対し対象限定の修正を行う。
 
 ## 原則
 入力と出力はContractで検証し、失敗を正常完了として扱いません。
+
+
+## v3.0.1
+Apply the smallest safe repair and revalidate, up to three cycles. Do not return repair work to the user when the runtime can resolve it.

@@ -3,6 +3,8 @@ from __future__ import annotations
 from copy import deepcopy
 from typing import Any
 
+from ..editorial_decision import build_internal_audit_record, build_publication_result, user_visible_publication_result
+
 
 PUBLIC_COMPONENTS = (
     ("seo_title", "SEOタイトル"),
@@ -38,6 +40,19 @@ def build_publication_view(initial_draft: dict[str, Any], qa_result: dict[str, A
             })
 
     advisory = _advisory_messages(qa_result)
+    candidate_changes = []
+    for item in changes:
+        candidate_changes.append({
+            **item,
+            "component_label": item.get("label"),
+            "copy_ready": publishable,
+            "evidence_sufficient": publishable,
+            "qa_status": "PASS" if publishable else "REQUIRED_FIX",
+        })
+    publication_result = build_publication_result(candidate_changes)
+    internal_audit = build_internal_audit_record(
+        publication_result=publication_result, qa_result=qa_result
+    )
     return {
         "qa_contract": qa_result.get("qa_contract", "SIMS_EDITORIAL_QA_V1"),
         "qa_engine_version": qa_result.get("qa_engine_version"),
@@ -56,26 +71,32 @@ def build_publication_view(initial_draft: dict[str, Any], qa_result: dict[str, A
         "advisories": advisory,
         "publication_content": final_draft if publishable else None,
         "held_draft": final_draft if not publishable else None,
+        "publication_result": user_visible_publication_result(publication_result),
+        "internal_audit_record": internal_audit,
     }
 
 
 def apply_qa_to_feedback(feedback: dict[str, Any] | None, publication_view: dict[str, Any]) -> dict[str, Any]:
-    """Attach QA outcome without renaming or removing existing feedback fields."""
-    result = deepcopy(feedback or {})
-    result["publication_qa"] = {
-        "contract": publication_view["qa_contract"],
-        "engine_version": publication_view["qa_engine_version"],
-        "initial_verdict": publication_view["initial_verdict"],
-        "final_verdict": publication_view["publication_verdict"],
-        "verdict": publication_view["publication_verdict"],
-        "publishable": publication_view["publishable"],
-        "release_action": publication_view["release_action"],
-        "auto_fix_applied": publication_view["auto_fix_applied"],
-        "auto_fixes": publication_view["auto_fixes"],
-        "review_cycles_used": publication_view["review_cycles_used"],
-        "review_trace": publication_view["review_trace"],
-        "unresolved_findings": publication_view["unresolved_findings"],
-        "advisories": publication_view["advisories"],
+    """Build the Contract 4.0 minimal public/SBM payload.
+
+    Validation, QA, diagnosis and audit details remain in internal_audit_record
+    and are deliberately excluded from the user-facing feedback object.
+    """
+    source = deepcopy(feedback or {})
+    result = {
+        "format": "SIMS_FEEDBACK_V2",
+        "contract_version": "4.2",
+        "site_id": source.get("site_id"),
+        "site_name": source.get("site_name"),
+        "site_url": source.get("site_url"),
+        "article_id": source.get("article_id") or "UNKNOWN",
+        "article_url": source.get("article_url") or "",
+        "completed_at": source.get("completed_at"),
+        "publication_result": deepcopy(publication_view.get("publication_result") or {
+            "change_summary": [], "public_ok_changes": [], "user_decision_changes": []
+        }),
+        "recommended_review_days": source.get("recommended_review_days"),
+        "next_action": source.get("next_action"),
     }
     return result
 
@@ -110,9 +131,9 @@ def _advisory_messages(qa_result: dict[str, Any]) -> list[str]:
 def _public_message(verdict: str) -> str:
     return {
         "PASS": "公開できます。",
-        "PASS_WITH_WARNING": "公開できます。注意事項を確認してください。",
+        "PASS_WITH_WARNING": "公開できます。SEO上の公開阻害要因はありません。任意の品質提案があります。",
         "PASS_WITH_MINOR_FIX": "軽微な修正を反映済みです。修正後の内容を公開できます。",
-        "PASS_WITH_REQUIRED_FIX": "公開前の修正が必要です。現在の内容は公開しないでください。",
+        "PASS_WITH_REQUIRED_FIX": "SEO上の重大問題が残っているため、現在の候補は公開しないでください。内部修正後の候補を再検証します。",
         "FAIL": "公開できません。手動レビューが必要です。",
     }.get(verdict, "公開判定を確認できません。")
 

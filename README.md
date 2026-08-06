@@ -1,41 +1,38 @@
-# SIMS Writer v1.3.1
+# SIMS Writer
 
-# SIMS Writer v1.1.3
+既存記事を、検索意図・Search Console・SERP・根拠・既存価値の保全に基づいて改善する、SIMS Editorial Platformの治療専門製品です。
 
-Google Search Console等の実データをもとに、既存記事を壊さず局所改善するための品質・契約・Knowledge・Pattern中心のリライトシステムです。
+- Product Version: `3.3.0`
+- Platform Compatibility: `SIMS Editorial Platform 1.x`
+- Shared Version: `3.3.0`
+- Repository Type: `Product`
 
-## v1.1.1の位置付け
+## 責務
 
-- 実記事で有効性を確認した7つのEditorial Capabilityを正式実装
-- Preservation、Change Budget、Rewrite Level/Scope、JSON Contractを維持
-- Shared Editorial Knowledge v1.1.1を唯一の正本としてスナップショット連携
-- Product 5.3.1識別情報と旧入力形式の後方互換を維持
+- SBMの日次改善依頼を処理する
+- SBMがDoctor Referralから生成したWriter Treatment Requestを処理する
+- 公開OK／利用者判断のBefore・Afterを生成する
+- Winner Query、独自体験、広告・アフィリエイト要素などの保護対象を維持する
+- Treatment ResultをSBMへ返す
 
-## 主な構成
+Writerは診断Caseを管理せず、新記事作成や記事統合を直接実行しません。CreatorまたはMergeが適切な場合は、SBM向けFollow-up Referral候補を返します。
 
-- `claude/`：Claude Project用資産
-- `contracts/`：入出力契約
-- `knowledge/`：診断・品質・保護ルール
-- `runtime/`：評価・Validationパイプライン
-- `patterns/`：改善パターン
+## Platform Contract
 
-- `shared/`：`SIMS-Shared-Editorial-Knowledge v1.1.1`の検証済み・編集禁止スナップショット
-- `learning/`：運用データ、利用者コメント、効果測定、10記事レポート
-- `tests/`：回帰テストとベースライン
+標準経路：
 
-SWLSの使い方は[`learning/README.md`](learning/README.md)を参照してください。
+- `SIMS_WRITER_TREATMENT_REQUEST_V1`
+- `SIMS_WRITER_TREATMENT_RESULT_V1`
+- `SIMS_PUBLICATION_RESULT_V1`
 
-## Shared Knowledge dependency
+既存運用との互換として、`SIMS_FEEDBACK_V2` Contract 2.1／3.0／4.2を継続サポートします。
 
-SIMS Writerは、独立製品`SIMS-Shared-Editorial-Knowledge`を正本として利用します。実行時の外部取得は行わず、リリースで検証済みスナップショットを`shared/`へ同梱します。Writer側の`shared/`は直接編集しません。
+## Repository境界
 
+Claude Project用パッケージは別Repositoryの`SIMS-Writer-Claude`で管理します。Doctor実装・Doctor診断Runtimeは本Repositoryに含めません。
 
-## v1.1.1
-運用試験で確認したEvidence、LOW_SAMPLE、Canonical JSON、内部リンク保留ルールを反映。
+## Test
 
-## v1.1.3 Sprint 1
-
-- `product/platform/SIMS_PLATFORM_GUIDE.md`：公開先形式とSite Fitの適用ガイド
-- `product/quality/QUALITY_FRAMEWORK.md`：既存Quality資産の統合運用フレームワーク
-- `product/roadmap/WRITER_v1.1.3_IMPROVEMENT_PLAN.md`：承認済みSprint実装計画
-- Shared Knowledgeの正本性、Writer固有責務、Claude Project同期を明文化
+```bash
+pytest -q tests/platform tests/publication-qa/test_official_regression_suite.py
+```

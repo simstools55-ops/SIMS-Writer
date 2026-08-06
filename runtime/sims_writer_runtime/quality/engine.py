@@ -2,6 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Any
+from ..qa.severity import split_issues
 import json, re
 try:
     import yaml
@@ -70,10 +71,10 @@ class QualityValidationEngine:
         blockers=[i for i in issues if i['result']=='fail' and i['severity']=='blocker']
         critical=[i for i in issues if i['result']=='fail' and i['severity']=='critical']
         unver_major=[i for i in issues if i['result']=='unable_to_verify' and i['severity'] in ('blocker','critical')]
-        failures=[i for i in issues if i['result']=='fail']
-        if blockers or critical or unver_major: decision='revision_required'
-        elif failures: decision='revision_required'
-        elif any(i['result'] in ('warning','unable_to_verify') for i in issues): decision='publish_ready_with_advisory'
+        classes=split_issues(issues)
+        unresolved_critical=[i for i in classes['seo_critical'] if i.get('result') in ('fail','unable_to_verify')]
+        if blockers or critical or unver_major or unresolved_critical: decision='revision_required'
+        elif issues: decision='publish_ready_with_advisory'
         else: decision='publish_ready'
         dim={}
         for c in checks:
@@ -82,7 +83,7 @@ class QualityValidationEngine:
         return {'framework_version':'1.0.0','rules_evaluated':len(checks),'checks':[c.to_dict() for c in checks],
                 'issues':issues,'gate_results':gate_results,'dimension_scores':scores,
                 'summary':{'pass':sum(c.result=='pass' for c in checks),'fail':sum(c.result=='fail' for c in checks),'warning':sum(c.result=='warning' for c in checks),'unable_to_verify':sum(c.result=='unable_to_verify' for c in checks)},
-                'blockers':blockers,'critical_issues':critical,'publish_recommendation':decision}
+                'blockers':blockers,'critical_issues':critical,'issue_classes':classes,'publish_recommendation':decision}
 
     def _r(self,r,result,component,desc,evidence=None,action=None):
         return CheckResult(r['id'],r['dimension'],r['severity'],result,component,desc,evidence or [],action,bool(r.get('auto_fix_eligible')))
@@ -126,6 +127,21 @@ class QualityValidationEngine:
             return self._r(r,'fail' if dangerous and not warning else 'pass','article','データ損失警告検査',[f'dangerous={dangerous}',f'warning={warning}'])
         if rid=='QF-SAF-001':
             return self._r(r,'unable_to_verify' if any(x in t for x in DANGER) else 'pass','article','危険手順の文脈検査',[])
+        if rid=='QF-FAC-005':
+            audit=c.get('publication_integrity_audit') or {}; bad=audit.get('unverified_dynamic_claims') or []
+            return self._r(r,'fail' if bad else 'pass','article','変動情報の現在性検査',[str(x) for x in bad], '現在の公式・一次情報で確認するか主張を限定する' if bad else None)
+        if rid=='QF-FAC-006':
+            audit=c.get('publication_integrity_audit') or {}; bad=audit.get('ambiguous_fee_claims') or []
+            return self._r(r,'fail' if bad else 'pass','article','手数料の支払主体・受取主体・料金種別の明確性検査',[str(x) for x in bad], '料金主体を分解し関連コンポーネントを横断修正する' if bad else None)
+        if rid=='QF-PUB-005':
+            audit=c.get('publication_integrity_audit') or {}; bad=audit.get('json_mismatches') or []
+            return self._r(r,'fail' if bad else 'pass','publication_json','公開文とJSONの同期検査',[str(x) for x in bad], '最終公開文から完全JSONを再生成する' if bad else None)
+        if rid=='QF-PUB-006':
+            audit=c.get('publication_integrity_audit') or {}; bad=audit.get('unsupported_cta_claims') or []
+            return self._r(r,'fail' if bad else 'pass','cta','アフィリエイトCTA検査',[str(x) for x in bad], 'リンクを維持して未検証CTAを修正する' if bad else None)
+        if rid=='QF-COM-004':
+            audit=c.get('publication_integrity_audit') or {}; bad=audit.get('stale_cross_component_claims') or []
+            return self._r(r,'fail' if bad else 'pass','article','横断主張同期検査',[str(x) for x in bad], '全コンポーネントを横断修正する' if bad else None)
         if rid=='QF-ORG-003':
             fabricated=bool(re.search(r'私が(?:実際に|使って|試して)',t)) and not c.get('experience_verified'); return self._r(r,'fail' if fabricated else 'pass','article','体験主張の真正性検査',[])
         if rid=='QF-EEA-003':
