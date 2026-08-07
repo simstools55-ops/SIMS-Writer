@@ -1,0 +1,9 @@
+{
+  "product_code": "SHARED",
+  "product_name": "SIMS Shared Editorial Knowledge",
+  "repository_name": "SIMS-Shared-Editorial-Knowledge",
+  "repository_type": "SHARED",
+  "platform": "SIMS Editorial Platform",
+  "platform_compatibility": "1.x",
+  "current_version": "3.5.0"
+}

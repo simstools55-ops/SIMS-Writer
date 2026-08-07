@@ -1,0 +1,13 @@
+{
+  "target_product": "merge",
+  "source_version": "3.5.0",
+  "included_paths": [
+    "contracts/common",
+    "contracts/merge",
+    "contracts/platform",
+    "enums",
+    "knowledge/merge",
+    "presentation"
+  ],
+  "status": "SCOPE_DEFINED"
+}

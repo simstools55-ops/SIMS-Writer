@@ -1,0 +1,19 @@
+version: 3.0.1
+sets:
+  - id: KS-SHARED-BASE
+    includes:
+      - knowledge/intent-analysis.md
+      - knowledge/evidence-boundary.md
+      - knowledge/preservation-signals.md
+  - id: KS-SHARED-TEMPORAL
+    triggers: [date_sensitive, event_based, deadline, planned_or_expired_claim]
+    includes:
+      - knowledge/temporal-search-intent.md
+      - knowledge/content-lifecycle.md
+      - knowledge/evidence-confidence-and-contradiction.md
+      - policies/source-policy.md
+      - policies/review-policy.md
+  - id: KS-SHARED-LEARNING
+    includes:
+      - knowledge/learning-promotion-flow.md
+      - quality/LEARNING_REGISTRY_POLICY.md

@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sims-writer.local/contracts/ct-int-002.schema.json",
+  "title": "SIMS-Blog-Manager Input Contract",
+  "type": "object",
+  "required": [
+    "contract",
+    "ArticleID",
+    "URL",
+    "MainQuery",
+    "RequestedOutput",
+    "ReceivedAt"
+  ],
+  "properties": {
+    "contract": {
+      "$ref": "../../../../schemas/common/common.schema.json#/$defs/contractRef"
+    },
+    "ArticleID": {
+      "type": "string"
+    },
+    "URL": {
+      "$ref": "../../../../schemas/common/common.schema.json#/$defs/url"
+    },
+    "ArticleTitle": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "SEOTitle": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "MetaDescription": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "MainQuery": {
+      "type": "string",
+      "minLength": 1
+    },
+    "SupportingQueries": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Clicks": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "Impressions": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "CTR": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "AveragePosition": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "ImprovementGoal": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "PriorityComponents": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "RequestedOutput": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ExistingContent": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ReceivedAt": {
+      "$ref": "../../../../schemas/common/common.schema.json#/$defs/isoDateTime"
+    }
+  },
+  "additionalProperties": false
+}

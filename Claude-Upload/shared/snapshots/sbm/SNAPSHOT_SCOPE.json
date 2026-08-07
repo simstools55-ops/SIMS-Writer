@@ -1,0 +1,12 @@
+{
+  "target_product": "sbm",
+  "source_version": "3.5.0",
+  "included_paths": [
+    "architecture",
+    "contracts",
+    "enums",
+    "doctor",
+    "presentation"
+  ],
+  "status": "SCOPE_DEFINED"
+}

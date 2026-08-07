@@ -1,0 +1,13 @@
+{
+  "target_product": "doctor",
+  "source_version": "3.5.0",
+  "included_paths": [
+    "contracts/common",
+    "contracts/doctor",
+    "enums",
+    "doctor",
+    "knowledge/common",
+    "presentation"
+  ],
+  "status": "SCOPE_DEFINED"
+}

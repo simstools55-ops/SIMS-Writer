@@ -1,0 +1,13 @@
+{
+  "name": "routing-validation",
+  "version": "1.0",
+  "values": [
+    "ROUTING_APPROVED",
+    "ROUTING_APPROVED_WITH_WARNING",
+    "ROUTING_DEFERRED",
+    "USER_APPROVAL_REQUIRED",
+    "EVIDENCE_REQUIRED",
+    "ROUTING_REJECTED",
+    "ROUTING_CONFLICT"
+  ]
+}
