@@ -37,3 +37,12 @@ When SERP comparison materially determined the edits, show one compact `SERP比�
 - SERP Gap Reportには3〜5行の利用者向けDecision Traceを付ける。
 - USER_DECISIONには2〜5行のDecision Traceを付け、なぜ公開OKにしなかったかを平易に示す。
 - 生の思考過程、内部スコア、競合URL一覧は表示しない。
+
+## Doctor Referral Human Experience Addendum (v3.3.1-RC1)
+
+`DOCTOR_REFERRAL_TREATMENT`でも通常改善と同じHuman Output品質を必須とする。
+
+- PUBLIC_OK各変更に対象 / Before / After / 理由 / 期待する効果を表示する。
+- 新規追加のBeforeは`（該当箇所なし・新規追加）`とする。
+- Doctor/SBMのMachine Layer用フィールド名を利用者へ表示しない。
+- JSONにBefore/Afterが存在していても、利用者向けMarkdownから省略した場合はHuman Usability GateをFAILとする。

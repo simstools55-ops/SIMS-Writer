@@ -1,0 +1,29 @@
+{
+  "platform_name": "SIMS Editorial Platform",
+  "platform_version": "1.0.0-development",
+  "shared_version": "3.5.0",
+  "contract_major": 1,
+  "products": {
+    "SBM": {
+      "role": "CONTROL_PLANE",
+      "minimum_version": "5.8.0-rc.4"
+    },
+    "DOCTOR": {
+      "role": "DIAGNOSIS",
+      "minimum_version": "1.0.0-RC12"
+    },
+    "WRITER": {
+      "role": "EXISTING_ARTICLE_TREATMENT",
+      "minimum_version": "3.2.0"
+    },
+    "CREATOR": {
+      "role": "NEW_ARTICLE_CREATION",
+      "minimum_version": "1.5.0"
+    },
+    "MERGE": {
+      "role": "MULTI_ARTICLE_INTEGRATION",
+      "minimum_version": "1.0.0-RC1"
+    }
+  },
+  "release_status": "DEVELOPMENT_BASELINE"
+}

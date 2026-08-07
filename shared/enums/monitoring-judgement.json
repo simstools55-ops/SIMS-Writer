@@ -1,0 +1,12 @@
+{
+  "name": "monitoring-judgement",
+  "version": "1.0",
+  "values": [
+    "CLEAR_IMPROVEMENT",
+    "IMPROVING",
+    "STABLE",
+    "INCONCLUSIVE",
+    "DECLINING",
+    "CLEAR_DECLINE"
+  ]
+}

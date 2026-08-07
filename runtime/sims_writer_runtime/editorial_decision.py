@@ -114,11 +114,22 @@ def user_visible_publication_result(publication_result: dict[str, Any]) -> dict[
 
 
 def _public_item(item: dict[str, Any]) -> dict[str, Any]:
+    """Return the complete copy-ready PUBLIC_OK item for both machine and human layers.
+
+    Presentation fields are intentionally preserved here.  Doctor-referral treatments
+    must not lose the reason or expected effect before the Presentation Formatter runs.
+    """
+    before = item.get("before")
+    if before in (None, "") and item.get("change_type") in {"ADD", "NEW", "INSERT"}:
+        before = "（該当箇所なし・新規追加）"
     return {
         "component": item.get("component"),
         "component_label": item.get("component_label") or item.get("label") or item.get("component"),
-        "before": item.get("before"),
+        "target": item.get("target") or item.get("component_label") or item.get("label") or item.get("component"),
+        "before": before,
         "after": item.get("after"),
+        "reason": item.get("reason") or item.get("change_reason") or item.get("decision_reason"),
+        "expected_effect": item.get("expected_effect") or item.get("benefit"),
         "implementation_instruction": item.get("implementation_instruction") or "現在の内容と置き換えてください。",
     }
 

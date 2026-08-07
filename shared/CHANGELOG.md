@@ -1,3 +1,40 @@
+# 3.5.0
+
+- Added Platform-wide Human Experience Architecture and Presentation Framework.
+- Added Human/Machine Output policies and Human Usability Gate.
+- Declared Creator and Merge in the common Presentation scope without forcing implementation changes in this release.
+- Standardized Before/After usability requirements for Writer including Doctor Referral Treatment.
+
+# Changelog
+
+## 3.4.0 - 2026-08-07
+- Added Algorithm Evidence platform boundary for Doctor v1.2.
+- Added Integrated Evidence Policy without duplicating existing confidence rules.
+- Added WAIT / LIGHT_FIX / NORMAL_REWRITE / FULL_REWRITE Treatment Strategy semantics.
+- Preserved SBM-mediated specialist routing and kept Doctor-specific algorithm scoring outside Shared.
+
+
+## 3.3.0 - 2026-08-05
+
+- Added SIMS Editorial Platform v1.0 architecture, workflow, repository governance, Claude operations, and release baseline.
+- Added common envelope and canonical v1 schemas for Doctor, Writer, Creator, Merge, publication, monitoring, events, and errors.
+- Added common enums, compatibility matrix, Platform manifest, and product-scoped snapshot definitions.
+- Added legacy adapters for SIMS_FEEDBACK_V2 and Doctor Case Result V2.
+- Added Merge knowledge, safety, preservation, publication-order, and rollback rules.
+- Preserved v3.2.0 SBM-centered routing compatibility.
+
+## 3.2.0 - 2026-08-05
+
+- Established SBM as the platform orchestrator and Case lifecycle source of truth.
+- Changed CaseID ownership from Doctor to SBM.
+- Added `SIMS_DOCTOR_CASE_RESULT_V2`, `SIMS_WRITER_TREATMENT_REQUEST_V1`, and `SIMS_WRITER_TREATMENT_RESULT_V1` to the canonical registry.
+- Added the minimum Case lifecycle and Workflow Lock routing rules.
+- Deprecated direct Doctor-to-Writer dispatch and Writer-to-Doctor result routing while retaining compatibility documentation.
+
+
+## v3.1.0 Revenue First Validation
+
+Revenue impact, search intent, winner-query preservation and publication integrity now determine blocking priority. Editorial polish with negligible SEO impact remains non-blocking.
 ## 3.0.1 - 2026-08-01
 
 - Separated SEO-critical validation from non-blocking quality recommendations.
@@ -206,3 +243,6 @@ Canonical Publication QA output, unresolved-finding verdict alignment, claim-pre
 
 ## 3.0.2 - 2026-08-01
 - Added Fee Subject Clarity and cross-component auto-repair validation.
+
+## 3.1.1
+- Added Doctor interface and safety-boundary knowledge.

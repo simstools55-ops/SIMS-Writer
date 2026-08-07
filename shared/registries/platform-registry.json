@@ -1,0 +1,50 @@
+{
+  "version": "3.5.0",
+  "registries": [
+    {
+      "id": "REG-KNOWLEDGE",
+      "path": "knowledge/",
+      "purpose": "Product-neutral editorial knowledge"
+    },
+    {
+      "id": "REG-POLICY",
+      "path": "policies/",
+      "purpose": "Shared editorial policies"
+    },
+    {
+      "id": "REG-PATTERN",
+      "path": "patterns/",
+      "purpose": "Reusable editorial patterns"
+    },
+    {
+      "id": "REG-VALIDATION",
+      "path": "validation/",
+      "purpose": "Cross-product validation rules"
+    },
+    {
+      "id": "REG-LEARNING",
+      "path": "learning/LEARNING_REGISTRY.json",
+      "purpose": "Operational learning source of truth"
+    },
+    {
+      "id": "REG-PRESERVATION",
+      "path": "knowledge/preservation-signals.md",
+      "purpose": "Protected-value signals"
+    },
+    {
+      "id": "REG-DOCTOR-PLATFORM",
+      "path": "doctor/",
+      "purpose": "SBM-centered Case, Treatment, Referral, and safety contracts"
+    },
+    {
+      "id": "REG-ALGORITHM-EVIDENCE",
+      "path": "doctor/ALGORITHM_EVIDENCE_V1.md",
+      "purpose": "Platform boundary for Google algorithm/update evidence and integrated diagnosis"
+    },
+    {
+      "id": "REG-PRESENTATION",
+      "path": "presentation/",
+      "purpose": "Platform-wide Human Experience Architecture, Presentation Standard, and Human/Machine output policies for SBM, Doctor, Writer, Creator, and Merge"
+    }
+  ]
+}

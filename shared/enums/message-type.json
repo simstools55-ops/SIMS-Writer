@@ -1,0 +1,11 @@
+{
+  "name": "message-type",
+  "version": "1.0",
+  "values": [
+    "REQUEST",
+    "RESULT",
+    "EVENT",
+    "ERROR",
+    "ACKNOWLEDGEMENT"
+  ]
+}

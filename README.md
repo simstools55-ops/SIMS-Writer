@@ -2,9 +2,9 @@
 
 既存記事を、検索意図・Search Console・SERP・根拠・既存価値の保全に基づいて改善する、SIMS Editorial Platformの治療専門製品です。
 
-- Product Version: `3.3.0`
+- Product Version: `3.3.1-RC1`
 - Platform Compatibility: `SIMS Editorial Platform 1.x`
-- Shared Version: `3.3.0`
+- Shared Version: `3.5.0`
 - Repository Type: `Product`
 
 ## 責務
@@ -12,6 +12,7 @@
 - SBMの日次改善依頼を処理する
 - SBMがDoctor Referralから生成したWriter Treatment Requestを処理する
 - 公開OK／利用者判断のBefore・Afterを生成する
+- Doctor Referralを含む全PUBLIC_OK変更を、対象／Before／After／理由／期待効果のHuman Presentation Standardで表示する
 - Winner Query、独自体験、広告・アフィリエイト要素などの保護対象を維持する
 - Treatment ResultをSBMへ返す
 

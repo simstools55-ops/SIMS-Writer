@@ -8,8 +8,8 @@ def test_writer_identity_and_versions():
     identity = json.loads((ROOT / "PRODUCT_IDENTITY.json").read_text(encoding="utf-8"))
     assert identity["product_code"] == "WRITER"
     assert identity["repository_name"] == "SIMS-Writer"
-    assert (ROOT / "VERSION").read_text(encoding="utf-8").strip() == "3.3.0"
-    assert (ROOT / "SHARED_VERSION").read_text(encoding="utf-8").strip() == "3.3.0"
+    assert (ROOT / "VERSION").read_text(encoding="utf-8").strip() == "3.3.1-RC1"
+    assert (ROOT / "SHARED_VERSION").read_text(encoding="utf-8").strip() == "3.5.0"
 
 
 def test_platform_contracts_parse():
