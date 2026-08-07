@@ -7,4 +7,4 @@ def test_internal_link_referral_policy_exists_and_is_editorial():
         assert token in text
 
 def test_version_rc2():
-    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='3.3.1-RC2'
+    assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='3.3.1-RC3'

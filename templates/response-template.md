@@ -45,4 +45,8 @@ SERPが修正判断の根拠になった場合のみ表示する。
 
 内部リンク全件不採用時は「今回は追加できる内部リンクはありません。」だけを表示する。
 
-最後にContract 4.2 JSONを1ブロックだけ出力する。
+最後にMachine Result JSONを1ブロックだけ出力する。
+
+- 通常改善：`SIMS_FEEDBACK_V2` Contract 4.2
+- Doctor Referral Treatment：`SIMS_WRITER_TREATMENT_RESULT_V1` Contract 1.0
+- SBM依頼の`return_contract`がある場合はそれを最優先し、出力直前にContract Gateで一致を確認する。

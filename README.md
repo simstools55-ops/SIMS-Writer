@@ -2,7 +2,7 @@
 
 既存記事を、検索意図・Search Console・SERP・根拠・既存価値の保全に基づいて改善する、SIMS Editorial Platformの治療専門製品です。
 
-- Product Version: `3.3.1-RC2`
+- Product Version: `3.3.1-RC3`
 - Platform Compatibility: `SIMS Editorial Platform 1.x`
 - Shared Version: `3.5.0`
 - Repository Type: `Product`

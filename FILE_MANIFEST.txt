@@ -104,6 +104,7 @@ RELEASE_NOTES_v3.1.0.md
 RELEASE_NOTES_v3.1.1.md
 RELEASE_NOTES_v3.3.1-RC1.md
 RELEASE_NOTES_v3.3.1-RC2.md
+RELEASE_NOTES_v3.3.1-RC3.md
 SHARED_VERSION
 VERSION
 architecture/domain/domain-model-v1.0.md
@@ -158,6 +159,7 @@ contracts/integrations/sims-blog-manager-input/sims-blog-manager-input/sims-blog
 contracts/json/CONTRACT_CHANGELOG.md
 contracts/json/JSON_CONTRACT_v2.md
 contracts/json/SIMS_FEEDBACK_V2.schema.json
+contracts/json/SIMS_WRITER_TREATMENT_RESULT_V1.schema.json
 contracts/knowledge/knowledge-assembly/examples/invalid.json
 contracts/knowledge/knowledge-assembly/examples/valid.json
 contracts/knowledge/knowledge-assembly/knowledge-assembly-contract.md
@@ -287,6 +289,7 @@ docs/Operations/production_deployment.md
 docs/Release/ARCHITECTURE_FREEZE_v1.0.0-RC1.md
 docs/compatibility_checklist.md
 docs/error_codes.md
+examples/A000043-doctor-referral-contract-regression.json
 examples/decisions/decision-action-plan.invalid.json
 examples/decisions/decision-action-plan.valid.json
 examples/decisions/decision-context.invalid.json
@@ -323,11 +326,11 @@ knowledge/contradiction-pattern-registry.md
 knowledge/coverage-pattern-library.md
 knowledge/ctr_opportunity/README.md
 knowledge/ctr_opportunity/ctr_opportunity_policy_v1.json
+knowledge/diagnosis-type-registry.md
 knowledge/diagnosis/README.md
 knowledge/diagnosis/diagnosis_codes.json
 knowledge/diagnosis/rules/README.md
 knowledge/diagnosis/rules/final_diagnosis_rules_v1.json
-knowledge/diagnosis-type-registry.md
 knowledge/diagnostic_rules/README.md
 knowledge/diagnostic_rules/core_diagnostic_rules_v1.json
 knowledge/diagnostic_rules/diagnostic_rule_engine_policy_v1.json
@@ -335,11 +338,11 @@ knowledge/differential/README.md
 knowledge/differential/rules/README.md
 knowledge/differential/rules/differential_rules_v1.json
 knowledge/entity-consistency-rules.md
+knowledge/evidence-level-registry.md
 knowledge/evidence/README.md
 knowledge/evidence/evidence_codes.json
 knowledge/evidence/rules/README.md
 knowledge/evidence/rules/evidence_rules_v1.json
-knowledge/evidence-level-registry.md
 knowledge/explainability/README.md
 knowledge/explainability/explainability_policy_v1.json
 knowledge/external_factors/external_demand_policy_v1.json
@@ -491,7 +494,6 @@ learning/schemas/SWLS_USER_FEEDBACK.schema.json
 learning/templates/LEARNING_RECORD_TEMPLATE.json
 learning/templates/MEASUREMENT_TEMPLATE.json
 learning/templates/USER_FEEDBACK_TEMPLATE.json
-manifest.json
 migrations/sims-core/asset-mapping.md
 migrations/sims-core/migration-framework-v1.0.md
 migrations/sims-core/migration-inventory.yaml
@@ -734,6 +736,7 @@ runtime/coverage-audit.md
 runtime/defect-classification.md
 runtime/diagnosis-decision-table.md
 runtime/diagnosis-to-improvement-map.md
+runtime/doctor-referral-output-contract-gate-v3.3.1-rc3.md
 runtime/editorial-decision-layer-v2.0.md
 runtime/editorial-planner-v2.0.md
 runtime/editorial-strategy-engine-v2.0.md
@@ -818,6 +821,7 @@ runtime/sims_writer_runtime/adapters/provider_transports.py
 runtime/sims_writer_runtime/adapters/structured_model.py
 runtime/sims_writer_runtime/asset_loader.py
 runtime/sims_writer_runtime/cli.py
+runtime/sims_writer_runtime/contract_router.py
 runtime/sims_writer_runtime/editorial_decision.py
 runtime/sims_writer_runtime/editorial_signals.py
 runtime/sims_writer_runtime/editorial_strategy.py
@@ -852,6 +856,7 @@ runtime/validators/quality-validation-runtime.md
 runtime/vertical-slices/ctr-improvement-v1.0.md
 schemas/SIMS_FEEDBACK_V2.schema.json
 schemas/SIMS_WRITER_INTERNAL_AUDIT_V1.schema.json
+schemas/SIMS_WRITER_TREATMENT_RESULT_V1.schema.json
 schemas/common/common.schema.json
 scripts/release_audit.py
 shared/.gitignore
@@ -1112,8 +1117,8 @@ templates/ten-article-summary-template.md
 tests/REAL_ARTICLE_REGRESSION_BASELINE_v1.0.0.md
 tests/conftest.py
 tests/consistency-regression-manifest.md
-tests/contract/validate_fixtures.py
 tests/contract-regression-manifest.md
+tests/contract/validate_fixtures.py
 tests/contracts/README.md
 tests/contracts/test_contract_examples.py
 tests/decisions/test_decision_assets.py
@@ -1238,6 +1243,7 @@ tests/migration/test_sims_core_migration.py
 tests/model-adapters/test_model_adapters.py
 tests/patterns/test_v1_1_0_editorial_patterns.py
 tests/platform/test_doctor_referral_human_presentation_rc1.py
+tests/platform/test_doctor_referral_output_contract_rc3.py
 tests/platform/test_platform_writer_baseline.py
 tests/platform/test_rc2_internal_link_referral_quality.py
 tests/publication-qa/test_contract_cleanup_v1_3_7.py
@@ -1250,10 +1256,10 @@ tests/publication-qa/test_regression_hotfix_v1_3_8.py
 tests/publication-qa/test_self_review_runtime.py
 tests/publication-qa/test_validation_auditability_v1_4_0.py
 tests/publication-qa/test_validation_message_integrity_v1_3_9.py
+tests/quality-freeze-v0.2.0/test_quality_freeze_final.py
 tests/quality-freeze/examples/invalid-budget-v2.json
 tests/quality-freeze/examples/valid-v2.json
 tests/quality-freeze/test_quality_freeze.py
-tests/quality-freeze-v0.2.0/test_quality_freeze_final.py
 tests/quality-gate-regression-manifest.md
 tests/quality-rules/README.md
 tests/quality-rules/test_quality_assets.py
@@ -1261,6 +1267,7 @@ tests/rc-hotfix-v0.2.2/README.md
 tests/rc-hotfix-v0.2.2/real-article-regression-manifest.json
 tests/rc-hotfix-v0.2.2/test_rc_hotfix.py
 tests/refinement/test_targeted_refinement.py
+tests/regression-acceptance-criteria.md
 tests/regression/official-v1/README.md
 tests/regression/official-v1/cases/REG-001/README.md
 tests/regression/official-v1/cases/REG-001/case.json
@@ -1278,11 +1285,10 @@ tests/regression/official-v1/cases/REG-005/README.md
 tests/regression/official-v1/cases/REG-005/case.json
 tests/regression/official-v1/cases/REG-005/expected_qa.json
 tests/regression/official-v1/manifest.json
-tests/regression-acceptance-criteria.md
+tests/release-a/README.md
 tests/release/test_claude_package_consistency.py
 tests/release/test_release_candidate_integrity.py
 tests/release/test_v3_0_0_architecture.py
-tests/release-a/README.md
 tests/runtime/test_quality_foundation.py
 tests/runtime/test_quality_runtime.py
 tests/runtime/test_revenue_first_v3_1_0.py

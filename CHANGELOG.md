@@ -1,4 +1,4 @@
-## 3.3.1-RC2
+## 3.3.1-RC3
 
 - Internal-link referral quality hardening.
 
@@ -482,3 +482,9 @@
 - Split evidence acquisition quality from content quality.
 - Added factor-based confidence scoring and external demand diagnosis.
 - Added multi-track treatment and Japanese user-facing output policy.
+
+## 3.3.1-RC3 — 2026-08-08
+- Added request-aware Doctor Referral Output Contract Gate.
+- Doctor Referral Treatment now returns `SIMS_WRITER_TREATMENT_RESULT_V1` 1.0 instead of falling back to `SIMS_FEEDBACK_V2`.
+- Standard Writer improvement remains `SIMS_FEEDBACK_V2` 4.2.
+- Added A000043 contract-regression coverage.
