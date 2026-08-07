@@ -1,4 +1,4 @@
-# SIMS Writer Claude v1.3.7 — Contract Cleanup, Reviewer Precision, Japanese UX and Release Cleaner
+# SIMS Writer v1.3.7 — Contract Cleanup, Reviewer Precision, Japanese UX and Release Cleaner
 
 - `changes[].target`を`component`へ統一
 - 空文字と未変更項目の出力を抑止

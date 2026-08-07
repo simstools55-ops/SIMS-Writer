@@ -1,11 +1,10 @@
 {
   "product_code": "WRITER",
   "product_name": "SIMS Writer",
-  "repository_name": "SIMS-Writer-Claude",
-  "repository_type": "CLAUDE_PACKAGE",
-  "runtime": "CLAUDE_PROJECT",
-  "package_version": "3.3.2-RC2",
-  "product_compatibility": "3.3.x",
+  "repository_name": "SIMS-Writer",
+  "repository_type": "PRODUCT",
+  "platform": "SIMS Editorial Platform",
   "platform_compatibility": "1.x",
+  "current_version": "3.3.1-RC2",
   "shared_version": "3.5.0"
 }

@@ -1,4 +1,5 @@
-# SIMS Writer Claude v3.1.1
+# SIMS Writer v3.1.1
 
-- Added Doctor request handling instructions.
-- Kept existing Writer identity and publication rules unchanged.
+- Added isolated SIMS Doctor request adapter.
+- Preserved existing SBM input and editorial pipeline.
+- Added hard prohibition mapping and Case/Treatment correlation.
