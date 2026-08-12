@@ -13,9 +13,14 @@ INTERNAL_REJECT = "INTERNAL_REJECT"
 VISIBLE_DECISIONS = {PUBLIC_OK, USER_DECISION}
 
 _USER_DECISION_SIGNALS = {
-    "author_experience", "brand_policy", "freshness_confirmation",
-    "commercial_claim", "medical_legal_financial_claim", "strategic_tradeoff",
-    "link_destination_confirmation", "first_party_fact_confirmation",
+    "author_experience", "brand_policy", "first_party_fact_confirmation",
+    "rights_or_permission", "private_contract_or_sponsorship",
+    "irreversible_site_action", "owner_intent", "strategic_tradeoff",
+}
+
+_OWNER_CONFIRMATION_KINDS = {
+    "experience", "first_party_fact", "rights", "permission", "contract",
+    "sponsorship", "brand_policy", "irreversible_site_action", "owner_intent",
 }
 
 
@@ -34,8 +39,12 @@ def classify_change(change: dict[str, Any]) -> str:
     if change.get("before") == change.get("after"):
         return INTERNAL_REJECT
     signals = set(change.get("decision_signals") or [])
-    if change.get("requires_user_confirmation") or signals & _USER_DECISION_SIGNALS:
+    confirmation_kind = str(change.get("user_confirmation_kind") or "").strip().lower()
+    owner_only = bool(signals & _USER_DECISION_SIGNALS or confirmation_kind in _OWNER_CONFIRMATION_KINDS)
+    if owner_only:
         return USER_DECISION
+    # A generic requires_user_confirmation flag is not enough. Writer must
+    # resolve SEO/editorial alternatives itself unless an owner-only fact remains.
     level = evidence_level(change)
     if level == NONE or change.get("evidence_sufficient") is False:
         return INTERNAL_REJECT
@@ -143,9 +152,14 @@ def _decision_item(item: dict[str, Any]) -> dict[str, Any]:
         "decision_reason": item.get("decision_reason") or "利用者による事実または運営方針の確認が必要です。",
         "benefit_if_adopted": item.get("benefit_if_adopted") or "確認後に採用することで、改善意図を安全に反映できます。",
         "impact_if_not_adopted": item.get("impact_if_not_adopted") or "採用しなくても現在の内容は維持されます。",
-        "confirmation_point": item.get("confirmation_point") or "修正内容が実際の事実・体験・運営方針に合うか確認してください。",
+        "confirmation_point": item.get("confirmation_point") or "利用者だけが確定できる事実・体験・権利・運営方針を確認してください。",
+        "question": item.get("question") or item.get("confirmation_question") or "この内容は事実として確認できますか？",
+        "response_options": deepcopy(item.get("response_options") or ["YES", "NO"]),
+        "required_response": item.get("required_response") or "YES/NOのいずれかで回答してください。",
+        "blocking": bool(item.get("blocking", True)),
         "decision_trace": deepcopy(item.get("decision_trace") or [
-            "公開に必要な確認事項を検出",
-            "確認完了まで利用者判断として保留",
+            "Writer内で代替案と根拠を比較",
+            "利用者だけが確定できる事項が残存",
+            "回答後にWriterが完成原稿とSBM返却JSONを再生成",
         ]),
     }

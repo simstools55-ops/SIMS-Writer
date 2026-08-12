@@ -1,12 +1,12 @@
 {
   "package_name": "SIMS-Writer-Claude",
-  "package_version": "3.3.2-RC2",
+  "package_version": "3.3.2-RC4",
   "product_code": "WRITER",
   "compatible_product_versions": [
     "3.3.x"
   ],
   "platform_compatibility": "1.x",
-  "shared_version": "3.5.0",
+  "shared_version": "3.5.1",
   "supported_contracts": [
     "SIMS_WRITER_TREATMENT_REQUEST_V1",
     "SIMS_WRITER_TREATMENT_RESULT_V1",

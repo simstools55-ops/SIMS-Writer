@@ -1,6 +1,6 @@
 {
   "target_product": "sbm",
-  "source_version": "3.5.0",
+  "source_version": "3.5.1",
   "included_paths": [
     "architecture",
     "contracts",

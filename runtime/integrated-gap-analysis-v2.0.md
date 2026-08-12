@@ -12,7 +12,7 @@ A reliable first-party fact that is absent from competitors may still be valuabl
 
 Gap classifications:
 - `SUPPORTED_GAP`: query/SERP relevance plus sufficient evidence; eligible for planning.
-- `DECISION_GAP`: relevant but evidence or policy confirmation is incomplete; USER_DECISION only.
+- `DECISION_GAP`: relevant but evidence is incomplete; Writer must verify, repair, or hold internally. It is not user homework.
 - `UNSUPPORTED_GAP`: plausible but unsupported; INTERNAL_REJECT.
 - `NO_GAP`: already answered adequately.
 - `SEPARATE_INTENT`: better handled by another article.

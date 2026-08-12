@@ -1,7 +1,7 @@
 {
   "platform_name": "SIMS Editorial Platform",
   "platform_version": "1.0.0-development",
-  "shared_version": "3.5.0",
+  "shared_version": "3.5.1",
   "contract_major": 1,
   "products": {
     "SBM": {

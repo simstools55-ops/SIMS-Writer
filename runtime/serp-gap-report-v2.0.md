@@ -32,7 +32,7 @@ SERP Gap Reportは、修正案の前に利用者へ示す短い比較要約で�
 - ★★☆☆☆: 補助的。今回見送り可能。
 - ★☆☆☆☆: 関連が弱い、別意図、または採用価値が低い。
 
-Evidence不足の項目は重要度が高くてもPUBLIC_OKへは昇格させず、USER_DECISIONまたはINTERNAL_REJECTとする。
+Evidence不足の項目は重要度が高くてもPUBLIC_OKへは昇格させない。Writerが追加確認・修復し、解消できなければINTERNAL_REJECTとする。USER_DECISIONは利用者固有事項に限定する。
 
 ## Decision Trace
 

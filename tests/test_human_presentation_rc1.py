@@ -3,7 +3,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def test_versions():
     assert (ROOT/'VERSION').read_text(encoding='utf-8').strip()=='3.3.2-RC2'
-    assert (ROOT/'SHARED_VERSION').read_text(encoding='utf-8').strip()=='3.5.0'
+    assert (ROOT/'SHARED_VERSION').read_text(encoding='utf-8').strip()=='3.5.1'
 
 def test_instructions_require_doctor_before_after_and_hide_machine_terms():
     text=(ROOT/'CLAUDE_PROJECT_INSTRUCTIONS.md').read_text(encoding='utf-8')

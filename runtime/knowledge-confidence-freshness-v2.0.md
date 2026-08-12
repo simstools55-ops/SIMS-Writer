@@ -13,8 +13,8 @@
 
 ## Publication ceiling
 - OFFICIAL / PRIMARY + current: PUBLIC_OK候補
-- MULTIPLE_THIRD_PARTY: 原則USER_DECISION。公式確認なしで製品仕様を断定しない
-- SINGLE_THIRD_PARTY / COMMUNITY: USER_DECISIONまたはINTERNAL_REJECT
+- MULTIPLE_THIRD_PARTY: 公式確認なしで製品仕様を断定しない。Writerが追加確認し、確認できなければ修復またはINTERNAL_REJECT
+- SINGLE_THIRD_PARTY / COMMUNITY: 追加確認できなければINTERNAL_REJECT。利用者に調査を委ねない
 - stale / contradicted / UNKNOWN: INTERNAL_REJECT
 
 ## Metadata

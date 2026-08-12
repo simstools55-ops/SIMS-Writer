@@ -68,10 +68,9 @@ def enforce_evidence_boundaries(changes: list[dict[str, Any]]) -> tuple[list[dic
             item["editorial_decision"] = "INTERNAL_REJECT"
             item["qa_status"] = "UNVERIFIABLE"
         else:
-            item["editorial_decision"] = "USER_DECISION"
-            item["requires_user_confirmation"] = True
-            item.setdefault("decision_reason", "公開文に未確認の事実が含まれるため、根拠確認が必要です。")
-            item.setdefault("confirmation_point", "一次情報または信頼できる最新資料で該当事実を確認してください。")
+            item["editorial_decision"] = "INTERNAL_REJECT"
+            item["qa_status"] = "UNVERIFIABLE"
+            item.setdefault("decision_reason", "公開文に未確認の事実が含まれるため、Writer内で削除・弱化・追加調査による修復が必要です。")
         findings.append({
             "code": "EVIDENCE-CONTAMINATION-001",
             "component": item.get("component"),
@@ -95,6 +94,7 @@ def apply_knowledge_confidence(change: dict[str, Any]) -> dict[str, Any]:
     current=str(item.get("editorial_decision") or "PUBLIC_OK").upper()
     if ceiling=="INTERNAL_REJECT": item["editorial_decision"]="INTERNAL_REJECT"
     elif ceiling=="USER_DECISION" and current=="PUBLIC_OK":
-        item["editorial_decision"]="USER_DECISION"; item["requires_user_confirmation"]=True
-        item.setdefault("confirmation_point","公式情報または一次情報で最新仕様を確認してください。")
+        # Evidence uncertainty is Writer's research/repair responsibility, not user homework.
+        item["editorial_decision"]="INTERNAL_REJECT"
+        item["qa_status"]="UNVERIFIABLE"
     return item

@@ -19,7 +19,7 @@ def test_partial_allows_supported_title_without_new_promise():
 
 def test_partial_sends_supported_faq_to_user_decision():
     c={'component':'faq','change_basis':'serp_gap','evidence_level':'MEDIUM','after':'候補','before':''}
-    assert progressive_decision(c,serp_status='partial')=='USER_DECISION'
+    assert progressive_decision(c,serp_status='partial')=='INTERNAL_REJECT'
 
 def test_partial_rejects_new_claim_in_intro_when_none():
     c={'component':'introduction','change_basis':'serp_gap','evidence_level':'NONE','after':'未確認事項','before':'旧','introduces_new_claim':True}

@@ -1,9 +1,9 @@
 {
   "deployment_manifest_version": "1.0",
   "package_name": "SIMS-Writer-Claude",
-  "package_version": "3.3.2-RC2",
+  "package_version": "3.3.2-RC4",
   "product_code": "WRITER",
-  "shared_version": "3.5.0",
+  "shared_version": "3.5.1",
   "platform_compatibility": "1.x",
   "upload_method": "UPLOAD_CONTENTS_OF_CLAUDE_UPLOAD_DIRECTORY",
   "upload_directory": "Claude-Upload",

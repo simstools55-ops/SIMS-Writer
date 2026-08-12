@@ -1,3 +1,8 @@
+## 3.3.2-RC4 — 2026-08-12
+
+- Writer autonomous user-decision resolution hotfix.
+- Shared 3.5.1.
+
 ## 3.3.1-RC3
 
 - Internal-link referral quality hardening.

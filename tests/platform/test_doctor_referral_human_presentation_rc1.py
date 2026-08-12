@@ -9,8 +9,8 @@ from sims_writer_runtime.presentation_formatter import build_human_presentation,
 
 
 def test_versions_and_shared():
-    assert (ROOT / "VERSION").read_text(encoding="utf-8").strip() == "3.3.1-RC3"
-    assert (ROOT / "SHARED_VERSION").read_text(encoding="utf-8").strip() == "3.5.0"
+    assert (ROOT / "VERSION").read_text(encoding="utf-8").strip() == "3.3.2-RC4"
+    assert (ROOT / "SHARED_VERSION").read_text(encoding="utf-8").strip() == "3.5.1"
 
 
 def test_runtime_preserves_reason_and_expected_effect():

@@ -12,9 +12,9 @@ Do not stop the entire article when only part of the evidence or SERP inspection
 
 ## Partial-mode matrix
 - SEO title / meta description / introduction: may be `PUBLIC_OK` when they faithfully summarize the current article, use supported claims, and do not introduce an unverified competitor gap or new search promise.
-- Heading / FAQ / body / structure: may be `USER_DECISION` when the gap is plausible and supported but top-result coverage is incomplete. Otherwise `INTERNAL_REJECT`.
+- Heading / FAQ / body / structure: Writer must decide from available evidence. If coverage is sufficient and the edit adds no unsupported claim, it may progress; otherwise hold it as `INTERNAL_REJECT`. Do not ask the user to make the SEO gap judgment.
 - Mechanical fixes, accidental-text removal, verified contradiction fixes and non-promissory truncation repair: may be `PUBLIC_OK`.
-- LOW evidence: always `USER_DECISION`; NONE: always `INTERNAL_REJECT`.
+- LOW/NONE evidence: repair or `INTERNAL_REJECT`. Weak evidence alone never creates USER_DECISION.
 
 ## Scope rule
 SERP status applies to each proposed component, not to the article as a whole. One blocked body edit must not suppress a safe meta correction. One verified title edit must not authorize an unsupported FAQ.

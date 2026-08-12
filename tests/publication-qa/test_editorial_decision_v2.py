@@ -10,7 +10,7 @@ from runtime.sims_writer_runtime.qa.presentation import apply_qa_to_feedback, bu
 
 def test_change_level_decisions():
     assert classify_change({"before":"旧","after":"新"}) == PUBLIC_OK
-    assert classify_change({"before":"旧","after":"新","requires_user_confirmation":True}) == USER_DECISION
+    assert classify_change({"before":"旧","after":"新","requires_user_confirmation":True}) == PUBLIC_OK
     assert classify_change({"before":"旧","after":"","qa_status":"FAIL"}) == INTERNAL_REJECT
 
 

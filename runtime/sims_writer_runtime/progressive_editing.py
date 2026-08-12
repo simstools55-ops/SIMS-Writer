@@ -31,13 +31,18 @@ def progressive_decision(change: dict[str, Any], *, serp_status: str) -> str:
     if ceiling == INTERNAL_REJECT:
         return INTERNAL_REJECT
     if ceiling == USER_DECISION and current != INTERNAL_REJECT:
-        return USER_DECISION
+        return INTERNAL_REJECT
 
     if current == INTERNAL_REJECT or item.get("internal_reject"):
         return INTERNAL_REJECT
     if evidence == "NONE":
         return INTERNAL_REJECT
-    if evidence == "LOW" or item.get("requires_user_confirmation"):
+    if evidence == "LOW":
+        return INTERNAL_REJECT
+    if item.get("requires_user_confirmation") and str(item.get("user_confirmation_kind") or "").lower() in {
+        "experience", "first_party_fact", "rights", "permission", "contract", "sponsorship",
+        "brand_policy", "irreversible_site_action", "owner_intent"
+    }:
         return USER_DECISION
 
     status = str(serp_status or "unavailable").lower()
@@ -53,18 +58,18 @@ def progressive_decision(change: dict[str, Any], *, serp_status: str) -> str:
         # article and inspected evidence; it must not assert an unverified gap.
         if component in _PRESENTATION_COMPONENTS:
             if item.get("serp_gap_required") or item.get("introduces_new_claim"):
-                return USER_DECISION if evidence == "MEDIUM" else INTERNAL_REJECT
+                return INTERNAL_REJECT
             return PUBLIC_OK
         # Structural/content expansion needs stronger coverage. With partial
         # SERP it may be shown for user confirmation only when evidence exists.
         if component in _STRUCTURAL_COMPONENTS:
-            return USER_DECISION if evidence in {"HIGH", "MEDIUM"} else INTERNAL_REJECT
-        return USER_DECISION
+            return INTERNAL_REJECT
+        return INTERNAL_REJECT
 
     # unavailable: only the non-SERP whitelist above can progress.
     if basis in _SERP_BASES or component in _PRESENTATION_COMPONENTS | _STRUCTURAL_COMPONENTS:
         return INTERNAL_REJECT
-    return USER_DECISION
+    return INTERNAL_REJECT
 
 
 def apply_progressive_editing(changes: list[dict[str, Any]], *, serp_status: str) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:

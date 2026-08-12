@@ -50,8 +50,13 @@ def build_human_presentation(
         "publication_status": status,
         "what_to_do": summary,
         "changes": public_ok,
+        "user_decisions": user_decision,
         "unchanged_items": list(unchanged_items or doctor_presentation.get("what_not_to_do") or []),
-        "next_step": doctor_presentation.get("next_step") or "修正後、結果JSONをSBMへ登録してください。",
+        "next_step": (
+            "利用者判断の質問へ回答してください。Writerが回答を反映した完成結果を再生成してからSBMへ登録します。"
+            if any(bool(x.get("blocking", True)) for x in user_decision)
+            else doctor_presentation.get("next_step") or "修正後、結果JSONをSBMへ登録してください。"
+        ),
         "request_mode": request_mode or "STANDARD",
     }
 
@@ -70,6 +75,22 @@ def render_human_markdown(presentation: dict[str, Any], feedback_json: str | Non
             "", "**理由**", str(item["reason"]),
             "", "**期待する効果**", str(item["expected_effect"]),
         ]
+    decisions = presentation.get("user_decisions") or []
+    if decisions:
+        lines += ["", "## 利用者判断"]
+    for idx, item in enumerate(decisions, 1):
+        question = item.get("question") or item.get("confirmation_point") or "この内容は事実として確認できますか？"
+        options = item.get("response_options") or ["YES", "NO"]
+        options_text = " / ".join(map(str, options))
+        lines += [
+            "", f"### 確認{idx}：{item.get('component_label') or item.get('component') or '確認事項'}",
+            "", "**判断理由**", str(item.get("decision_reason") or "利用者だけが確定できる事項が残っています。"),
+            "", "**質問**", str(question),
+            "", "**回答方法**", f"{options_text} のいずれかで回答してください。",
+        ]
+    if decisions:
+        lines += ["", "※ 回答後、Writerが完成原稿とSBM返却JSONを再生成します。未回答のまま最終登録しません。"]
+
     unchanged = presentation.get("unchanged_items") or []
     if unchanged:
         lines += ["", "## 今回変更しないもの", "", "・" + "\n・".join(map(str, unchanged))]

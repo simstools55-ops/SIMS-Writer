@@ -10,7 +10,9 @@ When average position is greater than 3.0:
 4. `unavailable`: permit only non-SERP mechanical or authoritative factual corrections.
 5. Never use Search Console query rows alone to authorize content expansion.
 
-In partial mode, title, meta and introduction may progress when they accurately summarize supported existing content and do not add an unverified search promise. Headings, FAQ, body and structure require component-level gap support and normally become USER_DECISION until coverage is verified.
+In partial mode, title, meta and introduction may progress when they accurately summarize supported existing content and do not add an unverified search promise. Headings, FAQ, body and structure require component-level gap support. Writer either verifies enough support and completes the edit or holds it internally; the user is not asked to judge the gap.
+
+Search Console query rows may identify investigation candidates, but they cannot alone authorize content expansion.
 
 ## Planning order after gate opens
 1. Preserve article-unique value and proven winner entities.
@@ -33,7 +35,7 @@ No change may be proposed merely because it appears in a competitor article.
 
 
 ## Evidence Layer lock (v2.0.0-rc.1)
-Before planning any content addition, combine Search Console signals, verified SERP findings, and claim-level evidence. `SUPPORTED_GAP` may enter normal planning; `DECISION_GAP` may produce only USER_DECISION; `UNSUPPORTED_GAP` must become INTERNAL_REJECT. A low-evidence claim cannot be inserted into another PUBLIC_OK component.
+Before planning any content addition, combine Search Console signals, verified SERP findings, and claim-level evidence. `SUPPORTED_GAP` may enter normal planning; `DECISION_GAP` must be resolved by further verification, safe repair, or INTERNAL_REJECT; `UNSUPPORTED_GAP` must become INTERNAL_REJECT. USER_DECISION is reserved for owner-only facts or intent. A low-evidence claim cannot be inserted into another PUBLIC_OK component.
 
 
 ## Progressive Editing lock (v2.0.0-rc.1)

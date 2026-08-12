@@ -1,3 +1,9 @@
+# 3.5.1
+
+- Writer autonomous-resolution and explicit user-decision protocol.
+- Cross-component promise consistency rule.
+- Weak evidence no longer becomes user research homework.
+
 # 3.5.0
 
 - Added Platform-wide Human Experience Architecture and Presentation Framework.

@@ -53,6 +53,6 @@ def publication_ceiling(record: dict[str, Any], *, today: date | None = None) ->
     level=source_level(record); fresh=freshness_status(record,today=today); score=knowledge_confidence(record,today=today)
     if record.get("contradicted") or score < 40 or fresh == "stale": return "INTERNAL_REJECT"
     if level in {"OFFICIAL","PRIMARY"} and fresh in {"current","not_applicable"} and score >= 85: return "PUBLIC_OK"
-    if level == "MULTIPLE_THIRD_PARTY" and fresh == "current" and score >= 70: return "USER_DECISION"
-    if score >= 55 and fresh in {"current","aging"}: return "USER_DECISION"
+    if level == "MULTIPLE_THIRD_PARTY" and fresh == "current" and score >= 70: return "INTERNAL_REJECT"
+    if score >= 55 and fresh in {"current","aging"}: return "INTERNAL_REJECT"
     return "INTERNAL_REJECT"

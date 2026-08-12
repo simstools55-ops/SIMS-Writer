@@ -17,8 +17,8 @@ For each proposed claim or edit, record:
 
 ## Decision mapping
 - `HIGH`: may be `PUBLIC_OK` after normal QA.
-- `MEDIUM`: may be `PUBLIC_OK` only for low-risk wording that does not overstate the evidence; otherwise `USER_DECISION`.
-- `LOW`: must be `USER_DECISION`; it cannot appear inside any `PUBLIC_OK` edit.
+- `MEDIUM`: may be `PUBLIC_OK` for calibrated low-risk wording. If the claim still cannot be made safely, repair or `INTERNAL_REJECT`; use `USER_DECISION` only for a genuine owner-only fact or intent.
+- `LOW`: Writer must research, repair, weaken, or omit the claim. If it remains LOW, use `INTERNAL_REJECT`; do not delegate factual research to the user.
 - `NONE`: `INTERNAL_REJECT`.
 
 ## Non-substitution rule
