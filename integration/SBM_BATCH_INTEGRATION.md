@@ -1,4 +1,4 @@
-# SIMS Blog Manager ↔ SIMS Doctor Batch Integration
+# SIMS Blog Manager ↔ SIMS Article Doctor Batch Integration
 
 SBM responsibilities:
 

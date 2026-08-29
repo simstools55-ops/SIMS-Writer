@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Google検索アルゴリズム更新や検索結果環境の変化を、SIMS Doctorが診断へ統合するためのPlatform共通境界を定義する。
+Google検索アルゴリズム更新や検索結果環境の変化を、SIMS Article Doctorが診断へ統合するためのPlatform共通境界を定義する。
 
 ## Core rule
 

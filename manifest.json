@@ -1,6 +1,6 @@
 {
   "package": "SIMS-Writer",
-  "version": "3.3.2-RC4",
+  "version": "3.3.3",
   "generated_at": "2026-08-12T17:00:00+09:00",
   "files": [
     {
@@ -2524,7 +2524,7 @@
       "size": 272
     },
     {
-      "path": "RELEASE_NOTES_v3.3.2-RC4.md",
+      "path": "RELEASE_NOTES_v3.3.3.md",
       "sha256": "28495244efc4986cbac614b2fe37af4132019ca14a0d02c242bd42c56a4d9712",
       "size": 688
     },

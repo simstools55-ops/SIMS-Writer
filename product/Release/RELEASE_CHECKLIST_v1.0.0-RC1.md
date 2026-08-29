@@ -1,4 +1,4 @@
-# SIMS Doctor v1.0.0-RC1 Release Checklist
+# SIMS Article Doctor v1.0.0-RC1 Release Checklist
 
 ## Architecture
 - [x] SBM and Doctor responsibilities remain separated

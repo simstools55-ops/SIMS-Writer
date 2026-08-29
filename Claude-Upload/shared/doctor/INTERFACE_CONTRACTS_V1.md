@@ -1,4 +1,4 @@
-# SIMS Doctor Interface Contract Registry v0.1.0
+# SIMS Article Doctor Interface Contract Registry v0.1.0
 
 > **Deprecated compatibility document.**
 >

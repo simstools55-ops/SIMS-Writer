@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This registry defines the canonical minimum workflow connecting SIMS-Blog-Manager, SIMS Doctor, and SIMS Writer.
+This registry defines the canonical minimum workflow connecting SIMS-Blog-Manager, SIMS Article Doctor, and SIMS Writer.
 
 The platform orchestration rule is:
 

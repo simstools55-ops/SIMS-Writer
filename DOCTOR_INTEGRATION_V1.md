@@ -1,4 +1,4 @@
-# SIMS Doctor Integration v1
+# SIMS Article Doctor Integration v1
 
 When input `format` is `SIMS_DOCTOR_WRITER_REQUEST_V1`:
 

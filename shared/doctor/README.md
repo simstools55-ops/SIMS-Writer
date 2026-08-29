@@ -1,4 +1,4 @@
-# SIMS Doctor Shared Knowledge
+# SIMS Article Doctor Shared Knowledge
 
 Doctor, SBM, Writer, Creator, and future Merge implementations share the Case, Treatment, Referral, protection-boundary, and interface terminology defined here.
 

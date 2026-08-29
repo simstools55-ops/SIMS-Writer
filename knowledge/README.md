@@ -1,4 +1,4 @@
-# SIMS Doctor Clinical Knowledge Base v1.0
+# SIMS Article Doctor Clinical Knowledge Base v1.0
 
 `knowledge/` is the declarative source of truth for Doctor's clinical workflow.
 

@@ -1,6 +1,6 @@
 # SBM Batch Integration
 
-This integration connects SIMS Blog Manager and SIMS Doctor only through JSON contracts.
+This integration connects SIMS Blog Manager and SIMS Article Doctor only through JSON contracts.
 
 Flow:
 
