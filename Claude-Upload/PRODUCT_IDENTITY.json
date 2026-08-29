@@ -4,7 +4,7 @@
   "repository_name": "SIMS-Writer-Claude",
   "repository_type": "CLAUDE_PACKAGE",
   "runtime": "CLAUDE_PROJECT",
-  "package_version": "3.4.0",
+  "package_version": "3.4.1",
   "product_compatibility": "3.3.x",
   "platform_compatibility": "1.x",
   "shared_version": "3.5.1"

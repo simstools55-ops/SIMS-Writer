@@ -1,7 +1,7 @@
 {
   "format": "SWLS_LEARNING_RECORD",
   "version": "1.0-beta",
-  "article_id": "A000001",
+  "article_id": "A900001",
   "article_url": "https://example.com/article",
   "recorded_at": "2026-07-19",
   "batch_key": "BATCH-001",

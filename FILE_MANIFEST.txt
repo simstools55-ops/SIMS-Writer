@@ -409,6 +409,7 @@ RELEASE_ACCEPTANCE_v0.15.3-alpha.1.md
 RELEASE_ACCEPTANCE_v0.15.4-alpha.1.md
 RELEASE_ACCEPTANCE_v0.16.0-alpha.1.md
 RELEASE_AUDIT_v3.4.0.txt
+RELEASE_AUDIT_v3.4.1.txt
 RELEASE_NOTES_v0.1.0.md
 RELEASE_NOTES_v0.2.0.md
 RELEASE_NOTES_v0.2.0_FINAL.md
@@ -506,6 +507,7 @@ RELEASE_NOTES_v3.3.2-RC4.md
 RELEASE_NOTES_v3.3.3.md
 RELEASE_NOTES_v3.3.4.md
 RELEASE_NOTES_v3.4.0.md
+RELEASE_NOTES_v3.4.1.md
 SELF_QA_RUNTIME_INSTRUCTIONS.md
 SETUP_GUIDE.md
 SETUP_GUIDE_v3.2.0.md
@@ -900,9 +902,9 @@ knowledge/writing/KN-WRI-004-faq-must-add-new-value.md
 knowledge/writing/KN-WRI-005-conclusion-without-repetition.md
 knowledge/writing/KN-WRI-006-natural-japanese-over-formulaic-politeness.md
 learning/README.md
-learning/examples/A000001.feedback.json
-learning/examples/A000001.learning.json
-learning/examples/A000001.measurement.json
+learning/examples/A900001.feedback.json
+learning/examples/A900001.learning.json
+learning/examples/A900001.measurement.json
 learning/schemas/SWLS_LEARNING_RECORD.schema.json
 learning/schemas/SWLS_MEASUREMENT.schema.json
 learning/schemas/SWLS_USER_FEEDBACK.schema.json

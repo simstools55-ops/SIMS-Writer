@@ -23,7 +23,7 @@ def record(status="CONFIRMED", diagnosis_code="CONTENT_STALE", defer_reason=None
         "medical_record_id": "MR-CASE-20260804-000001",
         "patient": {
             "site_id": "site",
-            "article_id": "A000001",
+            "article_id": "A900001",
             "article_url": "https://example.com/a",
             "article_title": "Article",
         },

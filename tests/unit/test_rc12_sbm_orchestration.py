@@ -16,7 +16,7 @@ def sbm_v2_request():
         "contract_version": "2.0",
         "schema_version": "2.0.0",
         "generated_at": "2026-08-05T15:00:00+09:00",
-        "case_id": "CASE-20260805-A000026-001",
+        "case_id": "CASE-20260805-A900026-001",
         "site": {
             "site_id": "sample-site",
             "site_name": "サンプルブログ",
@@ -29,7 +29,7 @@ def sbm_v2_request():
             "chief_complaint": "個別診断"
         },
         "article": {
-            "article_id": "A000026",
+            "article_id": "A900026",
             "url": "https://example.com/article",
             "title": "記事タイトル"
         },
@@ -42,7 +42,7 @@ def sbm_v2_request():
 def test_sbm_v2_case_id_is_preserved():
     result = DoctorReceptionService(clock=FixedClock()).accept(sbm_v2_request())
     assert result["status"] == "ACCEPTED"
-    assert result["case_id"] == "CASE-20260805-A000026-001"
+    assert result["case_id"] == "CASE-20260805-A900026-001"
 
 
 def test_case_result_v2_returns_to_sbm_without_direct_invocation():

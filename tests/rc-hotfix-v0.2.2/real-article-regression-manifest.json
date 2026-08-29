@@ -1,28 +1,28 @@
 {
   "cases": [
     {
-      "id": "A000369",
+      "id": "A900369",
       "focus": [
         "LOW_SAMPLE",
         "preservation"
       ]
     },
     {
-      "id": "A000301",
+      "id": "A900301",
       "focus": [
         "local_change",
         "title_meta"
       ]
     },
     {
-      "id": "A000135",
+      "id": "A900135",
       "focus": [
         "LOW_SAMPLE",
         "internal_links"
       ]
     },
     {
-      "id": "A000004",
+      "id": "A900004",
       "focus": [
         "VAL-TITLE-PROMISE-001"
       ]
@@ -35,14 +35,14 @@
       ]
     },
     {
-      "id": "A000001-award",
+      "id": "A900001-award",
       "focus": [
         "VAL-JSON-001",
         "VAL-EARNINGS-001"
       ]
     },
     {
-      "id": "A000001-fortune",
+      "id": "A900001-fortune",
       "focus": [
         "VAL-ANSWER-001",
         "VAL-SOURCE-001",
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "id": "A000020",
+      "id": "A900020",
       "focus": [
         "VAL-RANK-001",
         "VAL-MAINQUERY-001",
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "id": "A000006",
+      "id": "A900006",
       "focus": [
         "VAL-FOOD-001",
         "VAL-SERP-001",
@@ -66,14 +66,14 @@
       ]
     },
     {
-      "id": "A000036",
+      "id": "A900036",
       "focus": [
         "VAL-LANGUAGE-001",
         "VAL-MAINQUERY-001"
       ]
     },
     {
-      "id": "A000063",
+      "id": "A900063",
       "focus": [
         "VAL-PRIVACY-001",
         "VAL-FREE-001",

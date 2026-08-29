@@ -15,7 +15,7 @@
   "items": [
     {
       "item_id": "SBM-ITEM-1",
-      "article_id": "A000001",
+      "article_id": "A900001",
       "status": "PENDING",
       "attempts": 0,
       "case_id": null,
@@ -23,7 +23,7 @@
     },
     {
       "item_id": "SBM-ITEM-2",
-      "article_id": "A000002",
+      "article_id": "A900002",
       "status": "PENDING",
       "attempts": 0,
       "case_id": null,

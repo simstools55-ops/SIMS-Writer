@@ -8,4 +8,4 @@
 - 新規追加のBefore表記を標準化。
 - RuntimeのPUBLIC_OK正規化で`reason`と`expected_effect`を保持。
 - Machine Layerのscope / contract / routing / confidence等をHuman Outputから除外。
-- A000024型Doctor Referral Human Usability回帰テストを追加。
+- A900024型Doctor Referral Human Usability回帰テストを追加。

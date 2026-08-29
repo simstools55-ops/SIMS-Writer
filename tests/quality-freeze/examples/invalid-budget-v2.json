@@ -1,7 +1,7 @@
 {
   "format": "SIMS_FEEDBACK_V2",
   "version": "2.0",
-  "article_id": "A000369",
+  "article_id": "A900369",
   "url": "https://example.com/a",
   "decision": "PASS_WITH_WARNING",
   "improvement_necessity": "IMPROVEMENT_RECOMMENDED",

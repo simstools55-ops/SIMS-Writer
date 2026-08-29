@@ -13,7 +13,7 @@ CASE-YYYYMMDD-ARTICLEID-NNN
 Example:
 
 ```text
-CASE-20260805-A000026-001
+CASE-20260805-A900026-001
 ```
 
 SBM issues the CaseID before sending a Doctor request.

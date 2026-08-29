@@ -9,13 +9,13 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_sbm_531_identity_passthrough():
     req = normalize_sbm({
         "SiteID":"SITE-001", "SiteName":"Example", "SiteURL":"https://example.com",
-        "ArticleID":"A000001", "ArticleURL":"https://example.com/a", "URL":"https://legacy.invalid/a",
+        "ArticleID":"A900001", "ArticleURL":"https://example.com/a", "URL":"https://legacy.invalid/a",
         "MainQuery":"test"
     })
     assert req["site_id"] == "SITE-001"
     assert req["site_name"] == "Example"
     assert req["site_url"] == "https://example.com"
-    assert req["article_id"] == "A000001"
+    assert req["article_id"] == "A900001"
     assert req["target_url"] == "https://example.com/a"
 
 def test_legacy_sbm_url_remains_supported():

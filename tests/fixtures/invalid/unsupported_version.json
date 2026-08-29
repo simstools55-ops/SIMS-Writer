@@ -10,7 +10,7 @@
     "blog_url": "https://example.invalid/"
   },
   "article": {
-    "article_id": "A000001",
+    "article_id": "A900001",
     "url": "https://example.invalid/entry/example",
     "title": "テスト記事",
     "main_query": "テスト クエリ"

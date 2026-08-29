@@ -24,7 +24,7 @@
     "objective": "回復"
   },
   "article": {
-    "article_id": "A000001",
+    "article_id": "A900001",
     "url": "https://example.com/a",
     "title": "例記事",
     "workflow_status": "DOCTOR_TREATMENT_PENDING"

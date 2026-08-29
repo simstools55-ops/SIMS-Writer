@@ -1,6 +1,6 @@
 {
   "case_id": "REG-001",
-  "article_id": "A000001",
+  "article_id": "A900001",
   "label": "Something went wrong",
   "fixture_status": "awaiting_source_artifacts",
   "immutable_after_capture": [

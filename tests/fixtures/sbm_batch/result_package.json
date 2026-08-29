@@ -16,7 +16,7 @@
   "items": [
     {
       "item_id": "SBM-ITEM-1",
-      "article_id": "A000001",
+      "article_id": "A900001",
       "status": "COMPLETED",
       "case_id": "CASE-1",
       "single_case_result": {
@@ -35,7 +35,7 @@
     },
     {
       "item_id": "SBM-ITEM-2",
-      "article_id": "A000002",
+      "article_id": "A900002",
       "status": "COMPLETED",
       "case_id": "CASE-2",
       "single_case_result": {

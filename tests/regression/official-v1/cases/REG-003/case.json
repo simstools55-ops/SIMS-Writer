@@ -1,6 +1,6 @@
 {
   "case_id": "REG-003",
-  "article_id": "A000340",
+  "article_id": "A900340",
   "label": "Excel not responding",
   "fixture_status": "awaiting_source_artifacts",
   "immutable_after_capture": [

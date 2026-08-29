@@ -21,7 +21,7 @@ def test_article_snapshot_enables_content_integrity():
         "medical_record_id": "MR-CASE-20260804-000001",
         "patient": {
             "site_id": "sample-site",
-            "article_id": "A000001",
+            "article_id": "A900001",
             "article_url": "https://example.invalid/entry/example",
         },
         "events": [],

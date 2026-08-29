@@ -1,6 +1,6 @@
 # Release Notes — v0.2.3 Validation Hotfix
 
-This release follows the five-article v0.2.2 RC regression: A000063, A000006, A000036, A000020, and A000001.
+This release follows the five-article v0.2.2 RC regression: A900063, A900006, A900036, A900020, and A900001.
 
 ## Fixed
 

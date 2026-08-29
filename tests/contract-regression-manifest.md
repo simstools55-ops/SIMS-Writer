@@ -13,15 +13,15 @@ The first baseline consists of the nine recovered JSON outputs from the previous
 
 | Fixture | Article ID | Primary validation focus |
 |---|---|---|
-| A000001.txt | A000001 | introduction/body boundary, change flags |
-| A000001-A4.txt | A000001 | duplicate ArticleID with different URL, self-link warning |
-| A000004.txt | A000004 | standard structure and enum validation |
-| A000006.txt | A000006 | graceful degradation with high confidence |
+| A900001.txt | A900001 | introduction/body boundary, change flags |
+| A900001-A4.txt | A900001 | duplicate ArticleID with different URL, self-link warning |
+| A900004.txt | A900004 | standard structure and enum validation |
+| A900006.txt | A900006 | graceful degradation with high confidence |
 | A900008.txt | A900008 | warning and confidence relationship |
-| A000020.txt | A000020 | preserved body and internal links |
-| A000036.txt | A000036 | high-confidence clean case |
-| A000135.txt | A000135 | estimated main query and estimated_fields |
-| A000369.txt | A000369 | internal link true with body false |
+| A900020.txt | A900020 | preserved body and internal links |
+| A900036.txt | A900036 | high-confidence clean case |
+| A900135.txt | A900135 | estimated main query and estimated_fields |
+| A900369.txt | A900369 | internal link true with body false |
 
 The missing tenth fixture may be added later without blocking Phase A1 implementation.
 
@@ -75,8 +75,8 @@ Expected:
 
 Input:
 
-- `A000001.txt`
-- `A000001-A4.txt`
+- `A900001.txt`
+- `A900001-A4.txt`
 
 Expected:
 
@@ -209,7 +209,7 @@ Each test run records:
 
 ```json
 {
-  "fixture": "A000369.txt",
+  "fixture": "A900369.txt",
   "schema_valid": true,
   "semantic_valid": true,
   "blocking_errors": [],

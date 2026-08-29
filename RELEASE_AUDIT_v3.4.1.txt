@@ -1,0 +1,15 @@
+SIMS Writer v3.4.1 Release Audit
+Date: 2026-08-29
+
+Version policy: PATCH
+Reason: complete Personal Knowledge release gate after v3.4.0.
+
+Checks
+- Focused changed-area regression suite: PASS — 27 passed
+- Known tenant/blog markers: PASS
+- Concrete A000xxx identifiers in distributable Writer package: PASS — none retained
+- Owner-derived evidence statement generalized: PASS
+- Shared compatibility baseline: unchanged
+- Writer runtime/contracts and SBM/Article Doctor handoff: unchanged
+
+Note: the historical full Writer pytest collection has pre-existing collection/import errors; this PATCH does not alter that legacy condition.

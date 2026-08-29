@@ -19,7 +19,7 @@ def medical_record():
             "site_id": "sample-site",
             "site_name": "サンプルブログ",
             "blog_url": "https://example.invalid/",
-            "article_id": "A000001",
+            "article_id": "A900001",
             "article_url": "https://example.invalid/entry/example",
             "article_title": "テスト記事",
         },

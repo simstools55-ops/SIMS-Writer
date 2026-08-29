@@ -1,7 +1,7 @@
 {
   "format": "SWLS_MEASUREMENT",
   "version": "1.0-beta",
-  "article_id": "A000001",
+  "article_id": "A900001",
   "measured_at": "2026-08-18",
   "days_after": 30,
   "before": {

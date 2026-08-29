@@ -4,7 +4,7 @@
   "case_id": "CASE-20260804-000001",
   "article": {
     "site_id": "sample-site",
-    "article_id": "A000001",
+    "article_id": "A900001",
     "url": "https://example.invalid/entry/example",
     "published_at": "2025-01-01T00:00:00+09:00",
     "updated_at": "2026-07-01T00:00:00+09:00"
