@@ -18,8 +18,8 @@ def sbm_v2_request():
         "generated_at": "2026-08-05T15:00:00+09:00",
         "case_id": "CASE-20260805-A000026-001",
         "site": {
-            "site_id": "tonbos55",
-            "site_name": "ガジェット探検記",
+            "site_id": "sample-site",
+            "site_name": "サンプルブログ",
             "blog_url": "https://example.com/"
         },
         "request": {

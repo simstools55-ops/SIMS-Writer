@@ -32,10 +32,10 @@ def test_acquisition_output_records_as_observation():
         Provider(), POLICY, sleep=lambda _: None
     ).acquire(
         case_id="CASE-20260804-000001",
-        site_id="tonbos55",
+        site_id="sample-site",
         article_id="A000001",
         site_url="sc-domain:example.com",
-        page_url="https://tonbos55.hatenablog.com/entry/example",
+        page_url="https://example.invalid/entry/example",
         today=date(2026, 8, 4),
     )
     parsed = SearchConsoleObservationInput.from_dict(raw)
@@ -43,9 +43,9 @@ def test_acquisition_output_records_as_observation():
         "case_id": "CASE-20260804-000001",
         "medical_record_id": "MR-CASE-20260804-000001",
         "patient": {
-            "site_id": "tonbos55",
+            "site_id": "sample-site",
             "article_id": "A000001",
-            "article_url": "https://tonbos55.hatenablog.com/entry/example",
+            "article_url": "https://example.invalid/entry/example",
         },
         "events": [],
         "observations": [],

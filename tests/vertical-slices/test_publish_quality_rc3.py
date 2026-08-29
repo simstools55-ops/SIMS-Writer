@@ -48,7 +48,7 @@ def test_comparison_validator_requires_editorial_elements():
 
 def test_ctr_slice_exposes_rc3_publish_quality():
     raw = {
-        "ArticleID": "A000008",
+        "ArticleID": "A900008",
         "ArticleTitle": "商品Aと商品Bを5つの項目で比較！",
         "SEOTitle": "商品Aと商品Bを5つの項目で比較！",
         "MainQuery": "商品A 商品B 比較",

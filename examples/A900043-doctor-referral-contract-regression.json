@@ -1,10 +1,10 @@
 {
-  "name": "A000043 Doctor Referral Contract Regression",
+  "name": "A900043 Doctor Referral Contract Regression",
   "input": {
     "format": "SIMS_WRITER_TREATMENT_REQUEST_V1",
     "request_mode": "DOCTOR_REFERRAL_TREATMENT",
-    "case_id": "CASE-20260808-A000043-001",
-    "article_id": "A000043",
+    "case_id": "CASE-20260808-A900043-001",
+    "article_id": "A900043",
     "return_contract": {
       "format": "SIMS_WRITER_TREATMENT_RESULT_V1",
       "contract_version": "1.0"

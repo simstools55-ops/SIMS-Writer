@@ -3,9 +3,9 @@
   "contract_version": "1.0",
   "case_id": "CASE-20260804-000001",
   "article": {
-    "site_id": "tonbos55",
+    "site_id": "sample-site",
     "article_id": "A000001",
-    "url": "https://tonbos55.hatenablog.com/entry/example"
+    "url": "https://example.invalid/entry/example"
   },
   "retrieval": {
     "requested_at": "2026-08-04T19:10:00+09:00",

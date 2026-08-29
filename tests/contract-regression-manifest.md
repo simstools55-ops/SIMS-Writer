@@ -17,7 +17,7 @@ The first baseline consists of the nine recovered JSON outputs from the previous
 | A000001-A4.txt | A000001 | duplicate ArticleID with different URL, self-link warning |
 | A000004.txt | A000004 | standard structure and enum validation |
 | A000006.txt | A000006 | graceful degradation with high confidence |
-| A000008.txt | A000008 | warning and confidence relationship |
+| A900008.txt | A900008 | warning and confidence relationship |
 | A000020.txt | A000020 | preserved body and internal links |
 | A000036.txt | A000036 | high-confidence clean case |
 | A000135.txt | A000135 | estimated main query and estimated_fields |

@@ -492,4 +492,4 @@
 - Added request-aware Doctor Referral Output Contract Gate.
 - Doctor Referral Treatment now returns `SIMS_WRITER_TREATMENT_RESULT_V1` 1.0 instead of falling back to `SIMS_FEEDBACK_V2`.
 - Standard Writer improvement remains `SIMS_FEEDBACK_V2` 4.2.
-- Added A000043 contract-regression coverage.
+- Added A900043 contract-regression coverage.

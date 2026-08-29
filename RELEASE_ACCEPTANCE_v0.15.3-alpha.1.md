@@ -20,7 +20,7 @@
 - Contract examples: 15/15 passed
 - ZIP CRC verification: required before delivery
 
-## Expected A000008 feedback metadata
+## Expected A900008 feedback metadata
 
 ```json
 {

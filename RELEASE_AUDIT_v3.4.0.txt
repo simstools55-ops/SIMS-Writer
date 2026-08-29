@@ -1,0 +1,18 @@
+SIMS Writer v3.4.0 Release Audit
+Date: 2026-08-29
+
+Version policy: MINOR
+Reason: Personal Knowledge separation from distributable Writer package.
+
+Checks
+- Focused changed-area regression suite: PASS — 27 passed
+- Known tenant/blog markers: PASS
+- Embedded tenant-specific learning registries cleared: PASS
+- Product version: 3.4.0
+- Shared compatibility baseline: 3.5.1
+- Writer contracts/treatment logic: preserved
+- Deprecated external API integration: remains removed
+
+Legacy aggregate-suite note
+- The repository-wide pytest collection still has pre-existing legacy import/collection errors outside the changed Writer surfaces.
+- Therefore the v3.4.0 release gate uses focused changed-area regressions plus neutrality scans.

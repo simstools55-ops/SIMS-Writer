@@ -23,7 +23,7 @@ def test_body_addition_forces_body_true():
 
 
 def test_missing_main_query_is_inferred_without_annotation_in_field():
-    raw={"ArticleID":"A000008","URL":"https://example.com","ArticleTitle":"Product AとProduct Bを5つの項目で比較！","SEOTitle":"Product AとProduct Bを5つの項目で比較！ | Site","ExistingContent":"比較本文です。"*30}
+    raw={"ArticleID":"A900008","URL":"https://example.com","ArticleTitle":"Product AとProduct Bを5つの項目で比較！","SEOTitle":"Product AとProduct Bを5つの項目で比較！ | Site","ExistingContent":"比較本文です。"*30}
     s=CTRImprovementSlice(); req=s.normalize(raw); dec=s.decide(req); draft=s.build_draft(req,dec); package=s.build_output(req,dec,draft)
     assert req["main_query"]=="Product AとProduct B 比較"
     assert "推定" not in package["feedback"]["new_values"]["main_query"]
@@ -82,13 +82,13 @@ def _strict_v11_contract():
 
 
 def test_user_contract_accepts_exact_sims_feedback_v11():
-    fb=build_feedback(article_id="A000008",article_url="https://sugamitokyo.jp/syosscg-lplp-comp",main_query="サイオスカラージェニック LPLPカラートリートメント 比較",before_after=[],summary="改善",warnings=[])
+    fb=build_feedback(article_id="A900008",article_url="https://example.invalid/compare-a-b",main_query="サイオスカラージェニック LPLPカラートリートメント 比較",before_after=[],summary="改善",warnings=[])
     package={"output_mode":"partial","user_output":[],"internal_link_report":[],"unresolved_items":[],"body_additions":[],"feedback":fb,"effect_evidence":{},"user_json_contract":_strict_v11_contract()}
     assert not any(i.code in {"OUT-018","OUT-019","OUT-020","OUT-021","OUT-022"} for i in OutputContractValidator().validate(package))
 
 
 def test_user_contract_rejects_renamed_missing_extra_and_wrong_type_fields():
-    fb=build_feedback(article_id="A000008",article_url="https://example.com",main_query="query",before_after=[],summary="改善",warnings=[])
+    fb=build_feedback(article_id="A900008",article_url="https://example.com",main_query="query",before_after=[],summary="改善",warnings=[])
     fb["schema"]=fb.pop("format")
     fb["summary"]=["wrong type"]
     fb["output_mode"]="partial"
@@ -98,14 +98,14 @@ def test_user_contract_rejects_renamed_missing_extra_and_wrong_type_fields():
 
 
 def test_user_contract_rejects_nested_key_rename_and_order_change():
-    fb=build_feedback(article_id="A000008",article_url="https://example.com",main_query="query",before_after=[],summary="改善",warnings=[])
+    fb=build_feedback(article_id="A900008",article_url="https://example.com",main_query="query",before_after=[],summary="改善",warnings=[])
     fb["new_values"]={"seo_title":"","article_title":"","description":"","main_query":"query"}
     package={"output_mode":"partial","user_output":[],"internal_link_report":[],"unresolved_items":[],"body_additions":[],"feedback":fb,"effect_evidence":{},"user_json_contract":_strict_v11_contract()}
     assert any(i.code=="OUT-022" for i in OutputContractValidator().validate(package))
 
 
 def test_missing_main_query_without_title_continues_with_warning():
-    raw={"ArticleID":"A000008","URL":"https://example.com","ExistingContent":"既存本文です。"*30}
+    raw={"ArticleID":"A900008","URL":"https://example.com","ExistingContent":"既存本文です。"*30}
     s=CTRImprovementSlice(); req=s.normalize(raw); dec=s.decide(req); draft=s.build_draft(req,dec); package=s.build_output(req,dec,draft)
     assert req["main_query"] == ""
     assert req["main_query_missing"] is True
@@ -116,7 +116,7 @@ def test_missing_main_query_without_title_continues_with_warning():
 
 
 def test_missing_article_catalog_skips_internal_links_only():
-    raw={"ArticleID":"A000008","ArticleTitle":"比較記事","ExistingContent":"比較記事の本文です。"*30}
+    raw={"ArticleID":"A900008","ArticleTitle":"比較記事","ExistingContent":"比較記事の本文です。"*30}
     s=CTRImprovementSlice(); req=s.normalize(raw); dec=s.decide(req); draft=s.build_draft(req,dec); package=s.build_output(req,dec,draft)
     assert package["feedback"]["changes"]["internal_links"] is False
     assert any("内部リンク候補の選定のみSKIP" in x for x in package["feedback"]["information"])
@@ -124,7 +124,7 @@ def test_missing_article_catalog_skips_internal_links_only():
 
 
 def test_inferred_query_metadata_and_information_are_explicit():
-    raw={"ArticleID":"A000008","ArticleTitle":"サイオスとLPLPを5つの項目で比較！","ExistingContent":"比較本文です。"*30}
+    raw={"ArticleID":"A900008","ArticleTitle":"サイオスとLPLPを5つの項目で比較！","ExistingContent":"比較本文です。"*30}
     s=CTRImprovementSlice(); req=s.normalize(raw); dec=s.decide(req); draft=s.build_draft(req,dec); package=s.build_output(req,dec,draft)
     fb=package["feedback"]
     assert fb["main_query_source"] == "estimated"
