@@ -1,6 +1,6 @@
 {
   "package_name": "SIMS-Writer-Claude",
-  "package_version": "3.4.1",
+  "package_version": "3.4.2",
   "product_code": "WRITER",
   "compatible_product_versions": [
     "3.3.x"

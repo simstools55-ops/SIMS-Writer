@@ -1,0 +1,19 @@
+SIMS Writer v3.4.2 Release Audit
+Date: 2026-08-29
+
+Reason: PATCH to synchronize all current product-version surfaces.
+
+PASS
+- Root VERSION: 3.4.2
+- Claude-Upload/VERSION: 3.4.2
+- README current product version: 3.4.2
+- Root Claude Project Instructions Version: 3.4.2
+- Claude-Upload Claude Project Instructions Version: 3.4.2
+- Product identity/package/deployment manifests: current product version synchronized
+- Embedded Shared VERSION: 3.5.1 preserved
+- Historical feature/release labels: preserved
+- ZIP Personal Knowledge boundary from v3.4.1: preserved
+
+Tests
+- Focused regression suite: 27 passed
+- Full suite remains blocked by pre-existing collection/import errors (94 collection errors); this PATCH changes version metadata only.
