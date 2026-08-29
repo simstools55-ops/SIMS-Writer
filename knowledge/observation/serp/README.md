@@ -12,4 +12,4 @@ Observation includes:
 - differences from the previous SERP snapshot
 
 SERP Observation records facts and derived observation metrics. It does not diagnose.
-Provider credentials and commercial API keys are deployment concerns.
+

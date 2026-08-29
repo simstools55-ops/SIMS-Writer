@@ -1,6 +1,6 @@
 {
   "package": "SIMS-Writer",
-  "version": "3.3.3",
+  "version": "3.3.4",
   "generated_at": "2026-08-12T17:00:00+09:00",
   "files": [
     {
@@ -2524,7 +2524,7 @@
       "size": 272
     },
     {
-      "path": "RELEASE_NOTES_v3.3.3.md",
+      "path": "RELEASE_NOTES_v3.3.4.md",
       "sha256": "28495244efc4986cbac614b2fe37af4132019ca14a0d02c242bd42c56a4d9712",
       "size": 688
     },
@@ -5712,11 +5712,6 @@
       "path": "runtime/adapters/model-adapter-architecture.md",
       "sha256": "50f27e357c720ccc8456435f71b8e82cbf272d4c931c3a3370b26dae547cd674",
       "size": 864
-    },
-    {
-      "path": "runtime/adapters/provider-configuration.md",
-      "sha256": "05296eab5d6e795a94bfc9ef7a05d9f26178d6b014fa2d4a3752e46318b6c31d",
-      "size": 396
     },
     {
       "path": "runtime/article-evaluation-workflow.md",
