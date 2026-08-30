@@ -1,3 +1,8 @@
+## v3.5.1 - 2026-08-30
+- Internal-link After must contain actual destination URL link markup.
+- Prohibits PUBLIC_OK when href/link markup is left for manual insertion.
+- Keeps human Before/After and SBM JSON synchronized.
+
 ## v3.5.0 - 2026-08-30
 - Personal Knowledge candidate emission added.
 
