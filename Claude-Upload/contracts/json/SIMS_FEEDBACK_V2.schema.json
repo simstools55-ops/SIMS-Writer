@@ -669,6 +669,62 @@
           "additionalProperties": true
         }
       }
+    },
+    "knowledge_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "scope",
+          "knowledge_type",
+          "statement",
+          "confidence",
+          "source_product",
+          "source_type"
+        ],
+        "properties": {
+          "scope": {
+            "type": "string",
+            "enum": [
+              "OWNER",
+              "SITE",
+              "CROSS_SITE"
+            ]
+          },
+          "site_id": {
+            "type": "string"
+          },
+          "knowledge_type": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "confidence": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "source_product": {
+            "type": "string"
+          },
+          "source_type": {
+            "type": "string"
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "confirmation_event_id": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }

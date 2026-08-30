@@ -1,3 +1,6 @@
+## v3.5.0 - 2026-08-30
+- Personal Knowledge candidate emission added.
+
 ## 3.3.2-RC4 — 2026-08-12
 
 - Writer autonomous user-decision resolution hotfix.
